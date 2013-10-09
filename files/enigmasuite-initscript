@@ -1,0 +1,75 @@
+#!/bin/bash
+### BEGIN INIT INFO
+# Provides:          enigmasuite
+# Required-Start:    $remote_fs $syslog
+# Required-Stop:     $remote_fs $syslog
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: enigmasuite
+# Description:       enigmasuite webinterface
+### END INIT INFO
+
+PATH=/sbin:/usr/sbin:/bin:/usr/bin
+enigmasuite="/var/local/enigmasuite"
+pidfile="/var/run/gunicorn/enigmasuite.pid"
+
+. /lib/init/vars.sh
+. /lib/lsb/init-functions
+
+do_start()
+{
+    # create settings dir
+    mkdir /box 2> /dev/null
+
+    # webinterface
+    rm -rfv "$enigmasuite/webinterface"
+    cd "$enigmasuite"
+    tar xzvf webinterface.tar.gz
+    cd webinterface/
+    ./manage.py syncdb
+    ./manage.py migrate app
+    chown www-data:www-data /box /box/settings.sqlite
+    /etc/init.d/gunicorn start
+
+    # puppet
+    rm -rfv "$enigmasuite/puppet"
+    cd "$enigmasuite"
+    tar xzvf puppet.tar.gz
+}
+
+do_stop()
+{
+    /etc/init.d/gunicorn stop
+}
+
+do_status()
+{
+    kill -0 $(cat "$pidfile" 2> /dev/null) 2> /dev/null
+    if [[ "$?" == "0" ]]; then
+        echo "running"
+    else
+        echo "stopped"
+    fi
+}
+
+case "$1" in
+  start)
+    do_start
+    ;;
+  stop)
+    do_stop
+    ;;
+  restart)
+    do_stop
+    do_start
+    ;;
+  status)
+    do_status
+    ;;
+  *)
+    echo "Usage: $0 {start|stop|restart|status}" >&2
+    exit 3
+    ;;
+esac
+
+:

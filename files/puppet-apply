@@ -1,0 +1,83 @@
+#!/usr/bin/env bash
+. /etc/profile
+
+#set -xv
+
+# variables
+puppetpath="/var/local/enigmasuite/puppet"
+webinterface="http://127.0.0.1"
+pidfile="/tmp/puppet-apply.pid"
+
+
+
+usage() {
+cat << EOF
+usage: $0 options
+
+This script runs puppet apply, dry run when no options provided
+
+OPTIONS:
+   -h      Show this message
+   -s      Sleep for n seconds before run
+   -r      Run and apply changes (no dry-run)
+EOF
+}
+
+run() {
+    noop=""
+    if [[ "$1" == "dry" ]]; then
+        noop="--noop"
+        echo "** dry run **"
+    fi
+
+    echo "running puppet and applying manifest..." >&2
+    curl "$webinterface/puppet/site.pp" > "$puppetpath/manifests/site.pp"
+    puppet apply --certname box $noop --show_diff --modulepath="$puppetpath/modules" "$puppetpath/manifests/site.pp"
+}
+
+
+
+# Check if this script is already running
+kill -0 $(cat "$pidfile" 2> /dev/null) 2> /dev/null
+if [[ "$?" == "0" ]]; then
+    echo "Script is already running, exiting"
+    exit 1
+else
+    [[ -f "$pidfile" ]] && rm "$pidfile"
+fi
+echo $$ > "$pidfile"
+
+
+
+# Option parsing
+while getopts ":rs:" opt; do
+    case "$opt" in
+    r)
+        run=1
+        ;;
+    s)
+        sleep="$OPTARG"
+        ;;
+    :)
+        echo "Option -"$OPTARG" requires an argument." >&2
+        exit 1
+        ;;
+    \?)
+        usage
+        exit 1
+        ;;
+    esac
+done
+
+
+
+if [[ -n "$sleep" ]]; then
+    echo "sleeping for $sleep seconds..." >&2
+    sleep "$sleep"
+fi
+
+[[ -z "$run" ]] && run dry
+[[ -n "$run" ]] && run
+
+rm "$pidfile"
+

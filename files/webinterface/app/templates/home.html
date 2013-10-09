@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block main %}
+
+    <div class="container">
+
+      <h1>Willkommen.</h1>
+{% if hostid %}
+      <p>Deine Hostid ist <strong>{{ hostid }}</strong>. Dein Netzwerkzugang ist noch gültig bis zum {{ internet_access }}.</p>
+{% endif %}
+      <p>Verwalte Deine Adressen im <a href="{% url app.views.addressbook %}">Adressbuch</a>.</p>
+
+      <hr />
+
+      <strong>Verbindungsinfos IP-Telefon:</strong><br />
+      Benutzername: <strong>100</strong><br />
+      Passwort: <strong>100</strong><br />
+      Domain/Server: <strong>box</strong><br />
+      <br />
+
+      <strong>SSH-Zugang Box:</strong><br />
+      Benutzername: <strong>root</strong><br />
+      Passwort: <strong>d</strong><br />
+      Server: <strong>box</strong><br />
+      <br />
+
+    </div> <!-- /container -->
+{% endblock %}

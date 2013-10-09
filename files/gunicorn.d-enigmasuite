@@ -1,0 +1,11 @@
+CONFIG = {
+    # 'mode': 'wsgi',
+    'working_dir': '/var/local/enigmasuite/webinterface',
+    # 'python': '/usr/bin/python',
+    'args': (
+        '--bind=0.0.0.0:80',
+        '--workers=3',
+        '--timeout=60',
+        'wsgi',
+    ),
+}

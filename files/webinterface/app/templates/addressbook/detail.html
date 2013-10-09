@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% load apptags %}
+
+{% block main %}
+    <div class="container">
+
+        <ul class="breadcrumb">
+            <li><a href="{% url app.views.addressbook %}">Addressbuch</a> <span class="divider">/</span></li>
+            <li class="active">{{ address.name }}</li>
+        </ul>
+
+        <form method="post" class="form-horizontal">
+        {% csrf_token %}
+        <fieldset>
+
+        <!-- Form Name -->
+        <legend>{{ address.name }}</legend>
+
+{% if form.errors %}
+<div class="alert alert-error">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <strong>Fehler:</strong>
+{{ form.errors }}
+</div>
+{% endif %}
+
+        <!-- Text input-->
+        <div class="control-group">
+          <label class="control-label">Name</label>
+          <div class="controls">
+            <input {% form_error form.name.errors %} id="name" name="name" type="text" value="{{ form.name.value }}" placeholder="Name" class="input-xlarge" />
+          </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="control-group">
+          <label class="control-label">IPv6-Adresse</label>
+          <div class="controls">
+            <input {% form_error form.ipv6.errors %} id="ipv6" name="ipv6" type="text" value="{{ form.ipv6.value }}" placeholder="IPv6-Adresse" class="input-xlarge" />
+          </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="control-group">
+          <label class="control-label">Telefonnummer</label>
+          <div class="controls">
+            <input {% form_error form.phone.errors %} id="phone" name="phone" type="text" value="{{ form.phone.value|default_if_none:'' }}" placeholder="Telefonnummer" class="input-xlarge" maxlength="7" />
+          </div>
+        </div>
+
+        <!-- Button -->
+        <div class="control-group">
+          <label class="control-label"></label>
+          <div class="controls">
+            <button id="submit" name="submit" value="save" class="btn btn-primary">Speichern</button>
+            <a href="{% url app.views.addressbook %}" class="btn">Abbrechen</a>
+          </div>
+        </div>
+
+        <hr />
+
+        <legend>Telefonnummer löschen</legend>
+
+        <div class="control-group">
+          <div class="controls">
+            <button name="submit" value="delete" class="btn btn-danger">Löschen</button>
+          </div>
+        </div>
+
+        </fieldset>
+        </form>
+
+    </div> <!-- /container -->
+{% endblock %}

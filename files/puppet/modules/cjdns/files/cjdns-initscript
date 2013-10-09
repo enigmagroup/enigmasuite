@@ -1,0 +1,66 @@
+#! /bin/bash
+### BEGIN INIT INFO
+# Provides:          cjdns
+# Required-Start:    $remote_fs $syslog
+# Required-Stop:     $remote_fs $syslog
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: cjdns
+# Description:       cjdns mesh daemon
+### END INIT INFO
+
+# PATH should only include /usr/* if it runs after the mountnfs.sh script
+PATH=/sbin:/usr/sbin:/bin:/usr/bin
+DESC="cjdns mesh daemon"
+NAME="cjdroute"
+DAEMON="/usr/sbin/$NAME"
+CONFIG="/box/cjdroute.conf"
+SCRIPTNAME="/etc/init.d/$NAME"
+PIDFILE="/tmp/$NAME.pid"
+
+. /lib/init/vars.sh
+. /lib/lsb/init-functions
+
+do_start()
+{
+    "$DAEMON" < "$CONFIG"
+    pidof "$NAME" > "$PIDFILE"
+}
+
+do_stop()
+{
+    killall cjdroute
+    rm "$PIDFILE"
+}
+
+do_status()
+{
+    kill -0 $(cat "$PIDFILE" 2> /dev/null) 2> /dev/null
+    if [[ "$?" == "0" ]]; then
+        echo "running"
+    else
+        echo "stopped"
+    fi
+}
+
+case "$1" in
+  start)
+    do_start
+    ;;
+  stop)
+    do_stop
+    ;;
+  restart)
+    do_stop
+    do_start
+    ;;
+  status)
+    do_status
+    ;;
+  *)
+    echo "Usage: $SCRIPTNAME {start|stop|restart}" >&2
+    exit 3
+    ;;
+esac
+
+:

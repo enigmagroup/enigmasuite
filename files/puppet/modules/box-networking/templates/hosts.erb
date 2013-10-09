@@ -1,0 +1,16 @@
+127.0.0.1           localhost
+::1                 localhost ip6-localhost ip6-loopback
+fe00::0             ip6-localnet
+ff00::0             ip6-mcastprefix
+ff02::1             ip6-allnodes
+ff02::2             ip6-allrouters
+
+# enigmabox internal
+192.168.100.1       enigma box
+<% if puppetmasters.class == Array then %><% puppetmasters.each do |pm| %>
+<%= pm["ip"] %>    <%= pm["hostname"] %><% end %>
+<% end %>
+
+<% if addresses.class == Array then %># friends<% addresses.each do |address| %>
+<%= address["ipv6"] %>    <%= address["name"] %><% end %>
+<% end %>

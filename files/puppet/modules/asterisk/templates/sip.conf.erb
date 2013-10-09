@@ -1,0 +1,37 @@
+; SIP Configuration
+
+[general]
+bindaddr=::
+transport=tcp
+tcpenable=yes
+jbenable=yes
+jbforce=yes
+jbmaxsize=25
+jbresyncthreshold=200
+canreinvite=no
+
+
+
+; my own phone
+
+[100]
+type=peer
+qualify=yes
+secret=100
+host=dynamic
+context=friends
+transport=udp
+
+
+
+; my addresses
+
+[basic-options](!)
+    type=peer
+    qualify=yes
+    context=incoming
+<% if addresses.class == Array then %><% addresses.each do |address| %>
+[<%= address["name"] %>](basic-options)
+    host=<%= address["ipv6"] %>
+    callerid="<%= address["name"] %> <<%= address["name"] %>>"
+<% end %><% end %>

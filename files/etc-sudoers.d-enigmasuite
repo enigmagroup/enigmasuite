@@ -1,0 +1,3 @@
+Defaults    !authenticate
+www-data    ALL = /usr/local/sbin/puppet-apply
+www-data    ALL = /usr/sbin/asterisk -rx sip show peers

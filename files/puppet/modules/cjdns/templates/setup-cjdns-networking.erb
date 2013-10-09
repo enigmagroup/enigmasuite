@@ -1,0 +1,143 @@
+#!/usr/bin/env bash
+. /etc/profile
+
+# vars
+
+remoteadresses="<%= puppetmasters.join(' ') %> <% connect_to.each do |c| %><%= c['address'].split(':')[0] %> <% end %>"
+trafficfile="/tmp/cjdns_traffic.stat"
+orggatewayfile="/tmp/cjdns_org_gw"
+internet_interface="eth0"
+
+
+
+# functions
+
+dhcp() {
+    ifconfig "$internet_interface" up
+    killall dhclient
+    sleep 1
+    dhclient "$internet_interface"
+    sleep 5
+}
+
+restart_cjdns() {
+    /etc/init.d/cjdns restart
+}
+
+get_vpn_gateway() {
+    ifconfig tun0 | grep "inet addr" | cut -d: -f2 | awk '{ print $1 }'
+}
+
+get_original_gateway() {
+    if [[ -f "$orggatewayfile" ]]; then
+        org_gw=$(cat "$orggatewayfile")
+    else
+        org_gw=$(ip route show | grep ^default | cut -d ' ' -f 3)
+        echo "$org_gw" > "$orggatewayfile"
+    fi
+    echo "$org_gw"
+}
+
+gateway_is_up() {
+    vpn_gateway=$(get_vpn_gateway)
+    if [[ "$vpn_gateway" != "" ]]; then
+        echo true
+    fi
+}
+
+check_traffic() {
+    ping -c 1 82.221.28.190 &>/dev/null
+    current_traffic=$(ifconfig | grep -A10 tun0 | tail -n 2 | head -n 1 | cut -d ':' -f 2 | cut -d ' ' -f 1)
+    previous_traffic=$(cat "$trafficfile")
+
+    if [[ "$current_traffic" -gt 0 ]]; then
+        if [[ "$current_traffic" == "$previous_traffic" ]]; then
+            bootstrap_network
+        fi
+    else
+        bootstrap_network
+    fi
+
+    echo "$current_traffic" > "$trafficfile"
+}
+
+mtu() {
+    if [[ $(ifconfig tun0 | grep mtu | awk '{ print $6 }' | cut -d: -f 2) -ne 1300 ]]; then
+        ifconfig tun0 mtu 1300
+    fi
+}
+
+tcpmss() {
+    if [[ $(iptables -L -n -v | grep TCPMSS | wc -l) -eq 0 ]]; then
+        iptables -A FORWARD -p tcp -m tcp --tcp-flags SYN,RST SYN -j TCPMSS --clamp-mss-to-pmtu
+    fi
+}
+
+original_gateway() {
+    original_gateway=$(get_original_gateway)
+    for remoteaddress in $remoteadresses; do
+        if [[ $(route -n | egrep "$remoteaddress.*?$original_gateway" | wc -l) -eq 0 ]]; then
+            ip route add "$remoteaddress" via "$original_gateway" dev "$internet_interface"
+        fi
+    done
+}
+
+defaultroute() {
+    original_gateway=$(get_original_gateway)
+    vpn_gateway=$(get_vpn_gateway)
+    if [[ $(route -n | egrep "default.*?$vpn_gateway" | wc -l) -eq 0 ]]; then
+        ip route del default via "$original_gateway" dev "$internet_interface"
+        ip route add default via "$vpn_gateway" dev tun0
+    fi
+}
+
+nat() {
+    if [[ $(iptables -t nat -L -n -v | grep POSTROUTING -A10 | grep '0.0.0.0' | wc -l) -eq 0 ]]; then
+        iptables -I POSTROUTING -t nat -o tun0 -j MASQUERADE
+    fi
+}
+
+dns() {
+    if [[ $(grep '8.8.8.8' /etc/resolv.conf | wc -l) -eq 0 ]]; then
+        dhcp
+    fi
+}
+
+bootstrap_network() {
+    dhcp
+    ntpdate pool.ntp.org
+    /usr/local/sbin/request-internet.py 2> /dev/null
+    restart_cjdns
+    for i in {1..50}; do
+        echo waiting for gateway to come up...
+        if [[ $(gateway_is_up) == true ]]; then
+            echo gateway is up, setting routes
+            mtu
+            tcpmss
+            original_gateway
+            defaultroute
+            nat
+            dns
+            echo done.
+            exit
+        fi
+        sleep 1
+    done
+}
+
+
+
+# logic
+
+if [[ $(gateway_is_up) == true ]]; then
+    mtu
+    tcpmss
+    original_gateway
+    defaultroute
+    nat
+    dns
+    check_traffic
+else
+    bootstrap_network
+fi
+

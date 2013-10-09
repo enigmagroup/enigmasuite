@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load apptags %}
+
+{% block main %}
+    <div class="container">
+
+      <h1>Änderungen angewendet.</h1>
+      <p>Fertig.</p>
+
+      <pre>{{ output|safe|linebreaksbr }}</pre>
+
+    </div> <!-- /container -->
+{% endblock %}
