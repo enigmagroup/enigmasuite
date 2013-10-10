@@ -273,12 +273,12 @@ def puppet_site(request):
             p.save()
 
         puppetmasters = Puppetmaster.objects.all().order_by('priority')
-        addresses = Address.objects.all().order_by('id')
     except:
         # no additional server data found, moving on...
         pass
 
     peerings = Peering.objects.all().order_by('id')
+    addresses = Address.objects.all().order_by('id')
 
     return render_to_response('puppet/site.pp', {
         'box': box,
