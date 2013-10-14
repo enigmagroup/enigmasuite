@@ -5,7 +5,7 @@
 # is /etc/mailname.
 
 # should be the FQDN of your machine
-myhostname=mail.box
+myhostname=<%= ipv6.gsub(':', '.') + '.box' %>
 # internet domain name of your system.
 #    Default is to use $myhostname without the sub-domain
 mydomain=ip6-localhost
