@@ -1,0 +1,2 @@
+<% mailboxes.each_pair do |mailbox, m| %><% if m.has_key?("alias") %><% m["alias"].each do |a| %><%= a %>@<%= domain %>	<%= mailbox %>@<%= domain %>
+<% end %><% end %><% end %>
