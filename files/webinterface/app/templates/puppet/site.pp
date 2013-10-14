@@ -70,6 +70,9 @@ node 'box' {
         ],
     }
 
+    class {"email":
+    }
+
     class {"tinyproxy":
     }
 
