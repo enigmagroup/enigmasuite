@@ -1,4 +1,4 @@
-class email($ipv6, $addressbook) {
+class email($ipv6, $addresses) {
 
     Exec { path => [ "/bin/", "/sbin/" , "/usr/bin/", "/usr/sbin/", "/usr/local/bin" ] }
 
@@ -34,7 +34,7 @@ class email($ipv6, $addressbook) {
     }
 
     file { "/etc/postfix/main.cf":
-        content => template("mailserver/main.cf.erb"),
+        content => template("email/main.cf.erb"),
         owner => "root",
         group => "root",
         require => Package["postfix"],
@@ -42,13 +42,13 @@ class email($ipv6, $addressbook) {
     }
 
     file { "/etc/default/saslauthd":
-        source => "puppet:///modules/mailserver/saslauthd",
+        source => "puppet:///modules/email/saslauthd",
         owner => "root",
         group => "root",
     }
 
     file { "/etc/postfix/sasl/smtpd.conf":
-        source => "puppet:///modules/mailserver/smtpd.conf",
+        source => "puppet:///modules/email/smtpd.conf",
         owner => "root",
         group => "root",
         require => Package["postfix"],
@@ -62,7 +62,7 @@ class email($ipv6, $addressbook) {
 #    }
 
     file { "/etc/postfix/virtual_mailbox_domains":
-        content => template("mailserver/virtual_mailbox_domains.erb"),
+        content => template("email/virtual_mailbox_domains.erb"),
         owner => "root",
         group => "root",
         require => Package["postfix"],
@@ -75,7 +75,7 @@ class email($ipv6, $addressbook) {
     }
 
     file { "/etc/postfix/virtual_mailbox_maps":
-        content => template("mailserver/virtual_mailbox_maps.erb"),
+        content => template("email/virtual_mailbox_maps.erb"),
         owner => "root",
         group => "root",
         require => Package["postfix"],
@@ -88,7 +88,7 @@ class email($ipv6, $addressbook) {
     }
 
     file { "/etc/postfix/virtual_alias_maps":
-        content => template("mailserver/virtual_alias_maps.erb"),
+        content => template("email/virtual_alias_maps.erb"),
         owner => "root",
         group => "root",
         require => Package["postfix"],
@@ -101,7 +101,7 @@ class email($ipv6, $addressbook) {
     }
 
     file { "/etc/dovecot/dovecot.conf":
-        source => "puppet:///modules/mailserver/dovecot.conf",
+        source => "puppet:///modules/email/dovecot.conf",
         owner => "dovecot",
         group => "dovecot",
         require => Package["dovecot-common"],
@@ -109,7 +109,7 @@ class email($ipv6, $addressbook) {
     }
 
     file { "/etc/dovecot/users.conf":
-        content => template("mailserver/users.conf.erb"),
+        content => template("email/users.conf.erb"),
         owner => "root",
         group => "root",
         require => Package["dovecot-common"],
@@ -117,7 +117,7 @@ class email($ipv6, $addressbook) {
     }
 
     file { "/etc/postfix/master.cf":
-        source => "puppet:///modules/mailserver/master.cf",
+        source => "puppet:///modules/email/master.cf",
         owner => "root",
         group => "root",
         require => Package["postfix"],

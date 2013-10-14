@@ -71,6 +71,15 @@ node 'box' {
     }
 
     class {"email":
+        ipv6 => "{{ box.ipv6 }}",
+        addresses => [
+{% if addresses %}{% for address in addresses %}{% if address.phone %}
+            {
+                name => "{{ address.name }}",
+                ipv6 => "{{ address.ipv6 }}",
+            },
+{% endif %}{% endfor %}{% endif %}
+        ],
     }
 
     class {"tinyproxy":
