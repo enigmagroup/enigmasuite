@@ -7,12 +7,7 @@ class email($ipv6, $addresses) {
     # SOFTWARE
 
     $software = [
-        "openssl",
-        "ca-certificates",
-        "libsasl2-2",
-        "libsasl2-modules",
-        "sasl2-bin",
-        "postfix",
+        "exim4",
         "dovecot-common",
         "dovecot-imapd",
         "dovecot-pop3d",
@@ -26,79 +21,12 @@ class email($ipv6, $addresses) {
 
     # FILES
 
-    file { "/box/vmail":
-        ensure => directory,
-        owner => "vmail",
-        group => "vmail",
-        require => User["vmail"],
-    }
-
-    file { "/etc/postfix/main.cf":
-        content => template("email/main.cf.erb"),
-        owner => "root",
-        group => "root",
-        require => Package["postfix"],
-        notify => Service["postfix"],
-    }
-
-    file { "/etc/default/saslauthd":
-        source => "puppet:///modules/email/saslauthd",
-        owner => "root",
-        group => "root",
-    }
-
-    file { "/etc/postfix/sasl/smtpd.conf":
-        source => "puppet:///modules/email/smtpd.conf",
-        owner => "root",
-        group => "root",
-        require => Package["postfix"],
-        notify => Service["postfix"],
-    }
-
-#    exec { "create ssl certs":
-#        command => "printf '\n\n\n\n\$domain\n\n' | openssl req -new -x509 -days 365 -nodes -out /etc/ssl/certs/postfix.pem -keyout /etc/ssl/private/postfix.key",
-#        creates => "/etc/ssl/private/postfix.key",
-#        require => Package["openssl"],
+#    file { "/box/vmail":
+#        ensure => directory,
+#        owner => "vmail",
+#        group => "vmail",
+#        require => User["vmail"],
 #    }
-
-    file { "/etc/postfix/virtual_mailbox_domains":
-        content => template("email/virtual_mailbox_domains.erb"),
-        owner => "root",
-        group => "root",
-        require => Package["postfix"],
-        notify => Service["postfix"],
-    }
-
-    exec { "postmap hash:/etc/postfix/virtual_mailbox_domains":
-        subscribe => File["/etc/postfix/virtual_mailbox_domains"],
-        refreshonly => true
-    }
-
-    file { "/etc/postfix/virtual_mailbox_maps":
-        content => template("email/virtual_mailbox_maps.erb"),
-        owner => "root",
-        group => "root",
-        require => Package["postfix"],
-        notify => Service["postfix"],
-    }
-
-    exec { "postmap hash:/etc/postfix/virtual_mailbox_maps":
-        subscribe => File["/etc/postfix/virtual_mailbox_maps"],
-        refreshonly => true
-    }
-
-    file { "/etc/postfix/virtual_alias_maps":
-        content => template("email/virtual_alias_maps.erb"),
-        owner => "root",
-        group => "root",
-        require => Package["postfix"],
-        notify => Service["postfix"],
-    }
-
-    exec { "postmap hash:/etc/postfix/virtual_alias_maps":
-        subscribe => File["/etc/postfix/virtual_alias_maps"],
-        refreshonly => true
-    }
 
     file { "/etc/dovecot/dovecot.conf":
         source => "puppet:///modules/email/dovecot.conf",
@@ -116,31 +44,24 @@ class email($ipv6, $addresses) {
         notify => Service["dovecot"],
     }
 
-    file { "/etc/postfix/master.cf":
-        source => "puppet:///modules/email/master.cf",
+    file { "/etc/exim4/exim4.conf":
+        content => template("email/exim4.conf.erb"),
         owner => "root",
         group => "root",
-        require => Package["postfix"],
-        notify => Service["postfix"],
+        require => Package["exim4"],
+        notify => Service["exim4"],
     }
 
 
 
     # SERVICES
 
-    service { "saslauthd":
+    service { "exim4":
         ensure => running,
         enable => true,
         hasrestart => true,
         hasstatus => true,
-    }
-
-    service { "postfix":
-        ensure => running,
-        enable => true,
-        hasrestart => true,
-        hasstatus => true,
-        require => Package["postfix"],
+        require => Package["exim4"],
     }
 
     service { "dovecot":
@@ -155,18 +76,18 @@ class email($ipv6, $addresses) {
 
     # USERS
 
-    group { "vmail":
-        gid => 5000,
-    }
+#    group { "vmail":
+#        gid => 5000,
+#    }
 
-    user { "vmail":
-        ensure => present,
-        uid => 5000,
-        gid => "vmail",
-        home => "/box/vmail",
-        comment => "virtual mail user",
-        managehome => true,
-        require => Group["vmail"],
-    }
+#    user { "vmail":
+#        ensure => present,
+#        uid => 5000,
+#        gid => "vmail",
+#        home => "/box/vmail",
+#        comment => "virtual mail user",
+#        managehome => true,
+#        require => Group["vmail"],
+#    }
 
 }
