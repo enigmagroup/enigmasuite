@@ -21,12 +21,12 @@ class email($ipv6, $addresses) {
 
     # FILES
 
-#    file { "/box/vmail":
-#        ensure => directory,
-#        owner => "vmail",
-#        group => "vmail",
-#        require => User["vmail"],
-#    }
+    file { "/box/vmail":
+        ensure => directory,
+        owner => "vmail",
+        group => "vmail",
+        require => User["vmail"],
+    }
 
     file { "/etc/dovecot/dovecot.conf":
         source => "puppet:///modules/email/dovecot.conf",
@@ -76,18 +76,18 @@ class email($ipv6, $addresses) {
 
     # USERS
 
-#    group { "vmail":
-#        gid => 5000,
-#    }
+    group { "vmail":
+        gid => 5000,
+    }
 
-#    user { "vmail":
-#        ensure => present,
-#        uid => 5000,
-#        gid => "vmail",
-#        home => "/box/vmail",
-#        comment => "virtual mail user",
-#        managehome => true,
-#        require => Group["vmail"],
-#    }
+    user { "vmail":
+        ensure => present,
+        uid => 5000,
+        gid => "vmail",
+        home => "/box/vmail",
+        comment => "virtual mail user",
+        managehome => true,
+        require => Group["vmail"],
+    }
 
 }
