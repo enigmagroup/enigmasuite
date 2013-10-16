@@ -30,6 +30,12 @@ exim_path = /usr/sbin/exim4
 CONFDIR = /etc/exim4
 .endif
 
+MAIN_LOCAL_DOMAINS = @[]
+#MAIN_RELAY_NETS = [fc00::]/8
+MAIN_RELAY_TO_DOMAINS = *
+ETC_MAILNAME = localhost
+MAIN_ALLOW_DOMAIN_LITERALS = 1
+
 # debconf-driven macro definitions get inserted after this line
 UPEX4CmacrosUPEX4C = 1
 
@@ -42,7 +48,7 @@ domainlist local_domains = MAIN_LOCAL_DOMAINS
 
 # List of recipient domains to relay _to_. Use this list if you're -
 # for example - fallback MX or mail gateway for domains.
-domainlist relay_to_domains = *
+domainlist relay_to_domains = MAIN_RELAY_TO_DOMAINS
 
 # List of sender networks (IP addresses) to _unconditionally_ relay
 # _for_. If you intend to be SMTP AUTH server, you do not need to enter
@@ -178,9 +184,9 @@ message_size_limit = MESSAGE_SIZE_LIMIT
 # enabled if you use the enable macro MAIN_ALLOW_DOMAIN_LITERALS.
 # Additionally, you might want to make your local IP addresses (or @[])
 # local domains.
-#.ifdef MAIN_ALLOW_DOMAIN_LITERALS
+.ifdef MAIN_ALLOW_DOMAIN_LITERALS
 allow_domain_literals
-#.endif
+.endif
 
 
 # Do a reverse DNS lookup on all incoming IP calls, in order to get the
@@ -977,16 +983,27 @@ begin routers
 # which is automatically done if you use the enable macro
 # MAIN_ALLOW_DOMAIN_LITERALS.
 
-#.ifdef MAIN_ALLOW_DOMAIN_LITERALS
+.ifdef MAIN_ALLOW_DOMAIN_LITERALS
 domain_literal:
   debug_print = "R: domain_literal for $local_part@$domain"
   driver = ipliteral
   domains = ! +local_domains
   transport = remote_smtp
-#.endif
+.endif
 #####################################################
 ### end router/100_exim4-config_domain_literal
 #####################################################
+
+catchall:
+  driver = redirect
+  domains = *
+  data = mail@box
+
+my_domains:
+  driver = accept
+  transport = my_mailboxes
+  no_more
+
 #####################################################
 ### router/150_exim4-config_hubbed_hosts
 #####################################################
@@ -1697,6 +1714,18 @@ address_directory:
 #####################################################
 ### retry/00_exim4-config_header
 #####################################################
+
+my_mailboxes:
+  driver = appendfile
+  user = Debian-exim
+  maildir_format = true
+  directory = /box/vmail/$local_part
+  create_directory
+  delivery_date_add
+  envelope_to_add
+  return_path_add
+  group = Debian-exim
+  mode = 0600
 
 ######################################################################
 #                      RETRY CONFIGURATION                           #
