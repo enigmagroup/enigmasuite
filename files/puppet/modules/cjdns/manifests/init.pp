@@ -61,7 +61,7 @@ class cjdns(
         }
 
         cron {"setup enigmabox networking":
-            command => "/usr/local/sbin/setup-cjdns-networking",
+            command => "/usr/local/sbin/setup-cjdns-networking &> /dev/null",
             user => root,
             minute => '*',
             require => File["/usr/local/sbin/setup-cjdns-networking"],
