@@ -30,6 +30,7 @@ exim_path = /usr/sbin/exim4
 CONFDIR = /etc/exim4
 .endif
 
+MAIN_HARDCODE_PRIMARY_HOSTNAME = enigma.box
 MAIN_LOCAL_DOMAINS = @[]
 #MAIN_RELAY_NETS = [fc00::]/8
 MAIN_RELAY_TO_DOMAINS = *
@@ -314,6 +315,8 @@ trusted_groups = MAIN_TRUSTED_GROUPS
 # SMTP Banner. The example includes the Debian version in the SMTP dialog
 # MAIN_SMTP_BANNER = "${primary_hostname} ESMTP Exim ${version_number} (Debian package MAIN_PACKAGE_VERSION) ${tod_full}"
 # smtp_banner = $smtp_active_hostname ESMTP Exim $version_number $tod_full
+smtp_banner = Enigmabox ESMTP Stealth Mailer $tod_full
+
 #####################################################
 ### end main/02_exim4-config_options
 #####################################################
