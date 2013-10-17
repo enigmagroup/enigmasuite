@@ -1794,6 +1794,8 @@ begin rewrite
                    {$value}fail}" Ffrs
 .endif
 
+mail@* "mail@[${lookup dnsdb{aaaa=$domain}}]" tT
+
 
 #####################################################
 ### end rewrite/31_exim4-config_rewriting
