@@ -57,6 +57,11 @@ for interface in $(echo "eth1 eth2"); do
     # webinterface
     $iptables -A INPUT -p tcp -i "$interface" --dport 80 -j ACCEPT
 
+    # email
+    $iptables -A INPUT -p tcp -i "$interface" --dport 25 -j ACCEPT
+    $iptables -A INPUT -p tcp -i "$interface" --dport 110 -j ACCEPT
+    $iptables -A INPUT -p tcp -i "$interface" --dport 143 -j ACCEPT
+
     # voip phone
     $iptables -A INPUT -p udp -i "$interface" --dport 5060 -j ACCEPT
 
