@@ -35,6 +35,7 @@ MAIN_LOCAL_DOMAINS = @[]
 MAIN_RELAY_TO_DOMAINS = *
 ETC_MAILNAME = localhost
 MAIN_ALLOW_DOMAIN_LITERALS = 1
+REMOTE_SMTP_HEADERS_REWRITE = mail@* "mail@[${lookup dnsdb{aaaa=$domain}}]" tcb
 
 # debconf-driven macro definitions get inserted after this line
 UPEX4CmacrosUPEX4C = 1
@@ -994,10 +995,9 @@ domain_literal:
 ### end router/100_exim4-config_domain_literal
 #####################################################
 
-catchall:
+route_friends:
   driver = redirect
-  domains = *
-  data = mail@box
+  data = mail@[${lookup dnsdb{aaaa=$domain}}]
 
 my_domains:
   driver = accept
@@ -1794,7 +1794,6 @@ begin rewrite
                    {$value}fail}" Ffrs
 .endif
 
-mail@* "mail@[${lookup dnsdb{aaaa=$domain}}]" tT
 
 
 #####################################################
