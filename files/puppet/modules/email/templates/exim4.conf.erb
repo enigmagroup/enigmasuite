@@ -1726,7 +1726,8 @@ my_mailboxes:
   return_path_add
   group = vmail
   mode = 0600
-  headers_rewrite = * "mail@[$sender_host_address] (seppli)" fw
+  headers_rewrite = * "mail@[$sender_host_address] (${sg{$sender_host_name}{\.box}{}})" fw
+
 
 ######################################################################
 #                      RETRY CONFIGURATION                           #
