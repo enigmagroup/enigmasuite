@@ -851,7 +851,7 @@ acl_check_rcpt:
   # disable relaying from foreign hosts
   deny
     hosts = <; fc00::/8
-    !domains = <; [<%= ipv6 %>]
+    !domains = <; ${if match_ip{${sg{$domain}{\\[|\\]}{}}}{<;<%= ipv6 %>}{*}{}}
 
 
   #############################################################################
