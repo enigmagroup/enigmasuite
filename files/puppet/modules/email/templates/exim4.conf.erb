@@ -37,7 +37,7 @@ MAIN_RELAY_TO_DOMAINS = *
 ETC_MAILNAME = localhost
 MAIN_ALLOW_DOMAIN_LITERALS = 1
 REMOTE_SMTP_HEADERS_REWRITE = mail@* "mail@[${lookup dnsdb{aaaa=$domain}}]" tcb
-MESSAGE_SIZE_LIMIT = 100M
+MESSAGE_SIZE_LIMIT = 150M
 
 # debconf-driven macro definitions get inserted after this line
 UPEX4CmacrosUPEX4C = 1
