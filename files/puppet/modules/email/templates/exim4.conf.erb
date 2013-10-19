@@ -848,6 +848,12 @@ acl_check_rcpt:
   .endif
 
 
+  # disable relaying from foreign hosts
+  deny
+    hosts = <; fc00::/8
+    !domains = <; [<%= ipv6 %>]
+
+
   #############################################################################
   # This check is commented out because it is recognized that not every
   # sysadmin will want to do it. If you enable it, the check performs
