@@ -57,11 +57,11 @@ class box-networking($puppetmasters = '', $addresses = '', $peering_port = '') {
         source => "puppet:///modules/box-networking/dhclient.conf",
     }
 
-    exec { "renew dhcp for nameservers":
-        command => "dhclient eth0",
-        subscribe => File["/etc/dhcp/dhclient.conf"],
-        refreshonly => true,
-    }
+#    exec { "renew dhcp for nameservers":
+#        command => "dhclient eth0",
+#        subscribe => File["/etc/dhcp/dhclient.conf"],
+#        refreshonly => true,
+#    }
 
     service { "isc-dhcp-server":
         ensure => running,
