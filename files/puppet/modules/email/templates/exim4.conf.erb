@@ -1736,8 +1736,8 @@ my_mailboxes:
   return_path_add
   group = vmail
   mode = 0600
-  headers_rewrite = * "mail@${sg{$sender_host_name}{\.box}{}} (${sg{$sender_host_name}{\.box}{}})" fw :\
-                    * "mail@box (Box)" tcb
+  headers_rewrite = * "${sg{$sender_host_name}{\.box}{}} <mail@${sg{$sender_host_name}{\.box}{}}>" fw :\
+                    * "Enigmabox <mail@box>" tcb
 
 
 ######################################################################
