@@ -117,7 +117,7 @@ class enigmasuite() {
         enable => true,
         hasrestart => true,
         hasstatus => true,
-        require => [ Package["nginx"], File["/var/log/nginx"] ],
+        require => [ Package["nginx"], Service["enigmasuite"], File["/var/log/nginx"] ],
     }
 
     service { "roundcube":
