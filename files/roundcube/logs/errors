@@ -1,1 +1,0 @@
-[22-Oct-2013 13:53:46 +0200]: DB Error: Configuration error. Unsupported database driver:  in /var/www/playground/htdocs/roundcubemail-0.9.4/program/lib/Roundcube/rcube_db.php on line 75 (GET /roundcubemail-0.9.4/?_task=mail&_mbox=INBOX&_folderlist=1&_list=1&_action=refresh&_remote=1&_unlock=loading1382442826609&_=1382442826612)
