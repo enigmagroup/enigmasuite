@@ -83,8 +83,10 @@ class enigmasuite() {
     }
 
     service { "roundcube":
+        ensure => running,
+        enable => true,
         hasrestart => true,
-        subscribe => File["/var/local/enigmasuite/roundcube.tar.gz"],
+        hasstatus => true,
         require => File["/etc/init.d/roundcube"],
     }
 

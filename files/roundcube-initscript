@@ -17,7 +17,6 @@ enigmasuite="/var/local/enigmasuite"
 
 do_restart()
 {
-    # webinterface
     rm -rfv "$enigmasuite/roundcube"
     cd "$enigmasuite"
     tar xzvf roundcube.tar.gz
@@ -27,12 +26,26 @@ do_restart()
     /etc/init.d/php5-fpm restart
 }
 
+do_status()
+{
+    echo "running"
+}
+
 case "$1" in
+  start)
+    exit 0
+    ;;
+  stop)
+    exit 0
+    ;;
   restart)
     do_restart
     ;;
+  status)
+    do_status
+    ;;
   *)
-    echo "Usage: $0 {restart}" >&2
+    echo "Usage: $0 {start|stop|restart|status}" >&2
     exit 3
     ;;
 esac
