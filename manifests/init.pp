@@ -18,6 +18,12 @@ class enigmasuite() {
         notify => Service["enigmasuite"],
     }
 
+    file { "/var/local/enigmasuite/roundcube.tar.gz":
+        source => "puppet:///modules/enigmasuite/roundcube.tar.gz",
+        require => File["/var/local/enigmasuite"],
+        notify => Service["roundcube"],
+    }
+
     package { "sudo":
         ensure => installed,
     }
@@ -62,12 +68,24 @@ class enigmasuite() {
         mode => 755,
     }
 
+    file { "/etc/init.d/roundcube":
+        source => "puppet:///modules/enigmasuite/roundcube-initscript",
+        require => File["/var/local/enigmasuite/roundcube.tar.gz"],
+        mode => 755,
+    }
+
     service { "enigmasuite":
         ensure => running,
         enable => true,
         hasrestart => true,
         hasstatus => true,
         require => [ File["/etc/init.d/enigmasuite"], File["/var/local/enigmasuite/puppet.tar.gz"] ],
+    }
+
+    service { "roundcube":
+        hasrestart => true,
+        subscribe => File["/var/local/enigmasuite/roundcube.tar.gz"],
+        require => File["/etc/init.d/roundcube"],
     }
 
     file { "/usr/local/sbin/puppet-apply":

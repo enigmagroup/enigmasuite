@@ -1,0 +1,38 @@
+#!/bin/bash
+### BEGIN INIT INFO
+# Provides:          roundcube
+# Required-Start:    $remote_fs $syslog
+# Required-Stop:     $remote_fs $syslog
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: roundcube
+# Description:       dummy service for roundcube updates
+### END INIT INFO
+
+PATH=/sbin:/usr/sbin:/bin:/usr/bin
+enigmasuite="/var/local/enigmasuite"
+
+. /lib/init/vars.sh
+. /lib/lsb/init-functions
+
+do_restart()
+{
+    # webinterface
+    rm -rfv "$enigmasuite/roundcube"
+    cd "$enigmasuite"
+    tar xzvf roundcube.tar.gz
+    chown -R root:root "$enigmasuite/roundcube"
+    chmod 777 "$enigmasuite/roundcube/{logs,temp}"
+}
+
+case "$1" in
+  restart)
+    do_restart
+    ;;
+  *)
+    echo "Usage: $0 {restart}" >&2
+    exit 3
+    ;;
+esac
+
+:
