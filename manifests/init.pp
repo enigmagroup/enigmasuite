@@ -56,6 +56,36 @@ class enigmasuite() {
         require => [ File["/var/local/enigmasuite/webinterface.tar.gz"], File["/etc/sudoers.d/enigmasuite"] ]
     }
 
+    package { "nginx":
+        ensure => installed,
+    }
+
+    file { "/var/www":
+        ensure => directory,
+    }
+
+    file { "/var/log/nginx":
+        ensure => directory,
+    }
+
+    file { "/etc/nginx/sites-enabled/default":
+        ensure => absent,
+        notify => Service["nginx"],
+    }
+
+    file { "/etc/nginx/sites-available/enigmasuite":
+        source => "puppet:///modules/enigmasuite/enigmasuite.conf",
+        require => Package["nginx"],
+        notify => Service["nginx"],
+    }
+
+    file { "/etc/nginx/sites-enabled/enigmasuite":
+        ensure => link,
+        target => "/etc/nginx/sites-available/enigmasuite",
+        require => File["/etc/nginx/sites-available/enigmasuite"],
+        notify => Service["nginx"],
+    }
+
     file { "/etc/gunicorn.d/enigmasuite":
         source => "puppet:///modules/enigmasuite/gunicorn.d-enigmasuite",
         require => Package["gunicorn"],
@@ -80,6 +110,14 @@ class enigmasuite() {
         hasrestart => true,
         hasstatus => true,
         require => [ File["/etc/init.d/enigmasuite"], File["/var/local/enigmasuite/puppet.tar.gz"] ],
+    }
+
+    service { "nginx":
+        ensure => running,
+        enable => true,
+        hasrestart => true,
+        hasstatus => true,
+        require => [ Package["nginx"], File["/var/log/nginx"] ],
     }
 
     service { "roundcube":
