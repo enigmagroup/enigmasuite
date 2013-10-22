@@ -15,7 +15,7 @@ class email($ipv6, $addresses) {
         "php5-mcrypt",
         "php5-intl",
         "php5-sqlite",
-        "php5-apc",
+        "php-apc",
         "nginx",
     ]
 
