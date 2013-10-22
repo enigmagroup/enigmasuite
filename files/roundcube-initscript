@@ -24,6 +24,7 @@ do_restart()
     chown -R root:root "$enigmasuite/roundcube"
     chmod 777 "$enigmasuite/roundcube/logs"
     chmod 777 "$enigmasuite/roundcube/temp"
+    /etc/init.d/php5-fpm restart
 }
 
 case "$1" in
