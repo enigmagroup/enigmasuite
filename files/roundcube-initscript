@@ -22,7 +22,8 @@ do_restart()
     cd "$enigmasuite"
     tar xzvf roundcube.tar.gz
     chown -R root:root "$enigmasuite/roundcube"
-    chmod 777 "$enigmasuite/roundcube/{logs,temp}"
+    chmod 777 "$enigmasuite/roundcube/logs"
+    chmod 777 "$enigmasuite/roundcube/temp"
 }
 
 case "$1" in
