@@ -87,10 +87,7 @@ def passwords(request):
     o = Option()
 
     if request.POST.get('set_webinterface_password'):
-        print 'yea'
         o.set_value('webinterface_password', request.POST.get('webinterface_password'))
-        print request.POST.get('webinterface_password')
-        print 'end'
         o.config_changed(True)
 
     if request.POST.get('set_mailbox_password'):
@@ -106,6 +103,8 @@ def passwords(request):
         'mailbox_password': o.get_value('mailbox_password'),
         'webmail_password': o.get_value('webmail_password'),
         }, context_instance=RequestContext(request))
+
+
 
 # Peerings
 
