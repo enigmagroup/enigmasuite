@@ -308,7 +308,13 @@ def puppet_site(request):
         webinterface_password = ''
 
     if mailbox_password is None:
-        mailbox_password = ''
+        mailbox_password = ''.join(random.choice(string.ascii_letters + string.digits) for x in range(64)))
+
+    # hash the password
+    import hashlib
+    import base64
+    p = hashlib.sha1(mailbox_password)
+    mailbox_password = base64.b64encode(p.digest())
 
     return render_to_response('puppet/site.pp', {
         'box': box,
