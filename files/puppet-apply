@@ -5,7 +5,7 @@
 
 # variables
 puppetpath="/var/local/enigmasuite/puppet"
-webinterface="http://box"
+webinterface="http://127.0.0.1:8000"
 pidfile="/tmp/puppet-apply.pid"
 
 
