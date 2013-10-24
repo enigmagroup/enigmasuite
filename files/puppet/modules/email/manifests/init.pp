@@ -1,4 +1,4 @@
-class email($ipv6, $addresses) {
+class email($ipv6, $addresses, $mailbox_password) {
 
     Exec { path => [ "/bin/", "/sbin/" , "/usr/bin/", "/usr/sbin/", "/usr/local/bin" ] }
 
