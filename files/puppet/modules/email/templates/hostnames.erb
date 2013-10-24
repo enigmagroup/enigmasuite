@@ -1,0 +1,3 @@
+<% if addresses.class == Array then %># friends<% addresses.each do |address| %>
+<%= address["name"] %>: <%= address["ipv6"] %><% end %>
+<% end %>
