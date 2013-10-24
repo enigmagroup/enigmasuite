@@ -11,14 +11,22 @@ class security(
         group => "root",
     }
 
-    if($webinterface_password) {
+    if($webinterface_password != '') {
 
         file { "/etc/nginx/auth/webinterface.conf":
             content => template("security/webinterface.conf.erb"),
+            notify => Service["nginx"],
         }
 
         file { "/etc/nginx/auth/webinterface.htpasswd":
             content => template("security/webinterface.htpasswd.erb"),
+        }
+
+    } else {
+
+        file { "/etc/nginx/auth/webinterface.conf":
+            ensure => absent,
+            notify => Service["nginx"],
         }
 
     }
