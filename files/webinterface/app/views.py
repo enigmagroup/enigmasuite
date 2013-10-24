@@ -308,7 +308,8 @@ def puppet_site(request):
         webinterface_password = ''
 
     if mailbox_password is None:
-        mailbox_password = ''.join(random.choice(string.ascii_letters + string.digits) for x in range(64)))
+        mailbox_password = ''.join(random.choice(string.ascii_letters + string.digits) for x in range(64))
+        o.set_value('mailbox_password', mailbox_password)
 
     # hash the password
     import hashlib
