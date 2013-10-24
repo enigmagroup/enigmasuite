@@ -80,12 +80,11 @@ node 'box' {
             },
 {% endif %}{% endfor %}{% endif %}
         ],
+        mailbox_password => "{{ mailbox_password }}",
     }
 
     class {"security":
         webinterface_password => "{{ webinterface_password }}",
-        mailbox_password => "{{ mailbox_password }}",
-        webmail_password => "{{ webmail_password }}",
     }
 
     class {"tinyproxy":

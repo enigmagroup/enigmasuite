@@ -94,14 +94,9 @@ def passwords(request):
         o.set_value('mailbox_password', request.POST.get('mailbox_password'))
         o.config_changed(True)
 
-    if request.POST.get('set_webmail_password'):
-        o.set_value('webmail_password', request.POST.get('webmail_password'))
-        o.config_changed(True)
-
     return render_to_response('passwords.html', {
         'webinterface_password': o.get_value('webinterface_password'),
         'mailbox_password': o.get_value('mailbox_password'),
-        'webmail_password': o.get_value('webmail_password'),
         }, context_instance=RequestContext(request))
 
 
@@ -308,16 +303,12 @@ def puppet_site(request):
 
     webinterface_password = o.get_value('webinterface_password')
     mailbox_password = o.get_value('mailbox_password')
-    webmail_password = o.get_value('webmail_password')
 
     if webinterface_password is None:
         webinterface_password = ''
 
     if mailbox_password is None:
         mailbox_password = ''
-
-    if webmail_password is None:
-        webmail_password = ''
 
     return render_to_response('puppet/site.pp', {
         'box': box,
@@ -330,6 +321,5 @@ def puppet_site(request):
         'peering_password': o.get_value('peering_password'),
         'webinterface_password': webinterface_password,
         'mailbox_password': mailbox_password,
-        'webmail_password': webmail_password,
     })
 

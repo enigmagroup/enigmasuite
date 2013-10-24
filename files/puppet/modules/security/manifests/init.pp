@@ -1,8 +1,4 @@
-class security(
-    $webinterface_password = '',
-    $mailbox_password = '',
-    $webmail_password = '',
-    ) {
+class security($webinterface_password = '') {
 
     Exec { path => [ "/bin/", "/sbin/" , "/usr/bin/", "/usr/sbin/", "/usr/local/bin" ] }
 
@@ -25,26 +21,6 @@ class security(
     } else {
 
         file { "/etc/nginx/auth/webinterface.conf":
-            ensure => absent,
-            notify => Service["nginx"],
-        }
-
-    }
-
-    if($webmail_password != '') {
-
-        file { "/etc/nginx/auth/webmail.conf":
-            content => template("security/webmail.conf.erb"),
-            notify => Service["nginx"],
-        }
-
-        file { "/etc/nginx/auth/webmail.htpasswd":
-            content => template("security/webmail.htpasswd.erb"),
-        }
-
-    } else {
-
-        file { "/etc/nginx/auth/webmail.conf":
             ensure => absent,
             notify => Service["nginx"],
         }
