@@ -14,6 +14,9 @@ urlpatterns = patterns('app.views',
     url(r'^addressbook/edit/(?P<addr_id>.*)/$', 'addressbook_edit'),
     url(r'^addressbook/$', 'addressbook'),
 
+    # passwords
+    url(r'^passwords/$', 'passwords'),
+
     # peerings
     url(r'^peerings/new/$', 'peerings_edit'),
     url(r'^peerings/(?P<peering_id>.*)/$', 'peerings_edit'),

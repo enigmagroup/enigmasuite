@@ -80,6 +80,22 @@ def addressbook_edit(request, addr_id):
 
 
 
+# Passwords
+
+def passwords(request):
+
+    o = Option()
+
+    if request.POST:
+        o.set_value('mailbox_password', request.POST.get('mailbox_password'))
+        o.config_changed(True)
+
+    peerings = Peering.objects.filter(custom=True).order_by('id')
+
+    return render_to_response('passwords.html', {
+        'mailbox_password': o.get_value('mailbox_password'),
+        }, context_instance=RequestContext(request))
+
 # Peerings
 
 def peerings(request):
