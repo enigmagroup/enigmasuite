@@ -306,6 +306,19 @@ def puppet_site(request):
     peerings = Peering.objects.all().order_by('id')
     addresses = Address.objects.all().order_by('id')
 
+    webinterface_password = o.get_value('webinterface_password')
+    mailbox_password = o.get_value('mailbox_password')
+    webmail_password = o.get_value('webmail_password')
+
+    if webinterface_password is None:
+        webinterface_password = ''
+
+    if mailbox_password is None:
+        mailbox_password = ''
+
+    if webmail_password is None:
+        webmail_password = ''
+
     return render_to_response('puppet/site.pp', {
         'box': box,
         'addresses': addresses,
@@ -315,8 +328,8 @@ def puppet_site(request):
         'allow_peering': o.get_value('allow_peering'),
         'peering_port': o.get_value('peering_port'),
         'peering_password': o.get_value('peering_password'),
-        'webinterface_password': o.get_value('webinterface_password'),
-        'mailbox_password': o.get_value('mailbox_password'),
-        'webmail_password': o.get_value('webmail_password'),
+        'webinterface_password': webinterface_password,
+        'mailbox_password': mailbox_password,
+        'webmail_password': webmail_password,
     })
 
