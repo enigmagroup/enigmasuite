@@ -7,6 +7,10 @@ class security($webinterface_password = '') {
         group => "root",
     }
 
+    file { "/etc/nginx/auth":
+        ensure => directory,
+    }
+
     if($webinterface_password != '') {
 
         file { "/etc/nginx/auth/webinterface.conf":
