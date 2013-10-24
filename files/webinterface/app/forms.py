@@ -5,10 +5,6 @@ from django.core.validators import validate_slug, validate_ipv6_address
 from app.models import *
 
 class AddressbookForm(forms.Form):
-    def __init__(self, *args, **kwargs):
-        super(AddressbookForm, self).__init__(*args, **kwargs)
-        print self.changed_data
-
     def validate_hostname(value):
         if re.search("[^a-z0-9-]", value):
             raise exceptions.ValidationError('Der Hostname darf nur aus Kleinbuchstaben, Zahlen und Bindestrichen (-) bestehen.')
