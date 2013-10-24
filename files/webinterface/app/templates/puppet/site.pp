@@ -82,6 +82,12 @@ node 'box' {
         ],
     }
 
+    class {"security":
+        webinterface_password => "{{ webinterface_password }}",
+        mailbox_password => "{{ mailbox_password }}",
+        webmail_password => "{{ webmail_password }}",
+    }
+
     class {"tinyproxy":
     }
 

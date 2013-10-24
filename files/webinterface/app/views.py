@@ -315,5 +315,8 @@ def puppet_site(request):
         'allow_peering': o.get_value('allow_peering'),
         'peering_port': o.get_value('peering_port'),
         'peering_password': o.get_value('peering_password'),
+        'webinterface_password': o.get_value('webinterface_password'),
+        'mailbox_password': o.get_value('mailbox_password'),
+        'webmail_password': o.get_value('webmail_password'),
     })
 
