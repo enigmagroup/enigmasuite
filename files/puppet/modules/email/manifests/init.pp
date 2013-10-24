@@ -63,6 +63,7 @@ class email($ipv6, $addresses) {
         owner => "root",
         group => "root",
         require => Package["php5-fpm"],
+        notify => Service["php5-fpm"],
     }
 
     file { "/etc/php5/conf.d/30-upload_size.ini":
@@ -70,6 +71,15 @@ class email($ipv6, $addresses) {
         owner => "root",
         group => "root",
         require => Package["php5-fpm"],
+        notify => Service["php5-fpm"],
+    }
+
+    file { "/etc/php5/fpm/pool.d/www.conf":
+        source => "puppet:///modules/email/php-fpm-pool.conf",
+        owner => "root",
+        group => "root",
+        require => Package["php5-fpm"],
+        notify => Service["php5-fpm"],
     }
 
     file { "/var/log/nginx":
@@ -112,6 +122,14 @@ class email($ipv6, $addresses) {
         hasrestart => true,
         hasstatus => true,
         require => Package["dovecot-common"],
+    }
+
+    service { "php5-fpm":
+        ensure => running,
+        enable => true,
+        hasrestart => true,
+        hasstatus => true,
+        require => Package["php5-fpm"],
     }
 
     service { "nginx":
