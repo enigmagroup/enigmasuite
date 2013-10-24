@@ -31,4 +31,24 @@ class security(
 
     }
 
+    if($webmail_password != '') {
+
+        file { "/etc/nginx/auth/webmail.conf":
+            content => template("security/webmail.conf.erb"),
+            notify => Service["nginx"],
+        }
+
+        file { "/etc/nginx/auth/webmail.htpasswd":
+            content => template("security/webmail.htpasswd.erb"),
+        }
+
+    } else {
+
+        file { "/etc/nginx/auth/webmail.conf":
+            ensure => absent,
+            notify => Service["nginx"],
+        }
+
+    }
+
 }
