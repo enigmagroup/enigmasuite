@@ -77,6 +77,12 @@ class enigmasuite() {
         ensure => directory,
     }
 
+    file { "/var/log/gunicorn":
+        ensure => directory,
+        owner => "www-data",
+        group => "www-data",
+    }
+
     file { "/etc/nginx/sites-enabled/default":
         ensure => absent,
         notify => Service["nginx"],
