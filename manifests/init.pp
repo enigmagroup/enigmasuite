@@ -6,10 +6,10 @@ class enigmasuite() {
         source => "puppet:///modules/enigmasuite/99translations",
     }
 
-    exec { "apt-update":
-        command => "/usr/bin/apt-get update",
-        require => File["/etc/apt/apt.conf.d/99translations"],
-    }
+#    exec { "apt-update":
+#        command => "/usr/bin/apt-get update",
+#        require => File["/etc/apt/apt.conf.d/99translations"],
+#    }
 
     file { "/var/local/enigmasuite":
         ensure => directory,
