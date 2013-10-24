@@ -36,7 +36,7 @@ MAIN_RELAY_NETS = 127.0.0.1
 MAIN_RELAY_TO_DOMAINS = *
 ETC_MAILNAME = localhost
 MAIN_ALLOW_DOMAIN_LITERALS = 1
-REMOTE_SMTP_HEADERS_REWRITE = mail@* "mail@[${lookup{$domain}lsearch{/etc/exim4/hostnames}}]" tcb
+REMOTE_SMTP_HEADERS_REWRITE = mail@* "mail@[${lookup dnsdb{aaaa=$domain}}]" tcb
 MESSAGE_SIZE_LIMIT = 150M
 
 # debconf-driven macro definitions get inserted after this line
@@ -1007,7 +1007,7 @@ domain_literal:
 
 route_friends:
   driver = redirect
-  data = mail@[${lookup{$domain}lsearch{/etc/exim4/hostnames}}]
+  data = mail@[${lookup dnsdb{aaaa=$domain}}]
 
 my_domains:
   driver = accept

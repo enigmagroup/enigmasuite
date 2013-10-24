@@ -58,12 +58,6 @@ class email($ipv6, $addresses) {
         notify => Service["exim4"],
     }
 
-    file { "/etc/exim4/hostnames":
-        content => template("email/hostnames.erb"),
-        owner => "root",
-        group => "root",
-    }
-
     file { "/etc/php5/conf.d/30-date_timezone.ini":
         source => "puppet:///modules/email/php-date_timezone.ini",
         owner => "root",
