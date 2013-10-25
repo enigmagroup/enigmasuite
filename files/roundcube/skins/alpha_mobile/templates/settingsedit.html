@@ -1,0 +1,20 @@
+<roundcube:object name="doctype" value="html5" />
+<html>
+<head>
+<title><roundcube:object name="pagetitle" /></title>
+<roundcube:include file="/includes/links.html" />
+</head>
+<body id="settings" class="iframe">
+
+<h5><roundcube:object name="sectionname" /></h5>
+
+<div id="prefs-details" class="boxcontent">
+<roundcube:object name="userprefs" form="form" />
+</div>
+
+<div class='buttonBox'>
+  <a href="javascript:void(0)" class="active" onclick="rcs.command('save', '', this)"><roundcube:label name="save" /></a>
+</div>
+
+</body>
+</html>

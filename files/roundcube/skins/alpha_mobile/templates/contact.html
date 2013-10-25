@@ -1,0 +1,19 @@
+<roundcube:object name="doctype" value="html5" />
+<html>
+<head>
+<title><roundcube:object name="pagetitle" /></title>
+<roundcube:include file="/includes/links.html" />
+</head>
+<body class="iframe">
+
+<a href="javascript:void(0)" class="button popupClose" onclick="window.parent.rcs.popup()"><span><roundcube:label name="back" /></span></a>
+<h5><roundcube:label name="contactproperties" /></h5>
+
+<div class='contactDetails'>
+  <roundcube:object name="contactdetails" />
+</div>
+
+<roundcube:button command="edit" label="edit" class="disabled" classAct="active" condition="!ENV:readonly" />
+
+</body>
+</html>

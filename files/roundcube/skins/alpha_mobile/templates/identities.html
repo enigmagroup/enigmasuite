@@ -1,0 +1,22 @@
+<roundcube:object name="doctype" value="html5" />
+<html>
+<head>
+<title><roundcube:object name="pagetitle" /></title>
+<roundcube:include file="/includes/links.html" />
+</head>
+<body id="settings">
+
+<roundcube:include file="/includes/taskbar.html" />
+<roundcube:include file="/includes/settingstabs.html" />
+<roundcube:include file="/includes/identitySelect.html" />
+
+<div id="identity-details">
+  <div style="margin:10px auto; text-align:center">
+  <img src="/images/watermark.gif" width="260" height="228" alt="" />
+  </div>
+</div>
+
+<script type="text/javascript"> rcmail.load_identity(1, 'edit-identity'); </script>
+
+</body>
+</html>

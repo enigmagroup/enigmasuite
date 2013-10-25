@@ -1,0 +1,53 @@
+<roundcube:object name="doctype" value="html5" />
+<html>
+<head>
+<title><roundcube:object name="pagetitle" /></title>
+<roundcube:include file="/includes/links.html" />
+</head>
+<body id="mail" class='message'>
+
+<roundcube:include file="/includes/taskbar.html" />
+
+<div id="messageMoreBox" class="popupBox">
+  <a href="javascript:void(0)" class="button popupClose" onclick="rcs.popup()"><span><roundcube:label name="back" /></span></a>
+
+  <h5><roundcube:label name="move" /></h5>
+  <roundcube:object name="mailboxlist" type="select" id="actionMessageMove" noSelection="moveto" maxlength="25" onchange="rcmail.command('moveto', this.options[this.selectedIndex].value)" class="mboxlist" />
+
+  <h5><roundcube:label name="markmessages" />:</h5>
+  <a href="javascript:void(0)" onclick="rcmail.command('mark', 'read', this);"><roundcube:label name="markread" /></a>
+  <a href="javascript:void(0)" onclick="rcmail.command('mark', 'unread', this);"><roundcube:label name="markunread" /></a>
+  <a href="javascript:void(0)" onclick="rcmail.command('mark', 'flagged', this);"><roundcube:label name="markflagged" /></a>
+  <a href="javascript:void(0)" onclick="rcmail.command('mark', 'unflagged', this);"><roundcube:label name="markunflagged" /></a>
+
+  <a href="javascript:void(0)" onclick="rcmail.command('edit', '', this, event);"><roundcube:label name="editasnew" /></a>
+  <a href="javascript:void(0)" onclick="rcmail.command('viewsource', '', this, event);"><roundcube:label name="viewsource" /></a>
+</div>
+
+
+<div id="messageForwardBox" class="popupBox">
+  <a href="javascript:void(0)" class="button popupClose" onclick="rcs.popup()"><span><roundcube:label name="back" /></span></a>
+  <h5><roundcube:label name="forwardmessage" />:</h5>
+  <a href="javascript:void(0)" onclick="rcmail.command('forward-inline', '', this, event);"><roundcube:label name="forwardinline" /></a>
+  <a href="javascript:void(0)" onclick="rcmail.command('forward-attachment', '', this, event);"><roundcube:label name="forwardattachment" /></a>
+</div>
+
+<div id="actionBox" class='actionBox'>
+  <span class='button messageReply'><a href="javascript:void(0)" class="actionMessageReply" onclick="rcmail.command('reply', '', this, event)"></a></span>
+  <span class='button messageReplyAll'><a href="javascript:void(0)" class="actionMessageReplyAll" onclick="rcmail.command('reply-all', '', this, event)"></a></span>
+  <span class='button messageForward'><a href="javascript:void(0)" class="actionMessageForward" onclick="rcs.popup(this, 'messageForward')"></a></span>
+  <span class='button messageMore'><a href="javascript:void(0)" class="actionMessageMore" onclick="rcs.popup(this, 'messageMore')"></a></span>
+  <span class='button messageDelete'><a href="javascript:void(0)" class="actionMessageDelete" onclick="rcmail.command('delete', '', this, event)"></a></span>
+</div>
+
+<div id="pageContents" class='noPadding'>
+  <div id="messageDisplay">
+    <roundcube:object name="messageHeaders" class="messageHeaders" cellspacing="0" cellpadding="2" addicon="/images/blank.gif" summary="Message headers" />
+    <roundcube:object name="messageAttachments" id="attachmentList" />
+    <roundcube:object name="messageObjects" id="message-objects" />
+    <roundcube:object name="messageBody" id="messageBody" />
+  </div>
+</div>
+
+</body>
+</html>

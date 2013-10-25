@@ -1,0 +1,181 @@
+<roundcube:object name="doctype" value="html5" />
+<html>
+<head>
+<title><roundcube:object name="pagetitle" /></title>
+<roundcube:include file="/includes/links.html" />
+</head>
+<body id="mail" class='mail'>
+
+<div id="mailFoldersBox" class="popupBox clickClose">
+  <a href="javascript:void(0)" class="button popupClose" onclick="rcs.popup()"><span><roundcube:label name="back" /></span></a>
+
+  <h5><roundcube:label name="mailboxlist" />:</h5>
+  <roundcube:object name="mailboxlist" id="folderList" maxlength="25" />
+
+  <h5><roundcube:label name="folderactions" /></h5>
+  <a href="javascript:void(0)" onclick="rcs.command('expunge', '', this)"><roundcube:label name="compact" /></a>
+  <a href="./?_task=settings&amp;_action=folders"><roundcube:label name="managefolders" /></a>
+</div>
+
+<div id="mailSortBox" class="popupBox">
+  <a href="javascript:void(0)" class="button popupClose" onclick="rcs.popup()"><span><roundcube:label name="back" /></span></a>
+
+  <h5><roundcube:label name="listsorting" />:</h5>
+  <div id="mailSortBoxContents"></div>
+
+  <h5><roundcube:label name="select" />:</h5>
+  <a href="javascript:void(0)" onclick="rcs.command('select-all', '', this)"><roundcube:label name="all" /></a>
+  <a href="javascript:void(0)" onclick="rcs.command('select-all', 'page', this)"><roundcube:label name="currpage" /></a>
+  <a href="javascript:void(0)" onclick="rcs.command('select-all', 'unread', this)"><roundcube:label name="unread" /></a>
+  <a href="javascript:void(0)" onclick="rcs.command('select-all', 'invert', this)"><roundcube:label name="invert" /></a>
+  <a href="javascript:void(0)" onclick="rcs.command('select-none', '', this)"><roundcube:label name="none" /></a>
+</div>
+
+<div id="mailFilterBox" class="popupBox">
+  <a href="javascript:void(0)" class="button popupClose" onclick="rcs.popup()"><span><roundcube:label name="back" /></span></a>
+
+  <h5><roundcube:label name="filter" /></h5>
+  <a href="javascript:void(0)" onclick="rcs.command('filter', 'ALL', this)"><roundcube:label name="all" /></a>
+  <a href="javascript:void(0)" onclick="rcs.command('filter', 'UNSEEN', this)"><roundcube:label name="unread" /></a>
+  <a href="javascript:void(0)" onclick="rcs.command('filter', 'FLAGGED', this)"><roundcube:label name="flagged" /></a>
+  <a href="javascript:void(0)" onclick="rcs.command('filter', 'UNANSWERED', this)"><roundcube:label name="unanswered" /></a>
+  <a href="javascript:void(0)" onclick="rcs.command('filter', 'DELETED', this)"><roundcube:label name="deleted" /></a>
+  <a href="javascript:void(0)" onclick="rcs.command('filter', 'UNDELETED', this)"><roundcube:label name="undeleted" /></a>
+  <a href="javascript:void(0)" onclick="rcs.command('filter', 'HEADER X-PRIORITY 1', this)">
+    <roundcube:label name="priority" />: <roundcube:label name="highest" /></a>
+  <a href="javascript:void(0)" onclick="rcs.command('filter', 'HEADER X-PRIORITY 2', this)">
+    <roundcube:label name="priority" />: <roundcube:label name="high" /></a>
+  <a href="javascript:void(0)" onclick="rcs.command('filter', 'NOT HEADER X-PRIORITY 1 NOT HEADER X-PRIORITY 2 NOT HEADER X-PRIORITY 4 NOT HEADER X-PRIORITY 5', this)">
+    <roundcube:label name="priority" />: <roundcube:label name="normal" /></a>
+  <a href="javascript:void(0)" onclick="rcs.command('filter', 'HEADER X-PRIORITY 4', this)">
+    <roundcube:label name="priority" />: <roundcube:label name="low" /></a>
+  <a href="javascript:void(0)" onclick="rcs.command('filter', 'HEADER X-PRIORITY 5', this)">
+    <roundcube:label name="priority" />: <roundcube:label name="lowest" /></a>
+
+  <roundcube:object name="searchfilter" class="searchfilter" />
+</div>
+
+<div id="searchBox" class="popupBox">
+  <a href="javascript:void(0)" class="button popupClose" onclick="rcs.popup()"><span><roundcube:label name="back" /></span></a>
+  <h5><roundcube:label name="quicksearch" /></h5>
+  <roundcube:object name="searchform" id="quicksearchbox" />
+
+  <div class="searchModifierBox" id="searchModifierBoxFirst">
+    <div><input type="checkbox" name="s_mods[]" value="subject" id="s_mod_subject" onclick="rcs.setSearchCheckbox(this)" /> <label for="s_mod_subject"><roundcube:label name="subject" /></label></div>
+    <div><input type="checkbox" name="s_mods[]" value="from" id="s_mod_from" onclick="rcs.setSearchCheckbox(this)" /> <label for="s_mod_from"><roundcube:label name="from" /></label></div>
+    <div><input type="checkbox" name="s_mods[]" value="to" id="s_mod_to" onclick="rcs.setSearchCheckbox(this)" /> <label for="s_mod_to"><roundcube:label name="to" /></label></div>
+  </div>
+  <div class="searchModifierBox">
+    <div><input type="checkbox" name="s_mods[]" value="cc" id="s_mod_cc" onclick="rcs.setSearchCheckbox(this)" /> <label for="s_mod_cc"><roundcube:label name="cc" /></label></div>
+    <div><input type="checkbox" name="s_mods[]" value="bcc" id="s_mod_bcc" onclick="rcs.setSearchCheckbox(this)" /> <label for="s_mod_bcc"><roundcube:label name="bcc" /></label></div>
+    <div><input type="checkbox" name="s_mods[]" value="text" id="s_mod_text" onclick="rcs.setSearchCheckbox(this)" /> <label for="s_mod_text"><roundcube:label name="msgtext" /></label></div>
+  </div>
+
+  <div id="quickSearchButtons">
+    <a href="javascript:void(0)" onclick="rcs.command('search', '', this)"><roundcube:label name="quicksearch" /></a>
+    <a href="javascript:void(0)" onclick="rcs.command('reset-search', '', this)"><roundcube:label name="resetsearch" /></a>
+  </div>
+</div>
+
+<div id="messageAllBox" class="popupBox">
+  <a href="javascript:void(0)" class="button popupClose" onclick="rcs.popup()"><span><roundcube:label name="back" /></span></a>
+
+  <h5><roundcube:label name="messageoptions" /></h5>
+  <roundcube:button command="delete" label="delete" class="disabled" classAct="active" />
+  <roundcube:button command="reply-all" label="replyall" class="disabled" classAct="active" />
+	<roundcube:button command="reply-list" label="replylist" class="disabled" classAct="active" />
+	<roundcube:button command="forward-inline" label="forwardinline" class="disabled" classAct="active" />
+	<roundcube:button command="forward-attachment" label="forwardattachment" class="disabled" classAct="active" />
+
+  <h5><roundcube:label name="mark" /></h5>
+	<roundcube:button command="mark" prop="read" label="markread" class="disabled" classAct="active" />
+	<roundcube:button command="mark" prop="unread" label="markunread" class="disabled" classAct="active" />
+	<roundcube:button command="mark" prop="flagged" label="markflagged" class="disabled" classAct="active" />
+	<roundcube:button command="mark" prop="unflagged" label="markunflagged" class="disabled" classAct="active" />
+
+  <h5><roundcube:label name="more" /></h5>
+	<roundcube:button command="download" label="emlsave" class="disabled" classAct="active" />
+	<roundcube:button command="edit" prop="new" label="editasnew" class="disabled" classAct="active" />
+	<roundcube:button command="viewsource" label="viewsource" class="disabled" classAct="active" />
+	<roundcube:button command="open" label="openinextwin" target="_blank" class="disabled" classAct="active" />
+</div>
+
+<div id="messageReplyBox" class="popupBox">
+  <a href="javascript:void(0)" class="button popupClose" onclick="rcs.popup()"><span><roundcube:label name="back" /></span></a>
+
+  <h5><roundcube:label name="reply" /></h5>
+  <roundcube:button command="reply-all" label="replyall" prop="sub" class="disabled" classAct="active" />
+	<roundcube:button command="reply-list" label="replylist" prop="sub" class="disabled" classAct="active" />
+</div>
+
+<div id="messageForwardBox" class="popupBox">
+  <a href="javascript:void(0)" class="button popupClose" onclick="rcs.popup()"><span><roundcube:label name="back" /></span></a>
+
+  <h5><roundcube:label name="forward" /></h5>
+	<roundcube:button command="forward-inline" label="forwardinline" prop="sub" class="disabled" classAct="active" />
+	<roundcube:button command="forward-attachment" label="forwardattachment" prop="sub" class="disabled" classAct="active" />
+</div>
+
+<div id="messageMarkBox" class="popupBox">
+  <a href="javascript:void(0)" class="button popupClose" onclick="rcs.popup()"><span><roundcube:label name="back" /></span></a>
+
+  <h5><roundcube:label name="mark" /></h5>
+	<roundcube:button command="mark" prop="read" label="markread" class="disabled" classAct="active" />
+	<roundcube:button command="mark" prop="unread" label="markunread" class="disabled" classAct="active" />
+	<roundcube:button command="mark" prop="flagged" label="markflagged" class="disabled" classAct="active" />
+	<roundcube:button command="mark" prop="unflagged" label="markunflagged" class="disabled" classAct="active" />
+</div>
+
+<div id="messageMoreBox" class="popupBox">
+  <a href="javascript:void(0)" class="button popupClose" onclick="rcs.popup()"><span><roundcube:label name="back" /></span></a>
+
+  <h5><roundcube:label name="more" /></h5>
+	<roundcube:button command="download" label="emlsave" class="disabled" classAct="active" />
+	<roundcube:button command="edit" prop="new" label="editasnew" class="disabled" classAct="active" />
+	<roundcube:button command="viewsource" label="viewsource" class="disabled" classAct="active" />
+	<roundcube:button command="open" label="openinextwin" target="_blank" class="disabled" classAct="active" />
+</div>
+
+<div id='messageActionBox' class="actionBox bottom">
+  <span class='button'><roundcube:button command="delete" type="link" class="actionMessageDelete" title="deletemessage" content=" " /></span>
+  <span class='button'><a href="javascript:void(0)" class="actionMessageReply" onclick="rcs.popup(this, 'messageReply', true)"></a></span>
+  <span class='button'><a href="javascript:void(0)" class="actionMessageForward" onclick="rcs.popup(this, 'messageForward', true)"></a></span>
+  <span class='button'><a href="javascript:void(0)" class="actionMessageMark" onclick="rcs.popup(this, 'messageMark', true)"></a></span>
+  <span class='button'><a href="javascript:void(0)" class="actionMessageMore" onclick="rcs.popup(this, 'messageMore', true)"></a></span>
+</div>
+
+<div id="pageContainer">
+  <div id="pageDragNotice"><span class='image'></span><roundcube:label name="refresh" />: <span id="username"><roundcube:object name="username" id="username" /></span></div>
+  <div id="pageDrag">
+
+    <roundcube:include file="/includes/taskbar.html" />
+
+    <div id='actionBox' class="actionBox">
+      <span class='button folders'><a href="javascript:void(0)" class="actionMailFolders" onclick="rcs.popup(this, 'mailFolders')"></a></span>
+      <span class='button sort'><a href="javascript:void(0)" class="actionMailSort" onclick="rcs.popup(this, 'mailSort')"></a></span>
+      <span class='button filter'><a href="javascript:void(0)" class="actionMailFilter" onclick="rcs.popup(this, 'mailFilter')"></a></span>
+      <span class='button search'><a href="javascript:void(0)" class="actionSearch" onclick="rcs.popup(this, 'search')"></a></span>
+      <span class='button message'><a href="javascript:void(0)" class="actionMessage" onclick="rcs.popup(this, 'messageAll')"></a></span>
+    </div>
+
+    <div id="pageContents" class='noPadding'>
+
+      <div id="messageListContents">
+        <roundcube:object name="messages" id="messageList" cellspacing="0" columns="" summary="Message list" optionsmenuIcon="true" />
+      </div>
+
+      <div id="pagingBox" class="mailPagingBox">
+        <span class="button firstPage"><roundcube:button command="firstpage" type="link" class="buttonDisabled firstPage" classAct="button firstPage" classSel="button firstPage" title="firstmessages" content=" " /></span>
+        <span class="button prevPage"><roundcube:button command="previouspage" type="link" class="buttonDisabled prevPage" classAct="button prevPage" classSel="button prevPage" title="previousmessages" content=" " /></span>
+        <span class="button lastPage"><roundcube:button command="lastpage" type="link" class="buttonDisabled lastPage" classAct="button lastPage" classSel="button lastPage" title="lastmessages" content=" " /></span>
+        <span class="button nextPage"><roundcube:button command="nextpage" type="link" class="buttonDisabled nextPage" classAct="button nextPage" classSel="button nextPage" title="nextmessages" content=" " /></span>
+        <roundcube:object name="messageCountDisplay" />
+      </div>
+
+      <div style='clear:both'></div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

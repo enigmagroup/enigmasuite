@@ -1,0 +1,34 @@
+<roundcube:object name="doctype" value="html5" />
+<html>
+<head>
+<title><roundcube:object name="pagetitle" /></title>
+<roundcube:include file="/includes/links.html" />
+</head>
+<body id="settings">
+
+<roundcube:include file="/includes/taskbar.html" />
+<roundcube:include file="/includes/settingstabs.html" />
+
+<div id="subscribedFoldersBox" class="popupBox">
+  <a href="javascript:void(0)" class="button popupClose" onclick="window.parent.rcs.popup()"><span><roundcube:label name="back" /></span></a>
+  <h5><roundcube:label name="folders" /> / <roundcube:label name="subscribed" /></h5>
+
+  <roundcube:object name="foldersubscription" form="subscriptionform" id="subscriptionTable" noheader="true" cellpadding="1" cellspacing="0" summary="Folder subscription table" class="records-table" />
+</div>
+
+<div id="actionBox" class='actionBox'>
+  <span class='button'><a href="javascript:void(0)" class="actionSettingsTabs" onclick="rcs.popup(this, 'settingsTabs')"></a></span>
+  <span class='button'><a href="javascript:void(0)" class="actionSubscribedFolders" onclick="rcs.popup(this, 'subscribedFolders')"></a></span>
+  <span class='button'><a href="javascript:void(0)" class="actionAddFolder" onclick="rcs.command('create-folder', '', this)"></a></span>
+</div>
+
+<div id="pageContents">
+  <div id="folder-box">
+      <roundcube:object name="folderframe" id="folder-frame" width="100%" height="100%" frameborder="0" src="/watermark.html" />
+  </div>
+</div>
+
+<script type="text/javascript">rcmail.subscription_select(new settingsLoader(1));</script>
+
+</body>
+</html>

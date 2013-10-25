@@ -1,0 +1,25 @@
+<roundcube:object name="doctype" value="html5" />
+<html>
+<head>
+<title><roundcube:object name="pagetitle" /></title>
+<roundcube:include file="/includes/links.html" />
+</head>
+<body id="settings">
+
+<roundcube:include file="/includes/taskbar.html" />
+<roundcube:include file="/includes/settingstabs.html" />
+<roundcube:include file="/includes/identitySelect.html" />
+
+<div id="pageContents">
+  <h5><roundcube:object name="steptitle" /></h5>
+
+  <roundcube:object name="identityform" size="40" textareacols="70" textarearows="6" />
+
+  <div class='buttonBox'>
+    <roundcube:button command="save" label="save" />
+    <roundcube:button command="delete" label="delete" condition="env:action=='edit-identity'" />
+  </div>
+</div>
+
+</body>
+</html>

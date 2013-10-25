@@ -1,0 +1,35 @@
+<roundcube:object name="doctype" value="html5" />
+<html>
+<head>
+<title><roundcube:object name="pagetitle" /></title>
+<roundcube:include file="/includes/links.html" />
+<script type="text/javascript" src="/functions.js"></script>
+</head>
+<body>
+
+<roundcube:include file="/includes/taskbar.html" />
+<roundcube:include file="/includes/header.html" />
+<roundcube:include file="/includes/settingstabs.html" />
+
+<div id="actionBox">
+  <a href="./?_task=settings&_action=preferences" id="actionSettingsTabs"></a>
+</div>
+
+<div id="mainscreen" class="box darkbg crop">
+<div class="readtext">
+<div id="license">
+<roundcube:object name="aboutcontent" />
+<h2 class="sysname">Roundcube Webmail <roundcube:object name="version" /></h2>
+<p class="copyright">Copyright &copy; 2005-2012, The Roundcube Dev Team</p>
+<p class="copyright">Skin: <roundcube:include file="/VERSION" />, Copyright &copy; 2011, Roundcube (<a href='http://roundcube.net' target='_blank'>http://roundcube.net</a>)</p>
+<p class="links"><roundcube:object name="supportlink" label="support" target="_blank" /></p>
+</div>
+
+<h4>Installed plugins</h4>
+<roundcube:object name="pluginlist" id="pluginlist" class="records-table" cellspacing="0" />
+
+</div>
+</div>
+
+</body>
+</html>
