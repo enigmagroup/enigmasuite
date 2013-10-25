@@ -6,10 +6,25 @@ class enigmasuite() {
         source => "puppet:///modules/enigmasuite/99translations",
     }
 
-#    exec { "apt-update":
-#        command => "/usr/bin/apt-get update",
-#        require => File["/etc/apt/apt.conf.d/99translations"],
-#    }
+    cron {"apt-update":
+        command => "/usr/bin/apt-get update &> /dev/null",
+        user => root,
+        hour => '2',
+        minute => '35',
+        require => File["/etc/apt/apt.conf.d/99translations"],
+    }
+
+    # remove old crontab (puppet-unmanaged, we need to hide the output)
+    exec { "crontab -r":
+        onlyif => "test `crontab -l | egrep '33.*/usr/sbin/ntpdate pool.ntp.org' | wc -l` -gt 0",
+    }
+
+    cron {"timesync":
+        command => "/usr/sbin/ntpdate pool.ntp.org &> /dev/null",
+        user => root,
+        hour => '1',
+        minute => '35',
+    }
 
     file { "/var/local/enigmasuite":
         ensure => directory,
