@@ -33,7 +33,7 @@ run() {
 
     apt_update
 
-    echo "running puppet and applying manifest..." >&2
+    echo "running puppet and applying manifest..."
     curl "$webinterface/puppet/site.pp" > "$puppetpath/manifests/site.pp"
     puppet apply --certname box $noop --show_diff --modulepath="$puppetpath/modules" "$puppetpath/manifests/site.pp"
 }
@@ -43,7 +43,7 @@ apt_update() {
     currtime=$(date +%s)
 
     if [[ $(($currtime - $lastrun)) -gt $((60*60*24)) ]]; then
-        echo "running apt-get update" >&2
+        echo "running apt-get update"
         apt-get update
         touch "$aptfile"
     fi
@@ -73,7 +73,7 @@ while getopts ":rs:" opt; do
         sleep="$OPTARG"
         ;;
     :)
-        echo "Option -"$OPTARG" requires an argument." >&2
+        echo "Option -"$OPTARG" requires an argument."
         exit 1
         ;;
     \?)
@@ -86,7 +86,7 @@ done
 
 
 if [[ -n "$sleep" ]]; then
-    echo "sleeping for $sleep seconds..." >&2
+    echo "sleeping for $sleep seconds..."
     sleep "$sleep"
 fi
 
