@@ -8,10 +8,7 @@ class enigmasuite() {
 
     cron {"apt-update":
         command => "/usr/bin/apt-get update &> /dev/null",
-        user => root,
-        hour => '2',
-        minute => '35',
-        require => File["/etc/apt/apt.conf.d/99translations"],
+        ensure => absent,
     }
 
     # remove old crontab (puppet-unmanaged, we need to hide the output)

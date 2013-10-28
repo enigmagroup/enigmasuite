@@ -7,6 +7,7 @@
 puppetpath="/var/local/enigmasuite/puppet"
 webinterface="http://127.0.0.1:8000"
 pidfile="/tmp/puppet-apply.pid"
+aptfile="/var/lib/apt/.lastrun"
 
 
 
@@ -30,9 +31,22 @@ run() {
         echo "** dry run **"
     fi
 
+    apt_update
+
     echo "running puppet and applying manifest..." >&2
     curl "$webinterface/puppet/site.pp" > "$puppetpath/manifests/site.pp"
     puppet apply --certname box $noop --show_diff --modulepath="$puppetpath/modules" "$puppetpath/manifests/site.pp"
+}
+
+apt_update() {
+    lastrun=$(stat -c "%Y" "$aptfile" 2> /dev/null || echo 0)
+    currtime=$(date +%s)
+
+    if [[ $(($currtime - $lastrun)) -gt $((60*60*24)) ]]; then
+        echo "running apt-get update" >&2
+        apt-get update
+        touch "$aptfile"
+    fi
 }
 
 
