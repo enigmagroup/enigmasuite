@@ -95,6 +95,12 @@ class enigmasuite() {
         group => "www-data",
     }
 
+    file { "/etc/logrotate.conf":
+        source => "puppet:///modules/enigmasuite/logrotate.conf",
+        owner => "root",
+        group => "root",
+    }
+
     file { "/etc/nginx/sites-enabled/default":
         ensure => absent,
         notify => Service["nginx"],
