@@ -29,14 +29,30 @@ class cjdns(
         require => File["/box/cjdroute.conf"],
     }
 
+    file { "/etc/init.d/restart_enigmabox":
+        source => "puppet:///modules/cjdns/restart_enigmabox-initscript",
+        mode => 755,
+    }
+
+
     file { "/usr/sbin/cjdns":
         source => "puppet:///modules/cjdns/cjdns.$architecture",
         mode => 755,
+        notify => Service["restart_enigmabox"],
     }
 
     file { "/usr/sbin/cjdroute":
         source => "puppet:///modules/cjdns/cjdroute.$architecture",
         mode => 755,
+        notify => Service["restart_enigmabox"],
+    }
+
+    service { "restart_enigmabox":
+        ensure => running,
+        enable => true,
+        hasrestart => true,
+        hasstatus => true,
+        require => File["/etc/init.d/restart_enigmabox"],
     }
 
     service { "cjdns":
