@@ -4,11 +4,17 @@
 bindaddr=::
 transport=tcp
 tcpenable=yes
+canreinvite=no
 jbenable=yes
 jbforce=yes
-jbmaxsize=25
-jbresyncthreshold=200
-canreinvite=no
+
+; stable values when net is stable
+; jbmaxsize=25
+; jbresyncthreshold=200
+
+; values for unstable network
+jbmaxsize=100
+jbresyncthreshold=300
 
 
 
