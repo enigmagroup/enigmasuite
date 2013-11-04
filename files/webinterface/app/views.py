@@ -298,7 +298,16 @@ def puppet_site(request):
         # no additional server data found, moving on...
         pass
 
-    peerings = Peering.objects.all().order_by('id')
+    peerings = []
+
+    server_peerings = Peering.objects.filter(custom=False).order_by('-id')[:1]
+    for peering in server_peerings:
+        peerings.append(peering)
+
+    custom_peerings = Peering.objects.filter(custom=True).order_by('id')
+    for peering in custom_peerings:
+        peerings.append(peering)
+
     addresses = Address.objects.all().order_by('id')
 
     webinterface_password = o.get_value('webinterface_password')
