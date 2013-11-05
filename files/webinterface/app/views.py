@@ -300,7 +300,7 @@ def puppet_site(request):
 
     peerings = []
 
-    server_peerings = Peering.objects.filter(custom=False).order_by('id')[:1]
+    server_peerings = Peering.objects.filter(custom=False,country='hu').order_by('id')[:1]
     for peering in server_peerings:
         peerings.append(peering)
 
