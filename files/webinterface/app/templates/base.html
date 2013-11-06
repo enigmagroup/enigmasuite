@@ -39,6 +39,9 @@
                 <li class="nav-header">System</li>
                 <li class="{% active request 'addressbook' %}"><a href="{% url app.views.addressbook %}"><i class="icon-user"></i> Adressbuch</a></li>
                 <li class="{% active request 'passwords' %}"><a href="{% url app.views.passwords %}"><i class="icon-lock"></i> Passwörter</a></li>
+                <li class="nav-header">Internet</li>
+                <li class="{% active request 'countryselect' %}"><a href="{% url app.views.countryselect %}"><i class="icon-globe"></i> Land auswählen</a></li>
+                <li class="nav-header">Netzwerk</li>
                 <li class="{% active request 'peerings' %}"><a href="{% url app.views.peerings %}"><i class="icon-random"></i> Peerings</a></li>
             </ul>
         </div>

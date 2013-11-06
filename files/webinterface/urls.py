@@ -22,6 +22,9 @@ urlpatterns = patterns('app.views',
     url(r'^peerings/(?P<peering_id>.*)/$', 'peerings_edit'),
     url(r'^peerings/$', 'peerings'),
 
+    # peerings
+    url(r'^countryselect/$', 'countryselect'),
+
     # changes
     url(r'^apply_changes/run/$', 'apply_changes_run'),
     url(r'^apply_changes/$', 'apply_changes'),
