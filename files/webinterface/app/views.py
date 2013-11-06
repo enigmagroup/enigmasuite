@@ -188,11 +188,11 @@ def peerings_edit(request, peering_id=None):
 
 
 
-# Addressbook
+# Country selection
 
 def countryselect(request):
 
-    return render_to_response('addressbook/overview.html', {
+    return render_to_response('countryselect/overview.html', {
         }, context_instance=RequestContext(request))
 
 

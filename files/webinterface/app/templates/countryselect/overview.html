@@ -1,0 +1,33 @@
+{% extends "base.html" %} {% load apptags %}
+
+{% block main %}
+    <div class="container">
+
+      <h1>Land auswählen</h1>
+      <p>Über welches Land willst Du surfen?</p>
+      <br />
+
+<form method="post" class="form-horizontal">
+{% csrf_token %}
+    <table class="table table-hover table-bordered" style="width: auto;">
+        <tbody>
+        <tr>
+            <td><button id="hu" name="country" type="text" class="btn btn-warning" value="ch">Ungarn</button></td>
+        </tr>
+        <tr>
+            <td><button id="ch" name="country" type="text" class="btn btn-default" value="ch">Schweiz</button></td>
+        </tr>
+        <tr>
+            <td><button id="fr" name="country" type="text" class="btn btn-default" value="ch">Frankreich</button></td>
+        </tr>
+        {% for country in countries %}
+        <tr>
+            <td><button id="fr" name="country" type="text" class="btn btn-default" value="ch">Frankreich</button></td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</form>
+
+    </div> <!-- /container -->
+{% endblock %}
