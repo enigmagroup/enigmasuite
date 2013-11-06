@@ -11,20 +11,15 @@
 {% csrf_token %}
     <table class="table table-hover table-bordered" style="width: auto;">
         <tbody>
+{% for country in countries %}
         <tr>
-            <td><button id="hu" name="country" type="text" class="btn btn-warning" value="ch">Ungarn</button></td>
+    {% if country == selected_country %}
+            <td><button id="{{ country }}" name="country" type="text" class="btn btn-warning" value="{{ country }}">{{ country }}</button></td>
+    {% else %}
+            <td><button id="{{ country }}" name="country" type="text" class="btn btn-default" value="{{ country }}">{{ country }}</button></td>
+    {% endif %}
         </tr>
-        <tr>
-            <td><button id="ch" name="country" type="text" class="btn btn-default" value="ch">Schweiz</button></td>
-        </tr>
-        <tr>
-            <td><button id="fr" name="country" type="text" class="btn btn-default" value="ch">Frankreich</button></td>
-        </tr>
-        {% for country in countries %}
-        <tr>
-            <td><button id="fr" name="country" type="text" class="btn btn-default" value="ch">Frankreich</button></td>
-        </tr>
-        {% endfor %}
+{% endfor %}
         </tbody>
     </table>
 </form>

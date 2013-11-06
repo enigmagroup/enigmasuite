@@ -192,7 +192,21 @@ def peerings_edit(request, peering_id=None):
 
 def countryselect(request):
 
+    o = Option()
+
+    if request.POST:
+        country = request.POST.get('country')
+        o.set_value('selected_country', country)
+
+    countries = {
+        'hu': 'Ungarn',
+        'fr': 'Frankreich',
+        'ch': 'Schweiz',
+    }
+
     return render_to_response('countryselect/overview.html', {
+            'countries': countries,
+            'selected_country': o.get_value('selected_country')
         }, context_instance=RequestContext(request))
 
 
@@ -307,9 +321,11 @@ def puppet_site(request):
         # no additional server data found, moving on...
         pass
 
+    selected_country = o.get_value('selected_country')
+
     peerings = []
 
-    server_peerings = Peering.objects.filter(custom=False,country='hu').order_by('id')[:1]
+    server_peerings = Peering.objects.filter(custom=False,country=selected_country).order_by('id')[:1]
     for peering in server_peerings:
         peerings.append(peering)
 
