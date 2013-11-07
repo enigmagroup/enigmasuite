@@ -74,12 +74,12 @@ class Option(models.Model):
         except:
             return False
 
-    def get_value(self, option_key):
+    def get_value(self, option_key, default=None):
         try:
             o = Option.objects.filter(key=option_key)[0]
             return o.value
         except:
-            return None
+            return default
 
     def set_value(self, option_key, option_value):
         try:

@@ -197,16 +197,17 @@ def countryselect(request):
     if request.POST:
         country = request.POST.get('country')
         o.set_value('selected_country', country)
+        o.config_changed(True)
 
     countries = {
         'hu': 'Ungarn',
         'fr': 'Frankreich',
-        'ch': 'Schweiz',
+        #'ch': 'Schweiz',
     }
 
     return render_to_response('countryselect/overview.html', {
             'countries': countries,
-            'selected_country': o.get_value('selected_country')
+            'selected_country': o.get_value('selected_country', 'hu')
         }, context_instance=RequestContext(request))
 
 
@@ -321,7 +322,7 @@ def puppet_site(request):
         # no additional server data found, moving on...
         pass
 
-    selected_country = o.get_value('selected_country')
+    selected_country = o.get_value('selected_country', 'hu')
 
     peerings = []
 
