@@ -20,7 +20,7 @@ class cjdns(
     file { "/box/cjdroute.conf":
         mode => 400,
         content => template("cjdns/cjdroute.conf.erb"),
-        notify => Service["cjdns"],
+        notify => [ Service["cjdns"], Service["asterisk"] ],
     }
 
     file { "/etc/init.d/cjdns":
