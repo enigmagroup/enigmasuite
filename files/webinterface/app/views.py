@@ -202,7 +202,8 @@ def countryselect(request):
     countries = {
         'hu': 'Ungarn',
         'fr': 'Frankreich',
-        #'ch': 'Schweiz',
+        'ch': 'Schweiz',
+        'us': 'United Stasi of America',
     }
 
     return render_to_response('countryselect/overview.html', {
