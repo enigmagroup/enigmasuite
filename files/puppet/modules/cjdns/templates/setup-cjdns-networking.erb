@@ -12,15 +12,33 @@ internet_interface="eth0"
 
 # functions
 
+e() {
+    echo 1>&2
+    echo 1>&2
+    echo "$1" 1>&2
+}
+
 dhcp() {
+    e "dhcp request"
     ifconfig "$internet_interface" up
-    killall dhclient
+    killall dhclient 2> /dev/null
     sleep 1
-    dhclient "$internet_interface"
+    dhclient "$internet_interface" 2> /dev/null
     sleep 5
 }
 
+sync_time() {
+    e "sync time"
+    ntpdate pool.ntp.org
+}
+
+request_internet() {
+    e "request internet"
+    /usr/local/sbin/request-internet.py 2> /dev/null
+}
+
 restart_cjdns() {
+    e "restarting cjdns"
     /etc/init.d/cjdns restart
 }
 
@@ -46,6 +64,7 @@ gateway_is_up() {
 }
 
 check_traffic() {
+    e "checking traffic"
     ping -c 1 82.221.28.190 &>/dev/null
     current_traffic=$(ifconfig | grep -A10 tun0 | tail -n 2 | head -n 1 | cut -d ':' -f 2 | cut -d ' ' -f 1)
     previous_traffic=$(cat "$trafficfile")
@@ -62,13 +81,15 @@ check_traffic() {
 }
 
 mtu() {
-    if [[ $(ifconfig tun0 | grep mtu | awk '{ print $6 }' | cut -d: -f 2) -ne 1300 ]]; then
+    if [[ $(ifconfig tun0 | grep -i mtu | awk '{ print $6 }' | cut -d: -f 2) -ne 1300 ]]; then
+        e "setting mtu"
         ifconfig tun0 mtu 1300
     fi
 }
 
 tcpmss() {
     if [[ $(iptables -L -n -v | grep TCPMSS | wc -l) -eq 0 ]]; then
+        e "setting tcpmss"
         iptables -A FORWARD -p tcp -m tcp --tcp-flags SYN,RST SYN -j TCPMSS --clamp-mss-to-pmtu
     fi
 }
@@ -76,7 +97,8 @@ tcpmss() {
 original_gateway() {
     original_gateway=$(get_original_gateway)
     for remoteaddress in $remoteadresses; do
-        if [[ $(route -n | egrep "$remoteaddress.*?$original_gateway" | wc -l) -eq 0 ]]; then
+        if [[ $(ip route | egrep "$remoteaddress.*?$original_gateway" | wc -l) -eq 0 ]]; then
+            e "setting route $remoteaddress via $original_gateway dev $internet_interface"
             ip route add "$remoteaddress" via "$original_gateway" dev "$internet_interface"
         fi
     done
@@ -85,7 +107,8 @@ original_gateway() {
 defaultroute() {
     original_gateway=$(get_original_gateway)
     vpn_gateway=$(get_vpn_gateway)
-    if [[ $(route -n | egrep "default.*?$vpn_gateway" | wc -l) -eq 0 ]]; then
+    if [[ $(ip route | egrep "default.*?$vpn_gateway" | wc -l) -eq 0 ]]; then
+        e "setting defaultroute"
         ip route del default via "$original_gateway" dev "$internet_interface"
         ip route add default via "$vpn_gateway" dev tun0
     fi
@@ -93,6 +116,7 @@ defaultroute() {
 
 nat() {
     if [[ $(iptables -t nat -L -n -v | grep POSTROUTING -A10 | grep '0.0.0.0' | wc -l) -eq 0 ]]; then
+        e "setting nat"
         iptables -I POSTROUTING -t nat -o tun0 -j MASQUERADE
     fi
 }
@@ -105,20 +129,20 @@ dns() {
 
 bootstrap_network() {
     dhcp
-    ntpdate pool.ntp.org
-    /usr/local/sbin/request-internet.py 2> /dev/null
+    sync_time
+    request_internet
     restart_cjdns
     for i in {1..50}; do
         echo waiting for gateway to come up...
         if [[ $(gateway_is_up) == true ]]; then
-            echo gateway is up, setting routes
+            e "gateway is up."
             mtu
             tcpmss
             original_gateway
             defaultroute
             nat
             dns
-            echo done.
+            e "done."
             exit
         fi
         sleep 1
