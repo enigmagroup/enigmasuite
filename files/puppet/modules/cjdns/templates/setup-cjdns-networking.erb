@@ -4,9 +4,9 @@
 # vars
 
 remoteadresses="<%= puppetmasters.join(' ') %> <% connect_to.each do |c| %><%= c['address'].split(':')[0] %> <% end %>"
-trafficfile="/tmp/cjdns_traffic.stat"
 orggatewayfile="/tmp/cjdns_org_gw"
 internet_interface="eth0"
+cjdns_request_tries="/tmp/cjdns_request_tries"
 
 
 
@@ -33,8 +33,15 @@ sync_time() {
 }
 
 request_cjdns_internet() {
-    e "request cjdns internet"
-    /usr/local/sbin/request-internet.py 2> /dev/null
+    # only request cjdns internet via script after the 3rd try
+    try=$(cat "$cjdns_request_tries" 2> /dev/null)
+    try=$(($try+1))
+    echo "$try" > "$cjdns_request_tries"
+
+    if [[ "$try" -gt 2 ]]; then
+        e "request cjdns internet"
+        /usr/local/sbin/request-internet.py 2> /dev/null
+    fi
 }
 
 start_cjdns() {
@@ -135,6 +142,7 @@ if [[ $(gateway_is_up) == true ]]; then
     e "checking internet connectivity over cjdns"
     if [[ $(ping -c 1 -W 2 8.8.8.8 | grep 'bytes from') ]]; then
         echo "We have internet. Good."
+        rm "$cjdns_request_tries" 2> /dev/null
         exit
     fi
 fi
