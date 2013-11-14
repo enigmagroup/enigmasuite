@@ -22,9 +22,9 @@ node 'box' {
         ],
 
         outgoing_connections => [
-{% if peerings %}{% for peering in peerings %}
-            "{{ peering.public_key }}",
-{% endfor %}{% endif %}
+{% if internet_gateway %}
+            "{{ internet_gateway.public_key }}",
+{% endif %}
         ],
 
         puppetmasters => [
