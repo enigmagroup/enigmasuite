@@ -419,14 +419,14 @@ $rcmail_config['plugins'] = array('enigmabox_additions');
 
 // default messages sort column. Use empty value for default server's sorting, 
 // or 'arrival', 'date', 'subject', 'from', 'to', 'fromto', 'size', 'cc'
-$rcmail_config['message_sort_col'] = '';
+$rcmail_config['message_sort_col'] = 'arrival';
 
 // default messages sort order
 $rcmail_config['message_sort_order'] = 'DESC';
 
 // These cols are shown in the message list. Available cols are:
 // subject, from, to, fromto, cc, replyto, date, size, status, flag, attachment, 'priority'
-$rcmail_config['list_cols'] = array('subject', 'status', 'fromto', 'date', 'size', 'flag', 'attachment');
+$rcmail_config['list_cols'] = array('flag', 'attachment', 'fromto', 'subject', 'date', 'size');
 
 // the default locale setting (leave empty for auto-detection)
 // RFC1766 formatted language name like en_US, de_DE, de_CH, fr_FR, pt_BR
@@ -789,7 +789,7 @@ $rcmail_config['logout_purge'] = false;
 $rcmail_config['logout_expunge'] = false;
 
 // Display attached images below the message body 
-$rcmail_config['inline_images'] = true;
+$rcmail_config['inline_images'] = false;
 
 // Encoding of long/non-ascii attachment names:
 // 0 - Full RFC 2231 compatible
