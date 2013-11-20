@@ -14,7 +14,8 @@ def home(request):
     o = Option()
 
     if request.session.get('django_language') == None:
-        request.session['django_language'] = 'de'
+        language = o.get_value('language', 'de')
+        request.session['django_language'] = language
         return redirect('/')
 
     return render_to_response('home.html', {
@@ -27,6 +28,8 @@ def home(request):
 # language switcher
 
 def switch_language(request, language):
+    o = Option()
+    language = o.set_value('language', language)
     request.session['django_language'] = language
     return redirect('/')
 
