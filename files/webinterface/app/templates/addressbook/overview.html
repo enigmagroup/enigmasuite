@@ -1,25 +1,26 @@
 {% extends "base.html" %}
+{% load i18n %}
 {% load apptags %}
 
 {% block main %}
     <div class="container">
 
-      <h1>Adressbuch</h1>
-      <p>Verwalten von Kontakten und Zuweisen von Telefonnummern.</p>
+      <h1>{% trans "Addressbook" %}</h1>
+      <p>{% trans "Managing contacts and assigning names and numbers" %}.</p>
       <br />
 
     <table class="table table-hover table-striped table-bordered">
         <thead>
           <tr>
-            <th>Hostname</th>
-            <th>IPv6-Adresse</th>
-            <th>Telefonnummer</th>
-            <th>Status</th>
+            <th>{% trans "Hostname" %}</th>
+            <th>{% trans "IPv6 address" %}</th>
+            <th>{% trans "Phone number" %}</th>
+            <th>{% trans "Status" %}</th>
           </tr>
         </thead>
         <tbody>
         <tr>
-            <td><a href="{% url app.views.addressbook %}">Meine Adresse</a></td>
+            <td><a href="{% url app.views.addressbook %}">{% trans "My address" %}</a></td>
             <td>{% display_ip %}</td>
             <td>1</td>
             <td>{% peer_status '100/100' sip_peers %}</td>
@@ -39,20 +40,20 @@
 {% csrf_token %}
 <fieldset>
 
-<legend>Adresse hinzufügen</legend>
+<legend>{% trans "Add contact" %}</legend>
 
 {% if form.errors %}
 <div class="alert alert-error">
     <button type="button" class="close" data-dismiss="alert">&times;</button>
-    <strong>Fehler:</strong>
+    <strong>{% trans "Error" %}:</strong>
 {{ form.errors }}
 </div>
 {% endif %}
 
-<input {% form_error form.name.errors %} id="name" name="name" type="text" placeholder="Hostname" class="input-large" value="{{ form.name.value }}" />
-<input {% form_error form.ipv6.errors %} id="ipv6" name="ipv6" type="text" placeholder="IPv6-Adresse" class="input-xlarge" value="{{ form.ipv6.value }}" />
-<input {% form_error form.phone.errors %} id="phone" name="phone" type="text" placeholder="Nummer" class="input-mini" value="{{ form.phone.value }}" maxlength="7" />
-<button id="add_address" name="add_address" class="btn btn-primary">Hinzufügen</button>
+<input {% form_error form.name.errors %} id="name" name="name" type="text" placeholder="{% trans "Hostname" %}" class="input-large" value="{{ form.name.value }}" />
+<input {% form_error form.ipv6.errors %} id="ipv6" name="ipv6" type="text" placeholder="{% trans "IPv6 address" %}" class="input-xlarge" value="{{ form.ipv6.value }}" />
+<input {% form_error form.phone.errors %} id="phone" name="phone" type="text" placeholder="{% trans "Phone number" %}" class="input-mini" value="{{ form.phone.value }}" maxlength="7" />
+<button id="add_address" name="add_address" class="btn btn-primary">{% trans "Add" %}</button>
 
 </fieldset>
 </form>
