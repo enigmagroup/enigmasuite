@@ -1,27 +1,28 @@
 {% extends "base.html" %}
+{% load i18n %}
 
 {% block main %}
 
     <div class="container">
 
-      <h1>Willkommen.</h1>
+      <h1>{% trans "Welcome" %}.</h1>
 {% if hostid %}
-      <p>Deine Hostid ist <strong>{{ hostid }}</strong>. Dein Netzwerkzugang ist noch gültig bis zum {{ internet_access }}.</p>
+      <p>{% trans "Your hostid is" %} <strong>{{ hostid }}</strong>. {% trans "Network access valid until" %} {{ internet_access }}.</p>
 {% endif %}
-      <p>Verwalte Deine Adressen im <a href="{% url app.views.addressbook %}">Adressbuch</a>.</p>
+      <p>{% trans "Manage your contacts in the" %} <a href="{% url app.views.addressbook %}">{% trans "Addressbook" %}</a>.</p>
 
       <hr />
 
-      <strong>Verbindungsinfos IP-Telefon:</strong><br />
-      Benutzername: <strong>100</strong><br />
-      Passwort: <strong>100</strong><br />
-      Domain/Server: <strong>box</strong><br />
+      <strong>{% trans "Connection info" %} {% trans "SIP phone" %}:</strong><br />
+      {% trans "Username" %}: <strong>100</strong><br />
+      {% trans "Password" %}: <strong>100</strong><br />
+      {% trans "Domain/Server" %}: <strong>box</strong><br />
       <br />
 
-      <strong>SSH-Zugang Box:</strong><br />
-      Benutzername: <strong>root</strong><br />
-      Passwort: <strong>d</strong><br />
-      Server: <strong>box</strong><br />
+      <strong>{% trans "Connection info" %} {% trans "SSH access" %}:</strong><br />
+      {% trans "Username" %}: <strong>root</strong><br />
+      {% trans "Password" %}: <strong>d</strong><br />
+      {% trans "Server" %}: <strong>box</strong><br />
       <br />
 
     </div> <!-- /container -->
