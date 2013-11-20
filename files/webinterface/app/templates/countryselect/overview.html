@@ -1,10 +1,12 @@
-{% extends "base.html" %} {% load apptags %}
+{% extends "base.html" %}
+{% load i18n %}
+{% load apptags %}
 
 {% block main %}
     <div class="container">
 
-      <h1>Land auswählen</h1>
-      <p>Über welches Land willst Du surfen?</p>
+      <h1>{% trans "Select country" %}</h1>
+      <p>{% trans "Choose over which country you want internet access." %}</p>
       <br />
 
 <form method="post" class="form-horizontal">
@@ -24,7 +26,7 @@
     </table>
 </form>
 
-      <p>Hinweis: Es kann nach einem Länderwechel unter Umständen etwas dauern, bis alle Adressen im Adressbuch wieder erreichbar sind.</p>
+      <p>{% trans "Note: It may take some time after a country switch until all contacts are reachable again!" %}</p>
 
     </div> <!-- /container -->
 {% endblock %}
