@@ -7,6 +7,9 @@ admin.autodiscover()
 
 urlpatterns = patterns('app.views',
 
+    # language switcher
+    url(r'^i18n/setlang/(?P<language>[a-z]+)', 'switch_language'),
+
     # sites
     url(r'^puppet/site.pp$', 'puppet_site'),
 
