@@ -12,6 +12,11 @@ from django.views.decorators.csrf import csrf_exempt
 
 def home(request):
     o = Option()
+
+    if request.session.get('django_language') == None:
+        request.session['django_language'] = 'de'
+        return redirect('/')
+
     return render_to_response('home.html', {
         'hostid': o.get_value('hostid'),
         'internet_access': o.get_value('internet_access'),
