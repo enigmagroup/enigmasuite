@@ -1,13 +1,14 @@
 {% extends "base.html" %}
+{% load i18n %}
 {% load apptags %}
 
 {% block main %}
     <div class="container">
     <meta http-equiv="refresh" content="0;url=/apply_changes/run/">
 
-      <h1>Änderungen anwenden</h1>
-      <p>Wende Änderungen an, bitte warten...</p>
-      <p>Dieser Vorgang kann bis zu 5 Minuten dauern.</p>
+      <h1>{% trans "Apply changes" %}</h1>
+      <p>{% trans "Applying changes, please wait..." %}</p>
+      <p>{% trans "This can take up to 5 minutes." %}</p>
 
     </div> <!-- /container -->
 {% endblock %}
