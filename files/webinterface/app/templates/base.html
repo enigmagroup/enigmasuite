@@ -25,7 +25,16 @@
 {% endif_config_changed %}
         <ul class="nav pull-right">
             <li class="divider-vertical"></li>
-            <li><a title="Deine IPv6-Adresse" href="">{% display_ip %}</a></li>
+            <!--<li><a title="Deine IPv6-Adresse" href="">{% display_ip %}</a></li>-->
+            <li class="dropdown">
+                <a href="" class="dropdown-toggle" data-toggle="dropdown">Language <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+{% get_language_info_list for LANGUAGES as languages %}
+{% for language in languages %}
+                    <li><a href="/i18n/setlang/{{ language.code }}/">{{ language.name_local }}</a></li>
+{% endfor %}
+                </ul>
+            </li>
         </ul>
     </div>
   </div>
@@ -47,11 +56,6 @@
             </ul>
         </div>
         <div class="span10">
-
-{% get_language_info_list for LANGUAGES as languages %}
-{% for language in languages %}
-{{ language.code }} {{ language.name_local }}
-{% endfor %}
 
         <!--Body content-->
         {% block main %}[main]{% endblock %}
