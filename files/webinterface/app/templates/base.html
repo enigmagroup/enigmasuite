@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Box Administration</title>
+    <title>Enigmabox Administration</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="/media/css/bootstrap.min.css" rel="stylesheet" media="screen">
     <link href="/media/css/box.css" rel="stylesheet" media="screen">
@@ -19,9 +19,9 @@
 <div class="navbar navbar-inverse navbar-fixed-top">
   <div class="navbar-inner">
     <div class="container">
-      <a class="brand" title="Home" href="{% url app.views.home %}">Enigmabox</a>
+      <a class="brand" title="Home" href="{% url app.views.home %}">Enigmabox Administration</a>
 {% if_config_changed object None %}
-      <a href="{% url app.views.apply_changes %}" class="btn btn-danger">Änderungen anwenden</a>
+      <a href="{% url app.views.apply_changes %}" class="btn btn-danger">{% trans "Apply changes" %}</a>
 {% endif_config_changed %}
         <ul class="nav pull-right">
             <li class="divider-vertical"></li>
@@ -47,12 +47,12 @@
             <ul class="nav nav-list">
                 <li class=""><a href="/"><i class="icon-home"></i> {% trans "Welcome" %}</a></li>
                 <li class="nav-header">{% trans "System" %}</li>
-                <li class="{% active request 'addressbook' %}"><a href="{% url app.views.addressbook %}"><i class="icon-user"></i> Adressbuch</a></li>
-                <li class="{% active request 'passwords' %}"><a href="{% url app.views.passwords %}"><i class="icon-lock"></i> Passwörter</a></li>
+                <li class="{% active request 'addressbook' %}"><a href="{% url app.views.addressbook %}"><i class="icon-user"></i> {% trans "Addressbook" %}</a></li>
+                <li class="{% active request 'passwords' %}"><a href="{% url app.views.passwords %}"><i class="icon-lock"></i> {% trans "Passwords" %}</a></li>
                 <li class="nav-header">{% trans "Internet" %}</li>
-                <li class="{% active request 'countryselect' %}"><a href="{% url app.views.countryselect %}"><i class="icon-globe"></i> Land auswählen</a></li>
+                <li class="{% active request 'countryselect' %}"><a href="{% url app.views.countryselect %}"><i class="icon-globe"></i> {% trans "Country selection" %}</a></li>
                 <li class="nav-header">{% trans "Network" %}</li>
-                <li class="{% active request 'peerings' %}"><a href="{% url app.views.peerings %}"><i class="icon-random"></i> Peerings</a></li>
+                <li class="{% active request 'peerings' %}"><a href="{% url app.views.peerings %}"><i class="icon-random"></i> {% trans "Peerings" %}</a></li>
             </ul>
         </div>
         <div class="span10">
