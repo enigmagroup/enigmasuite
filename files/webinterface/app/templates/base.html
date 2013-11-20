@@ -45,7 +45,7 @@
         <div class="span2">
             <!--Sidebar content-->
             <ul class="nav nav-list">
-                <li class=""><a href="/"><i class="icon-home"></i> Willkommen</a></li>
+                <li class=""><a href="/"><i class="icon-home"></i> {% trans "Welcome" %}</a></li>
                 <li class="nav-header">{% trans "System" %}</li>
                 <li class="{% active request 'addressbook' %}"><a href="{% url app.views.addressbook %}"><i class="icon-user"></i> Adressbuch</a></li>
                 <li class="{% active request 'passwords' %}"><a href="{% url app.views.passwords %}"><i class="icon-lock"></i> Passwörter</a></li>
