@@ -4,11 +4,14 @@
 
 {% block main %}
     <div class="container">
-    <meta http-equiv="refresh" content="0;url=/apply_changes/run/">
 
       <h1>{% trans "Apply changes" %}</h1>
-      <p>{% trans "Applying changes, please wait..." %}</p>
-      <p>{% trans "This can take up to 5 minutes." %}</p>
+
+<form method="post" class="form-horizontal">
+{% csrf_token %}
+    <button id="{{ countrycode }}" name="apply_changes" type="text" class="btn btn-primary" value="dry_run">{% trans "Show changes" %}</button>
+    <button id="{{ countrycode }}" name="apply_changes" type="text" class="btn btn-danger confirmation" value="run">{% trans "Apply changes" %}</button>
+</form>
 
     </div> <!-- /container -->
 {% endblock %}

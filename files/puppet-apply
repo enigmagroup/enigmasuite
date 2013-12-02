@@ -36,6 +36,7 @@ run() {
     echo "running puppet and applying manifest..."
     curl "$webinterface/puppet/site.pp" > "$puppetpath/manifests/site.pp"
     puppet apply --certname box $noop --show_diff --modulepath="$puppetpath/modules" "$puppetpath/manifests/site.pp"
+    [[ "$1" == "dry" ]] || curl --data "key=config_changed&value=False" -X POST http://127.0.0.1:8000/api/v1/set_option &> /dev/null
 }
 
 apt_update() {

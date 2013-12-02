@@ -32,6 +32,9 @@ urlpatterns = patterns('app.views',
     url(r'^apply_changes/run/$', 'apply_changes_run'),
     url(r'^apply_changes/$', 'apply_changes'),
 
+    # puppet output
+    url(r'^puppet_output/$', 'puppet_output'),
+
     # API
     url(r'^api/v1/(?P<api_url>.*)$', 'api_v1'),
 

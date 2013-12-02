@@ -233,17 +233,22 @@ def countryselect(request):
 # Changes
 
 def apply_changes(request):
-    o = Option()
-    o.config_changed(False)
     return render_to_response('changes/apply.html', context_instance=RequestContext(request))
 
 def apply_changes_run(request):
-    output = Popen(["sudo", "/usr/local/sbin/puppet-apply", "-r"], stdout=PIPE).communicate()[0]
+    Popen(["sudo", "/usr/local/sbin/puppet-apply", "-r"], stdout=PIPE).communicate()[0]
+    o = Option()
+    o.config_changed(False)
+    return render_to_response('changes/apply_run.html', context_instance=RequestContext(request))
+
+def puppet_output(request):
+    with open('/tmp/puppet_output', 'r') as f:
+        output = f.read()
     from ansi2html import Ansi2HTMLConverter
+    from django.http import HttpResponse
     conv = Ansi2HTMLConverter()
     html = conv.convert(output, full=False)
-    return render_to_response('changes/apply_run.html',
-        {'output': html}, context_instance=RequestContext(request))
+    return HttpResponse(html)
 
 
 
