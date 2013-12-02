@@ -3,6 +3,7 @@ import datetime
 from south.db import db
 from south.v2 import DataMigration
 from django.db import models
+from django.contrib.auth.models import User
 from crypt import crypt
 from subprocess import Popen, PIPE
 import random, string
