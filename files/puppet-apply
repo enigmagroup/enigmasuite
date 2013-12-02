@@ -7,6 +7,7 @@
 puppetpath="/var/local/enigmasuite/puppet"
 webinterface="http://127.0.0.1:8000"
 pidfile="/tmp/puppet-apply.pid"
+puppet_output="/tmp/puppet_output"
 aptfile="/var/lib/apt/.lastrun"
 
 
@@ -21,6 +22,7 @@ OPTIONS:
    -h      Show this message
    -s      Sleep for n seconds before run
    -r      Run and apply changes (no dry-run)
+   -b      Run in background (outputs to $puppet_output)
 EOF
 }
 
@@ -31,11 +33,22 @@ run() {
         echo "** dry run **"
     fi
 
+    background=""
+    if [[ "$1" == "background" || "$2" == "background" ]]; then
+        background=1
+    fi
+
     apt_update
 
     echo "running puppet and applying manifest..."
     curl "$webinterface/puppet/site.pp" > "$puppetpath/manifests/site.pp"
-    puppet apply --certname box $noop --show_diff --modulepath="$puppetpath/modules" "$puppetpath/manifests/site.pp"
+
+    if [[ "$background" == 1 ]]; then
+        puppet apply --certname box $noop --show_diff --modulepath="$puppetpath/modules" "$puppetpath/manifests/site.pp" > "$puppet_output" &
+    else
+        puppet apply --certname box $noop --show_diff --modulepath="$puppetpath/modules" "$puppetpath/manifests/site.pp"
+    fi
+
     [[ "$1" == "dry" ]] || curl --data "key=config_changed&value=False" -X POST http://127.0.0.1:8000/api/v1/set_option &> /dev/null
 }
 
@@ -65,7 +78,7 @@ echo $$ > "$pidfile"
 
 
 # Option parsing
-while getopts ":rs:" opt; do
+while getopts ":rsb:" opt; do
     case "$opt" in
     r)
         run=1
@@ -73,8 +86,11 @@ while getopts ":rs:" opt; do
     s)
         sleep="$OPTARG"
         ;;
+    b)
+        background="background"
+        ;;
     :)
-        echo "Option -"$OPTARG" requires an argument."
+        echo "Option -$OPTARG requires an argument."
         exit 1
         ;;
     \?)
@@ -91,8 +107,8 @@ if [[ -n "$sleep" ]]; then
     sleep "$sleep"
 fi
 
-[[ -z "$run" ]] && run dry
-[[ -n "$run" ]] && run
+[[ -z "$run" ]] && run dry $background
+[[ -n "$run" ]] && run $background
 
 rm "$pidfile"
 

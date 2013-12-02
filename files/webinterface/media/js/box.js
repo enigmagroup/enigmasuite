@@ -4,5 +4,5 @@
     });
     setInterval(function(){
         $('.puppet-output').load('/puppet_output/');
-    }, 500);
+    }, 1000);
 })();

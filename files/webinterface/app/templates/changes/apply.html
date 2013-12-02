@@ -7,11 +7,15 @@
 
       <h1>{% trans "Apply changes" %}</h1>
 
-<form method="post" class="form-horizontal">
-{% csrf_token %}
-    <button id="{{ countrycode }}" name="apply_changes" type="text" class="btn btn-primary" value="dry_run">{% trans "Show changes" %}</button>
-    <button id="{{ countrycode }}" name="apply_changes" type="text" class="btn btn-danger confirmation" value="run">{% trans "Apply changes" %}</button>
-</form>
+    <form method="post" class="form-horizontal">
+    {% csrf_token %}
+        <button id="{{ countrycode }}" name="apply_changes" type="text" class="btn btn-primary" value="dry_run">{% trans "Show changes" %}</button>
+        <button id="{{ countrycode }}" name="apply_changes" type="text" class="btn btn-danger confirmation" value="run">{% trans "Apply changes" %}</button>
+    </form>
+
+{% if output_window %}
+    <pre class="puppet-output">{{ output|safe|linebreaksbr }}</pre>
+{% endif %}
 
     </div> <!-- /container -->
 {% endblock %}

@@ -29,7 +29,6 @@ urlpatterns = patterns('app.views',
     url(r'^countryselect/$', 'countryselect'),
 
     # changes
-    url(r'^apply_changes/run/$', 'apply_changes_run'),
     url(r'^apply_changes/$', 'apply_changes'),
 
     # puppet output

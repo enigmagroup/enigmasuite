@@ -233,11 +233,19 @@ def countryselect(request):
 # Changes
 
 def apply_changes(request):
-    return render_to_response('changes/apply.html', context_instance=RequestContext(request))
 
-def apply_changes_run(request):
-    Popen(["sudo", "/usr/local/sbin/puppet-apply", "-r"], stdout=PIPE).communicate()[0]
-    return render_to_response('changes/apply_run.html', context_instance=RequestContext(request))
+    output_window = False
+
+    if request.POST.get('apply_changes') == 'dry_run':
+        output_window = True
+        Popen(["sudo", "/usr/local/sbin/puppet-apply", "-b"], stdout=PIPE).communicate()[0]
+    if request.POST.get('apply_changes') == 'dry_run':
+        output_window = True
+        Popen(["sudo", "/usr/local/sbin/puppet-apply", "-r", "-b"], stdout=PIPE).communicate()[0]
+
+    return render_to_response('changes/apply.html', {
+        'output_window': output_window,
+    }, context_instance=RequestContext(request))
 
 def puppet_output(request):
     with open('/tmp/puppet_output', 'r') as f:
