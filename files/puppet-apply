@@ -78,7 +78,7 @@ echo $$ > "$pidfile"
 
 
 # Option parsing
-while getopts ":rsb:" opt; do
+while getopts ":rs:b" opt; do
     case "$opt" in
     r)
         run=1
