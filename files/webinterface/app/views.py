@@ -235,16 +235,20 @@ def countryselect(request):
 def apply_changes(request):
 
     output_window = False
+    loader_hint = ''
 
     if request.POST.get('apply_changes') == 'dry_run':
         output_window = True
+        loader_hint = 'dry-run'
         Popen(["sudo", "/usr/local/sbin/puppet-apply", "-b"], stdout=PIPE).communicate()[0]
-    if request.POST.get('apply_changes') == 'dry_run':
+    if request.POST.get('apply_changes') == 'run':
         output_window = True
+        loader_hint = 'run'
         Popen(["sudo", "/usr/local/sbin/puppet-apply", "-r", "-b"], stdout=PIPE).communicate()[0]
 
     return render_to_response('changes/apply.html', {
         'output_window': output_window,
+        'loader_hint': loader_hint,
     }, context_instance=RequestContext(request))
 
 def puppet_output(request):

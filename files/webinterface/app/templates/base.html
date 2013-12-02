@@ -21,7 +21,7 @@
     <div class="container">
       <a class="brand" title="Home" href="{% url app.views.home %}">Enigmabox Administration</a>
 {% if_config_changed object None %}
-      <a href="{% url app.views.apply_changes %}" class="btn btn-danger">{% trans "Apply changes" %}</a>
+      <a id="button-apply" href="{% url app.views.apply_changes %}" class="btn btn-danger">{% trans "Apply changes" %}</a>
 {% endif_config_changed %}
         <ul class="nav pull-right">
             <li class="divider-vertical"></li>
