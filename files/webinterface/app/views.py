@@ -237,8 +237,6 @@ def apply_changes(request):
 
 def apply_changes_run(request):
     Popen(["sudo", "/usr/local/sbin/puppet-apply", "-r"], stdout=PIPE).communicate()[0]
-    o = Option()
-    o.config_changed(False)
     return render_to_response('changes/apply_run.html', context_instance=RequestContext(request))
 
 def puppet_output(request):
