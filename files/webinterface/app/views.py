@@ -21,6 +21,7 @@ def home(request):
     return render_to_response('home.html', {
         'hostid': o.get_value('hostid'),
         'internet_access': o.get_value('internet_access'),
+        'root_password': o.get_value('root_password'),
     }, context_instance=RequestContext(request))
 
 

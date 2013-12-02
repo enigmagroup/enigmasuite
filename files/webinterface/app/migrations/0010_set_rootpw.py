@@ -10,13 +10,21 @@ import random, string
 class Migration(DataMigration):
 
     def forwards(self, orm):
-        "Write your forwards methods here."
+
+        # generate a password
         password = ''.join(random.choice(string.ascii_letters + string.digits) for x in range(32))
         salt = ''.join(random.choice(string.ascii_letters + string.digits) for x in range(10))
         hashed_password = crypt(password, "$6$" + salt + "$")
 
-        Popen(['sudo', 'usermod', '-p', hashed_password, 'test'], stdout=PIPE).communicate()[0]
+        # set root password
+        Popen(['sudo', 'usermod', '-p', hashed_password, 'root'], stdout=PIPE).communicate()[0]
 
+        # set django admin password
+        u = User.objects.get(username__exact='admin')
+        u.set_password(password)
+        u.save()
+
+        # save password into db
         o = orm.Option()
         o.key = 'root_password'
         o.value = password
