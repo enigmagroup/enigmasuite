@@ -49,7 +49,7 @@ run() {
         puppet apply --certname box $noop --show_diff --modulepath="$puppetpath/modules" "$puppetpath/manifests/site.pp"
     fi
 
-    if [[ "$1" == "dry" ]]; then
+    if [[ "$1" != "dry" ]]; then
         sleep 3
         while true; do
             if [[ -z $(pidof puppet) ]]; then
