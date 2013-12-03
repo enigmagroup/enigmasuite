@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load apptags %}
+
+{% block main %}
+    <div class="container">
+
+      <h1>{% trans "Backup &amp; restore" %}</h1>
+
+      <p>{% trans "Backup and restore your data." %}</p>
+
+<form method="post" class="form-horizontal">
+{% csrf_token %}
+<fieldset>
+
+<legend>{% trans "Backup system settings" %}</legend>
+<p>{% trans "Your IPv6 address, addressbook, passwords, internet- and network settings" %}</p>
+
+<!-- Button -->
+<div class="control-group">
+  <div class="controls">
+    <button name="backup_system" class="btn btn-primary">Backup</button>
+  </div>
+</div>
+
+</fieldset>
+</form>
+
+<form method="post" class="form-horizontal">
+{% csrf_token %}
+<fieldset>
+
+<legend>{% trans "Restore system settings" %}</legend>
+
+<!-- File Button -->
+<div class="control-group">
+  <label class="control-label" for="filebutton">File Button</label>
+  <div class="controls">
+    <input id="filebutton" name="filebutton" class="input-file" type="file">
+  </div>
+</div>
+
+<!-- Button -->
+<div class="control-group">
+  <div class="controls">
+    <button name="backup_system" class="btn btn-primary">Restore</button>
+  </div>
+</div>
+
+</fieldset>
+</form>
+
+<form method="post" class="form-horizontal">
+{% csrf_token %}
+<fieldset>
+
+<legend>{% trans "Emails" %}</legend>
+
+<!-- Button -->
+<div class="control-group">
+  <label class="control-label">Backup emails</label>
+  <div class="controls">
+    <button name="backup_system" class="btn btn-primary">Backup</button>
+  </div>
+</div>
+
+</fieldset>
+</form>
+
+    </div> <!-- /container -->
+{% endblock %}

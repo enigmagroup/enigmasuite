@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load apptags %}
+
+{% block main %}
+    <div class="container">
+
+      <h1>{% trans "Backup &amp; restore" %}</h1>
+
+      <p>{% trans "Backup and restore your data." %}</p>
+
+        <div class="control-group">
+          <div class="controls">
+            <a href="/backup/system/" class="btn btn-inverse">{% trans "Backup system settings" %}</a>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <div class="controls">
+            <a href="/backup/email/" class="btn btn-success">{% trans "Backup emails" %}</a>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <div class="controls">
+            <a href="/backup/sslcerts/" class="btn btn-warning">{% trans "Backup SSL certificates" %}</a>
+          </div>
+        </div>
+
+    </div> <!-- /container -->
+{% endblock %}

@@ -21,6 +21,9 @@ urlpatterns = patterns('app.views',
     url(r'^passwords/$', 'passwords'),
 
     # backup & restore
+    url(r'^backup/system/$', 'backup_system'),
+    url(r'^backup/email/$', 'backup_email'),
+    url(r'^backup/sslcerts/$', 'backup_sslcerts'),
     url(r'^backup/$', 'backup'),
 
     # peerings
