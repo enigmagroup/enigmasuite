@@ -13,9 +13,6 @@
         // don't do anything special on dry run; just show loader for 60s
         if($('#loader-hint').data('value') == 'dry-run'){
             $('.loader').show();
-            setTimeout(function(){
-                $('.loader').hide();
-            }, 1000 * 60);
         }
 
         // check for process and hide buttons after run
@@ -40,6 +37,9 @@
                 if(data != prev_data){
                     $puppet_output.animate({ scrollTop: $('.puppet-output')[0].scrollHeight}, 500);
                     prev_data = data;
+                    if(data.indexOf('Finished catalog run') > -1){
+                        $('.loader').hide();
+                    }
                 }
             });
         }, 1500);
