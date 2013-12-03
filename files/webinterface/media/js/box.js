@@ -26,6 +26,7 @@
                     if(data['value'] == 'False'){
                         $('.loader').hide();
                         $('#button-dry-run, #button-run, #button-apply').hide();
+                        $('#success').show();
                     }
                 });
             }, 2000);
@@ -35,7 +36,7 @@
         setInterval(function(){
             $puppet_output.load('/puppet_output/', function(data){
                 if(data != prev_data){
-                    $puppet_output.animate({ scrollTop: $('.puppet-output')[0].scrollHeight}, 500);
+                    $puppet_output.animate({ scrollTop: $('.puppet-output')[0].scrollHeight}, 1000);
                     prev_data = data;
                     if(data.indexOf('Finished catalog run') > -1){
                         $('.loader').hide();
