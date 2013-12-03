@@ -240,11 +240,11 @@ def apply_changes(request):
     if request.POST.get('apply_changes') == 'dry_run':
         output_window = True
         loader_hint = 'dry-run'
-        Popen(["sudo", "/usr/local/sbin/puppet-apply", "-b"], stdout=PIPE).communicate()[0]
+        Popen(["sudo", "/usr/local/sbin/puppet-apply", "-b"], stdout=PIPE)
     if request.POST.get('apply_changes') == 'run':
         output_window = True
         loader_hint = 'run'
-        Popen(["sudo", "/usr/local/sbin/puppet-apply", "-r", "-b"], stdout=PIPE).communicate()[0]
+        Popen(["sudo", "/usr/local/sbin/puppet-apply", "-r", "-b"], stdout=PIPE)
 
     return render_to_response('changes/apply.html', {
         'output_window': output_window,
