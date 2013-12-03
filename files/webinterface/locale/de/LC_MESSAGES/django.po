@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-20 11:06+0100\n"
-"PO-Revision-Date: 2013-11-20 11:18+0100\n"
+"POT-Creation-Date: 2013-12-03 11:05+0100\n"
+"PO-Revision-Date: 2013-12-03 11:09+0100\n"
 "Last-Translator: Agent 42 <42@enigmabox.net>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -26,7 +26,8 @@ msgid "English"
 msgstr "Englisch"
 
 #: app/templates/base.html:24
-#: app/templates/changes/apply.html:9
+#: app/templates/base.html.py:53
+#: app/templates/changes/apply.html:8
 msgid "Apply changes"
 msgstr "Änderungen anwenden"
 
@@ -52,19 +53,19 @@ msgstr "Adressbuch"
 msgid "Passwords"
 msgstr "Passwörter"
 
-#: app/templates/base.html:52
+#: app/templates/base.html:55
 msgid "Internet"
 msgstr "Internet"
 
-#: app/templates/base.html:53
+#: app/templates/base.html:56
 msgid "Country selection"
 msgstr "Land auswählen"
 
-#: app/templates/base.html:54
+#: app/templates/base.html:57
 msgid "Network"
 msgstr "Netzwerk"
 
-#: app/templates/base.html:55
+#: app/templates/base.html:58
 #: app/templates/peerings/detail.html:9
 #: app/templates/peerings/overview.html:8
 msgid "Peerings"
@@ -208,21 +209,33 @@ msgstr "Adresse hinzufügen"
 msgid "Add"
 msgstr "Hinzufügen"
 
+#: app/templates/changes/apply.html:9
+msgid "You can review outstanding changes by hitting &quot;Show changes&quot;."
+msgstr "Du kannst ausstehende Änderungen anzeigen mit &quot;Änderungen anzeigen&quot;."
+
 #: app/templates/changes/apply.html:10
-msgid "Applying changes, please wait..."
-msgstr "Wende Änderungen an, bitte warten..."
+msgid "Apply them with &quot;Confirm changes&quot;."
+msgstr "&quot;Änderungen bestätigen&quot; wendet die Änderungen an."
 
-#: app/templates/changes/apply.html:11
-msgid "This can take up to 5 minutes."
-msgstr "Dieser Vorgang kann bis zu 5 Minuten dauern."
+#: app/templates/changes/apply.html:16
+msgid "Back"
+msgstr "Zurück"
 
-#: app/templates/changes/apply_run.html:8
-msgid "Changes applied."
-msgstr "Änderungen angewendet."
+#: app/templates/changes/apply.html:16
+msgid "Changes successfully applied."
+msgstr "Änderungen erfolgreich angewendet."
 
-#: app/templates/changes/apply_run.html:9
-msgid "Done"
-msgstr "Fertig"
+#: app/templates/changes/apply.html:17
+msgid "Show changes"
+msgstr "Änderungen anzeigen"
+
+#: app/templates/changes/apply.html:18
+msgid "Confirm changes"
+msgstr "Änderungen bestätigen"
+
+#: app/templates/changes/apply.html:19
+msgid "Please wait"
+msgstr "Bitte warten"
 
 #: app/templates/countryselect/overview.html:8
 msgid "Select country"
@@ -320,3 +333,11 @@ msgstr "Autopeering"
 msgid "Automatically connect to other cjdns nodes in the same LAN"
 msgstr "Automatisch zu anderen cjdns-Knoten im gleichen Netzwerk verbinden"
 
+#~ msgid "Applying changes, please wait..."
+#~ msgstr "Wende Änderungen an, bitte warten..."
+
+#~ msgid "This can take up to 5 minutes."
+#~ msgstr "Dieser Vorgang kann bis zu 5 Minuten dauern."
+
+#~ msgid "Done"
+#~ msgstr "Fertig"
