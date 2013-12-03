@@ -27,7 +27,7 @@ def home(request):
 
     for key, value in netstat.items():
         try:
-            with open('/tmp/netstat_file-' + key, 'r') as f:
+            with open('/tmp/netstat-' + key, 'r') as f:
                 netstat[key] = f.read().strip()
         except:
             pass
