@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-03 11:05+0100\n"
-"PO-Revision-Date: 2013-12-03 11:09+0100\n"
+"POT-Creation-Date: 2013-12-03 16:13+0100\n"
+"PO-Revision-Date: 2013-12-03 16:17+0100\n"
 "Last-Translator: Agent 42 <42@enigmabox.net>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -25,95 +25,127 @@ msgstr "Deutsch"
 msgid "English"
 msgstr "Englisch"
 
-#: app/templates/base.html:24
-#: app/templates/base.html.py:53
+#: app/templates/base.html:18
+msgid "Are you sure?"
+msgstr "Bist du sicher?"
+
+#: app/templates/base.html:19
+msgid "Show"
+msgstr "Zeigen"
+
+#: app/templates/base.html:29
+#: app/templates/base.html.py:59
 #: app/templates/changes/apply.html:8
 msgid "Apply changes"
 msgstr "Änderungen anwenden"
 
-#: app/templates/base.html:48
-#: app/templates/home.html:8
+#: app/templates/base.html:53
+#: app/templates/home.html:9
 msgid "Welcome"
 msgstr "Willkommen"
 
-#: app/templates/base.html:49
+#: app/templates/base.html:54
 msgid "System"
 msgstr "System"
 
-#: app/templates/base.html:50
-#: app/templates/home.html:12
+#: app/templates/base.html:55
+#: app/templates/home.html:13
 #: app/templates/addressbook/detail.html:9
 #: app/templates/addressbook/overview.html:8
 msgid "Addressbook"
 msgstr "Adressbuch"
 
-#: app/templates/base.html:51
+#: app/templates/base.html:56
 #: app/templates/passwords.html:8
 #: app/templates/passwords.html.py:16
 msgid "Passwords"
 msgstr "Passwörter"
 
-#: app/templates/base.html:55
+#: app/templates/base.html:57
+#: app/templates/backup/emails.html:8
+#: app/templates/backup/emails.html:12
+#: app/templates/backup/overview.html:8
+#: app/templates/backup/sslcerts.html:8
+#: app/templates/backup/sslcerts.html:12
+#: app/templates/backup/system.html:8
+#: app/templates/backup/system.html:12
+msgid "Backup &amp; restore"
+msgstr "Sichern &amp; Wiederherstellen"
+
+#: app/templates/base.html:61
+#: app/templates/home.html:18
 msgid "Internet"
 msgstr "Internet"
 
-#: app/templates/base.html:56
+#: app/templates/base.html:62
 msgid "Country selection"
 msgstr "Land auswählen"
 
-#: app/templates/base.html:57
+#: app/templates/base.html:63
 msgid "Network"
 msgstr "Netzwerk"
 
-#: app/templates/base.html:58
+#: app/templates/base.html:64
 #: app/templates/peerings/detail.html:9
 #: app/templates/peerings/overview.html:8
 msgid "Peerings"
 msgstr "Peerings"
 
-#: app/templates/home.html:10
+#: app/templates/home.html:11
 msgid "Your hostid is"
 msgstr "Deine Hostid ist"
 
-#: app/templates/home.html:10
+#: app/templates/home.html:11
 msgid "Network access valid until"
 msgstr "Dein Netzwerkzugang ist noch gültig bis zum"
 
-#: app/templates/home.html:12
+#: app/templates/home.html:13
 msgid "Manage your contacts in the"
 msgstr "Verwalte Deine Adressen im"
 
-#: app/templates/home.html:16
-#: app/templates/home.html.py:22
+#: app/templates/home.html:17
+msgid "DHCP"
+msgstr "DHCP"
+
+#: app/templates/home.html:19
+msgid "cjdns"
+msgstr "cjdns"
+
+#: app/templates/home.html:20
+msgid "Internet via cjdns"
+msgstr "Internet via cjdns"
+
+#: app/templates/home.html:24
+#: app/templates/home.html.py:30
 msgid "Connection info"
 msgstr "Verbindungsinfos"
 
-#: app/templates/home.html:16
+#: app/templates/home.html:24
 msgid "SIP phone"
 msgstr "IP-Telefon"
 
-#: app/templates/home.html:17
-#: app/templates/home.html.py:23
+#: app/templates/home.html:25
+#: app/templates/home.html.py:31
 msgid "Username"
 msgstr "Benutzername"
 
-#: app/templates/home.html:18
-#: app/templates/home.html.py:24
+#: app/templates/home.html:26
+#: app/templates/home.html.py:32
 #: app/templates/peerings/detail.html:49
 #: app/templates/peerings/detail.html:51
 #: app/templates/peerings/overview.html:61
 msgid "Password"
 msgstr "Passwort"
 
-#: app/templates/home.html:19
+#: app/templates/home.html:27
 msgid "Domain/Server"
 msgstr "Domain/Server"
 
-#: app/templates/home.html:22
+#: app/templates/home.html:30
 msgid "SSH access"
 msgstr "SSH-Zugang"
 
-#: app/templates/home.html:25
+#: app/templates/home.html:33
 msgid "Server"
 msgstr "Server"
 
@@ -208,6 +240,68 @@ msgstr "Adresse hinzufügen"
 #: app/templates/addressbook/overview.html:56
 msgid "Add"
 msgstr "Hinzufügen"
+
+#: app/templates/backup/emails.html:9
+#: app/templates/backup/emails.html:61
+#: app/templates/backup/sslcerts.html:59
+msgid "Emails"
+msgstr "E-Mails"
+
+#: app/templates/backup/emails.html:12
+msgid "emails"
+msgstr "E-Mails"
+
+#: app/templates/backup/emails.html:14
+#: app/templates/backup/overview.html:10
+msgid "Backup and restore your data."
+msgstr "Sichern und Wiederherstellen deiner Daten."
+
+#: app/templates/backup/emails.html:20
+#: app/templates/backup/overview.html:14
+#: app/templates/backup/sslcerts.html:18
+#: app/templates/backup/system.html:20
+msgid "Backup system settings"
+msgstr "Systemeinstellungen sichern"
+
+#: app/templates/backup/emails.html:21
+#: app/templates/backup/sslcerts.html:19
+msgid "Your IPv6 address, addressbook, passwords, internet- and network settings"
+msgstr "FUCK YOU"
+
+#: app/templates/backup/emails.html:37
+#: app/templates/backup/sslcerts.html:35
+#: app/templates/backup/system.html:36
+msgid "Restore system settings"
+msgstr "Systemeinstellungen wiederherstellen"
+
+#: app/templates/backup/overview.html:20
+msgid "Backup emails"
+msgstr "E-Mails sichern"
+
+#: app/templates/backup/overview.html:26
+msgid "Backup SSL certificates"
+msgstr "SSL-Zertifikate sichern"
+
+#: app/templates/backup/sslcerts.html:9
+#: app/templates/backup/sslcerts.html:12
+msgid "SSL certificates"
+msgstr "SSL-Zertifikate"
+
+#: app/templates/backup/system.html:9
+msgid "System settings"
+msgstr "Systemeinstellungen"
+
+#: app/templates/backup/system.html:12
+msgid "system settings"
+msgstr "systemeinstellungen"
+
+#: app/templates/backup/system.html:14
+msgid "Your IPv6 address, addressbook, passwords, internet- and network settings."
+msgstr "Deine IPv6-Adresse, das Adressbuch, Passwörter, Internet- und Netzwerkeinstellungen."
+
+#: app/templates/backup/system.html:49
+msgid "Restore"
+msgstr "Wiederherstellen"
 
 #: app/templates/changes/apply.html:9
 msgid "You can review outstanding changes by hitting &quot;Show changes&quot;."

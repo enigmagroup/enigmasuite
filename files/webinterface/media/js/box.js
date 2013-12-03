@@ -1,7 +1,17 @@
 (function(){
 
+    trans = window.translation;
+
     $('.confirmation').click(function(){
-        return confirm('Bist Du sicher?');
+        return confirm(trans['are_you_sure']);
+    });
+
+    $unveil = $('.unveil');
+    unveil_text = $unveil.text();
+    $unveil.html('<a href="#">' + trans['show'] + '</a>');
+    $unveil.on('click', function(){
+        $unveil.html(unveil_text);
+        return false;
     });
 
     $puppet_output = $('.puppet-output');
