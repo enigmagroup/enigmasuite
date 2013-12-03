@@ -18,10 +18,25 @@ def home(request):
         request.session['django_language'] = language
         return redirect('/')
 
+    netstat = {
+        'dhcp': '0',
+        'internet': '0',
+        'cjdns': '0',
+        'cjdns_internet': '0',
+    }
+
+    for key, value in netstat.items():
+        try:
+            with open('/tmp/netstat_file-' + key, 'r') as f:
+                netstat[key] = f.read().strip()
+        except:
+            pass
+
     return render_to_response('home.html', {
         'hostid': o.get_value('hostid'),
         'internet_access': o.get_value('internet_access'),
         'root_password': o.get_value('root_password'),
+        'netstat': netstat,
     }, context_instance=RequestContext(request))
 
 
