@@ -136,7 +136,7 @@ set_network_parameters() {
 set_status() {
     key=$1
     val=$2
-    curl --data "key=$key&value=$val" -X POST http://127.0.0.1:8000/api/v1/set_netstat &> /dev/null
+    curl --data "key=netstat_$key&value=$val" -X POST http://127.0.0.1:8000/api/v1/set_option &> /dev/null
 }
 
 
@@ -148,20 +148,33 @@ if [[ $(gateway_is_up) == true ]]; then
     e "checking internet connectivity over cjdns"
     if [[ $(ping -c 1 -W 2 8.8.8.8 | grep 'bytes from') ]]; then
         echo "We have internet. Good."
+        set_status "dhcp" 1
+        set_status "internet" 1
+        set_status "cjdns" 1
+        set_status "cjdns_internet" 1
         rm "$cjdns_request_tries" 2> /dev/null
         exit
     fi
 fi
 
 echo "No internet via cjdns. Checking for regular internet connection..."
+set_status "dhcp" 0
+set_status "internet" 0
+set_status "cjdns" 0
+set_status "cjdns_internet" 0
 
 dhcp
+
+if [[ $(ifconfig eth0 | grep 'inet addr' | wc -l) -gt 0 ]]; then
+    set_status "dhcp" 1
+fi
 
 # check for internet. if only one server with a direct route is pingable, we have an internet connection
 wehaveinternet="no"
 for remoteaddress in $remoteadresses; do
     if [[ $(ping -c 1 -W 2 "$remoteaddress" | grep 'bytes from') ]]; then
         echo "internet detected"
+        set_status "internet" 1
         wehaveinternet="yes"
         break
     fi
@@ -171,12 +184,14 @@ if [[ "$wehaveinternet" == "yes" ]]; then
     sync_time
     request_cjdns_internet
     restart_cjdns
+    set_status "cjdns" 1
     for i in {1..50}; do
         echo waiting for gateway to come up...
         if [[ $(gateway_is_up) == true ]]; then
             e "gateway is up."
             set_network_parameters
             e "done."
+            set_status "cjdns_internet" 1
             exit
         fi
         sleep 1
@@ -186,4 +201,5 @@ else
     # just ensure that cjdns is running, but DO NOT restart it!
     # since local phone calls may be active.
     start_cjdns
+    set_status "cjdns" 1
 fi
