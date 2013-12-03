@@ -14,6 +14,12 @@ def active(request, pattern):
     return ''
 
 @register.simple_tag
+def netstat_btn(status):
+    if status == '1':
+        return 'success'
+    return 'inverse'
+
+@register.simple_tag
 def form_error(errors):
     if errors:
         return 'style="background: #fbb;"'

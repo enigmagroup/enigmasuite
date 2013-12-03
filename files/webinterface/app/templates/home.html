@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load i18n %}
+{% load apptags %}
 
 {% block main %}
 
@@ -10,6 +11,13 @@
       <p>{% trans "Your hostid is" %} <strong>{{ hostid }}</strong>. {% trans "Network access valid until" %} {{ internet_access }}.</p>
 {% endif %}
       <p>{% trans "Manage your contacts in the" %} <a href="{% url app.views.addressbook %}">{% trans "Addressbook" %}</a>.</p>
+
+      <hr />
+
+        <a href="" class="btn btn-{% netstat_btn netstat_dhcp %}">{% trans "DHCP" %}</a>
+        <a href="" class="btn btn-{% netstat_btn netstat_internet %}">{% trans "Internet" %}</a>
+        <a href="" class="btn btn-{% netstat_btn netstat_cjdns %}">{% trans "cjdns" %}</a>
+        <a href="" class="btn btn-{% netstat_btn netstat_cjdns_internet %}">{% trans "Internet via cjdns" %}</a>
 
       <hr />
 
