@@ -12,7 +12,7 @@
 
         if($('#loader-hint').data('value') == 'dry-run'){
             $('.loader').show();
-            $('#button-dry-run, #button-run, #button-apply').attr('disabled', 'disabled');
+            $('#button-dry-run, #button-run').attr('disabled', 'disabled');
         }
 
         if($('#loader-hint').data('value') == 'run'){
