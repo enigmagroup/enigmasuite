@@ -49,6 +49,7 @@
                 <li class="nav-header">{% trans "System" %}</li>
                 <li class="{% active request 'addressbook' %}"><a href="{% url app.views.addressbook %}"><i class="icon-user"></i> {% trans "Addressbook" %}</a></li>
                 <li class="{% active request 'passwords' %}"><a href="{% url app.views.passwords %}"><i class="icon-lock"></i> {% trans "Passwords" %}</a></li>
+                <li class="{% active request 'backup' %}"><a href="{% url app.views.backup %}"><i class="icon-share"></i> {% trans "Backup &amp; restore" %}</a></li>
 {% if_config_changed object None %}
                 <li class="{% active request 'apply_changes' %}"><a href="{% url app.views.apply_changes %}"><i class="icon-circle-arrow-right"></i> {% trans "Apply changes" %}</a></li>
 {% endif_config_changed %}

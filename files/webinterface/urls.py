@@ -20,6 +20,9 @@ urlpatterns = patterns('app.views',
     # passwords
     url(r'^passwords/$', 'passwords'),
 
+    # backup & restore
+    url(r'^backup/$', 'backup'),
+
     # peerings
     url(r'^peerings/new/$', 'peerings_edit'),
     url(r'^peerings/(?P<peering_id>.*)/$', 'peerings_edit'),
