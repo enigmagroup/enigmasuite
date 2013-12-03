@@ -133,6 +133,12 @@ set_network_parameters() {
     dns
 }
 
+set_status() {
+    key=$1
+    val=$2
+    curl --data "key=$key&value=$val" -X POST http://127.0.0.1:8000/api/v1/set_netstat &> /dev/null
+}
+
 
 
 # logic
