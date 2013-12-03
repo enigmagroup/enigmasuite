@@ -4,17 +4,20 @@
 
 {% block main %}
     <div class="container">
+    <ul class="breadcrumb">
+        <li><a href="/backup/">{% trans "Backup &amp; restore" %}</a> <span class="divider">/</span></li>
+        <li class="active">{% trans "System settings" %}</li>
+    </ul>
 
-      <h1>{% trans "Backup &amp; restore" %}</h1>
+      <h1>{% trans "Backup &amp; restore" %} {% trans "system settings" %}</h1>
 
-      <p>{% trans "Backup and restore your data." %}</p>
+        <p>{% trans "Your IPv6 address, addressbook, passwords, internet- and network settings." %}</p>
 
 <form method="post" class="form-horizontal">
 {% csrf_token %}
 <fieldset>
 
 <legend>{% trans "Backup system settings" %}</legend>
-<p>{% trans "Your IPv6 address, addressbook, passwords, internet- and network settings" %}</p>
 
 <!-- Button -->
 <div class="control-group">
@@ -44,23 +47,6 @@
 <div class="control-group">
   <div class="controls">
     <button name="backup_system" class="btn btn-primary">Restore</button>
-  </div>
-</div>
-
-</fieldset>
-</form>
-
-<form method="post" class="form-horizontal">
-{% csrf_token %}
-<fieldset>
-
-<legend>{% trans "Emails" %}</legend>
-
-<!-- Button -->
-<div class="control-group">
-  <label class="control-label">Backup emails</label>
-  <div class="controls">
-    <button name="backup_system" class="btn btn-primary">Backup</button>
   </div>
 </div>
 

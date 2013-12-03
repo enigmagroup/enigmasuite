@@ -154,7 +154,7 @@ def backup_system(request):
         'mailbox_password': o.get_value('mailbox_password'),
         }, context_instance=RequestContext(request))
 
-def backup_email(request):
+def backup_emails(request):
 
     o = Option()
 
@@ -166,7 +166,7 @@ def backup_email(request):
         o.set_value('mailbox_password', request.POST.get('mailbox_password'))
         o.config_changed(True)
 
-    return render_to_response('backup/email.html', {
+    return render_to_response('backup/emails.html', {
         'webinterface_password': o.get_value('webinterface_password'),
         'mailbox_password': o.get_value('mailbox_password'),
         }, context_instance=RequestContext(request))

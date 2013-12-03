@@ -22,7 +22,7 @@ urlpatterns = patterns('app.views',
 
     # backup & restore
     url(r'^backup/system/$', 'backup_system'),
-    url(r'^backup/email/$', 'backup_email'),
+    url(r'^backup/emails/$', 'backup_emails'),
     url(r'^backup/sslcerts/$', 'backup_sslcerts'),
     url(r'^backup/$', 'backup'),
 

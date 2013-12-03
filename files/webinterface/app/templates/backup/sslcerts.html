@@ -4,10 +4,12 @@
 
 {% block main %}
     <div class="container">
+    <ul class="breadcrumb">
+        <li><a href="/backup/">{% trans "Backup &amp; restore" %}</a> <span class="divider">/</span></li>
+        <li class="active">{% trans "SSL certificates" %}</li>
+    </ul>
 
-      <h1>{% trans "Backup &amp; restore" %}</h1>
-
-      <p>{% trans "Backup and restore your data." %}</p>
+      <h1>{% trans "Backup &amp; restore" %} {% trans "SSL certificates" %}</h1>
 
 <form method="post" class="form-horizontal">
 {% csrf_token %}
