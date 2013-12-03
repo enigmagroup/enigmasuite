@@ -156,13 +156,26 @@ def backup_system(request):
 
     o = Option()
 
-    if request.POST.get('set_webinterface_password'):
-        o.set_value('webinterface_password', request.POST.get('webinterface_password'))
-        o.config_changed(True)
+    if request.POST.get('backup'):
+        import os, tempfile, zipfile
+        from django.http import HttpResponse
+        from django.core.servers.basehttp import FileWrapper
 
-    if request.POST.get('set_mailbox_password'):
-        o.set_value('mailbox_password', request.POST.get('mailbox_password'))
+        filename = '/box/settings.sqlite'
+        wrapper = FileWrapper(file(filename))
+        response = HttpResponse(wrapper, content_type='application/x-sqlite3')
+        response['Content-Disposition'] = 'attachment; filename=settings.sqlite'
+        response['Content-Length'] = os.path.getsize(filename)
+        return response
+
+    if request.POST.get('restore'):
+        destination = open('/box/settings.sqlite', 'wb+')
+        for chunk in request.FILES['file'].chunks():
+            destination.write(chunk)
+        destination.close()
         o.config_changed(True)
+        o.set_value('internet_requested', 0)
+        return redirect('/backup/system/')
 
     return render_to_response('backup/system.html', {
         'webinterface_password': o.get_value('webinterface_password'),
