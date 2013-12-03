@@ -29,7 +29,7 @@ EOF
 run() {
     noop=""
     if [[ "$1" == "dry" ]]; then
-        noop="--noop"
+        noop=1
         echo "** dry run **"
     fi
 
@@ -43,15 +43,35 @@ run() {
     echo "running puppet and applying manifest..."
     curl "$webinterface/puppet/site.pp" > "$puppetpath/manifests/site.pp"
 
-    if [[ "$background" == 1 ]]; then
-        puppet apply --certname box $noop --show_diff --modulepath="$puppetpath/modules" "$puppetpath/manifests/site.pp" > "$puppet_output" &
+    if [[ "$noop" == 1 ]]; then
+
+        if [[ "$background" == 1 ]]; then
+            puppet_run noop > "$puppet_output" &
+        else
+            puppet_run noop > "$puppet_output"
+        fi
+
     else
-        puppet apply --certname box $noop --show_diff --modulepath="$puppetpath/modules" "$puppetpath/manifests/site.pp"
+
+        if [[ "$background" == 1 ]]; then
+            (puppet_run > "$puppet_output" && inform_webinterface) &
+        else
+            puppet_run > "$puppet_output" && inform_webinterface
+        fi
+
     fi
 
-    # inform webinterface
-    if [[ "$1" != "dry" ]]; then
-        curl --data "key=config_changed&value=False" -X POST http://127.0.0.1:8000/api/v1/set_option &> /dev/null
+}
+
+inform_webinterface() {
+    curl --data "key=config_changed&value=False" -X POST http://127.0.0.1:8000/api/v1/set_option &> /dev/null
+}
+
+puppet_run() {
+    if [[ "$1" == "noop" ]]; then
+        puppet apply --certname box --noop --show_diff --modulepath="$puppetpath/modules" "$puppetpath/manifests/site.pp"
+    else
+        puppet apply --certname box --show_diff --modulepath="$puppetpath/modules" "$puppetpath/manifests/site.pp"
     fi
 }
 
