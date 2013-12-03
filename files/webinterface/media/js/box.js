@@ -10,12 +10,11 @@
 
         $puppet_output.height(parseInt($(window).height(), 10) - 400);
 
-        // don't do anything special on dry run; just show loader for 60s
         if($('#loader-hint').data('value') == 'dry-run'){
             $('.loader').show();
+            $('#button-dry-run, #button-run, #button-apply').attr('disabled', 'disabled');
         }
 
-        // check for process and hide buttons after run
         if($('#loader-hint').data('value') == 'run'){
             $('.loader').show();
 
@@ -26,7 +25,7 @@
                     if(data['value'] == 'False'){
                         $('.loader').hide();
                         $('#button-dry-run, #button-run, #button-apply').hide();
-                        $('#success').show();
+                        $('#success').fadeIn();
                     }
                 });
             }, 2000);
@@ -39,6 +38,7 @@
                     $puppet_output.animate({ scrollTop: $('.puppet-output')[0].scrollHeight}, 1000);
                     prev_data = data;
                     if(data.indexOf('Finished catalog run') > -1){
+                        $('#button-dry-run, #button-run, #button-apply').removeAttr('disabled');
                         $('.loader').hide();
                     }
                 }

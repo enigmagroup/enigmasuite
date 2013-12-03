@@ -245,6 +245,8 @@ def apply_changes(request):
         output_window = True
         loader_hint = 'run'
         Popen(["sudo", "/usr/local/sbin/puppet-apply", "-r", "-b"], stdout=PIPE)
+    if request.POST.get('apply_changes') == 'back':
+        return redirect('/')
 
     return render_to_response('changes/apply.html', {
         'output_window': output_window,
