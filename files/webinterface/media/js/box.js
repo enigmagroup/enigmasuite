@@ -17,6 +17,7 @@
 
         if($('#loader-hint').data('value') == 'run'){
             $('.loader').show();
+            $('#button-dry-run, #button-run').attr('disabled', 'disabled');
 
             setInterval(function(){
                 ret = $.post('/api/v1/get_option', {

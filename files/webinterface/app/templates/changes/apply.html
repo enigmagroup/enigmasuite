@@ -13,7 +13,7 @@
 
     <form method="post" class="form-horizontal">
     {% csrf_token %}
-        <span id="success" style="display: none;"><button id="button-success" name="apply_changes" type="text" class="btn btn-success" value="home">Back</button>&nbsp;{% trans "Changes successfully applied." %}</span>
+        <span id="success" style="display: none;"><button id="button-success" name="apply_changes" type="text" class="btn btn-success" value="back">Back</button>&nbsp;{% trans "Changes successfully applied." %}</span>
         <button id="button-dry-run" name="apply_changes" type="text" class="btn btn-primary" value="dry_run">{% trans "Show changes" %}</button>
         <button id="button-run" name="apply_changes" type="text" class="btn btn-danger confirmation" value="run">{% trans "Confirm changes" %}</button>
         <span class="loader" style="display: none;">&nbsp;{% trans "Please wait" %}...&nbsp;<img src="/media/img/ajax-loader.gif" alt="ajax loader" /></span>
