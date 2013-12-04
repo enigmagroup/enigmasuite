@@ -160,7 +160,7 @@ def backup_system(request):
     msg = False
 
     if request.POST.get('backup'):
-        import os, tempfile, zipfile
+        import os
         from django.http import HttpResponse
         from django.core.servers.basehttp import FileWrapper
 
@@ -204,14 +204,21 @@ def backup_system(request):
 def backup_emails(request):
 
     o = Option()
+    zip_name = '/tmp/sslcerts.zip'
 
-    if request.POST.get('set_webinterface_password'):
-        o.set_value('webinterface_password', request.POST.get('webinterface_password'))
-        o.config_changed(True)
+    if request.POST.get('backup'):
+        from zipfile import ZipFile
 
-    if request.POST.get('set_mailbox_password'):
-        o.set_value('mailbox_password', request.POST.get('mailbox_password'))
-        o.config_changed(True)
+        with ZipFile(zip_name, 'w') as myzip:
+            myzip.write('/etc/puppet/ssl/certs/' + hostid + '.pem', hostid + '-cert.pem')
+            myzip.write('/etc/puppet/ssl/public_keys/' + hostid + '.pem', hostid + '-public_key.pem')
+            myzip.write('/etc/puppet/ssl/private_keys/' + hostid + '.pem', hostid + '-private_key.pem')
+
+        wrapper = FileWrapper(file(zip_name))
+        response = HttpResponse(wrapper, content_type='application/zip')
+        response['Content-Disposition'] = 'attachment; filename=sslcerts.zip'
+        response['Content-Length'] = os.path.getsize(zip_name)
+        return response
 
     return render_to_response('backup/emails.html', {
         'webinterface_password': o.get_value('webinterface_password'),
@@ -221,18 +228,29 @@ def backup_emails(request):
 def backup_sslcerts(request):
 
     o = Option()
+    zip_name = '/tmp/sslcerts.zip'
+    msg = False
 
-    if request.POST.get('set_webinterface_password'):
-        o.set_value('webinterface_password', request.POST.get('webinterface_password'))
-        o.config_changed(True)
+    if request.POST.get('backup'):
+        from zipfile import ZipFile
+        hostid = o.get_value('hostid')
 
-    if request.POST.get('set_mailbox_password'):
-        o.set_value('mailbox_password', request.POST.get('mailbox_password'))
-        o.config_changed(True)
+        try:
+            with ZipFile(zip_name, 'w') as myzip:
+                myzip.write('/etc/puppet/ssl/certs/' + hostid + '.pem', hostid + '-cert.pem')
+                myzip.write('/etc/puppet/ssl/public_keys/' + hostid + '.pem', hostid + '-public_key.pem')
+                myzip.write('/etc/puppet/ssl/private_keys/' + hostid + '.pem', hostid + '-private_key.pem')
+
+            wrapper = FileWrapper(file(zip_name))
+            response = HttpResponse(wrapper, content_type='application/zip')
+            response['Content-Disposition'] = 'attachment; filename=sslcerts.zip'
+            response['Content-Length'] = os.path.getsize(zip_name)
+            return response
+        except:
+            msg = 'error'
 
     return render_to_response('backup/sslcerts.html', {
-        'webinterface_password': o.get_value('webinterface_password'),
-        'mailbox_password': o.get_value('mailbox_password'),
+        'msg': msg,
         }, context_instance=RequestContext(request))
 
 
