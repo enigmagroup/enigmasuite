@@ -48,7 +48,7 @@ run() {
         if [[ "$background" == 1 ]]; then
             puppet_run noop > "$puppet_output" &
         else
-            puppet_run noop > "$puppet_output"
+            puppet_run noop
         fi
 
     else
@@ -56,7 +56,7 @@ run() {
         if [[ "$background" == 1 ]]; then
             (puppet_run > "$puppet_output" && inform_webinterface) &
         else
-            puppet_run > "$puppet_output" && inform_webinterface
+            puppet_run && inform_webinterface &> /dev/null
         fi
 
     fi
