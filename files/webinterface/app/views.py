@@ -208,6 +208,10 @@ def backup_emails(request):
     msg = False
 
     if request.POST.get('backup'):
+        import os
+        from django.http import HttpResponse
+        from django.core.servers.basehttp import FileWrapper
+
         try:
             Popen(["sudo", "/usr/local/sbin/backup-stuff", "emails"], stdout=PIPE).communicate()[0]
 
@@ -230,6 +234,10 @@ def backup_sslcerts(request):
     msg = False
 
     if request.POST.get('backup'):
+        import os
+        from django.http import HttpResponse
+        from django.core.servers.basehttp import FileWrapper
+
         try:
             Popen(["sudo", "/usr/local/sbin/backup-stuff", "sslcerts"], stdout=PIPE).communicate()[0]
 
