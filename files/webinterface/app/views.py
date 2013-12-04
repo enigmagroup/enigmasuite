@@ -204,47 +204,39 @@ def backup_system(request):
 def backup_emails(request):
 
     o = Option()
-    zip_name = '/tmp/sslcerts.zip'
+    filename = '/tmp/emails.tar.gz'
+    msg = False
 
     if request.POST.get('backup'):
-        from zipfile import ZipFile
+        try:
+            Popen(["sudo", "/usr/local/sbin/backup-stuff", "emails"], stdout=PIPE).communicate()[0]
 
-        with ZipFile(zip_name, 'w') as myzip:
-            myzip.write('/etc/puppet/ssl/certs/' + hostid + '.pem', hostid + '-cert.pem')
-            myzip.write('/etc/puppet/ssl/public_keys/' + hostid + '.pem', hostid + '-public_key.pem')
-            myzip.write('/etc/puppet/ssl/private_keys/' + hostid + '.pem', hostid + '-private_key.pem')
-
-        wrapper = FileWrapper(file(zip_name))
-        response = HttpResponse(wrapper, content_type='application/zip')
-        response['Content-Disposition'] = 'attachment; filename=sslcerts.zip'
-        response['Content-Length'] = os.path.getsize(zip_name)
-        return response
+            wrapper = FileWrapper(file(filename))
+            response = HttpResponse(wrapper, content_type='application/x-gzip')
+            response['Content-Disposition'] = 'attachment; filename=emails.tar.gz'
+            response['Content-Length'] = os.path.getsize(filename)
+            return response
+        except:
+            msg = 'error'
 
     return render_to_response('backup/emails.html', {
-        'webinterface_password': o.get_value('webinterface_password'),
-        'mailbox_password': o.get_value('mailbox_password'),
+        'msg': msg,
         }, context_instance=RequestContext(request))
 
 def backup_sslcerts(request):
 
     o = Option()
-    zip_name = '/tmp/sslcerts.zip'
+    filename = '/tmp/sslcerts.tar.gz'
     msg = False
 
     if request.POST.get('backup'):
-        from zipfile import ZipFile
-        hostid = o.get_value('hostid')
-
         try:
-            with ZipFile(zip_name, 'w') as myzip:
-                myzip.write('/etc/puppet/ssl/certs/' + hostid + '.pem', hostid + '-cert.pem')
-                myzip.write('/etc/puppet/ssl/public_keys/' + hostid + '.pem', hostid + '-public_key.pem')
-                myzip.write('/etc/puppet/ssl/private_keys/' + hostid + '.pem', hostid + '-private_key.pem')
+            Popen(["sudo", "/usr/local/sbin/backup-stuff", "sslcerts"], stdout=PIPE).communicate()[0]
 
-            wrapper = FileWrapper(file(zip_name))
-            response = HttpResponse(wrapper, content_type='application/zip')
-            response['Content-Disposition'] = 'attachment; filename=sslcerts.zip'
-            response['Content-Length'] = os.path.getsize(zip_name)
+            wrapper = FileWrapper(file(filename))
+            response = HttpResponse(wrapper, content_type='application/x-gzip')
+            response['Content-Disposition'] = 'attachment; filename=sslcerts.tar.gz'
+            response['Content-Length'] = os.path.getsize(filename)
             return response
         except:
             msg = 'error'
