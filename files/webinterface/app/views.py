@@ -155,6 +155,9 @@ def backup(request):
 def backup_system(request):
 
     o = Option()
+    temp_db = '/tmp/settings.sqlite'
+    final_db = '/box/settings.sqlite'
+    msg = False
 
     if request.POST.get('backup'):
         import os, tempfile, zipfile
@@ -168,18 +171,34 @@ def backup_system(request):
         response['Content-Length'] = os.path.getsize(filename)
         return response
 
+    if request.POST.get('upload_check'):
+        import sqlite3
+
+        try:
+            destination = open(temp_db, 'wb+')
+            for chunk in request.FILES['file'].chunks():
+                destination.write(chunk)
+            destination.close()
+
+            conn = sqlite3.connect(temp_db)
+            c = conn.cursor()
+            c.execute('select value from app_option where key = "ipv6"')
+            msg = c.fetchone()[0]
+            conn.close()
+        except:
+            msg = 'invalid'
+
     if request.POST.get('restore'):
-        destination = open('/box/settings.sqlite', 'wb+')
-        for chunk in request.FILES['file'].chunks():
-            destination.write(chunk)
-        destination.close()
+        import os
+
+        os.rename(temp_db, final_db)
+
         o.config_changed(True)
         o.set_value('internet_requested', 0)
         return redirect('/backup/system/')
 
     return render_to_response('backup/system.html', {
-        'webinterface_password': o.get_value('webinterface_password'),
-        'mailbox_password': o.get_value('mailbox_password'),
+        'msg': msg,
         }, context_instance=RequestContext(request))
 
 def backup_emails(request):

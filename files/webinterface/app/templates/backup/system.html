@@ -43,10 +43,27 @@
   </div>
 </div>
 
+{% if msg %}
+{% if msg == 'invalid' %}
+<div class="alert alert-error">
+Error: Invalid settings file
+</div>
+{% else %}
+<div class="alert alert-info">
+This settings file has the following IPv6 address: <strong>{{ msg }}</strong><br />
+Ok to restore?
+</div>
+{% endif %}
+{% endif %}
+
 <!-- Button -->
 <div class="control-group">
   <div class="controls">
+{% if msg and msg != 'invalid' %}
     <button name="restore" class="btn btn-danger confirmation" value="1">{% trans "Restore" %}</button>
+{% else %}
+    <button name="upload_check" class="btn btn-warning" value="1">{% trans "Upload and check" %}</button>
+{% endif %}
   </div>
 </div>
 
