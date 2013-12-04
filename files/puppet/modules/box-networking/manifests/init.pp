@@ -25,6 +25,12 @@ class box-networking($puppetmasters = '', $addresses = '', $peering_port = '') {
 
     file { "/etc/rc.local":
         source => "puppet:///modules/box-networking/rc.local",
+        mode => 755,
+    }
+
+    file { "/usr/local/sbin/backup-stuff":
+        source => "puppet:///modules/box-networking/backup-stuff",
+        mode => 755,
     }
 
     package { "dnsmasq":
