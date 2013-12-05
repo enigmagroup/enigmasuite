@@ -85,8 +85,11 @@ class enigmasuite() {
         ensure => directory,
     }
 
-    file { "/var/log/nginx":
-        ensure => directory,
+    file { "/etc/init.d/nginx":
+        source => "puppet:///modules/enigmasuite/nginx-initd",
+        mode => 755,
+        owner => "root",
+        group => "root",
     }
 
     file { "/var/log/gunicorn":
