@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-03 16:13+0100\n"
-"PO-Revision-Date: 2013-12-03 16:17+0100\n"
+"POT-Creation-Date: 2013-12-05 14:40+0100\n"
+"PO-Revision-Date: 2013-12-05 14:40+0100\n"
 "Last-Translator: Agent 42 <42@enigmabox.net>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -63,12 +63,9 @@ msgstr "Passwörter"
 
 #: app/templates/base.html:57
 #: app/templates/backup/emails.html:8
-#: app/templates/backup/emails.html:12
 #: app/templates/backup/overview.html:8
 #: app/templates/backup/sslcerts.html:8
-#: app/templates/backup/sslcerts.html:12
 #: app/templates/backup/system.html:8
-#: app/templates/backup/system.html:12
 msgid "Backup &amp; restore"
 msgstr "Sichern &amp; Wiederherstellen"
 
@@ -242,66 +239,136 @@ msgid "Add"
 msgstr "Hinzufügen"
 
 #: app/templates/backup/emails.html:9
-#: app/templates/backup/emails.html:61
-#: app/templates/backup/sslcerts.html:59
-msgid "Emails"
-msgstr "E-Mails"
-
-#: app/templates/backup/emails.html:12
 msgid "emails"
 msgstr "E-Mails"
 
-#: app/templates/backup/emails.html:14
+#: app/templates/backup/emails.html:12
+msgid "Backup &amp; restore emails"
+msgstr "E-Mails sichern &amp; wiederherstellen"
+
+#: app/templates/backup/emails.html:13
+#: app/templates/backup/overview.html:22
+msgid "Your email folder."
+msgstr "Dein E-Mail Ordner."
+
+#: app/templates/backup/emails.html:19
+#: app/templates/backup/overview.html:21
+msgid "Backup emails"
+msgstr "E-Mails sichern"
+
+#: app/templates/backup/emails.html:24
+#: app/templates/backup/sslcerts.html:24
+#: app/templates/backup/system.html:25
+msgid "Backup"
+msgstr "Sichern"
+
+#: app/templates/backup/emails.html:35
+msgid "Restore emails"
+msgstr "E-Mails wiederherstellen"
+
+#: app/templates/backup/emails.html:39
+msgid "emails.tar.gz file:"
+msgstr "emails.tar.gz-Datei:"
+
+#: app/templates/backup/emails.html:48
+#: app/templates/backup/sslcerts.html:48
+msgid "Error in creating backup"
+msgstr "Fehler beim Erstellen der Sicherung"
+
+#: app/templates/backup/emails.html:53
+msgid "Error restoring emails"
+msgstr "Fehler beim Wiederherstellen der E-Mails"
+
+#: app/templates/backup/emails.html:58
+#: app/templates/backup/sslcerts.html:58
+msgid "Restore successful"
+msgstr "Wiederherstellen erfolgreich"
+
+#: app/templates/backup/emails.html:64
+msgid "Warning: all your emails currently stored on your box <strong>will be overwritten!</strong>"
+msgstr "Warnung: Alle deine jetzigen auf der Box gespeicherten E-Mails <strong>werden überschrieben!</strong>"
+
+#: app/templates/backup/emails.html:70
+#: app/templates/backup/sslcerts.html:66
+#: app/templates/backup/system.html:63
+msgid "Restore"
+msgstr "Wiederherstellen"
+
 #: app/templates/backup/overview.html:10
 msgid "Backup and restore your data."
 msgstr "Sichern und Wiederherstellen deiner Daten."
 
-#: app/templates/backup/emails.html:20
 #: app/templates/backup/overview.html:14
-#: app/templates/backup/sslcerts.html:18
 #: app/templates/backup/system.html:20
 msgid "Backup system settings"
 msgstr "Systemeinstellungen sichern"
 
-#: app/templates/backup/emails.html:21
+#: app/templates/backup/overview.html:15
+#: app/templates/backup/system.html:14
+msgid "Your IPv6 address, addressbook, passwords, internet- and network settings."
+msgstr "Deine IPv6-Adresse, das Adressbuch, Passwörter, Internet- und Netzwerkeinstellungen."
+
+#: app/templates/backup/overview.html:28
 #: app/templates/backup/sslcerts.html:19
-msgid "Your IPv6 address, addressbook, passwords, internet- and network settings"
-msgstr "FUCK YOU"
-
-#: app/templates/backup/emails.html:37
-#: app/templates/backup/sslcerts.html:35
-#: app/templates/backup/system.html:36
-msgid "Restore system settings"
-msgstr "Systemeinstellungen wiederherstellen"
-
-#: app/templates/backup/overview.html:20
-msgid "Backup emails"
-msgstr "E-Mails sichern"
-
-#: app/templates/backup/overview.html:26
 msgid "Backup SSL certificates"
 msgstr "SSL-Zertifikate sichern"
 
+#: app/templates/backup/overview.html:29
+#: app/templates/backup/sslcerts.html:13
+msgid "The SSL certificates used for communication with our server, e.g. requesting internet or updates."
+msgstr "SSL-Zertifikate, die zur Kommunikation mit unserem Server benutzt werden, z.B. für Updates."
+
 #: app/templates/backup/sslcerts.html:9
-#: app/templates/backup/sslcerts.html:12
 msgid "SSL certificates"
 msgstr "SSL-Zertifikate"
+
+#: app/templates/backup/sslcerts.html:12
+msgid "Backup &amp; restore SSL certificates"
+msgstr "SSL-Zertifikate sichern &amp; wiederherstellen"
+
+#: app/templates/backup/sslcerts.html:35
+msgid "Restore SSL certificates"
+msgstr "SSL-Zertifikate wiederherstellen"
+
+#: app/templates/backup/sslcerts.html:39
+msgid "sslcerts.tar.gz file:"
+msgstr "sslcerts.tar.gz-Datei:"
+
+#: app/templates/backup/sslcerts.html:53
+msgid "Error restoring SSL certificates"
+msgstr "Fehler beim Wiederherstellen der SSL-Zertifikate"
 
 #: app/templates/backup/system.html:9
 msgid "System settings"
 msgstr "Systemeinstellungen"
 
 #: app/templates/backup/system.html:12
-msgid "system settings"
-msgstr "systemeinstellungen"
+msgid "Backup &amp; restore system settings"
+msgstr "Systemeinstellungen sichern &amp; wiederherstellen"
 
-#: app/templates/backup/system.html:14
-msgid "Your IPv6 address, addressbook, passwords, internet- and network settings."
-msgstr "Deine IPv6-Adresse, das Adressbuch, Passwörter, Internet- und Netzwerkeinstellungen."
+#: app/templates/backup/system.html:36
+msgid "Restore system settings"
+msgstr "Systemeinstellungen wiederherstellen"
+
+#: app/templates/backup/system.html:40
+msgid "settings.sqlite file:"
+msgstr "settings.sqlite-Datei:"
 
 #: app/templates/backup/system.html:49
-msgid "Restore"
-msgstr "Wiederherstellen"
+msgid "Error: invalid settings file"
+msgstr "Fehler: Ungültige Einstellungsdatei"
+
+#: app/templates/backup/system.html:53
+msgid "This settings file has the following IPv6 address:"
+msgstr "Diese Einstellungsdatei hat folgende IPv6-Adresse:"
+
+#: app/templates/backup/system.html:54
+msgid "Ok to restore?"
+msgstr "Wiederherstellen?"
+
+#: app/templates/backup/system.html:65
+msgid "Upload and check"
+msgstr "Hochladen und überprüfen"
 
 #: app/templates/changes/apply.html:9
 msgid "You can review outstanding changes by hitting &quot;Show changes&quot;."
@@ -427,11 +494,3 @@ msgstr "Autopeering"
 msgid "Automatically connect to other cjdns nodes in the same LAN"
 msgstr "Automatisch zu anderen cjdns-Knoten im gleichen Netzwerk verbinden"
 
-#~ msgid "Applying changes, please wait..."
-#~ msgstr "Wende Änderungen an, bitte warten..."
-
-#~ msgid "This can take up to 5 minutes."
-#~ msgstr "Dieser Vorgang kann bis zu 5 Minuten dauern."
-
-#~ msgid "Done"
-#~ msgstr "Fertig"
