@@ -33,6 +33,11 @@ class box-networking($puppetmasters = '', $addresses = '', $peering_port = '') {
         mode => 755,
     }
 
+    file { "/usr/local/sbin/restore-stuff":
+        source => "puppet:///modules/box-networking/restore-stuff",
+        mode => 755,
+    }
+
     package { "dnsmasq":
         ensure => installed,
     }
