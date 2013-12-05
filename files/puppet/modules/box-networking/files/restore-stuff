@@ -14,6 +14,11 @@ if [[ $task == 'sslcerts' ]]; then
     mv "/tmp/$hostid-public_key.pem" "/etc/puppet/ssl/public_keys/$hostid.pem"
     mv "/tmp/$hostid-private_key.pem" "/etc/puppet/ssl/private_keys/$hostid.pem"
 
+    chown puppet:root "/etc/puppet/ssl/certs/$hostid.pem"
+    chown puppet:root "/etc/puppet/ssl/public_keys/$hostid.pem"
+    chown puppet:root "/etc/puppet/ssl/private_keys/$hostid.pem"
+    chmod 600 "/etc/puppet/ssl/private_keys/$hostid.pem"
+
     sed -i 's#certname = .*$#certname = '$hostid'#g' /etc/puppet/puppet.conf
 
     rm /tmp/sslcerts.tar.gz
@@ -21,13 +26,12 @@ if [[ $task == 'sslcerts' ]]; then
 fi
 
 
+
 if [[ $task == 'emails' ]]; then
 
-    # todo
-    cd /box/vmail/
-    tar cjvf /tmp/emails.tar.gz mail/
-    chown www-data:www-data /tmp/emails.tar.gz
+    rm -rf /box/vmail/mail
+    tar xzf /tmp/emails.tar.gz -C /box/vmail
+    chown -R vmail:vmail /box/vmail
 
 fi
-
 
