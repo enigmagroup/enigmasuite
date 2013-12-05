@@ -23,7 +23,7 @@ fi
 if [[ $task == 'emails' ]]; then
 
     cd /box/vmail/
-    tar cjvf /tmp/emails.tar.gz mail/
+    tar czvf /tmp/emails.tar.gz mail/
     chown www-data:www-data /tmp/emails.tar.gz
 
 fi
