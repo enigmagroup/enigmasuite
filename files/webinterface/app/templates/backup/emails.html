@@ -6,11 +6,11 @@
     <div class="container">
     <ul class="breadcrumb">
         <li><a href="/backup/">{% trans "Backup &amp; restore" %}</a> <span class="divider">/</span></li>
-        <li class="active">{% trans "SSL certificates" %}</li>
+        <li class="active">{% trans "emails" %}</li>
     </ul>
 
-      <h1>{% trans "Backup &amp; restore" %} {% trans "emails" %}</h1>
-      <p>Your email folder.</p>
+      <h1>{% trans "Backup &amp; restore emails" %}</h1>
+      <p>{% trans "Your email folder." %}</p>
 
 <form method="post" class="form-horizontal">
 {% csrf_token %}
@@ -21,7 +21,7 @@
 <!-- Button -->
 <div class="control-group">
   <div class="controls">
-    <button name="backup" class="btn btn-primary" value="1">Backup</button>
+    <button name="backup" class="btn btn-primary" value="1">{% trans "Backup" %}</button>
   </div>
 </div>
 
@@ -36,7 +36,7 @@
 
 <!-- File Button -->
 <div class="control-group">
-  <label class="control-label">File Button</label>
+  <label class="control-label">{% trans "emails.tar.gz file:" %}</label>
   <div class="controls">
     <input name="file" class="input-file" type="file">
   </div>
@@ -45,29 +45,29 @@
 {% if msg %}
 {% if msg == 'backuperror' %}
 <div class="alert alert-error">
-Error in creating backup
+{% trans "Error in creating backup" %}
 </div>
 {% endif %}
 {% if msg == 'restoreerror' %}
 <div class="alert alert-error">
-Error restoring emails
+{% trans "Error restoring emails" %}
 </div>
 {% endif %}
 {% if msg == 'restoresuccess' %}
 <div class="alert alert-success">
-Restore successful
+{% trans "Restore successful" %}
 </div>
 {% endif %}
 {% endif %}
 
 <div class="alert alert-notice">
-Warning: all your emails currently stored on your box <strong>will be overwritten!</strong>
+{% trans "Warning: all your emails currently stored on your box <strong>will be overwritten!</strong>" %}
 </div>
 
 <!-- Button -->
 <div class="control-group">
   <div class="controls">
-    <button name="restore" class="btn btn-danger confirmation" value="1">Restore</button>
+    <button name="restore" class="btn btn-danger confirmation" value="1">{% trans "Restore" %}</button>
   </div>
 </div>
 
