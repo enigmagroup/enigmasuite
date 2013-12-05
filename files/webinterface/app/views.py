@@ -189,9 +189,9 @@ def backup_system(request):
             msg = 'invalid'
 
     if request.POST.get('restore'):
-        import os
+        import shutil
 
-        os.rename(temp_db, final_db)
+        shutil.move(temp_db, final_db)
 
         o.config_changed(True)
         o.set_value('internet_requested', 0)
