@@ -34,6 +34,7 @@ def display_ip():
 def display_version():
     f = open('VERSION', 'r')
     version = f.read()
+    f.close()
     return version
 
 @register.simple_tag
