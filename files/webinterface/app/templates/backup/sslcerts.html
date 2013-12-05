@@ -28,7 +28,7 @@
 </fieldset>
 </form>
 
-<form method="post" class="form-horizontal">
+<form method="post" enctype="multipart/form-data" class="form-horizontal">
 {% csrf_token %}
 <fieldset>
 
@@ -36,9 +36,9 @@
 
 <!-- File Button -->
 <div class="control-group">
-  <label class="control-label" for="filebutton">File Button</label>
+  <label class="control-label">File Button</label>
   <div class="controls">
-    <input id="filebutton" name="filebutton" class="input-file" type="file">
+    <input name="file" class="input-file" type="file">
   </div>
 </div>
 
