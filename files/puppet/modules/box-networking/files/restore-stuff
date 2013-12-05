@@ -1,0 +1,33 @@
+#!/bin/bash
+
+task=$1
+
+if [[ $task == 'sslcerts' ]]; then
+
+    cd /tmp
+    tar xzf sslcerts.tar.gz
+
+    hostid=$(find /tmp -type f -name *-cert.pem | sed -n 's#/tmp/\(.*\)\-cert\.pem#\1#p');
+    [[ -z $hostid ]] && exit 1
+
+    mv "/tmp/$hostid-cert.pem" "/etc/puppet/ssl/certs/$hostid.pem"
+    mv "/tmp/$hostid-public_key.pem" "/etc/puppet/ssl/public_keys/$hostid.pem"
+    mv "/tmp/$hostid-private_key.pem" "/etc/puppet/ssl/private_keys/$hostid.pem"
+
+    sed -i 's#certname = .*$#certname = '$hostid'#g' /etc/puppet/puppet.conf
+
+    rm /tmp/sslcerts.tar.gz
+
+fi
+
+
+if [[ $task == 'emails' ]]; then
+
+    # todo
+    cd /box/vmail/
+    tar cjvf /tmp/emails.tar.gz mail/
+    chown www-data:www-data /tmp/emails.tar.gz
+
+fi
+
+

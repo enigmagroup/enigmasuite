@@ -10,13 +10,13 @@
     </ul>
 
       <h1>{% trans "Backup &amp; restore" %} {% trans "SSL certificates" %}</h1>
+      <p>The SSL certificates used for communication with our server, e.g. requesting internet or updates.</p>
 
 <form method="post" class="form-horizontal">
 {% csrf_token %}
 <fieldset>
 
-<legend>{% trans "Backup system settings" %}</legend>
-<p>{% trans "Your IPv6 address, addressbook, passwords, internet- and network settings" %}</p>
+<legend>{% trans "Backup SSL certificates" %}</legend>
 
 <!-- Button -->
 <div class="control-group">
@@ -32,7 +32,7 @@
 {% csrf_token %}
 <fieldset>
 
-<legend>{% trans "Restore system settings" %}</legend>
+<legend>{% trans "Restore SSL certificates" %}</legend>
 
 <!-- File Button -->
 <div class="control-group">
@@ -45,24 +45,7 @@
 <!-- Button -->
 <div class="control-group">
   <div class="controls">
-    <button name="backup_system" class="btn btn-primary">Restore</button>
-  </div>
-</div>
-
-</fieldset>
-</form>
-
-<form method="post" class="form-horizontal">
-{% csrf_token %}
-<fieldset>
-
-<legend>{% trans "Emails" %}</legend>
-
-<!-- Button -->
-<div class="control-group">
-  <label class="control-label">Backup emails</label>
-  <div class="controls">
-    <button name="backup_system" class="btn btn-primary">Backup</button>
+    <button name="restore" class="btn btn-primary" value="1">Restore</button>
   </div>
 </div>
 
