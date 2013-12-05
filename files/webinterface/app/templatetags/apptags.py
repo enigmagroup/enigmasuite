@@ -31,6 +31,12 @@ def display_ip():
     return o.get_ipv6()
 
 @register.simple_tag
+def display_version():
+    f = open('VERSION', 'r')
+    version = f.read()
+    return version
+
+@register.simple_tag
 def peer_status(peer_name, sip_peers):
     try:
         ret = re.search(peer_name + '.*5060(.*)', sip_peers).group(1).strip()
