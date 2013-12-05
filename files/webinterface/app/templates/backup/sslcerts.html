@@ -42,10 +42,22 @@
   </div>
 </div>
 
+{% if msg %}
+{% if msg == 'error' %}
+<div class="alert alert-error">
+Error restoring SSL certificates
+</div>
+{% else %}
+<div class="alert alert-success">
+Restore successful
+</div>
+{% endif %}
+{% endif %}
+
 <!-- Button -->
 <div class="control-group">
   <div class="controls">
-    <button name="restore" class="btn btn-primary" value="1">Restore</button>
+    <button name="restore" class="btn btn-danger confirmation" value="1">Restore</button>
   </div>
 </div>
 

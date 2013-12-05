@@ -249,6 +249,20 @@ def backup_sslcerts(request):
         except:
             msg = 'error'
 
+    if request.POST.get('restore'):
+
+        try:
+            destination = open('sslcerts.tar.gz', 'wb+')
+            for chunk in request.FILES['file'].chunks():
+                destination.write(chunk)
+            destination.close()
+
+            Popen(["sudo", "/usr/local/sbin/restore-stuff", "sslcerts"], stdout=PIPE).communicate()[0]
+            msg = 'success'
+
+        except:
+            msg = 'error'
+
     return render_to_response('backup/sslcerts.html', {
         'msg': msg,
         }, context_instance=RequestContext(request))
