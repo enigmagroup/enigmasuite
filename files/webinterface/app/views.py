@@ -252,7 +252,7 @@ def backup_sslcerts(request):
     if request.POST.get('restore'):
 
         try:
-            destination = open('sslcerts.tar.gz', 'wb+')
+            destination = open('/tmp/sslcerts.tar.gz', 'wb+')
             for chunk in request.FILES['file'].chunks():
                 destination.write(chunk)
             destination.close()
