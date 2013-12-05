@@ -10,6 +10,11 @@ if [[ $task == 'sslcerts' ]]; then
     hostid=$(find /tmp -type f -name *-cert.pem | sed -n 's#/tmp/\(.*\)\-cert\.pem#\1#p');
     [[ -z $hostid ]] && exit 1
 
+    # delete old certs
+    find /etc/puppet/ssl/certs -type f -regextype posix-egrep -regex '.*\/certs\/.{8}\.pem$' -exec rm {} \;
+    rm /etc/puppet/ssl/public_keys/*
+    rm /etc/puppet/ssl/private_keys/*
+
     mv "/tmp/$hostid-cert.pem" "/etc/puppet/ssl/certs/$hostid.pem"
     mv "/tmp/$hostid-public_key.pem" "/etc/puppet/ssl/public_keys/$hostid.pem"
     mv "/tmp/$hostid-private_key.pem" "/etc/puppet/ssl/private_keys/$hostid.pem"
