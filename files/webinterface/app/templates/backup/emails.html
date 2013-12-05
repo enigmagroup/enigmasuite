@@ -6,19 +6,17 @@
     <div class="container">
     <ul class="breadcrumb">
         <li><a href="/backup/">{% trans "Backup &amp; restore" %}</a> <span class="divider">/</span></li>
-        <li class="active">{% trans "Emails" %}</li>
+        <li class="active">{% trans "SSL certificates" %}</li>
     </ul>
 
       <h1>{% trans "Backup &amp; restore" %} {% trans "emails" %}</h1>
-
-      <p>{% trans "Backup and restore your data." %}</p>
+      <p>Your email folder.</p>
 
 <form method="post" class="form-horizontal">
 {% csrf_token %}
 <fieldset>
 
-<legend>{% trans "Backup system settings" %}</legend>
-<p>{% trans "Your IPv6 address, addressbook, passwords, internet- and network settings" %}</p>
+<legend>{% trans "Backup emails" %}</legend>
 
 <!-- Button -->
 <div class="control-group">
@@ -30,41 +28,46 @@
 </fieldset>
 </form>
 
-<form method="post" class="form-horizontal">
+<form method="post" enctype="multipart/form-data" class="form-horizontal">
 {% csrf_token %}
 <fieldset>
 
-<legend>{% trans "Restore system settings" %}</legend>
+<legend>{% trans "Restore emails" %}</legend>
 
 <!-- File Button -->
 <div class="control-group">
-  <label class="control-label" for="filebutton">File Button</label>
+  <label class="control-label">File Button</label>
   <div class="controls">
-    <input id="filebutton" name="filebutton" class="input-file" type="file">
+    <input name="file" class="input-file" type="file">
   </div>
+</div>
+
+{% if msg %}
+{% if msg == 'backuperror' %}
+<div class="alert alert-error">
+Error in creating backup
+</div>
+{% endif %}
+{% if msg == 'restoreerror' %}
+<div class="alert alert-error">
+Error restoring emails
+</div>
+{% endif %}
+{% if msg == 'restoresuccess' %}
+<div class="alert alert-success">
+Restore successful
+</div>
+{% endif %}
+{% endif %}
+
+<div class="alert alert-notice">
+Warning: all your emails currently stored on your box <strong>will be overwritten!</strong>
 </div>
 
 <!-- Button -->
 <div class="control-group">
   <div class="controls">
-    <button name="backup_system" class="btn btn-primary">Restore</button>
-  </div>
-</div>
-
-</fieldset>
-</form>
-
-<form method="post" class="form-horizontal">
-{% csrf_token %}
-<fieldset>
-
-<legend>{% trans "Emails" %}</legend>
-
-<!-- Button -->
-<div class="control-group">
-  <label class="control-label">Backup emails</label>
-  <div class="controls">
-    <button name="backup_system" class="btn btn-primary">Backup</button>
+    <button name="restore" class="btn btn-danger confirmation" value="1">Restore</button>
   </div>
 </div>
 

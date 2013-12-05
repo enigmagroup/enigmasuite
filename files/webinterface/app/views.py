@@ -221,7 +221,21 @@ def backup_emails(request):
             response['Content-Length'] = os.path.getsize(filename)
             return response
         except:
-            msg = 'error'
+            msg = 'backuperror'
+
+    if request.POST.get('restore'):
+
+        try:
+            destination = open('/tmp/emails.tar.gz', 'wb+')
+            for chunk in request.FILES['file'].chunks():
+                destination.write(chunk)
+            destination.close()
+
+            Popen(["sudo", "/usr/local/sbin/restore-stuff", "emails"], stdout=PIPE).communicate()[0]
+            msg = 'restoresuccess'
+
+        except:
+            msg = 'restoreerror'
 
     return render_to_response('backup/emails.html', {
         'msg': msg,
@@ -247,7 +261,7 @@ def backup_sslcerts(request):
             response['Content-Length'] = os.path.getsize(filename)
             return response
         except:
-            msg = 'error'
+            msg = 'backuperror'
 
     if request.POST.get('restore'):
 
@@ -258,10 +272,10 @@ def backup_sslcerts(request):
             destination.close()
 
             Popen(["sudo", "/usr/local/sbin/restore-stuff", "sslcerts"], stdout=PIPE).communicate()[0]
-            msg = 'success'
+            msg = 'restoresuccess'
 
         except:
-            msg = 'error'
+            msg = 'restoreerror'
 
     return render_to_response('backup/sslcerts.html', {
         'msg': msg,
