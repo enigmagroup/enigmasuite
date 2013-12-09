@@ -53,6 +53,7 @@ request_cjdns_internet() {
                 old_conn=$(cat /box/cjdroute.conf | grep outgoingConnections -A5 | grep "\.k" | sed 's#[ ",]##g')
                 sed 's# "'$old_conn'",#"'$pubkey'",#g' -i /box/cjdroute.conf
                 curl --data "key=selected_country&value=$country" -X POST http://127.0.0.1:8000/api/v1/set_option &> /dev/null
+                break
             fi
         done
     fi
