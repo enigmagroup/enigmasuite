@@ -47,15 +47,6 @@ class cjdns(
         notify => Service["cjdns"],
     }
 
-    file { "/usr/bin/cjdcmd":
-        source => "puppet:///modules/cjdns/cjdcmd.$architecture",
-        mode => 755,
-    }
-
-    file { "/var/www/.cjdnsadmin":
-        source => "puppet:///modules/cjdns/cjdnsadmin",
-    }
-
     service { "restart_enigmabox":
         ensure => running,
         enable => true,
