@@ -1,0 +1,39 @@
+; SIP Configuration
+
+[general]
+bindaddr=::
+transport=tcp
+tcpenable=yes
+canreinvite=no
+jbenable=yes
+jbforce=yes
+jbmaxsize=25
+jbresyncthreshold=200
+
+
+
+; my own phone
+
+[100]
+type=peer
+qualify=yes
+secret=100
+host=dynamic
+context=friends
+transport=udp
+
+
+
+; my addresses
+
+[basic-options](!)
+    type=peer
+    qualify=5000
+    qualifyfreq=5
+    context=incoming
+
+{% for address in addresses %}
+[{{ address.name }}](basic-options)
+    host={{ address.ipv6 }}
+    callerid="{{ address.name }} <{{ address.name }}>"
+{% endfor %}

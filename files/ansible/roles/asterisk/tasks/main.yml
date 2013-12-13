@@ -1,0 +1,12 @@
+---
+  - name: install asterisk
+    apt: pkg=asterisk state=present
+
+  - name: configure sip.conf
+    template: src=sip.conf.j2 dest=/etc/asterisk/sip.conf owner=asterisk
+
+  - name: configure extensions.conf
+    template: src=extensions.conf.j2 dest=/etc/asterisk/extensions.conf owner=asterisk
+
+# todo: permfix
+
