@@ -11,6 +11,13 @@ netstat_file="/tmp/netstat"
 
 
 
+# detect wifi
+if [[ $(ifconfig wlan0 2>/dev/null | wc -l) -gt 0 ]]; then
+    internet_interface="wlan0"
+fi
+
+
+
 # functions
 
 e() {
