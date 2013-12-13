@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load apptags %}
+
+{% block main %}
+    <div class="container">
+
+      <h1>{% trans "Select interface" %}</h1>
+      <p>{% trans "Select the interface which provides your internet connection." %}</p>
+      <p>{% trans "Normally you don't have to change here anything." %}</p>
+      <br />
+
+<form method="post" class="form-horizontal">
+{% csrf_token %}
+    <table class="table table-hover table-bordered" style="width: auto;">
+        <tbody>
+{% for interface in interfaces %}
+        <tr>
+    {% if interface == internet_interface %}
+            <td><button id="{{ interface }}" name="interface" type="text" class="btn btn-warning" value="{{ interface }}">{{ interface }}</button></td>
+    {% else %}
+            <td><button id="{{ interface }}" name="interface" type="text" class="btn btn-default" value="{{ interface }}">{{ interface }}</button></td>
+    {% endif %}
+        </tr>
+{% endfor %}
+        </tbody>
+    </table>
+</form>
+
+    </div> <!-- /container -->
+{% endblock %}

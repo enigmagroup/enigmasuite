@@ -395,6 +395,24 @@ def countryselect(request):
 
 
 
+# Internet interface selection
+
+def internet_interface(request):
+
+    o = Option()
+
+    if request.POST:
+        interface = request.POST.get('interface')
+        o.set_value('internet_interface', interface)
+        o.config_changed(True)
+
+    return render_to_response('internet_interface/overview.html', {
+            'interfaces': ['eth0', 'wlan0'],
+            'internet_interface': o.get_value('internet_interface', 'eth0'),
+        }, context_instance=RequestContext(request))
+
+
+
 # Changes
 
 def apply_changes(request):
