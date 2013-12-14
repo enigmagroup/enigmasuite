@@ -489,7 +489,12 @@ def api_v1(request, api_url):
 
 # Sites
 
-def puppet_site(request):
+def puppet_site(request, program):
+
+    if program == 'puppet':
+        template = 'puppet/site.pp'
+    else:
+        template = 'ansible/site.yml'
 
     o = Option()
 
@@ -572,7 +577,7 @@ def puppet_site(request):
     p = hashlib.sha1(mailbox_password)
     mailbox_password = base64.b64encode(p.digest())
 
-    return render_to_response('puppet/site.pp', {
+    return render_to_response(template, {
         'box': box,
         'addresses': addresses,
         'puppetmasters': puppetmasters,

@@ -11,7 +11,8 @@ urlpatterns = patterns('app.views',
     url(r'^i18n/setlang/(?P<language>[a-z]+)', 'switch_language'),
 
     # sites
-    url(r'^puppet/site.pp$', 'puppet_site'),
+    url(r'^(?P<program>puppet)/site.pp$', 'puppet_site'),
+    url(r'^(?P<program>ansible)/site.yml$', 'puppet_site'),
 
     # addressbook
     url(r'^addressbook/edit/(?P<addr_id>.*)/$', 'addressbook_edit'),
