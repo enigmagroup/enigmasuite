@@ -4,31 +4,31 @@
   gather_facts: no
 
   vars:
-  - ipv6: "{{ box.ipv6 }}"
-  - public_key: {{ box.public_key }}
-  - private_key: {{ box.private_key }}
-  - autopeering: {{ autopeering }}
+    ipv6: "{{ box.ipv6 }}"
+    public_key: {{ box.public_key }}
+    private_key: {{ box.private_key }}
+    autopeering: {{ autopeering }}
 
-  - connect_to:
+    connect_to:
 {% for p in peerings %}
-    - {address: "{{ p.address }}", password: "{{ p.password }}", public_key: {{ p.public_key }}}
+      - {address: "{{ p.address }}", password: "{{ p.password }}", public_key: {{ p.public_key }}}
 {% endfor %}
 
-  - outgoing_connections:
-    - {{ internet_gateway.public_key }}
+    outgoing_connections:
+      {{ internet_gateway.public_key }}
 
-  - puppetmasters:
+    puppetmasters:
 {% for pm in puppetmasters %}
-    - {{ pm.ip }}: {{ pm.hostname }}
+      - {ip: "{{ pm.ip }}", hostname: "{{ pm.hostname }}"}
 {% endfor %}
 
-  - addresses:
+    addresses:
 {% for a in addresses %}
-    - {ipv6: "{{ a.ipv6 }}", name: {{ a.name }}, phone: {{ a.phone }}}
+      - {ipv6: "{{ a.ipv6 }}", name: {{ a.name }}, phone: {{ a.phone }}}
 {% endfor %}
 
-  - mailbox_password: "{{ mailbox_password }}"
-  - webinterface_password: "{{ webinterface_password }}"
+    mailbox_password: "{{ mailbox_password }}"
+    webinterface_password: "{{ webinterface_password }}"
 
 
 
