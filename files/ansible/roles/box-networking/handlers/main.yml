@@ -5,3 +5,6 @@
 - name: restart dhcp server
   service: name=isc-dhcp-server state=restarted
 
+- name: refresh iptables
+  command: /usr/sbin/rebuild-iptables
+

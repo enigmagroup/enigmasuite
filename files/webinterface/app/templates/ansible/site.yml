@@ -34,7 +34,7 @@
 
   roles:
 #  - cjdns
-#  - box-networking
+  - box-networking
   - asterisk
 #  - security
 #  - tinyproxy

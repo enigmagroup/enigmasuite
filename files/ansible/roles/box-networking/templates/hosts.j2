@@ -8,10 +8,10 @@ ff02::2             ip6-allrouters
 # enigmabox internal
 192.168.100.1       enigma mail box
 {% for pm in puppetmasters %}
-{{ pm.ip }} {{ pm.hostname }}
+{{ pm.ip }}    {{ pm.hostname }}
 {% endfor %}
 
 # friends
-{% for address in friends %}
-{{ address.ipv6 }}  {{ address.name }}
+{% for address in addresses %}
+{{ address.ipv6 }}    {{ address.name }}
 {% endfor %}
