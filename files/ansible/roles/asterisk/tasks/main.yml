@@ -10,12 +10,21 @@
     template: src=extensions.conf.j2 dest=/etc/asterisk/extensions.conf owner=asterisk
     notify: restart asterisk
 
-  - name: check permissions
+  - name: check etc permissions
+    shell: find /etc/asterisk -user root | wc -l
+    always_run: yes
+    register: check_etc_perm
+
+  - name: fix etc permissions
+    shell: chown -R asterisk:asterisk /etc/asterisk/
+    when: check_etc_perm.stdout_lines[0]|int > 0
+
+  - name: check varlib permissions
     shell: find /var/lib/asterisk -user root | wc -l
     always_run: yes
-    register: check_perm
+    register: check_varlib_perm
 
-  - name: fix permissions
+  - name: fix varlib permissions
     shell: chown -R asterisk:asterisk /var/lib/asterisk/
-    when: check_perm.stdout_lines[0]|int > 0
+    when: check_varlib_perm.stdout_lines[0]|int > 0
 
