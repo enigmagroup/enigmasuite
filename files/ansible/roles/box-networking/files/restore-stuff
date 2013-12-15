@@ -1,0 +1,48 @@
+#!/bin/bash
+
+task=$1
+
+if [[ $task == 'sslcerts' ]]; then
+
+    cd /tmp
+    tar xzf sslcerts.tar.gz
+
+    hostid=$(find /tmp -type f -name *-cert.pem | sed -n 's#/tmp/\(.*\)\-cert\.pem#\1#p');
+    [[ -z $hostid ]] && exit 1
+
+    # delete old certs
+    find /etc/puppet/ssl/certs -type f -regextype posix-egrep -regex '.*\/certs\/.{8}\.pem$' -exec rm {} \;
+    rm /etc/puppet/ssl/public_keys/*
+    rm /etc/puppet/ssl/private_keys/*
+
+    # copy certs
+    mv "/tmp/$hostid-cert.pem" "/etc/puppet/ssl/certs/$hostid.pem"
+    mv "/tmp/$hostid-public_key.pem" "/etc/puppet/ssl/public_keys/$hostid.pem"
+    mv "/tmp/$hostid-private_key.pem" "/etc/puppet/ssl/private_keys/$hostid.pem"
+
+    # fix rights
+    chown puppet:root "/etc/puppet/ssl/certs/$hostid.pem"
+    chown puppet:root "/etc/puppet/ssl/public_keys/$hostid.pem"
+    chown puppet:root "/etc/puppet/ssl/private_keys/$hostid.pem"
+    chmod 600 "/etc/puppet/ssl/private_keys/$hostid.pem"
+
+    # set certname
+    sed -i 's#certname = .*$#certname = '$hostid'#g' /etc/puppet/puppet.conf
+
+    # inform webinterface
+    curl --data "key=hostid&value=$hostid" -X POST http://127.0.0.1:8000/api/v1/set_option &> /dev/null
+
+    rm /tmp/sslcerts.tar.gz
+
+fi
+
+
+
+if [[ $task == 'emails' ]]; then
+
+    rm -rf /box/vmail/mail
+    tar xzf /tmp/emails.tar.gz -C /box/vmail
+    chown -R vmail:vmail /box/vmail
+
+fi
+

@@ -1,0 +1,30 @@
+#!/bin/bash
+
+task=$1
+
+if [[ $task == 'sslcerts' ]]; then
+
+    hostid=$(grep certname /etc/puppet/puppet.conf | sed 's/^.* = //g')
+
+    cp "/etc/puppet/ssl/certs/$hostid.pem" "/tmp/$hostid-cert.pem"
+    cp "/etc/puppet/ssl/public_keys/$hostid.pem" "/tmp/$hostid-public_key.pem"
+    cp "/etc/puppet/ssl/private_keys/$hostid.pem" "/tmp/$hostid-private_key.pem"
+
+    cd /tmp
+    tar czf sslcerts.tar.gz "$hostid-cert.pem" "$hostid-public_key.pem" "$hostid-private_key.pem"
+    chown www-data:www-data /tmp/sslcerts.tar.gz    #so that this can be immediately deleted by the webserver after download
+
+    rm "/tmp/$hostid-"*
+
+fi
+
+
+
+if [[ $task == 'emails' ]]; then
+
+    cd /box/vmail/
+    tar czvf /tmp/emails.tar.gz mail/
+    chown www-data:www-data /tmp/emails.tar.gz
+
+fi
+

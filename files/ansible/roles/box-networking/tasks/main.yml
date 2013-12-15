@@ -1,0 +1,45 @@
+---
+  - name: install dhcp server
+    apt: pkg=isc-dhcp-server state=present
+
+  - name: install dnsmasq
+    apt: pkg=dnsmasq state=present
+
+  - name: configure /etc/hosts
+    template: src=hosts.j2 dest=/etc/hosts
+    notify: restart dnsmasq
+
+  - name: configure iptables script
+    template: src=iptables.j2 dest=/usr/sbin/rebuild-iptables
+    notify: refresh iptables
+
+  - name: create rc.local
+    file: src=rc.local dest=/etc/rc.local mode=755
+
+  - name: create backup-stuff
+    file: src=backup-stuff dest=/usr/local/sbin/backup-stuff mode=755
+
+  - name: create restore-stuff
+    file: src=restore-stuff dest=/usr/local/sbin/restore-stuff mode=755
+
+  - name: create dnsmasq.conf
+    file: src=dnsmasq.conf dest=/etc/dnsmasq.conf
+
+  - name: start dnsmasq
+    service: name=dnsmasq state=started enabled=yes
+
+  - name: create dhcpd.conf
+    file: src=dhcpd.conf dest=/etc/dhcp/dhcpd.conf
+    notify: restart dhcp server
+
+  - name: create dhclient.conf
+    file: src=dhclient.conf dest=/etc/dhcp/dhclient.conf
+    notify: restart dhcp server
+
+  - name: create dhcp server default
+    file: src=default_isc-dhcp-server dest=/etc/default/isc-dhcp-server
+    notify: restart dhcp server
+
+  - name: start dhcp server
+    service: name=isc-dhcp-server state=started enabled=yes
+
