@@ -4,9 +4,17 @@
 
   - name: configure sip.conf
     template: src=sip.conf.j2 dest=/etc/asterisk/sip.conf owner=asterisk
+    notify: restart asterisk
 
   - name: configure extensions.conf
     template: src=extensions.conf.j2 dest=/etc/asterisk/extensions.conf owner=asterisk
+    notify: restart asterisk
 
-# todo: permfix
+  - name: check permissions
+    raw: find /var/lib/asterisk -user root | wc -l
+    register: check_perm
+
+  - name: fix permissions
+    shell: chown -R asterisk:asterisk /var/lib/asterisk/
+    when: check_perm.stdout_lines[0]|int > 0
 
