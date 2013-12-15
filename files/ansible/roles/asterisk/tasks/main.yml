@@ -11,7 +11,8 @@
     notify: restart asterisk
 
   - name: check permissions
-    raw: find /var/lib/asterisk -user root | wc -l
+    shell: find /var/lib/asterisk -user root | wc -l
+    always_run: yes
     register: check_perm
 
   - name: fix permissions
