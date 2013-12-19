@@ -36,10 +36,6 @@ $ip6tables -A INPUT -p ipv6-icmp -j DROP
 $iptables -A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
 $ip6tables -A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
 
-# allow dns answers
-$iptables -A INPUT -p udp --sport 53 --dport 1024:65535 -j ACCEPT
-$ip6tables -A INPUT -p udp --sport 53 --dport 1024:65535 -j ACCEPT
-
 <% if peering_port != '' then %># peering port
 $iptables -A INPUT -p udp --dport <%= peering_port %> -j ACCEPT
 <% end %>
