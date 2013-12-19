@@ -15,7 +15,7 @@ $ip6tables -F
 # defaults
 $iptables -P INPUT DROP
 $iptables -P OUTPUT ACCEPT
-$iptables -P FORWARD DROP
+$iptables -P FORWARD ACCEPT #no internet for the pc when dropping this :(
 $ip6tables -P INPUT DROP
 $ip6tables -P OUTPUT DROP
 $ip6tables -P FORWARD DROP
