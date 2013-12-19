@@ -44,7 +44,7 @@ $iptables -A INPUT -p udp --dport <%= peering_port %> -j ACCEPT
 
 <% if addresses.class == Array then %># friends<% addresses.each do |address| %>
 $ip6tables -A INPUT -i tun0 --src <%= address["ipv6"] %> -j ACCEPT
-$ip6tables -A OUTPUT -i tun0 --src <%= address["ipv6"] %> -j ACCEPT
+$ip6tables -A OUTPUT -o tun0 --dst <%= address["ipv6"] %> -j ACCEPT
 <% end %><% end %>
 
 for interface in $(echo "eth1 eth2"); do
