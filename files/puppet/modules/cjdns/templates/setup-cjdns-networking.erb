@@ -69,7 +69,7 @@ request_cjdns_internet() {
             if [[ $(ping -c 1 -W 1 $ip | grep 'bytes from' | wc -l) -gt 0 ]]; then
                 # take it!
                 curl --data "key=selected_country&value=$country" -X POST http://127.0.0.1:8000/api/v1/set_option &> /dev/null
-                puppet-apply -r -b
+                puppet-apply -r
                 break
             fi
         done
