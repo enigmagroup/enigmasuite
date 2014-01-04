@@ -8,6 +8,18 @@ orggatewayfile="/tmp/cjdns_org_gw"
 internet_interface="eth0"
 cjdns_request_tries="/tmp/cjdns_request_tries"
 netstat_file="/tmp/netstat"
+pidfile="/tmp/setup-cjdns-networking.pid"
+
+
+
+# check if its already running
+kill -0 $(cat "$pidfile" 2> /dev/null) 2> /dev/null
+if [[ "$?" == "0" ]]; then
+    echo "script is already running"
+    exit 0
+fi
+
+echo $$ > "$pidfile"
 
 
 
@@ -52,14 +64,12 @@ request_cjdns_internet() {
         for line in $(cat /box/server.json | grep -A10 '"peerings":' | grep '"country":'); do
             ip=$(echo "$line" | sed 's#^"##g' | cut -d: -f1)
             country=$(echo "$line" | tr "," "\n" | grep 'country' | cut -d: -f2 | sed 's#"##g' | sed 's#}##g')
-            pubkey=$(echo "$line" | tr "," "\n" | grep 'publicKey' | cut -d: -f2 | sed 's#"##g' | sed 's#}##g')
 
             echo "trying $country ($ip)..."
             if [[ $(ping -c 1 -W 1 $ip | grep 'bytes from' | wc -l) -gt 0 ]]; then
                 # take it!
-                old_conn=$(cat /box/cjdroute.conf | grep outgoingConnections -A5 | grep "\.k" | sed 's#[ ",]##g')
-                sed 's# "'$old_conn'",#"'$pubkey'",#g' -i /box/cjdroute.conf
                 curl --data "key=selected_country&value=$country" -X POST http://127.0.0.1:8000/api/v1/set_option &> /dev/null
+                puppet-apply -r -b
                 break
             fi
         done
@@ -231,3 +241,4 @@ else
     start_cjdns
     set_status "cjdns" 1
 fi
+
