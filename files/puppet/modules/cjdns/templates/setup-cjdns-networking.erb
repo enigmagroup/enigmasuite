@@ -122,13 +122,6 @@ mtu() {
     fi
 }
 
-tcpmss() {
-    if [[ $(iptables -L -n -v | grep TCPMSS | wc -l) -eq 0 ]]; then
-        e "setting tcpmss"
-        iptables -A FORWARD -p tcp -m tcp --tcp-flags SYN,RST SYN -j TCPMSS --clamp-mss-to-pmtu
-    fi
-}
-
 original_gateway() {
     original_gateway=$(get_original_gateway)
     for remoteaddress in $remoteadresses; do
@@ -149,13 +142,6 @@ defaultroute() {
     fi
 }
 
-nat() {
-    if [[ $(iptables -t nat -L -n -v | grep POSTROUTING -A10 | grep '0.0.0.0' | wc -l) -eq 0 ]]; then
-        e "setting nat"
-        iptables -I POSTROUTING -t nat -o tun0 -j MASQUERADE
-    fi
-}
-
 dns() {
     if [[ $(grep '8.8.8.8' /etc/resolv.conf | wc -l) -eq 0 ]]; then
         dhcp
@@ -164,10 +150,8 @@ dns() {
 
 set_network_parameters() {
     mtu
-    tcpmss
     original_gateway
     defaultroute
-    nat
     dns
 }
 

@@ -40,6 +40,9 @@ $ip6tables -A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
 $iptables -A INPUT -p udp --dport <%= peering_port %> -j ACCEPT
 <% end %>
 
+# nat
+$iptables -I POSTROUTING -t nat -o tun0 -j MASQUERADE
+
 ################################################################################
 
 <% if addresses.class == Array then %># friends<% addresses.each do |address| %>
@@ -50,7 +53,7 @@ $ip6tables -A OUTPUT -o tun0 --dst <%= address["ipv6"] %> -j ACCEPT
 for interface in $(echo "eth1 eth2"); do
 
     # allow forwarding for eth1/2, but not for others
-    $iptables -A FORWARD -i "$interface" -j ACCEPT
+    $iptables -A FORWARD -i "$interface" -p tcp -m tcp --tcp-flags SYN,RST SYN -j TCPMSS --clamp-mss-to-pmtu
 
     # allow dns requests to tinyproxy
     $iptables -A INPUT -p udp -i "$interface" --sport 1024:65535 --dport 53 -j ACCEPT
