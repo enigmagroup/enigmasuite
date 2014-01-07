@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-05 14:40+0100\n"
-"PO-Revision-Date: 2013-12-05 14:40+0100\n"
+"POT-Creation-Date: 2014-01-07 10:55+0100\n"
+"PO-Revision-Date: 2014-01-07 10:57+0100\n"
 "Last-Translator: Agent 42 <42@enigmabox.net>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -79,10 +79,15 @@ msgid "Country selection"
 msgstr "Land auswählen"
 
 #: app/templates/base.html:63
+#, fuzzy
+msgid "Internet interface"
+msgstr "Internet via cjdns"
+
+#: app/templates/base.html:64
 msgid "Network"
 msgstr "Netzwerk"
 
-#: app/templates/base.html:64
+#: app/templates/base.html:65
 #: app/templates/peerings/detail.html:9
 #: app/templates/peerings/overview.html:8
 msgid "Peerings"
@@ -409,6 +414,23 @@ msgstr "Über welches Land willst Du surfen?"
 #: app/templates/countryselect/overview.html:29
 msgid "Note: It may take some time after a country switch until all contacts are reachable again!"
 msgstr "Hinweis: Es kann nach einem Länderwechel unter Umständen etwas dauern, bis alle Adressen im Adressbuch wieder erreichbar sind."
+
+#: app/templates/countryselect/overview.html:30
+msgid "If a server goes down, the next available server is automatically selected."
+msgstr "Falls ein Server nicht mehr erreichbar ist, wird automatisch der nächste verfügbare Server ausgewählt."
+
+#: app/templates/internet_interface/overview.html:8
+#, fuzzy
+msgid "Select interface"
+msgstr "Webinterface"
+
+#: app/templates/internet_interface/overview.html:9
+msgid "Select the interface which provides your internet connection."
+msgstr ""
+
+#: app/templates/internet_interface/overview.html:10
+msgid "Normally you don't have to change here anything."
+msgstr ""
 
 #: app/templates/peerings/detail.html:20
 msgid "Insert connection data to your peer"
