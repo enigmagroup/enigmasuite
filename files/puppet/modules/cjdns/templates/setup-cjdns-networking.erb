@@ -9,6 +9,11 @@ internet_interface="eth0"
 cjdns_request_tries="/tmp/cjdns_request_tries"
 netstat_file="/tmp/netstat"
 pidfile="/tmp/setup-cjdns-networking.pid"
+ssid="<%= ssid %>"
+wep_pass="<%= wifi_pass %>"
+txpower="<%= txpower %>"    #options: NmW, N (value in dB), off, auto
+rate="<%= rate %>"          #transmit rate (lower is usually more stable)
+security="<%= security %>"
 
 
 
@@ -24,13 +29,6 @@ echo $$ > "$pidfile"
 
 
 # detect wifi
-if [[ -e "/sys/class/net/wlan0" ]]; then
-    . /usr/local/sbin/wifi-networking
-    internet_interface="wlan0"
-    start_wlan
-else
-    ifconfig eth0 up
-fi
 
 
 
@@ -43,17 +41,60 @@ e() {
 }
 
 dhcp() {
-    e "dhcp request"
+    if [[ -e "/sys/class/net/wlan0" ]]; then
+        e "wifi detected"
+
+        internet_interface="wlan0"
+
+        ifconfig eth0 down
+        iwconfig wlan0 txpower "$txpower"
+        iwconfig wlan0 rate "$rate"
+
+        if [[ "$security" = "WPA" ]]; then
+            start_wpa
+        else
+            start_wep
+        fi
+    fi
+
     ifconfig "$internet_interface" up
+
+    e "dhcp request $internet_interface"
     killall dhclient 2> /dev/null
     sleep 1
     dhclient "$internet_interface" 2> /dev/null &
-    sleep 10
+    for i in {10..0}; do
+        echo "waiting $i seconds for dhcp address..."
+        if [[ $(interface_dhcp_success) == true ]]; then
+            e "got an ip"
+            return
+        fi
+        sleep 1
+    done
 }
 
 sync_time() {
     e "sync time"
     ntpdate pool.ntp.org
+}
+
+start_wpa() {
+    e "start WPA session"
+
+    # return if wpa_supplicant is already running
+    [[ $(pidof wpa_supplicant | wc -l) -gt 0 ]] && return
+
+    # make sure wpa_supplicant is absent
+    rm /var/run/wpa_supplicant/wlan0 2> /dev/null
+
+    wpa_supplicant -i wlan0 -D wext -c /etc/wpa_supplicant/wpa_supplicant.conf -B
+}
+
+start_wep() {
+    e "start WEP session"
+    ifconfig wlan0 up
+    iwconfig wlan0 essid "$ssid"
+    iwconfig wlan0 key "$wep_pass"
 }
 
 request_cjdns_internet() {
@@ -115,6 +156,12 @@ get_original_gateway() {
 gateway_is_up() {
     vpn_gateway=$(get_vpn_gateway)
     if [[ "$vpn_gateway" != "" ]]; then
+        echo true
+    fi
+}
+
+interface_dhcp_success() {
+    if [[ $(ifconfig "$internet_interface" | grep 'inet addr' | wc -l) -gt 0 ]]; then
         echo true
     fi
 }
@@ -189,9 +236,10 @@ set_status "internet" 0
 set_status "cjdns" 0
 set_status "cjdns_internet" 0
 
+# request dhcp
 dhcp
 
-if [[ $(ifconfig eth0 | grep 'inet addr' | wc -l) -gt 0 ]]; then
+if [[ $(interface_dhcp_success) == true ]]; then
     set_status "dhcp" 1
 fi
 
@@ -211,8 +259,8 @@ if [[ "$wehaveinternet" == "yes" ]]; then
     request_cjdns_internet
     restart_cjdns
     set_status "cjdns" 1
-    for i in {1..50}; do
-        echo waiting for gateway to come up...
+    for i in {60..0}; do
+        echo "waiting $i seconds for gateway to come up..."
         if [[ $(gateway_is_up) == true ]]; then
             e "gateway is up."
             set_network_parameters
