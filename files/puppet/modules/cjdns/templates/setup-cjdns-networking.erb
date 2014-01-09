@@ -63,7 +63,7 @@ dhcp() {
     for i in {10..1}; do
         echo "waiting $i seconds for dhcp address..."
         if [[ $(interface_dhcp_success) == true ]]; then
-            e "got an ip"
+            echo "got an ip"
             return
         fi
         sleep 1
