@@ -22,7 +22,7 @@
   <label class="control-label" for="ssid">{% trans "SSID" %}</label>
   <div class="controls">
     <div class="input-append">
-      <input id="ssid" name="ssid" class="input-xlarge" placeholder="{% trans "SSID" %}" type="text">
+      <input id="ssid" name="ssid" class="input-xlarge" placeholder="{% trans "SSID" %}" type="text" value="{{ wlan_ssid }}">
       <div class="btn-group">
         <button class="btn dropdown-toggle" data-toggle="dropdown">
           {% trans "Action" %}
@@ -40,7 +40,7 @@
 <div class="control-group">
   <label class="control-label" for="pass">{% trans "WLAN password" %}</label>
   <div class="controls">
-    <input id="pass" name="pass" type="password" placeholder="{% trans "Password" %}" class="input-xlarge">
+    <input id="pass" name="pass" type="password" placeholder="{% trans "Password" %}" value="{{ wlan_pass }}" class="input-xlarge">
   </div>
 </div>
 
@@ -49,11 +49,19 @@
   <label class="control-label" for="WLAN security">{% trans "WLAN security" %}</label>
   <div class="controls">
     <label class="radio" for="WLAN security-0">
+{% if wlan_security == "WEP" %}
+      <input type="radio" name="security" id="WLAN security-0" value="WEP" checked="checked">
+{% else %}
       <input type="radio" name="security" id="WLAN security-0" value="WEP">
+{% endif %}
       {% trans "WEP" %}
     </label>
     <label class="radio" for="WLAN security-1">
+{% if wlan_security == "WPA2" %}
       <input type="radio" name="security" id="WLAN security-1" value="WPA2" checked="checked">
+{% else %}
+      <input type="radio" name="security" id="WLAN security-1" value="WPA2">
+{% endif %}
       {% trans "WPA2" %}
     </label>
   </div>
