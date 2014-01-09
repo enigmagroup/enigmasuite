@@ -426,15 +426,24 @@ def wlan_scan(request):
         o.set_value('wlan_security', request.POST.get('security'))
         return redirect('/wlan_settings/')
 
-    cells = Popen(["sudo", "iwlist", "wlan0", "scan"], stdout=PIPE).communicate()[0]
+    final_cells = []
 
-#    cells = [
-#        {'ssid': 'adibumm', 'security': 'WEP'},
-#        {'ssid': 'pfu', 'security': 'WPA2'},
-#    ]
+    scan = Popen(["sudo", "iwlist", "wlan0", "scan"], stdout=PIPE).communicate()[0]
+    cells = scan.split('Cell ')
+    for cell in cells:
+        try:
+            ssid = cell.split('ESSID:')[1].split('\n')[0].replace('"', '').strip()
+            quality = cell.split('Quality=')[1].split(' ')[0].strip()
+
+            final_cells.append({
+                'ssid': ssid,
+                'quality': quality,
+            })
+        except:
+            pass
 
     return render_to_response('wlan_settings/scan.html', {
-        'cells': cells,
+        'cells': final_cells,
     }, context_instance=RequestContext(request))
 
 
