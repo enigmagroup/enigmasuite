@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-01-07 10:55+0100\n"
-"PO-Revision-Date: 2014-01-07 10:57+0100\n"
+"POT-Creation-Date: 2014-01-09 20:02+0100\n"
+"PO-Revision-Date: 2014-01-09 20:03+0100\n"
 "Last-Translator: Agent 42 <42@enigmabox.net>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -79,19 +79,20 @@ msgid "Country selection"
 msgstr "Land auswählen"
 
 #: app/templates/base.html:63
-#, fuzzy
-msgid "Internet interface"
-msgstr "Internet via cjdns"
-
-#: app/templates/base.html:64
 msgid "Network"
 msgstr "Netzwerk"
 
-#: app/templates/base.html:65
+#: app/templates/base.html:64
 #: app/templates/peerings/detail.html:9
 #: app/templates/peerings/overview.html:8
 msgid "Peerings"
 msgstr "Peerings"
+
+#: app/templates/base.html:65
+#: app/templates/wlan_settings/overview.html:8
+#: app/templates/wlan_settings/scan.html:9
+msgid "WLAN settings"
+msgstr "WLAN-Einstellungen"
 
 #: app/templates/home.html:11
 msgid "Your hostid is"
@@ -136,6 +137,7 @@ msgstr "Benutzername"
 #: app/templates/peerings/detail.html:49
 #: app/templates/peerings/detail.html:51
 #: app/templates/peerings/overview.html:61
+#: app/templates/wlan_settings/overview.html:43
 msgid "Password"
 msgstr "Passwort"
 
@@ -206,6 +208,7 @@ msgstr "Telefonnummer"
 #: app/templates/addressbook/detail.html:56
 #: app/templates/peerings/detail.html:67
 #: app/templates/peerings/overview.html:70
+#: app/templates/wlan_settings/overview.html:74
 msgid "Save"
 msgstr "Speichern"
 
@@ -419,19 +422,6 @@ msgstr "Hinweis: Es kann nach einem Länderwechel unter Umständen etwas dauern,
 msgid "If a server goes down, the next available server is automatically selected."
 msgstr "Falls ein Server nicht mehr erreichbar ist, wird automatisch der nächste verfügbare Server ausgewählt."
 
-#: app/templates/internet_interface/overview.html:8
-#, fuzzy
-msgid "Select interface"
-msgstr "Webinterface"
-
-#: app/templates/internet_interface/overview.html:9
-msgid "Select the interface which provides your internet connection."
-msgstr ""
-
-#: app/templates/internet_interface/overview.html:10
-msgid "Normally you don't have to change here anything."
-msgstr ""
-
 #: app/templates/peerings/detail.html:20
 msgid "Insert connection data to your peer"
 msgstr "Hier die Daten der Gegenstelle eintragen"
@@ -516,3 +506,57 @@ msgstr "Autopeering"
 msgid "Automatically connect to other cjdns nodes in the same LAN"
 msgstr "Automatisch zu anderen cjdns-Knoten im gleichen Netzwerk verbinden"
 
+#: app/templates/wlan_settings/overview.html:9
+msgid "If you have a <a target=\"_blank\" href=\"http://www.wlan-shop24.de/24-GHz-USB-WLAN-Adapter-ALFA-AWUS036NEH-150-MBit-1000mW\">ALFA AWUS036NEH</a> WLAN adapter, you can configure your connection here."
+msgstr "Wenn du einen <a target=\"_blank\" href=\"http://www.wlan-shop24.de/24-GHz-USB-WLAN-Adapter-ALFA-AWUS036NEH-150-MBit-1000mW\">ALFA AWUS036NEH</a> WLAN-Adapter hast, kannst du ihn hier konfigurieren."
+
+#: app/templates/wlan_settings/overview.html:18
+msgid "Connect to a WLAN access point"
+msgstr "Zu einem WLAN Access-Point verbinden"
+
+#: app/templates/wlan_settings/overview.html:22
+#: app/templates/wlan_settings/overview.html:25
+#: app/templates/wlan_settings/scan.html:21
+msgid "SSID"
+msgstr "SSID"
+
+#: app/templates/wlan_settings/overview.html:28
+msgid "Action"
+msgstr "Aktion"
+
+#: app/templates/wlan_settings/overview.html:32
+#: app/templates/wlan_settings/scan.html:10
+msgid "Scan for WLAN networks"
+msgstr "Nach WLAN-Netzwerken suchen"
+
+#: app/templates/wlan_settings/overview.html:41
+msgid "WLAN password"
+msgstr "WLAN-Passwort"
+
+#: app/templates/wlan_settings/overview.html:49
+msgid "WLAN security"
+msgstr "WLAN-Sicherheit"
+
+#: app/templates/wlan_settings/overview.html:57
+msgid "WEP"
+msgstr "WEP"
+
+#: app/templates/wlan_settings/overview.html:65
+msgid "WPA2"
+msgstr "WPA2"
+
+#: app/templates/wlan_settings/scan.html:13
+msgid "Refresh"
+msgstr "Aktualisieren"
+
+#: app/templates/wlan_settings/scan.html:22
+msgid "Quality"
+msgstr "Signalstärke"
+
+#, fuzzy
+#~ msgid "Internet interface"
+#~ msgstr "Internet via cjdns"
+
+#, fuzzy
+#~ msgid "Select interface"
+#~ msgstr "Webinterface"
