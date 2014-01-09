@@ -24,8 +24,12 @@ echo $$ > "$pidfile"
 
 
 # detect wifi
-if [[ $(ifconfig wlan0 2>/dev/null | wc -l) -gt 0 ]]; then
+if [[ -e "/sys/class/net/wlan0" ]]; then
+    . /usr/local/sbin/wifi-networking
     internet_interface="wlan0"
+    start_wlan
+else
+    ifconfig eth0 up
 fi
 
 
