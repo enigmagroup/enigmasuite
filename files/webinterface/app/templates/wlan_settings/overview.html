@@ -19,10 +19,10 @@
 
 <!-- Button Drop Down -->
 <div class="control-group">
-  <label class="control-label" for="buttondropdown">{% trans "SSID" %}</label>
+  <label class="control-label" for="ssid">{% trans "SSID" %}</label>
   <div class="controls">
     <div class="input-append">
-      <input id="buttondropdown" name="buttondropdown" class="input-xlarge" placeholder="{% trans "SSID" %}" type="text">
+      <input id="ssid" name="ssid" class="input-xlarge" placeholder="{% trans "SSID" %}" type="text">
       <div class="btn-group">
         <button class="btn dropdown-toggle" data-toggle="dropdown">
           {% trans "Action" %}
@@ -49,12 +49,12 @@
   <label class="control-label" for="WLAN security">{% trans "WLAN security" %}</label>
   <div class="controls">
     <label class="radio" for="WLAN security-0">
-      <input type="radio" name="WLAN security" id="WLAN security-0" value="{% trans "WEP" %}" checked="checked">
-      WEP
+      <input type="radio" name="security" id="WLAN security-0" value="WEP">
+      {% trans "WEP" %}
     </label>
     <label class="radio" for="WLAN security-1">
-      <input type="radio" name="WLAN security" id="WLAN security-1" value="{% trans "WPA2" %}">
-      WPA2
+      <input type="radio" name="security" id="WLAN security-1" value="WPA2" checked="checked">
+      {% trans "WPA2" %}
     </label>
   </div>
 </div>

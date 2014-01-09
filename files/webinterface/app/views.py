@@ -402,8 +402,9 @@ def wlan_settings(request):
     o = Option()
 
     if request.POST:
-        interface = request.POST.get('interface')
-        o.set_value('internet_interface', interface)
+        o.set_value('wlan_ssid', request.POST.get('ssid'))
+        o.set_value('wlan_pass', request.POST.get('pass'))
+        o.set_value('wlan_security', request.POST.get('security'))
         o.config_changed(True)
 
     return render_to_response('wlan_settings/overview.html', {
