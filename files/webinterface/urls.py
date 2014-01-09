@@ -36,7 +36,7 @@ urlpatterns = patterns('app.views',
     url(r'^countryselect/$', 'countryselect'),
 
     # internet interface
-    url(r'^internet_interface/$', 'internet_interface'),
+    url(r'^wlan_settings/$', 'wlan_settings'),
 
     # changes
     url(r'^apply_changes/$', 'apply_changes'),

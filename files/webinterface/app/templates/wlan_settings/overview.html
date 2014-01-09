@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load apptags %}
+
+{% block main %}
+    <div class="container">
+
+      <h1>{% trans "WLAN settings" %}</h1>
+      <p>{% trans 'If you have a <a target="_blank" href="http://www.wlan-shop24.de/24-GHz-USB-WLAN-Adapter-ALFA-AWUS036NEH-150-MBit-1000mW">ALFA AWUS036NEH</a> WLAN adapter, you can configure your connection here.' %}</p>
+      <br />
+
+<form method="post" class="form-horizontal">
+{% csrf_token %}
+
+<fieldset>
+
+<!-- Form Name -->
+<legend>{% trans "Connect to a WLAN access point" %}</legend>
+
+<!-- Button Drop Down -->
+<div class="control-group">
+  <label class="control-label" for="buttondropdown">{% trans "SSID" %}</label>
+  <div class="controls">
+    <div class="input-append">
+      <input id="buttondropdown" name="buttondropdown" class="input-xlarge" placeholder="{% trans "SSID" %}" type="text">
+      <div class="btn-group">
+        <button class="btn dropdown-toggle" data-toggle="dropdown">
+          {% trans "Action" %}
+          <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+          <li><a href="/wlan_settings/scan/">{% trans "Scan for WLAN networks..." %}</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Password input-->
+<div class="control-group">
+  <label class="control-label" for="pass">{% trans "WLAN password" %}</label>
+  <div class="controls">
+    <input id="pass" name="pass" type="password" placeholder="{% trans "Password" %}" class="input-xlarge">
+  </div>
+</div>
+
+<!-- Multiple Radios -->
+<div class="control-group">
+  <label class="control-label" for="WLAN security">{% trans "WLAN security" %}</label>
+  <div class="controls">
+    <label class="radio" for="WLAN security-0">
+      <input type="radio" name="WLAN security" id="WLAN security-0" value="{% trans "WEP" %}" checked="checked">
+      WEP
+    </label>
+    <label class="radio" for="WLAN security-1">
+      <input type="radio" name="WLAN security" id="WLAN security-1" value="{% trans "WPA2" %}">
+      WPA2
+    </label>
+  </div>
+</div>
+
+<!-- Button -->
+<div class="control-group">
+  <label class="control-label" for="save"></label>
+  <div class="controls">
+    <button id="save" name="save" class="btn btn-primary">{% trans "Save" %}</button>
+  </div>
+</div>
+
+</fieldset>
+</form>
+
+    </div> <!-- /container -->
+{% endblock %}

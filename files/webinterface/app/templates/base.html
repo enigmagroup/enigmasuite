@@ -60,9 +60,9 @@
 {% endif_config_changed %}
                 <li class="nav-header">{% trans "Internet" %}</li>
                 <li class="{% active request 'countryselect' %}"><a href="{% url app.views.countryselect %}"><i class="icon-globe"></i> {% trans "Country selection" %}</a></li>
-<!--                <li class="{% active request 'internet_interface' %}"><a href="{% url app.views.internet_interface %}"><i class="icon-road"></i> {% trans "Internet interface" %}</a></li>-->
                 <li class="nav-header">{% trans "Network" %}</li>
                 <li class="{% active request 'peerings' %}"><a href="{% url app.views.peerings %}"><i class="icon-random"></i> {% trans "Peerings" %}</a></li>
+                <li class="{% active request 'wlan_settings' %}"><a href="{% url app.views.wlan_settings %}"><i class="icon-signal"></i> {% trans "WLAN settings" %}</a></li>
             </ul>
         </div>
         <div class="span10">
