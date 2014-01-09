@@ -63,6 +63,10 @@ class cjdns(
         require => [ File["/etc/init.d/cjdns"], File["/usr/sbin/cjdns"], File["/usr/sbin/cjdroute"], File["/usr/sbin/cjdroute"] ],
     }
 
+    package { ["wireless-tools", "wpasupplicant", "firmware-ralink"]:
+        ensure => installed,
+    }
+
     package { "vnstat":
         ensure => installed,
         require => Service["cjdns"],
