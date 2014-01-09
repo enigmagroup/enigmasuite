@@ -64,6 +64,7 @@ dhcp() {
         echo "waiting $i seconds for dhcp address..."
         if [[ $(interface_dhcp_success) == true ]]; then
             echo "got an ip"
+            sleep 1
             return
         fi
         sleep 1
