@@ -76,7 +76,7 @@ def addressbook(request):
         'addresses': addresses,
         'form': form,
         'sip_peers': sip_peers,
-        }, context_instance=RequestContext(request))
+    }, context_instance=RequestContext(request))
 
 def addressbook_edit(request, addr_id):
     if request.POST:
@@ -107,8 +107,10 @@ def addressbook_edit(request, addr_id):
         })
 
     address = Address.objects.get(pk=addr_id)
-    return render_to_response('addressbook/detail.html',
-        {'address': address, 'form': form}, context_instance=RequestContext(request))
+    return render_to_response('addressbook/detail.html', {
+        'address': address,
+        'form': form,
+    }, context_instance=RequestContext(request))
 
 
 
@@ -129,7 +131,7 @@ def passwords(request):
     return render_to_response('passwords.html', {
         'webinterface_password': o.get_value('webinterface_password'),
         'mailbox_password': o.get_value('mailbox_password'),
-        }, context_instance=RequestContext(request))
+    }, context_instance=RequestContext(request))
 
 
 
@@ -150,7 +152,7 @@ def backup(request):
     return render_to_response('backup/overview.html', {
         'webinterface_password': o.get_value('webinterface_password'),
         'mailbox_password': o.get_value('mailbox_password'),
-        }, context_instance=RequestContext(request))
+    }, context_instance=RequestContext(request))
 
 def backup_system(request):
 
@@ -199,7 +201,7 @@ def backup_system(request):
 
     return render_to_response('backup/system.html', {
         'msg': msg,
-        }, context_instance=RequestContext(request))
+    }, context_instance=RequestContext(request))
 
 def backup_emails(request):
 
@@ -239,7 +241,7 @@ def backup_emails(request):
 
     return render_to_response('backup/emails.html', {
         'msg': msg,
-        }, context_instance=RequestContext(request))
+    }, context_instance=RequestContext(request))
 
 def backup_sslcerts(request):
 
@@ -279,7 +281,7 @@ def backup_sslcerts(request):
 
     return render_to_response('backup/sslcerts.html', {
         'msg': msg,
-        }, context_instance=RequestContext(request))
+    }, context_instance=RequestContext(request))
 
 
 
@@ -325,7 +327,7 @@ def peerings(request):
         'peering_port': o.get_value('peering_port'),
         'peering_password': o.get_value('peering_password'),
         'public_key': o.get_value('public_key'),
-        }, context_instance=RequestContext(request))
+    }, context_instance=RequestContext(request))
 
 def peerings_edit(request, peering_id=None):
     peering = ''
@@ -365,8 +367,10 @@ def peerings_edit(request, peering_id=None):
                 'description': peering.description,
             })
 
-    return render_to_response('peerings/detail.html',
-        {'peering': peering, 'form': form}, context_instance=RequestContext(request))
+    return render_to_response('peerings/detail.html', {
+        'peering': peering,
+        'form': form,
+    }, context_instance=RequestContext(request))
 
 
 
@@ -389,9 +393,9 @@ def countryselect(request):
     }
 
     return render_to_response('countryselect/overview.html', {
-            'countries': countries,
-            'selected_country': o.get_value('selected_country', 'hu')
-        }, context_instance=RequestContext(request))
+        'countries': countries,
+        'selected_country': o.get_value('selected_country', 'hu')
+    }, context_instance=RequestContext(request))
 
 
 
@@ -408,9 +412,10 @@ def wlan_settings(request):
         o.config_changed(True)
 
     return render_to_response('wlan_settings/overview.html', {
-            'interfaces': ['eth0', 'wlan0'],
-            'internet_interface': o.get_value('internet_interface', 'eth0'),
-        }, context_instance=RequestContext(request))
+        'wlan_ssid': o.get_value('wlan_ssid', ''),
+        'wlan_pass': o.get_value('wlan_pass', ''),
+        'wlan_security': o.get_value('wlan_security', 'WPA2'),
+    }, context_instance=RequestContext(request))
 
 
 
