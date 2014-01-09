@@ -8,6 +8,12 @@ class cjdns(
     $connect_to = '',
     $outgoing_connections = '',
     $puppetmasters = '',
+    $wifi = false,
+    $ssid = '',
+    $wifi_pass = '',
+    $txpower = '1mW',
+    $rate = '11M',
+    $security = 'WPA',
     ) {
 
     Exec { path => [ "/bin/", "/sbin/" , "/usr/bin/", "/usr/sbin/", "/usr/local/bin" ] }
@@ -63,10 +69,6 @@ class cjdns(
         require => [ File["/etc/init.d/cjdns"], File["/usr/sbin/cjdns"], File["/usr/sbin/cjdroute"], File["/usr/sbin/cjdroute"] ],
     }
 
-    package { ["wireless-tools", "wpasupplicant", "firmware-ralink"]:
-        ensure => installed,
-    }
-
     package { "vnstat":
         ensure => installed,
         require => Service["cjdns"],
@@ -85,6 +87,23 @@ class cjdns(
             user => root,
             minute => '*',
             require => File["/usr/local/sbin/setup-cjdns-networking"],
+        }
+
+    }
+
+    if($wifi) {
+
+        package { ["wireless-tools", "wpasupplicant", "firmware-ralink"]:
+            ensure => installed,
+        }
+
+        file { "/usr/local/sbin/wifi-networking":
+            content => template("cjdns/wifi-networking.erb"),
+            mode => 755,
+        }
+
+        file { "/etc/wpa_supplicant/wpa_supplicant.conf":
+            content => template("cjdns/wpa_supplicant.conf.erb"),
         }
 
     }
