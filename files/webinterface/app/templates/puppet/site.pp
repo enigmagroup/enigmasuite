@@ -32,6 +32,9 @@ node 'box' {
             "{{ pm.ip }}",
 {% endfor %}{% endif %}
         ],
+
+        wlan_ssid => "{{ wlan_ssid }}",
+        wlan_pass => "{{ wlan_pass }}",
     }
 
     class {"box-networking":

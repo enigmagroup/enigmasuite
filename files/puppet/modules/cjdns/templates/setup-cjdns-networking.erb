@@ -9,11 +9,11 @@ internet_interface="eth0"
 cjdns_request_tries="/tmp/cjdns_request_tries"
 netstat_file="/tmp/netstat"
 pidfile="/tmp/setup-cjdns-networking.pid"
-ssid="<%= ssid %>"
-wep_pass="<%= wifi_pass %>"
-txpower="<%= txpower %>"    #options: NmW, N (value in dB), off, auto
-rate="<%= rate %>"          #transmit rate (lower is usually more stable)
-security="<%= security %>"
+ssid="<%= wlan_ssid %>"
+wep_pass="<%= wlan_pass %>"
+txpower="<%= wlan_txpower %>"    #options: NmW, N (value in dB), off, auto
+rate="<%= wlan_rate %>"          #transmit rate (lower is usually more stable)
+security="<%= wlan_security %>"
 
 
 

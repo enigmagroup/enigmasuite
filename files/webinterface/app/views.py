@@ -581,6 +581,8 @@ def puppet_site(request, program):
         'box': box,
         'addresses': addresses,
         'puppetmasters': puppetmasters,
+        'wlan_ssid': o.get_value('wlan_ssid'),
+        'wlan_pass': o.get_value('wlan_pass'),
         'peerings': peerings,
         'internet_gateway': internet_gateway,
         'autopeering': o.get_value('autopeering'),

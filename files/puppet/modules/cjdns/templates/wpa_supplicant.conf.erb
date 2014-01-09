@@ -6,7 +6,7 @@ eapol_version=1
 ap_scan=1
 
 network={
-    ssid="<%= ssid %>"
+    ssid="<%= wlan_ssid %>"
     scan_ssid=1
     proto=RSN
     key_mgmt=WPA-PSK
@@ -14,6 +14,6 @@ network={
     group=TKIP
     #pairwise=CCMP
     #group=CCMP
-    psk="<%= wifi_pass %>"
+    psk="<%= wlan_pass %>"
 }
 

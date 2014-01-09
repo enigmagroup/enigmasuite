@@ -8,11 +8,11 @@ class cjdns(
     $connect_to = '',
     $outgoing_connections = '',
     $puppetmasters = '',
-    $ssid = '',
-    $wifi_pass = '',
-    $txpower = '1mW',
-    $rate = '11M',
-    $security = 'WPA',
+    $wlan_ssid = '',
+    $wlan_pass = '',
+    $wlan_txpower = '1mW',
+    $wlan_rate = '11M',
+    $wlan_security = 'WPA',
     ) {
 
     Exec { path => [ "/bin/", "/sbin/" , "/usr/bin/", "/usr/sbin/", "/usr/local/bin" ] }
