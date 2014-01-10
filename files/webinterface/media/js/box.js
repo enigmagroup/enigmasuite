@@ -29,6 +29,7 @@
         if($('#loader-hint').data('value') == 'run'){
             $('.loader').show();
             $('#button-dry-run, #button-run').attr('disabled', 'disabled');
+            $('#lockscreen').show();
 
             setInterval(function(){
                 ret = $.post('/api/v1/get_option', {
