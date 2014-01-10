@@ -7,6 +7,7 @@ remoteadresses="<%= puppetmasters.join(' ') %> <% connect_to.each do |c| %><%= c
 orggatewayfile="/tmp/cjdns_org_gw"
 internet_interface="eth0"
 wlan_interface="wlan0"
+ping="ping -c 2 -W 5"
 cjdns_request_tries="/tmp/cjdns_request_tries"
 netstat_file="/tmp/netstat"
 pidfile="/tmp/setup-cjdns-networking.pid"
@@ -109,7 +110,7 @@ request_cjdns_internet() {
             country=$(echo "$line" | tr "," "\n" | grep 'country' | cut -d: -f2 | sed 's#"##g' | sed 's#}##g')
 
             echo "trying $country ($ip)..."
-            if [[ $(ping -c 1 -W 5 $ip | grep 'bytes from' | wc -l) -gt 0 ]]; then
+            if [[ $($ping $ip | grep 'bytes from' | wc -l) -gt 0 ]]; then
                 # take it!
                 curl --data "key=selected_country&value=$country" -X POST http://127.0.0.1:8000/api/v1/set_option &> /dev/null
                 puppet-apply -r
@@ -217,7 +218,7 @@ set_status() {
 if [[ $(gateway_is_up) == true ]]; then
     set_network_parameters
     e "checking internet connectivity over cjdns"
-    if [[ $(ping -c 1 -W 5 8.8.8.8 | grep 'bytes from') ]]; then
+    if [[ $($ping 8.8.8.8 | grep 'bytes from') ]]; then
         echo "We have internet. Good."
         set_status "dhcp" 1
         set_status "internet" 1
@@ -244,7 +245,7 @@ fi
 # check for internet. if only one server with a direct route is pingable, we have an internet connection
 wehaveinternet="no"
 for remoteaddress in $remoteadresses; do
-    if [[ $(ping -c 1 -W 5 "$remoteaddress" | grep 'bytes from') ]]; then
+    if [[ $($ping "$remoteaddress" | grep 'bytes from') ]]; then
         echo "internet detected"
         set_status "internet" 1
         wehaveinternet="yes"
