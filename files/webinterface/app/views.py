@@ -424,21 +424,42 @@ def wlan_scan(request):
     if request.POST:
         o.set_value('wlan_ssid', request.POST.get('ssid'))
         o.set_value('wlan_security', request.POST.get('security'))
+        o.set_value('wlan_group_cipher', request.POST.get('group_cipher'))
+        o.set_value('wlan_pairwise_cipher', request.POST.get('pairwise_cipher'))
         return redirect('/wlan_settings/')
 
     final_cells = []
 
     Popen(["sudo", "ifconfig", "wlan0", "up"], stdout=PIPE).communicate()[0]
     scan = Popen(["sudo", "iwlist", "wlan0", "scan"], stdout=PIPE).communicate()[0]
+
     cells = scan.split('Cell ')
     for cell in cells:
         try:
             ssid = cell.split('ESSID:')[1].split('\n')[0].replace('"', '').strip()
             quality = cell.split('Quality=')[1].split(' ')[0].strip()
 
+            try:
+                group_cipher = cell.split('Group Cipher')[1].split('\n')[0].split(' ')[-1:][0].strip()
+            except:
+                group_cipher = ''
+
+            try:
+                pairwise_cipher = cell.split('Pairwise Ciphers')[1].split('\n')[0].split(' ')[-1:][0].strip()
+            except:
+                pairwise_cipher = ''
+
+            if 'WPA' in cell:
+                security = 'WPA2'
+            else:
+                security = 'WEP'
+
             final_cells.append({
                 'ssid': ssid,
                 'quality': quality,
+                'security': security,
+                'group_cipher': group_cipher,
+                'pairwise_cipher': pairwise_cipher,
             })
         except:
             pass
