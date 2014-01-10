@@ -5,3 +5,4 @@ www-data    ALL = /usr/sbin/usermod -p *
 www-data    ALL = /usr/local/sbin/backup-stuff
 www-data    ALL = /usr/local/sbin/restore-stuff
 www-data    ALL = /sbin/iwlist wlan0 scan
+www-data    ALL = /sbin/ifconfig wlan0 up

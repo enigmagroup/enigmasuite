@@ -428,6 +428,7 @@ def wlan_scan(request):
 
     final_cells = []
 
+    Popen(["sudo", "ifconfig", "wlan0", "up"], stdout=PIPE).communicate()[0]
     scan = Popen(["sudo", "iwlist", "wlan0", "scan"], stdout=PIPE).communicate()[0]
     cells = scan.split('Cell ')
     for cell in cells:
