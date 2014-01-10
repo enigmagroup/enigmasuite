@@ -35,6 +35,7 @@ run() {
 
     background=""
     if [[ "$1" == "background" || "$2" == "background" ]]; then
+        > "$puppet_output"
         background=1
     fi
 
@@ -46,7 +47,6 @@ run() {
     if [[ "$noop" == 1 ]]; then
 
         if [[ "$background" == 1 ]]; then
-            > "$puppet_output"
             puppet_run noop > "$puppet_output" &
         else
             puppet_run noop
@@ -55,7 +55,6 @@ run() {
     else
 
         if [[ "$background" == 1 ]]; then
-            > "$puppet_output"
             (puppet_run > "$puppet_output" && inform_webinterface) &
         else
             puppet_run && inform_webinterface &> /dev/null
