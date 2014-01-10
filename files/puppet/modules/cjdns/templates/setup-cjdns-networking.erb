@@ -7,7 +7,7 @@ remoteadresses="<%= puppetmasters.join(' ') %> <% connect_to.each do |c| %><%= c
 orggatewayfile="/tmp/cjdns_org_gw"
 internet_interface="eth0"
 wlan_interface="wlan0"
-ping="ping -c 2 -W 5"
+ping="ping -c 5 -W 5"
 cjdns_request_tries="/tmp/cjdns_request_tries"
 netstat_file="/tmp/netstat"
 pidfile="/tmp/setup-cjdns-networking.pid"
