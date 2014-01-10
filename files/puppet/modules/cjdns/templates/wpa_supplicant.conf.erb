@@ -10,10 +10,8 @@ network={
     scan_ssid=1
     proto=RSN
     key_mgmt=WPA-PSK
-    pairwise=TKIP
-    group=TKIP
-    #pairwise=CCMP
-    #group=CCMP
+    group=<%= wlan_group %>
+    pairwise=<%= wlan_pairwise %>
     psk="<%= wlan_pass %>"
 }
 

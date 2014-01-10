@@ -424,8 +424,8 @@ def wlan_scan(request):
     if request.POST:
         o.set_value('wlan_ssid', request.POST.get('ssid'))
         o.set_value('wlan_security', request.POST.get('security'))
-        o.set_value('wlan_group_cipher', request.POST.get('group_cipher'))
-        o.set_value('wlan_pairwise_cipher', request.POST.get('pairwise_cipher'))
+        o.set_value('wlan_group', request.POST.get('group'))
+        o.set_value('wlan_pairwise', request.POST.get('pairwise'))
         return redirect('/wlan_settings/')
 
     final_cells = []
@@ -440,17 +440,17 @@ def wlan_scan(request):
             quality = cell.split('Quality=')[1].split(' ')[0].strip()
 
             try:
-                group_cipher = cell.split('Group Cipher')[1].split('\n')[0].split(' ')[-1:][0].strip()
+                group = cell.split('Group Cipher')[1].split('\n')[0].split(' ')[-1:][0].strip()
             except:
-                group_cipher = ''
+                group = ''
 
             try:
-                pairwise_cipher = cell.split('Pairwise Ciphers')[1].split('\n')[0].split(' ')[-1:][0].strip()
+                pairwise = cell.split('Pairwise Ciphers')[1].split('\n')[0].split(' ')[-1:][0].strip()
             except:
-                pairwise_cipher = ''
+                pairwise = ''
 
             if 'WPA' in cell:
-                security = 'WPA2'
+                security = 'WPA'
             else:
                 security = 'WEP'
 
@@ -458,8 +458,8 @@ def wlan_scan(request):
                 'ssid': ssid,
                 'quality': quality,
                 'security': security,
-                'group_cipher': group_cipher,
-                'pairwise_cipher': pairwise_cipher,
+                'group': group,
+                'pairwise': pairwise,
             })
         except:
             pass

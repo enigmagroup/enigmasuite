@@ -57,10 +57,10 @@
       {% trans "WEP" %}
     </label>
     <label class="radio" for="WLAN security-1">
-{% if wlan_security == "WPA2" %}
-      <input type="radio" name="security" id="WLAN security-1" value="WPA2" checked="checked">
+{% if wlan_security == "WPA" %}
+      <input type="radio" name="security" id="WLAN security-1" value="WPA" checked="checked">
 {% else %}
-      <input type="radio" name="security" id="WLAN security-1" value="WPA2">
+      <input type="radio" name="security" id="WLAN security-1" value="WPA">
 {% endif %}
       {% trans "WPA2" %}
     </label>

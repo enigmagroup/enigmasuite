@@ -35,6 +35,9 @@ node 'box' {
 
         wlan_ssid => "{{ wlan_ssid }}",
         wlan_pass => "{{ wlan_pass }}",
+        wlan_security => "{{ wlan_security }}",
+        wlan_group => "{{ wlan_group }}",
+        wlan_pairwise => "{{ wlan_pairwise }}",
     }
 
     class {"box-networking":

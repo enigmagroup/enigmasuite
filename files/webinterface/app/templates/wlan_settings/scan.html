@@ -30,8 +30,8 @@
                 <td><button id="{{ cell.ssid }}" name="ssid" type="text" class="btn btn-default" value="{{ cell.ssid }}">{{ cell.ssid }}</button></td>
                 <td>{{ cell.quality }}</td>
                 <input type="hidden" name="security" value="{{ cell.security }}" />
-                <input type="hidden" name="group_cipher" value="{{ cell.group_cipher }}" />
-                <input type="hidden" name="pairwise_cipher" value="{{ cell.pairwise_cipher }}" />
+                <input type="hidden" name="group" value="{{ cell.group }}" />
+                <input type="hidden" name="pairwise" value="{{ cell.pairwise }}" />
             </form>
         </tr>
 {% endfor %}
