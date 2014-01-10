@@ -23,6 +23,7 @@
         if($('#loader-hint').data('value') == 'dry-run'){
             $('.loader').show();
             $('#button-dry-run, #button-run').attr('disabled', 'disabled');
+            $('#lockscreen').show();
         }
 
         if($('#loader-hint').data('value') == 'run'){
@@ -37,6 +38,7 @@
                         $('.loader').hide();
                         $('#button-dry-run, #button-run, #button-apply').hide();
                         $('#success').fadeIn();
+                        $('#lockscreen').hide();
                     }
                 });
             }, 2000);
@@ -51,6 +53,7 @@
                     if(data.indexOf('Finished catalog run') > -1){
                         $('#button-dry-run, #button-run, #button-apply').removeAttr('disabled');
                         $('.loader').hide();
+                        $('#lockscreen').hide();
                     }
                 }
             });
