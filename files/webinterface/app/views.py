@@ -619,7 +619,7 @@ def puppet_site(request, program):
     addresses = Address.objects.all().order_by('id')
 
     webinterface_password = o.get_value('webinterface_password')
-    mailbox_password = o.get_value('mailbox_password')
+    mailbox_password = o.get_value(u'mailbox_password').encode('utf-8')
 
     if webinterface_password is None:
         webinterface_password = ''
