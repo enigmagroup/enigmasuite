@@ -308,7 +308,7 @@ $rcmail_config['mail_domain'] = '';
 // Password charset.
 // Use it if your authentication backend doesn't support UTF-8.
 // Defaults to ISO-8859-1 for backward compatibility
-$rcmail_config['password_charset'] = 'ISO-8859-1';
+$rcmail_config['password_charset'] = 'UTF-8';
 
 // How many seconds must pass between emails sent by a user
 $rcmail_config['sendmail_delay'] = 0;
