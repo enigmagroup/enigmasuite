@@ -97,7 +97,7 @@ class Option(models.Model):
         except:
             o = Option()
             o.key = option_key
-            option_value = '1'
+            option_value = '0'
         if option_value == '1':
             o.value = '0'
         else:
