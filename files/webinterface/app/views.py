@@ -407,6 +407,7 @@ def webfilter(request):
 
     if request.POST:
         o.config_changed(True)
+        settings['custom_rules_text'] = o.get_value('webfilter_custom-rules-text', '')
 
     settings_fields = ['filter-ads', 'filter-headers', 'block-facebook', 'block-google', 'block-twitter', 'custom-rules']
 
@@ -426,7 +427,6 @@ def webfilter(request):
         settings[field_name] = o.get_value(setting_name, '')
 
     settings['set_browser'] = o.get_value('webfilter_set-browser', 'none')
-    settings['custom_rules_text'] = o.get_value('webfilter_custom-rules-text', '')
 
     return render_to_response('webfilter/overview.html', settings, context_instance=RequestContext(request))
 
