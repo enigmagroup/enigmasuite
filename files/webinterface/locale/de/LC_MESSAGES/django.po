@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-01-21 17:08+0100\n"
-"PO-Revision-Date: 2014-01-21 17:09+0100\n"
+"POT-Creation-Date: 2014-01-21 18:10+0100\n"
+"PO-Revision-Date: 2014-01-21 18:11+0100\n"
 "Last-Translator: Agent 42 <42@enigmabox.net>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -217,7 +217,7 @@ msgstr "Telefonnummer"
 #: app/templates/addressbook/detail.html:56
 #: app/templates/peerings/detail.html:67
 #: app/templates/peerings/overview.html:70
-#: app/templates/webfilter/overview.html:134
+#: app/templates/webfilter/overview.html:140
 #: app/templates/wlan_settings/overview.html:74
 msgid "Save"
 msgstr "Speichern"
@@ -488,25 +488,25 @@ msgstr "Eingehendes Peering"
 
 #: app/templates/peerings/overview.html:44
 #: app/templates/peerings/overview.html:100
-#: app/templates/webfilter/overview.html:31
-#: app/templates/webfilter/overview.html:43
-#: app/templates/webfilter/overview.html:56
-#: app/templates/webfilter/overview.html:74
-#: app/templates/webfilter/overview.html:86
-#: app/templates/webfilter/overview.html:98
-#: app/templates/webfilter/overview.html:115
+#: app/templates/webfilter/overview.html:37
+#: app/templates/webfilter/overview.html:49
+#: app/templates/webfilter/overview.html:62
+#: app/templates/webfilter/overview.html:80
+#: app/templates/webfilter/overview.html:92
+#: app/templates/webfilter/overview.html:104
+#: app/templates/webfilter/overview.html:121
 msgid "Enabled"
 msgstr "Aktiviert"
 
 #: app/templates/peerings/overview.html:46
 #: app/templates/peerings/overview.html:102
-#: app/templates/webfilter/overview.html:33
-#: app/templates/webfilter/overview.html:45
-#: app/templates/webfilter/overview.html:58
-#: app/templates/webfilter/overview.html:76
-#: app/templates/webfilter/overview.html:88
-#: app/templates/webfilter/overview.html:100
-#: app/templates/webfilter/overview.html:117
+#: app/templates/webfilter/overview.html:39
+#: app/templates/webfilter/overview.html:51
+#: app/templates/webfilter/overview.html:64
+#: app/templates/webfilter/overview.html:82
+#: app/templates/webfilter/overview.html:94
+#: app/templates/webfilter/overview.html:106
+#: app/templates/webfilter/overview.html:123
 msgid "Disabled"
 msgstr "Deaktiviert"
 
@@ -534,47 +534,55 @@ msgstr "Automatisch zu anderen cjdns-Knoten im gleichen Netzwerk verbinden"
 msgid "Filter out ads and trackers, block whole domains."
 msgstr "Werbung und Tracker filtern, ganze Domains blockieren."
 
-#: app/templates/webfilter/overview.html:17
+#: app/templates/webfilter/overview.html:13
+msgid "Instructions"
+msgstr "Anleitung"
+
+#: app/templates/webfilter/overview.html:13
+msgid "<a href=\"http://enigmabox.net/en/ad-blocking/\" target=\"_blank\">enigmabox.net/en/ad-blocking/</a>"
+msgstr "<a href=\"http://enigmabox.net/werbeblocker/\" target=\"_blank\">enigmabox.net/werbeblocker/</a>"
+
+#: app/templates/webfilter/overview.html:23
 msgid "General configuration"
 msgstr "Allgemeine Konfiguration"
 
-#: app/templates/webfilter/overview.html:18
+#: app/templates/webfilter/overview.html:24
 msgid "Block domains"
 msgstr "Domains blockieren"
 
-#: app/templates/webfilter/overview.html:19
+#: app/templates/webfilter/overview.html:25
 msgid "Custom blocking rules"
 msgstr "Eigene Filterregeln"
 
-#: app/templates/webfilter/overview.html:28
+#: app/templates/webfilter/overview.html:34
 msgid "Filter ads and trackers"
 msgstr "Werbung filtern"
 
-#: app/templates/webfilter/overview.html:40
+#: app/templates/webfilter/overview.html:46
 msgid "Filter browser headers"
 msgstr "Browserheader filtern"
 
-#: app/templates/webfilter/overview.html:53
+#: app/templates/webfilter/overview.html:59
 msgid "Send user agent"
 msgstr "User-Agent senden"
 
-#: app/templates/webfilter/overview.html:71
+#: app/templates/webfilter/overview.html:77
 msgid "Block Facebook"
 msgstr "Facebook blockieren"
 
-#: app/templates/webfilter/overview.html:83
+#: app/templates/webfilter/overview.html:89
 msgid "Block Google"
 msgstr "Google blockieren"
 
-#: app/templates/webfilter/overview.html:95
+#: app/templates/webfilter/overview.html:101
 msgid "Block Twitter"
 msgstr "Twitter blockieren"
 
-#: app/templates/webfilter/overview.html:112
+#: app/templates/webfilter/overview.html:118
 msgid "Custom rules"
 msgstr "Eigene Regeln"
 
-#: app/templates/webfilter/overview.html:124
+#: app/templates/webfilter/overview.html:130
 msgid "Rules"
 msgstr "Regeln"
 

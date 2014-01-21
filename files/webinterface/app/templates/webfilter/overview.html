@@ -7,7 +7,13 @@
 
       <h1>{% trans "Ad blocking" %}</h1>
       <p>{% trans "Filter out ads and trackers, block whole domains." %}</p>
-      <br />
+
+<div class="alert alert-info">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <strong>{% trans "Instructions" %}:</strong> {% trans '<a href="http://enigmabox.net/en/ad-blocking/" target="_blank">enigmabox.net/en/ad-blocking/</a>' %}
+</div>
+
+<br />
 
 <form method="post" class="form-horizontal">
 {% csrf_token %}
