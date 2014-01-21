@@ -1,4 +1,13 @@
-class tinyproxy() {
+class tinyproxy(
+    $filter_ads = '',
+    $filter_headers = '',
+    $set_browser = 'none',
+    $block_facebook = '',
+    $block_google = '',
+    $block_twitter = '',
+    $custom_rules = '',
+    $custom_rules_text = '',
+    ) {
 
     Exec { path => [ "/bin/", "/sbin/" , "/usr/bin/", "/usr/sbin/", "/usr/local/bin" ] }
 

@@ -1,6 +1,17 @@
-facebook\.com
-facebook\.net
-#twitter\.com
+
+# block domains
+<% if block_facebook == '1' then %>
+facebook\.
+<% end %>
+
+<% if block_google == '1' then %>
+google\.
+<% end %>
+
+<% if block_twitter == '1' then %>
+twitter\.
+<% end %>
+
 disqus\.com
 addtoany\.com
 batilo\.de
@@ -57,8 +68,6 @@ smartadserver\.com
 exoclick\.com
 morefreecamsecrets\.com
 ad\.search\.ch
-
-#google\.
 
 /adv/.*\.gif$
 /[Aa]ds/.*\.gif$
