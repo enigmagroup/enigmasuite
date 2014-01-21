@@ -664,6 +664,12 @@ def puppet_site(request, program):
     p = hashlib.sha1(mailbox_password)
     mailbox_password = base64.b64encode(p.digest())
 
+    # webfilter: format custom rules
+    custom_rules_text = o.get_value('webfilter_custom-rules-text', '')
+    # four backslashes: django -> puppet -> tinyproxy-regex
+    custom_rules_text = custom_rules_text.replace('.', '\\\\.')
+    custom_rules_text = custom_rules_text.replace('-', '\\\\-')
+
     return render_to_response(template, {
         'box': box,
         'addresses': addresses,
@@ -688,6 +694,6 @@ def puppet_site(request, program):
         'webfilter_block_google': o.get_value('webfilter_block-google', ''),
         'webfilter_block_twitter': o.get_value('webfilter_block-twitter', ''),
         'webfilter_custom_rules': o.get_value('webfilter_custom-rules', ''),
-        'webfilter_custom_rules_text': o.get_value('webfilter_custom-rules-text', ''),
+        'webfilter_custom_rules_text': custom_rules_text,
     })
 
