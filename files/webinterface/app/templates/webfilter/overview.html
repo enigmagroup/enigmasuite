@@ -27,7 +27,11 @@
         <div class="control-group">
           <label class="control-label" for="filter-ads">Filter ads and trackers</label>
           <div class="controls">
-            <button id="filter-ads" name="filter-ads" class="btn btn-{% btn_state filter_ads '1' 'success' 'inverse' %}" value="1">Enabled</button>
+{% if filter_ads == '1' %}
+            <button id="filter-ads" name="filter-ads" class="btn btn-success" value="1">{% trans "Enabled" %}</button>
+{% else %}
+            <button id="filter-ads" name="filter-ads" class="btn btn-inverse" value="1">{% trans "Disabled" %}</button>
+{% endif %}
           </div>
         </div>
 
@@ -35,7 +39,11 @@
         <div class="control-group">
           <label class="control-label" for="filter-headers">Filter browser headers</label>
           <div class="controls">
-            <button id="filter-headers" name="filter-headers" class="btn btn-{% btn_state filter_headers '1' 'success' 'inverse' %}" value="1">Enabled</button>
+{% if filter_headers == '1' %}
+            <button id="filter-headers" name="filter-headers" class="btn btn-success" value="1">{% trans "Enabled" %}</button>
+{% else %}
+            <button id="filter-headers" name="filter-headers" class="btn btn-inverse" value="1">{% trans "Disabled" %}</button>
+{% endif %}
           </div>
         </div>
 
@@ -61,7 +69,11 @@
         <div class="control-group">
           <label class="control-label" for="block-facebook">Block Facebook</label>
           <div class="controls">
-            <button id="block-facebook" name="block-facebook" class="btn btn-{% btn_state block_facebook '1' 'success' 'inverse' %}" value="1">Enabled</button>
+{% if block_facebook == '1' %}
+            <button id="block-facebook" name="block-facebook" class="btn btn-success" value="1">{% trans "Enabled" %}</button>
+{% else %}
+            <button id="block-facebook" name="block-facebook" class="btn btn-inverse" value="1">{% trans "Disabled" %}</button>
+{% endif %}
           </div>
         </div>
 
@@ -69,7 +81,11 @@
         <div class="control-group">
           <label class="control-label" for="block-google">Block Google</label>
           <div class="controls">
-            <button id="block-google" name="block-google" class="btn btn-{% btn_state block_google '1' 'success' 'inverse' %}" value="1">Enabled</button>
+{% if block_google == '1' %}
+            <button id="block-google" name="block-google" class="btn btn-success" value="1">{% trans "Enabled" %}</button>
+{% else %}
+            <button id="block-google" name="block-google" class="btn btn-inverse" value="1">{% trans "Disabled" %}</button>
+{% endif %}
           </div>
         </div>
 
@@ -77,7 +93,11 @@
         <div class="control-group">
           <label class="control-label" for="block-twitter">Block Twitter</label>
           <div class="controls">
-            <button id="block-twitter" name="block-twitter" class="btn btn-{% btn_state block_twitter '1' 'success' 'inverse' %}" value="1">Disabled</button>
+{% if block_twitter == '1' %}
+            <button id="block-twitter" name="block-twitter" class="btn btn-success" value="1">{% trans "Enabled" %}</button>
+{% else %}
+            <button id="block-twitter" name="block-twitter" class="btn btn-inverse" value="1">{% trans "Disabled" %}</button>
+{% endif %}
           </div>
         </div>
         </fieldset>
@@ -90,7 +110,11 @@
         <div class="control-group">
           <label class="control-label" for="custom-rules">Custom rules</label>
           <div class="controls">
-            <button id="custom-rules" name="custom-rules" class="btn btn-{% btn_state custom_rules '1' 'success' 'inverse' %}" value="1">Enabled</button>
+{% if custom_rules == '1' %}
+            <button id="custom-rules" name="custom-rules" class="btn btn-success" value="1">{% trans "Enabled" %}</button>
+{% else %}
+            <button id="custom-rules" name="custom-rules" class="btn btn-inverse" value="1">{% trans "Disabled" %}</button>
+{% endif %}
           </div>
         </div>
 
