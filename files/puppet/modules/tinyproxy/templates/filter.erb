@@ -2,6 +2,7 @@
 # block domains
 <% if block_facebook == '1' then %>
 facebook\.
+fbcdn\.
 <% end %>
 
 <% if block_google == '1' then %>
@@ -12,7 +13,9 @@ google\.
 twitter\.
 <% end %>
 
-disqus\.com
+#disqus\.com
+
+<% if filter_ads == '1' then %>
 addtoany\.com
 batilo\.de
 adultfriendfinder\.com
@@ -21,7 +24,7 @@ eads\.to
 mediaplex\.com
 afdads\.com
 z5x\.net
-google-analytics\.com
+google\-analytics\.com
 adperium\.com
 ad4game\.com
 adserving\.
@@ -68,6 +71,9 @@ smartadserver\.com
 exoclick\.com
 morefreecamsecrets\.com
 ad\.search\.ch
+visualrevenue\.com
+cxense\.com
+cxpublic\.com
 
 /adv/.*\.gif$
 /[Aa]ds/.*\.gif$
@@ -85,3 +91,8 @@ sitecatalyst\.js
 tracker\.js
 
 dcs\.gif
+<% end %>
+
+<% if custom_rules == '1' then %>
+<%= custom_rules_text %>
+<% end %>
