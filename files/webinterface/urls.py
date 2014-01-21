@@ -35,6 +35,9 @@ urlpatterns = patterns('app.views',
     # countryselect
     url(r'^countryselect/$', 'countryselect'),
 
+    # ad filter
+    url(r'^webfilter/$', 'webfilter'),
+
     # wlan settings
     url(r'^wlan_settings/scan/$', 'wlan_scan'),
     url(r'^wlan_settings/$', 'wlan_settings'),
