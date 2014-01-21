@@ -405,12 +405,12 @@ def webfilter(request):
 
     o = Option()
 
-    if request.POST:
-        country = request.POST.get('country')
-        o.set_value('selected_country', country)
-        o.config_changed(True)
+#    if request.POST:
+#        country = request.POST.get('country')
+#        o.set_value('selected_country', country)
+#        o.config_changed(True)
 
-    return render_to_response('countryselect/overview.html', {
+    return render_to_response('webfilter/overview.html', {
         'selected_country': o.get_value('selected_country', 'hu')
     }, context_instance=RequestContext(request))
 
