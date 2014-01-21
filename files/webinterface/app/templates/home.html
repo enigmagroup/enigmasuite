@@ -14,10 +14,10 @@
 
       <hr />
 
-        <a href="" class="btn btn-{% netstat_btn netstat.dhcp %}">{% trans "DHCP" %}</a>
-        <a href="" class="btn btn-{% netstat_btn netstat.internet %}">{% trans "Internet" %}</a>
-        <a href="" class="btn btn-{% netstat_btn netstat.cjdns %}">{% trans "cjdns" %}</a>
-        <a href="" class="btn btn-{% netstat_btn netstat.cjdns_internet %}">{% trans "Internet via cjdns" %}</a>
+        <a href="" class="btn btn-{% btn_state netstat.dhcp '1' 'success' 'inverse' %}">{% trans "DHCP" %}</a>
+        <a href="" class="btn btn-{% btn_state netstat.internet '1' 'success' 'inverse' %}">{% trans "Internet" %}</a>
+        <a href="" class="btn btn-{% btn_state netstat.cjdns '1' 'success' 'inverse' %}">{% trans "cjdns" %}</a>
+        <a href="" class="btn btn-{% btn_state netstat.cjdns_internet '1' 'success' 'inverse' %}">{% trans "Internet via cjdns" %}</a>
 
       <hr />
 

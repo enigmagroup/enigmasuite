@@ -14,10 +14,10 @@ def active(request, pattern):
     return ''
 
 @register.simple_tag
-def netstat_btn(status):
-    if status == '1':
-        return 'success'
-    return 'inverse'
+def btn_state(variable, value, on_success, on_failure):
+    if variable == value:
+        return on_success
+    return on_failure
 
 @register.simple_tag
 def form_error(errors):

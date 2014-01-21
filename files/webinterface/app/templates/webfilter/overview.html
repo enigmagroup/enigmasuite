@@ -19,8 +19,6 @@
   <li><a href="#custom-rules">Custom blocking rules</a></li>
 </ul>
 
-{{ filter_headers }}
-
 <div class="tab-content">
     <div class="tab-pane" id="general-config">
         <fieldset>
@@ -29,7 +27,7 @@
         <div class="control-group">
           <label class="control-label" for="filter-ads">Filter ads and trackers</label>
           <div class="controls">
-            <button id="filter-ads" name="filter-ads" class="btn btn-success" value="1">Enabled</button>
+            <button id="filter-ads" name="filter-ads" class="btn btn-{% btn_state filter_ads '1' 'success' 'inverse' %}" value="1">Enabled</button>
           </div>
         </div>
 
@@ -37,7 +35,7 @@
         <div class="control-group">
           <label class="control-label" for="filter-headers">Filter browser headers</label>
           <div class="controls">
-            <button id="filter-headers" name="filter-headers" class="btn btn-success" value="1">Enabled</button>
+            <button id="filter-headers" name="filter-headers" class="btn btn-{% btn_state filter_headers '1' 'success' 'inverse' %}" value="1">Enabled</button>
           </div>
         </div>
 
@@ -46,10 +44,10 @@
           <label class="control-label" for="set-browser">Set browser identification</label>
           <div class="controls">
             <div class="btn-group">
-                <button id="set-browser" name="set-browser" class="btn btn-warning" value="none">None</button>
-                <button id="set-browser" name="set-browser" class="btn btn-default" value="chrome">Chrome</button>
-                <button id="set-browser" name="set-browser" class="btn btn-default" value="firefox">Firefox</button>
-                <button id="set-browser" name="set-browser" class="btn btn-default" value="ie">Internet Explorer</button>
+                <button id="set-browser" name="set-browser" class="btn btn-{% btn_state set_browser 'none' 'warning' 'default' %}" value="none">None</button>
+                <button id="set-browser" name="set-browser" class="btn btn-{% btn_state set_browser 'chrome' 'warning' 'default' %}" value="chrome">Chrome</button>
+                <button id="set-browser" name="set-browser" class="btn btn-{% btn_state set_browser 'firefox' 'warning' 'default' %}" value="firefox">Firefox</button>
+                <button id="set-browser" name="set-browser" class="btn btn-{% btn_state set_browser 'ie' 'warning' 'default' %}" value="ie">Internet Explorer</button>
             </div>
           </div>
         </div>
@@ -63,7 +61,7 @@
         <div class="control-group">
           <label class="control-label" for="block-facebook">Block Facebook</label>
           <div class="controls">
-            <button id="block-facebook" name="block-facebook" class="btn btn-success" value="1">Enabled</button>
+            <button id="block-facebook" name="block-facebook" class="btn btn-{% btn_state block_facebook '1' 'success' 'inverse' %}" value="1">Enabled</button>
           </div>
         </div>
 
@@ -71,7 +69,7 @@
         <div class="control-group">
           <label class="control-label" for="block-google">Block Google</label>
           <div class="controls">
-            <button id="block-google" name="block-google" class="btn btn-success" value="1">Enabled</button>
+            <button id="block-google" name="block-google" class="btn btn-{% btn_state block_google '1' 'success' 'inverse' %}" value="1">Enabled</button>
           </div>
         </div>
 
@@ -79,7 +77,7 @@
         <div class="control-group">
           <label class="control-label" for="block-twitter">Block Twitter</label>
           <div class="controls">
-            <button id="block-twitter" name="block-twitter" class="btn btn-inverse" value="1">Disabled</button>
+            <button id="block-twitter" name="block-twitter" class="btn btn-{% btn_state block_twitter '1' 'success' 'inverse' %}" value="1">Disabled</button>
           </div>
         </div>
         </fieldset>
@@ -92,7 +90,7 @@
         <div class="control-group">
           <label class="control-label" for="custom-rules">Custom rules</label>
           <div class="controls">
-            <button id="custom-rules" name="custom-rules" class="btn btn-success" value="1">Enabled</button>
+            <button id="custom-rules" name="custom-rules" class="btn btn-{% btn_state custom_rules '1' 'success' 'inverse' %}" value="1">Enabled</button>
           </div>
         </div>
 
