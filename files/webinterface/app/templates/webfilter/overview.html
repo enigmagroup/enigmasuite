@@ -47,18 +47,19 @@
           </div>
         </div>
 
+{% if filter_headers == '1' %}
         <!-- Button -->
         <div class="control-group">
-          <label class="control-label" for="set-browser">Set browser identification</label>
+          <label class="control-label" for="send-browser-ident">Send user agent</label>
           <div class="controls">
-            <div class="btn-group">
-                <button id="set-browser" name="set-browser" class="btn btn-{% btn_state set_browser 'none' 'warning' 'default' %}" value="none">None</button>
-                <button id="set-browser" name="set-browser" class="btn btn-{% btn_state set_browser 'chrome' 'warning' 'default' %}" value="chrome">Chrome</button>
-                <button id="set-browser" name="set-browser" class="btn btn-{% btn_state set_browser 'firefox' 'warning' 'default' %}" value="firefox">Firefox</button>
-                <button id="set-browser" name="set-browser" class="btn btn-{% btn_state set_browser 'ie' 'warning' 'default' %}" value="ie">Internet Explorer</button>
-            </div>
+{% if send_browser_ident == '1' %}
+            <button id="send-browser-ident" name="send-browser-ident" class="btn btn-success" value="1">{% trans "Enabled" %}</button>
+{% else %}
+            <button id="send-browser-ident" name="send-browser-ident" class="btn btn-inverse" value="1">{% trans "Disabled" %}</button>
+{% endif %}
           </div>
         </div>
+{% endif %}
         </fieldset>
     </div>
 

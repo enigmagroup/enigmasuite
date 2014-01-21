@@ -21,6 +21,8 @@ Filter "/etc/filter"
 FilterURLs On
 FilterCaseSensitive Off
 FilterDefaultDeny No
+
+<% if filter_headers == '1' then %>
 Anonymous "Host"
 Anonymous "Authorization"
 Anonymous "Cookie"
@@ -31,10 +33,13 @@ Anonymous "Accept-Language"
 Anonymous "Cache-Control"
 Anonymous "If-Modified-Since"
 Anonymous "If-None-Match"
+<% if send_browser_ident == '1' then %>
 Anonymous "User-Agent"
+<% end %>
 Anonymous "Referer"
 Anonymous "X-PHX"
 Anonymous "X-Roundcube-Request"
 Anonymous "X-Requested-With"
 Anonymous "DNT"
 AddHeader "DNT" "1"
+<% end %>

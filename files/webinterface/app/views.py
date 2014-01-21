@@ -411,15 +411,11 @@ def webfilter(request):
         # always send that data, even if its an empty string
         o.set_value('webfilter_custom-rules-text', request.POST.get('custom-rules-text'))
 
-    settings_fields = ['filter-ads', 'filter-headers', 'block-facebook', 'block-google', 'block-twitter', 'custom-rules']
+    settings_fields = ['filter-ads', 'filter-headers', 'send-browser-ident', 'block-facebook', 'block-google', 'block-twitter', 'custom-rules']
 
     for postval in settings_fields:
         if request.POST.get(postval):
             o.toggle_value('webfilter_' + postval)
-
-    if request.POST.get('set-browser'):
-        o.set_value('webfilter_set-browser', request.POST.get('set-browser'))
-
 
     settings = {}
     for getval in settings_fields:
@@ -427,7 +423,6 @@ def webfilter(request):
         setting_name = 'webfilter_' + getval
         settings[field_name] = o.get_value(setting_name, '')
 
-    settings['set_browser'] = o.get_value('webfilter_set-browser', 'none')
     settings['custom_rules_text'] = o.get_value('webfilter_custom-rules-text', '')
 
     return render_to_response('webfilter/overview.html', settings, context_instance=RequestContext(request))
@@ -688,7 +683,7 @@ def puppet_site(request, program):
         'mailbox_password': mailbox_password,
         'webfilter_filter_ads': o.get_value('webfilter_filter-ads', ''),
         'webfilter_filter_headers': o.get_value('webfilter_filter-headers', ''),
-        'webfilter_set_browser': o.get_value('webfilter_set-browser', ''),
+        'webfilter_send_browser_ident': o.get_value('webfilter_send-browser-ident', ''),
         'webfilter_block_facebook': o.get_value('webfilter_block-facebook', ''),
         'webfilter_block_google': o.get_value('webfilter_block-google', ''),
         'webfilter_block_twitter': o.get_value('webfilter_block-twitter', ''),
