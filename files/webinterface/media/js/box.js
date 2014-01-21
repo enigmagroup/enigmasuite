@@ -61,6 +61,15 @@
         }, 1500);
     }
 
-    $('.nav-tabs a:first').tab('show');
+    var anchor = 'general-config';
+    var window_href = window.location.href;
+    if(window_href.indexOf('#') > -1){
+        anchor = window.location.href.split('#')[1];
+    }
+    $('#webfilter-tabs a[href=#' + anchor + ']').tab('show');
+
+    $('#webfilter-tabs a').click(function (e) {
+        $(this).tab('show');
+    })
 
 })();
