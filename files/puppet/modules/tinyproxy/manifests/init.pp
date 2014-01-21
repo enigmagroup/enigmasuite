@@ -12,13 +12,13 @@ class tinyproxy() {
     }
 
     file { "/etc/tinyproxy.conf":
-        source => "puppet:///modules/tinyproxy/tinyproxy.conf",
+        content => template("tinyproxy/tinyproxy.conf.erb"),
         notify => Service["tinyproxy"],
         require => Package["tinyproxy"],
     }
 
     file { "/etc/filter":
-        source => "puppet:///modules/tinyproxy/filter",
+        content => template("tinyproxy/filter.erb"),
         notify => Service["tinyproxy"],
         require => Package["tinyproxy"],
     }
