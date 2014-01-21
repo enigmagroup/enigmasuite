@@ -46,6 +46,7 @@ class email($ipv6, $addresses, $mailbox_password) {
         content => template("email/users.conf.erb"),
         owner => "root",
         group => "root",
+        mode => 644,
         require => Package["dovecot-common"],
         notify => Service["dovecot"],
     }
