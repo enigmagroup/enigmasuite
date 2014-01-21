@@ -94,6 +94,14 @@ node 'box' {
     }
 
     class {"tinyproxy":
+        filter_ads => "{{ webfilter_filter_ads }}",
+        filter_headers => "{{ webfilter_filter_headers }}",
+        set_browser => "{{ webfilter_set_browser }}",
+        block_facebook => "{{ webfilter_block_facebook }}",
+        block_google => "{{ webfilter_block_google }}",
+        block_twitter => "{{ webfilter_block_twitter }}",
+        custom_rules => "{{ webfilter_custom_rules }}",
+        custom_rules_text => "{{ webfilter_custom_rules_text }}",
     }
 
 }

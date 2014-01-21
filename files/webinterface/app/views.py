@@ -417,8 +417,7 @@ def webfilter(request):
     if request.POST.get('set-browser'):
         o.set_value('webfilter_set-browser', request.POST.get('set-browser'))
 
-    if request.POST.get('custom-rules-text'):
-        o.set_value('webfilter_custom-rules-text', request.POST.get('custom-rules-text'))
+    o.set_value('webfilter_custom-rules-text', request.POST.get('custom-rules-text'))
 
     settings = {}
     for getval in settings_fields:
@@ -685,5 +684,13 @@ def puppet_site(request, program):
         'peering_password': o.get_value('peering_password'),
         'webinterface_password': webinterface_password,
         'mailbox_password': mailbox_password,
+        'webfilter_filter_ads': o.get_value('webfilter_filter-ads', ''),
+        'webfilter_filter_headers': o.get_value('webfilter_filter-headers', ''),
+        'webfilter_set_browser': o.get_value('webfilter_set-browser', ''),
+        'webfilter_block_facebook': o.get_value('webfilter_block-facebook', ''),
+        'webfilter_block_google': o.get_value('webfilter_block-google', ''),
+        'webfilter_block_twitter': o.get_value('webfilter_block-twitter', ''),
+        'webfilter_custom_rules': o.get_value('webfilter_custom-rules', ''),
+        'webfilter_custom_rules_text': o.get_value('webfilter_custom-rules-text', ''),
     })
 
