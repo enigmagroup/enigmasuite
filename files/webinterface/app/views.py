@@ -394,7 +394,7 @@ def countryselect(request):
 
     return render_to_response('countryselect/overview.html', {
         'countries': countries,
-        'selected_country': o.get_value('selected_country', 'hu')
+        'selected_country': o.get_value('selected_country', 'hu'),
     }, context_instance=RequestContext(request))
 
 
@@ -413,7 +413,7 @@ def webfilter(request):
             o.set_value('webfilter_' + postval, request.POST.get(postval))
 
     return render_to_response('webfilter/overview.html', {
-        'selected_country': o.get_value('selected_country', 'hu')
+        'filter_ads': o.get_value('filter_ads', ''),
     }, context_instance=RequestContext(request))
 
 
