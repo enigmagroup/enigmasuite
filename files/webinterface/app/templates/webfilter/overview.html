@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load apptags %}
+
+{% block main %}
+    <div class="container">
+
+      <h1>{% trans "Ad blocking" %}</h1>
+      <p>{% trans "Filter out ads and trackers, block whole domains." %}</p>
+      <br />
+
+<form method="post" class="form-horizontal">
+{% csrf_token %}
+
+
+<ul class="nav nav-tabs" id="webfilter-tabs">
+  <li><a href="#general-config">General configuration</a></li>
+  <li><a href="#block-domains">Block domains</a></li>
+  <li><a href="#custom-rules">Custom blocking rules</a></li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane" id="general-config">
+        <fieldset>
+
+        <!-- Button -->
+        <div class="control-group">
+          <label class="control-label" for="filter-ads">Filter ads and trackers</label>
+          <div class="controls">
+            <button id="filter-ads" name="filter-ads" class="btn btn-success" value="1">Enabled</button>
+          </div>
+        </div>
+
+        <!-- Button -->
+        <div class="control-group">
+          <label class="control-label" for="filter-headers">Filter browser headers</label>
+          <div class="controls">
+            <button id="filter-headers" name="filter-headers" class="btn btn-success" value="1">Enabled</button>
+          </div>
+        </div>
+
+        <!-- Button -->
+        <div class="control-group">
+          <label class="control-label" for="set-browser">Set browser identification</label>
+          <div class="controls">
+            <div class="btn-group">
+                <button id="set-browser" name="set-browser" class="btn btn-warning" value="none">None</button>
+                <button id="set-browser" name="set-browser" class="btn btn-default" value="chrome">Chrome</button>
+                <button id="set-browser" name="set-browser" class="btn btn-default" value="firefox">Firefox</button>
+                <button id="set-browser" name="set-browser" class="btn btn-default" value="ie">Internet Explorer</button>
+            </div>
+          </div>
+        </div>
+        </fieldset>
+    </div>
+
+    <div class="tab-pane" id="block-domains">
+        <fieldset>
+
+        <!-- Button -->
+        <div class="control-group">
+          <label class="control-label" for="block-facebook">Block Facebook</label>
+          <div class="controls">
+            <button id="block-facebook" name="block-facebook" class="btn btn-success" value="1">Enabled</button>
+          </div>
+        </div>
+
+        <!-- Button -->
+        <div class="control-group">
+          <label class="control-label" for="block-google">Block Google</label>
+          <div class="controls">
+            <button id="block-google" name="block-google" class="btn btn-success" value="1">Enabled</button>
+          </div>
+        </div>
+
+        <!-- Button -->
+        <div class="control-group">
+          <label class="control-label" for="block-twitter">Block Twitter</label>
+          <div class="controls">
+            <button id="block-twitter" name="block-twitter" class="btn btn-inverse" value="1">Disabled</button>
+          </div>
+        </div>
+        </fieldset>
+    </div>
+
+    <div class="tab-pane" id="custom-rules">
+        <fieldset>
+
+        <!-- Button -->
+        <div class="control-group">
+          <label class="control-label" for="custom-rules">Custom rules</label>
+          <div class="controls">
+            <button id="custom-rules" name="custom-rules" class="btn btn-success" value="1">Enabled</button>
+          </div>
+        </div>
+
+        <!-- Textarea -->
+        <div class="control-group">
+          <label class="control-label" for="custom-rules-text">Rules</label>
+          <div class="controls">
+            <textarea id="custom-rules-text" name="custom-rules-text" class="input-xlarge" rows="10"></textarea>
+          </div>
+        </div>
+        </fieldset>
+
+        <!-- Button -->
+        <div class="control-group">
+          <div class="controls">
+            <button id="save-custom-rules" name="save-custom-rules" class="btn btn-primary">Save</button>
+          </div>
+        </div>
+    </div>
+</div>
+
+</form>
+
+    </div> <!-- /container -->
+{% endblock %}

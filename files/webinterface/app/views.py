@@ -405,10 +405,12 @@ def webfilter(request):
 
     o = Option()
 
-#    if request.POST:
-#        country = request.POST.get('country')
-#        o.set_value('selected_country', country)
-#        o.config_changed(True)
+    if request.POST:
+        o.config_changed(True)
+
+    for postval in ['filter-ads', 'filter-headers', 'set-browser', 'block-facebook', 'block-google', 'block-twitter', 'custom-rules', 'custom-rules-text']:
+        if request.POST.get(postval):
+            o.set_value('webfilter_' + postval, request.POST.get(postval))
 
     return render_to_response('webfilter/overview.html', {
         'selected_country': o.get_value('selected_country', 'hu')
