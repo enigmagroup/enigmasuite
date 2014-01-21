@@ -90,6 +90,20 @@ class Option(models.Model):
         o.value = option_value
         o.save()
 
+    def toggle_value(self, option_key):
+        try:
+            o = Option.objects.filter(key=option_key)[0]
+            option_value = o.value
+        except:
+            o = Option()
+            o.key = option_key
+            option_value = '1'
+        if option_value == '1':
+            o.value = '0'
+        else:
+            o.value = '1'
+        o.save()
+
 
 
 # autocreate superuser
