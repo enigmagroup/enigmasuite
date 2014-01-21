@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-01-09 20:02+0100\n"
-"PO-Revision-Date: 2014-01-09 20:03+0100\n"
+"POT-Creation-Date: 2014-01-21 17:08+0100\n"
+"PO-Revision-Date: 2014-01-21 17:09+0100\n"
 "Last-Translator: Agent 42 <42@enigmabox.net>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -33,35 +33,35 @@ msgstr "Bist du sicher?"
 msgid "Show"
 msgstr "Zeigen"
 
-#: app/templates/base.html:29
-#: app/templates/base.html.py:59
+#: app/templates/base.html:31
+#: app/templates/base.html.py:61
 #: app/templates/changes/apply.html:8
 msgid "Apply changes"
 msgstr "Änderungen anwenden"
 
-#: app/templates/base.html:53
+#: app/templates/base.html:55
 #: app/templates/home.html:9
 msgid "Welcome"
 msgstr "Willkommen"
 
-#: app/templates/base.html:54
+#: app/templates/base.html:56
 msgid "System"
 msgstr "System"
 
-#: app/templates/base.html:55
+#: app/templates/base.html:57
 #: app/templates/home.html:13
 #: app/templates/addressbook/detail.html:9
 #: app/templates/addressbook/overview.html:8
 msgid "Addressbook"
 msgstr "Adressbuch"
 
-#: app/templates/base.html:56
+#: app/templates/base.html:58
 #: app/templates/passwords.html:8
 #: app/templates/passwords.html.py:16
 msgid "Passwords"
 msgstr "Passwörter"
 
-#: app/templates/base.html:57
+#: app/templates/base.html:59
 #: app/templates/backup/emails.html:8
 #: app/templates/backup/overview.html:8
 #: app/templates/backup/sslcerts.html:8
@@ -69,26 +69,35 @@ msgstr "Passwörter"
 msgid "Backup &amp; restore"
 msgstr "Sichern &amp; Wiederherstellen"
 
-#: app/templates/base.html:61
+#: app/templates/base.html:63
 #: app/templates/home.html:18
 msgid "Internet"
 msgstr "Internet"
 
-#: app/templates/base.html:62
+#: app/templates/base.html:64
 msgid "Country selection"
 msgstr "Land auswählen"
 
-#: app/templates/base.html:63
+#: app/templates/base.html:65
+#: app/templates/webfilter/overview.html:8
+msgid "Ad blocking"
+msgstr "Werbeblocker"
+
+#: app/templates/base.html:65
+msgid "New"
+msgstr "Neu"
+
+#: app/templates/base.html:66
 msgid "Network"
 msgstr "Netzwerk"
 
-#: app/templates/base.html:64
+#: app/templates/base.html:67
 #: app/templates/peerings/detail.html:9
 #: app/templates/peerings/overview.html:8
 msgid "Peerings"
 msgstr "Peerings"
 
-#: app/templates/base.html:65
+#: app/templates/base.html:68
 #: app/templates/wlan_settings/overview.html:8
 #: app/templates/wlan_settings/scan.html:9
 msgid "WLAN settings"
@@ -208,6 +217,7 @@ msgstr "Telefonnummer"
 #: app/templates/addressbook/detail.html:56
 #: app/templates/peerings/detail.html:67
 #: app/templates/peerings/overview.html:70
+#: app/templates/webfilter/overview.html:134
 #: app/templates/wlan_settings/overview.html:74
 msgid "Save"
 msgstr "Speichern"
@@ -478,11 +488,25 @@ msgstr "Eingehendes Peering"
 
 #: app/templates/peerings/overview.html:44
 #: app/templates/peerings/overview.html:100
+#: app/templates/webfilter/overview.html:31
+#: app/templates/webfilter/overview.html:43
+#: app/templates/webfilter/overview.html:56
+#: app/templates/webfilter/overview.html:74
+#: app/templates/webfilter/overview.html:86
+#: app/templates/webfilter/overview.html:98
+#: app/templates/webfilter/overview.html:115
 msgid "Enabled"
 msgstr "Aktiviert"
 
 #: app/templates/peerings/overview.html:46
 #: app/templates/peerings/overview.html:102
+#: app/templates/webfilter/overview.html:33
+#: app/templates/webfilter/overview.html:45
+#: app/templates/webfilter/overview.html:58
+#: app/templates/webfilter/overview.html:76
+#: app/templates/webfilter/overview.html:88
+#: app/templates/webfilter/overview.html:100
+#: app/templates/webfilter/overview.html:117
 msgid "Disabled"
 msgstr "Deaktiviert"
 
@@ -505,6 +529,54 @@ msgstr "Autopeering"
 #: app/templates/peerings/overview.html:97
 msgid "Automatically connect to other cjdns nodes in the same LAN"
 msgstr "Automatisch zu anderen cjdns-Knoten im gleichen Netzwerk verbinden"
+
+#: app/templates/webfilter/overview.html:9
+msgid "Filter out ads and trackers, block whole domains."
+msgstr "Werbung und Tracker filtern, ganze Domains blockieren."
+
+#: app/templates/webfilter/overview.html:17
+msgid "General configuration"
+msgstr "Allgemeine Konfiguration"
+
+#: app/templates/webfilter/overview.html:18
+msgid "Block domains"
+msgstr "Domains blockieren"
+
+#: app/templates/webfilter/overview.html:19
+msgid "Custom blocking rules"
+msgstr "Eigene Filterregeln"
+
+#: app/templates/webfilter/overview.html:28
+msgid "Filter ads and trackers"
+msgstr "Werbung filtern"
+
+#: app/templates/webfilter/overview.html:40
+msgid "Filter browser headers"
+msgstr "Browserheader filtern"
+
+#: app/templates/webfilter/overview.html:53
+msgid "Send user agent"
+msgstr "User-Agent senden"
+
+#: app/templates/webfilter/overview.html:71
+msgid "Block Facebook"
+msgstr "Facebook blockieren"
+
+#: app/templates/webfilter/overview.html:83
+msgid "Block Google"
+msgstr "Google blockieren"
+
+#: app/templates/webfilter/overview.html:95
+msgid "Block Twitter"
+msgstr "Twitter blockieren"
+
+#: app/templates/webfilter/overview.html:112
+msgid "Custom rules"
+msgstr "Eigene Regeln"
+
+#: app/templates/webfilter/overview.html:124
+msgid "Rules"
+msgstr "Regeln"
 
 #: app/templates/wlan_settings/overview.html:9
 msgid "If you have a <a target=\"_blank\" href=\"http://www.wlan-shop24.de/24-GHz-USB-WLAN-Adapter-ALFA-AWUS036NEH-150-MBit-1000mW\">ALFA AWUS036NEH</a> WLAN adapter, you can configure your connection here."
