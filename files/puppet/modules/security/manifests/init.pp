@@ -3,8 +3,9 @@ class security($webinterface_password = '') {
     Exec { path => [ "/bin/", "/sbin/" , "/usr/bin/", "/usr/sbin/", "/usr/local/bin" ] }
 
     File {
-        owner => "root",
-        group => "root",
+        owner => "www-data",
+        group => "www-data",
+        mode => 600,
     }
 
     file { "/etc/nginx/auth":
