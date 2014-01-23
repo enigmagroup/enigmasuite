@@ -26,6 +26,7 @@ class AddressbookForm(forms.Form):
             raise exceptions.ValidationError('Diese Telefonnummer ist schon vergeben.')
 
     name = forms.CharField(initial='', required=True, min_length=1, max_length=60, validators=[validate_hostname, validate_unique_hostname])
+    display_name = forms.CharField(initial='', required=False)
     ipv6 = forms.CharField(initial='', validators=[validate_ipv6_address, validate_unique_ipv6])
     phone = forms.IntegerField(initial='', min_value=10, required=False, validators=[validate_unique_phone])
 

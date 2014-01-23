@@ -3,6 +3,7 @@ from subprocess import Popen, PIPE
 
 class Address(models.Model):
     name = models.CharField(max_length=50)
+    display_name = models.CharField(max_length=50)
     ipv6 = models.CharField(max_length=39)
     phone = models.IntegerField(max_length=7, null=True, blank=True)
 

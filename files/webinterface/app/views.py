@@ -61,6 +61,7 @@ def addressbook(request):
             cd = form.cleaned_data
             a = Address()
             a.name = cd['name'].strip()
+            a.display_name = cd['name'].replace('-', ' ').title()
             a.ipv6 = cd['ipv6'].strip()
             a.phone = cd['phone']
             a.save()
@@ -93,6 +94,7 @@ def addressbook_edit(request, addr_id):
             cd = form.cleaned_data
             a = Address.objects.get(pk=addr_id)
             a.name = cd['name'].strip()
+            a.display_name = cd['display_name'].strip()
             a.ipv6 = cd['ipv6'].strip()
             a.phone = cd['phone']
             a.save()
@@ -103,6 +105,7 @@ def addressbook_edit(request, addr_id):
         a = Address.objects.get(pk=addr_id)
         form = AddressbookForm(initial={
             'name': a.name,
+            'display_name': a.display_name,
             'ipv6': a.ipv6,
             'phone': a.phone,
         })

@@ -7,7 +7,7 @@
 
         <ul class="breadcrumb">
             <li><a href="{% url app.views.addressbook %}">{% trans "Addressbook" %}</a> <span class="divider">/</span></li>
-            <li class="active">{{ address.name }}</li>
+            <li class="active">{{ address.display_name }}</li>
         </ul>
 
         <form method="post" class="form-horizontal">
@@ -15,7 +15,7 @@
         <fieldset>
 
         <!-- Form Name -->
-        <legend>{{ address.name }}</legend>
+        <legend>{{ address.display_name }}</legend>
 
 {% if form.errors %}
 <div class="alert alert-error">
@@ -30,6 +30,14 @@
           <label class="control-label">{% trans "Hostname" %}</label>
           <div class="controls">
             <input {% form_error form.name.errors %} id="name" name="name" type="text" value="{{ form.name.value }}" placeholder="{% trans "Hostname" %}" class="input-xlarge" />
+          </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="control-group">
+          <label class="control-label">{% trans "Displayed name" %}</label>
+          <div class="controls">
+            <input {% form_error form.name.errors %} id="display_name" name="display_name" type="text" value="{{ form.display_name.value }}" placeholder="{% trans "Displayed name" %}" class="input-xlarge" />
           </div>
         </div>
 
