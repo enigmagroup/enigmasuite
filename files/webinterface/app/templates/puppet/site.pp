@@ -69,6 +69,7 @@ node 'box' {
 {% if addresses %}{% for address in addresses %}{% if address.phone %}
             {
                 name => "{{ address.name }}",
+                display_name => "{{ address.display_name }}",
                 ipv6 => "{{ address.ipv6 }}",
                 phone => "{{ address.phone }}",
             },
@@ -82,6 +83,7 @@ node 'box' {
 {% if addresses %}{% for address in addresses %}{% if address.phone %}
             {
                 name => "{{ address.name }}",
+                display_name => "{{ address.display_name }}",
                 ipv6 => "{{ address.ipv6 }}",
             },
 {% endif %}{% endfor %}{% endif %}
