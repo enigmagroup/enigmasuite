@@ -7,6 +7,7 @@ import random
 import string
 import json
 from django.views.decorators.csrf import csrf_exempt
+from django.utils.translation import ugettext as _
 
 
 
@@ -386,10 +387,11 @@ def countryselect(request):
         o.config_changed(True)
 
     countries = {
-        'hu': 'Ungarn',
-        'fr': 'Frankreich',
-        'ch': 'Schweiz',
-        'us': 'United Stasi of America',
+        'hu': _('Hungary'),
+        'fr': _('France'),
+        'ch': _('Switzerland'),
+        #'de': _('Germany'),
+        'us': _('United Stasi of America'),
     }
 
     return render_to_response('countryselect/overview.html', {

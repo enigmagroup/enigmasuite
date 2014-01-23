@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-01-21 18:10+0100\n"
-"PO-Revision-Date: 2014-01-21 18:11+0100\n"
+"POT-Creation-Date: 2014-01-23 17:00+0100\n"
+"PO-Revision-Date: 2014-01-23 17:01+0100\n"
 "Last-Translator: Agent 42 <42@enigmabox.net>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -24,6 +24,22 @@ msgstr "Deutsch"
 #: settings.py:42
 msgid "English"
 msgstr "Englisch"
+
+#: app/views.py:390
+msgid "Hungary"
+msgstr "Ungarn"
+
+#: app/views.py:391
+msgid "France"
+msgstr "Frankreich"
+
+#: app/views.py:392
+msgid "Switzerland"
+msgstr "Schweiz"
+
+#: app/views.py:394
+msgid "United Stasi of America"
+msgstr "Vereinigte Daten von Amerika"
 
 #: app/templates/base.html:18
 msgid "Are you sure?"
