@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-01-23 17:08+0100\n"
-"PO-Revision-Date: 2014-01-23 17:09+0100\n"
+"POT-Creation-Date: 2014-01-23 17:54+0100\n"
+"PO-Revision-Date: 2014-01-23 17:54+0100\n"
 "Last-Translator: Agent 42 <42@enigmabox.net>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -25,19 +25,19 @@ msgstr "Deutsch"
 msgid "English"
 msgstr "Englisch"
 
-#: app/views.py:390
+#: app/views.py:393
 msgid "Hungary"
 msgstr "Ungarn"
 
-#: app/views.py:391
+#: app/views.py:394
 msgid "France"
 msgstr "Frankreich"
 
-#: app/views.py:392
+#: app/views.py:395
 msgid "Switzerland"
 msgstr "Schweiz"
 
-#: app/views.py:394
+#: app/views.py:397
 msgid "United Stasi of America"
 msgstr "Vereinigte Daten von Amerika"
 
@@ -218,19 +218,24 @@ msgstr "Hostname"
 
 #: app/templates/addressbook/detail.html:38
 #: app/templates/addressbook/detail.html:40
+msgid "Displayed name"
+msgstr "Angezeigter Name"
+
+#: app/templates/addressbook/detail.html:46
+#: app/templates/addressbook/detail.html:48
 #: app/templates/addressbook/overview.html:16
 #: app/templates/addressbook/overview.html:54
 msgid "IPv6 address"
 msgstr "IPv6-Adresse"
 
-#: app/templates/addressbook/detail.html:46
-#: app/templates/addressbook/detail.html:48
+#: app/templates/addressbook/detail.html:54
+#: app/templates/addressbook/detail.html:56
 #: app/templates/addressbook/overview.html:17
 #: app/templates/addressbook/overview.html:55
 msgid "Phone number"
 msgstr "Telefonnummer"
 
-#: app/templates/addressbook/detail.html:56
+#: app/templates/addressbook/detail.html:64
 #: app/templates/peerings/detail.html:67
 #: app/templates/peerings/overview.html:70
 #: app/templates/webfilter/overview.html:140
@@ -238,16 +243,16 @@ msgstr "Telefonnummer"
 msgid "Save"
 msgstr "Speichern"
 
-#: app/templates/addressbook/detail.html:57
+#: app/templates/addressbook/detail.html:65
 #: app/templates/peerings/detail.html:68
 msgid "Cancel"
 msgstr "Abbrechen"
 
-#: app/templates/addressbook/detail.html:63
+#: app/templates/addressbook/detail.html:71
 msgid "Delete phone number"
 msgstr "Telefonnummer löschen"
 
-#: app/templates/addressbook/detail.html:67
+#: app/templates/addressbook/detail.html:75
 #: app/templates/peerings/detail.html:80
 msgid "Delete"
 msgstr "Löschen"
