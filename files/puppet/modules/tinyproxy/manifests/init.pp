@@ -1,7 +1,7 @@
 class tinyproxy(
     $filter_ads = '',
     $filter_headers = '',
-    $send_browser_ident = '',
+    $disable_browser_ident = '',
     $block_facebook = '',
     $block_google = '',
     $block_twitter = '',

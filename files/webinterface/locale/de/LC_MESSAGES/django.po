@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-01-23 17:00+0100\n"
-"PO-Revision-Date: 2014-01-23 17:01+0100\n"
+"POT-Creation-Date: 2014-01-23 17:08+0100\n"
+"PO-Revision-Date: 2014-01-23 17:09+0100\n"
 "Last-Translator: Agent 42 <42@enigmabox.net>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -579,8 +579,8 @@ msgid "Filter browser headers"
 msgstr "Browserheader filtern"
 
 #: app/templates/webfilter/overview.html:59
-msgid "Send user agent"
-msgstr "User-Agent senden"
+msgid "Disable user agent"
+msgstr "User-Agent deaktivieren"
 
 #: app/templates/webfilter/overview.html:77
 msgid "Block Facebook"

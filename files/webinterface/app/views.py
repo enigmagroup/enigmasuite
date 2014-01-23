@@ -413,7 +413,7 @@ def webfilter(request):
         # always send that data, even if its an empty string
         o.set_value('webfilter_custom-rules-text', request.POST.get('custom-rules-text'))
 
-    settings_fields = ['filter-ads', 'filter-headers', 'send-browser-ident', 'block-facebook', 'block-google', 'block-twitter', 'custom-rules']
+    settings_fields = ['filter-ads', 'filter-headers', 'disable-browser-ident', 'block-facebook', 'block-google', 'block-twitter', 'custom-rules']
 
     for postval in settings_fields:
         if request.POST.get(postval):
@@ -691,7 +691,7 @@ def puppet_site(request, program):
         'mailbox_password': mailbox_password,
         'webfilter_filter_ads': o.get_value('webfilter_filter-ads', ''),
         'webfilter_filter_headers': o.get_value('webfilter_filter-headers', ''),
-        'webfilter_send_browser_ident': o.get_value('webfilter_send-browser-ident', ''),
+        'webfilter_disable_browser_ident': o.get_value('webfilter_disable-browser-ident', ''),
         'webfilter_block_facebook': o.get_value('webfilter_block-facebook', ''),
         'webfilter_block_google': o.get_value('webfilter_block-google', ''),
         'webfilter_block_twitter': o.get_value('webfilter_block-twitter', ''),

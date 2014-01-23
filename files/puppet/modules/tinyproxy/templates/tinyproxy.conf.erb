@@ -33,7 +33,7 @@ Anonymous "Accept-Language"
 Anonymous "Cache-Control"
 Anonymous "If-Modified-Since"
 Anonymous "If-None-Match"
-<% if send_browser_ident == '1' then %>
+<% if disable_browser_ident != '1' then %>
 Anonymous "User-Agent"
 <% end %>
 Anonymous "Referer"

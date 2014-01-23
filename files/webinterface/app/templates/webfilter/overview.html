@@ -56,12 +56,12 @@
 {% if filter_headers == '1' %}
         <!-- Button -->
         <div class="control-group">
-          <label class="control-label" for="send-browser-ident">{% trans "Send user agent" %}</label>
+          <label class="control-label" for="disable-browser-ident">{% trans "Disable user agent" %}</label>
           <div class="controls">
 {% if send_browser_ident == '1' %}
-            <button id="send-browser-ident" name="send-browser-ident" class="btn btn-success" value="1">{% trans "Enabled" %}</button>
+            <button id="disable-browser-ident" name="disable-browser-ident" class="btn btn-success" value="1">{% trans "Enabled" %}</button>
 {% else %}
-            <button id="send-browser-ident" name="send-browser-ident" class="btn btn-inverse" value="1">{% trans "Disabled" %}</button>
+            <button id="disable-browser-ident" name="disable-browser-ident" class="btn btn-inverse" value="1">{% trans "Disabled" %}</button>
 {% endif %}
           </div>
         </div>
