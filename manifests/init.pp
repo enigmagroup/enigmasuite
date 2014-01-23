@@ -6,6 +6,18 @@ class enigmasuite() {
         source => "puppet:///modules/enigmasuite/99translations",
     }
 
+    file { "/usr/local/sbin/housekeeping.sh":
+        source => "puppet:///modules/enigmasuite/housekeeping.sh",
+        mode => 755,
+    }
+
+    cron {"housekeeping":
+        command => "/usr/local/sbin/housekeeping.sh &> /dev/null",
+        user => root,
+        hour => '4',
+        minute => '40',
+    }
+
     cron {"apt-update":
         command => "/usr/bin/apt-get update &> /dev/null",
         ensure => absent,
