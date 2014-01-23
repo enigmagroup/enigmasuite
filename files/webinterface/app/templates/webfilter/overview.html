@@ -58,7 +58,7 @@
         <div class="control-group">
           <label class="control-label" for="disable-browser-ident">{% trans "Disable user agent" %}</label>
           <div class="controls">
-{% if send_browser_ident == '1' %}
+{% if disable_browser_ident == '1' %}
             <button id="disable-browser-ident" name="disable-browser-ident" class="btn btn-success" value="1">{% trans "Enabled" %}</button>
 {% else %}
             <button id="disable-browser-ident" name="disable-browser-ident" class="btn btn-inverse" value="1">{% trans "Disabled" %}</button>
