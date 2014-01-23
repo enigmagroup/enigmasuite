@@ -34,5 +34,5 @@ transport=udp
 <% if addresses.class == Array then %><% addresses.each do |address| %>
 [<%= address["name"] %>](basic-options)
     host=<%= address["ipv6"] %>
-    callerid="<%= address["name"] %> <<%= address["name"] %>>"
+    callerid="<%= address["display_name"] %> <<%= address["name"] %>>"
 <% end %><% end %>
