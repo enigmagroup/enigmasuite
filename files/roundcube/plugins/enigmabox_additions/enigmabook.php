@@ -19,7 +19,7 @@
  * - add_to_group()
  * - remove_from_group()
  * Classes list:
- * - example_addressbook_backend extends rcube_addressbook
+ * - enigmabook extends rcube_addressbook
  */
 
 class enigmabook extends rcube_addressbook
@@ -54,6 +54,18 @@ class enigmabook extends rcube_addressbook
 			}
 		}
 
+		//display names file
+		$display_names = array();
+		$display_names_file = file_get_contents('/etc/display_names');
+		$display_names_array = explode("\n", $display_names_file);
+		foreach ($display_names_array as $dname) 
+		{
+			$dn = explode('|', $dname);
+			$hostname = $dn[0];
+			$display_name = $dn[1];
+			$display_names[$hostname] = $display_name;
+		}
+
 		//build array
 		$contacts = array();
 		$id = 1;
@@ -61,8 +73,8 @@ class enigmabook extends rcube_addressbook
 		{
 			$contacts[$id] = array(
 				'ID' => $id,
-				'name' => $friend,
-				'firstname' => $friend,
+				'name' => $display_names[$friend],
+				'firstname' => $display_names[$friend],
 				'email' => "mail@$friend"
 			);
 			$id++;

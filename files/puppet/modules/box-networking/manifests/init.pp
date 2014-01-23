@@ -12,6 +12,10 @@ class box-networking($puppetmasters = '', $addresses = '', $peering_port = '') {
         notify => Service["dnsmasq"],
     }
 
+    file { "/etc/display_names":
+        content => template("box-networking/display_names.erb"),
+    }
+
     file { "/usr/sbin/rebuild-iptables":
         mode => 755,
         content => template("box-networking/iptables.erb"),
