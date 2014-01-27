@@ -6,7 +6,7 @@ ff02::1             ip6-allnodes
 ff02::2             ip6-allrouters
 
 # enigmabox internal
-192.168.100.1       enigma mail box
+192.168.100.1       enigma mail text box
 <% if puppetmasters.class == Array then %><% puppetmasters.each do |pm| %>
 <%= pm["ip"] %>    <%= pm["hostname"] %><% end %>
 <% end %>
