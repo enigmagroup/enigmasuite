@@ -575,6 +575,21 @@ def api_v1(request, api_url):
         except:
             resp['message'] = 'fail'
 
+    if api_url == 'get_contacts':
+        try:
+            contacts = Address.objects.all().order_by('id')
+            data = []
+            for ct in contacts:
+                data.append({
+                    'name': ct.name,
+                    'display_name': ct.display_name,
+                    'ipv6': ct.ipv6,
+                })
+            resp['value'] = data
+            resp['result'] = 'success'
+        except:
+            resp['message'] = 'fail'
+
     return HttpResponse(json.dumps(resp), content_type='application/json')
 
 
