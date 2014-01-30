@@ -669,7 +669,7 @@ def puppet_site(request, program):
     addresses = Address.objects.all().order_by('id')
 
     webinterface_password = o.get_value('webinterface_password')
-    mailbox_password = o.get_value(u'mailbox_password').encode('utf-8')
+    mailbox_password = o.get_value(u'mailbox_password')
 
     if webinterface_password is None:
         webinterface_password = ''
@@ -677,6 +677,8 @@ def puppet_site(request, program):
     if mailbox_password is None:
         mailbox_password = ''.join(random.choice(string.ascii_letters + string.digits) for x in range(64))
         o.set_value('mailbox_password', mailbox_password)
+
+    mailbox_password = mailbox_password.encode('utf-8')
 
     # hash the password
     import hashlib
