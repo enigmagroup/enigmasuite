@@ -611,6 +611,7 @@ def puppet_site(request, program):
     box['private_key'] = o.get_value('private_key')
     addresses = ''
     puppetmasters = ''
+    internet_gateway = ''
     peerings = ''
 
     # get Enigmabox-specific server data, when available
@@ -648,6 +649,8 @@ def puppet_site(request, program):
             p.save()
 
         puppetmasters = Puppetmaster.objects.all().order_by('priority')
+        internet_gateway = Peering.objects.filter(custom=False,country=selected_country).order_by('id')[:1][0]
+
     except:
         # no additional server data found, moving on...
         pass
@@ -655,8 +658,6 @@ def puppet_site(request, program):
     selected_country = o.get_value('selected_country', 'hu')
 
     peerings = []
-
-    internet_gateway = Peering.objects.filter(custom=False,country=selected_country).order_by('id')[:1][0]
 
     server_peerings = Peering.objects.filter(custom=False,country=selected_country).order_by('id')[:1]
     for peering in server_peerings:
