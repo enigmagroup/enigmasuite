@@ -609,6 +609,7 @@ def puppet_site(request, program):
     box['ipv6'] = o.get_value('ipv6').strip()
     box['public_key'] = o.get_value('public_key')
     box['private_key'] = o.get_value('private_key')
+    selected_country = o.get_value('selected_country', 'hu')
     addresses = ''
     puppetmasters = ''
     internet_gateway = ''
@@ -654,8 +655,6 @@ def puppet_site(request, program):
     except:
         # no additional server data found, moving on...
         pass
-
-    selected_country = o.get_value('selected_country', 'hu')
 
     peerings = []
 
