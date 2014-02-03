@@ -64,9 +64,7 @@ node 'box' {
         peering_port => "{{ peering_port }}",
 {% endif %}
 
-{% if teletext_enabled == '1' %}
-        teletext_enabled => "1",
-{% endif %}
+        teletext_enabled => "{{ teletext_enabled}}",
     }
 
     class {"asterisk":
@@ -110,8 +108,7 @@ node 'box' {
         custom_rules_text => "{{ webfilter_custom_rules_text }}",
     }
 
-{% if teletext_enabled == '1' %}
     class {"teletext":
+        teletext_enabled => "{{ teletext_enabled}}",
     }
-{% endif %}
 }
