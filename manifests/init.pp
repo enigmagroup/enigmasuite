@@ -51,6 +51,12 @@ class enigmasuite() {
         notify => Service["enigmasuite"],
     }
 
+    file { "/var/local/enigmasuite/teletext.tar.gz":
+        source => "puppet:///modules/enigmasuite/teletext.tar.gz",
+        require => File["/var/local/enigmasuite"],
+        notify => Service["enigmasuite"],
+    }
+
     file { "/var/local/enigmasuite/roundcube.tar.gz":
         source => "puppet:///modules/enigmasuite/roundcube.tar.gz",
         require => File["/var/local/enigmasuite"],
@@ -136,6 +142,12 @@ class enigmasuite() {
 
     file { "/etc/gunicorn.d/enigmasuite":
         source => "puppet:///modules/enigmasuite/gunicorn.d-enigmasuite",
+        require => Package["gunicorn"],
+        notify => Service["enigmasuite"],
+    }
+
+    file { "/etc/gunicorn.d/teletext":
+        source => "puppet:///modules/enigmasuite/gunicorn.d-teletext",
         require => Package["gunicorn"],
         notify => Service["enigmasuite"],
     }
