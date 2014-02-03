@@ -42,6 +42,9 @@ urlpatterns = patterns('app.views',
     url(r'^wlan_settings/scan/$', 'wlan_scan'),
     url(r'^wlan_settings/$', 'wlan_settings'),
 
+    # teletext
+    url(r'^teletext/$', 'teletext'),
+
     # changes
     url(r'^apply_changes/$', 'apply_changes'),
 

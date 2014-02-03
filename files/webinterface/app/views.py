@@ -505,6 +505,22 @@ def wlan_scan(request):
 
 
 
+# Teletext
+
+def teletext(request):
+
+    o = Option()
+
+    if request.POST:
+        o.toggle_value('teletext_enabled')
+        o.config_changed(True)
+
+    return render_to_response('teletext/overview.html', {
+        'teletext_enabled': o.get_value('teletext_enabled', 0),
+    }, context_instance=RequestContext(request))
+
+
+
 # Changes
 
 def apply_changes(request):
@@ -717,5 +733,6 @@ def puppet_site(request, program):
         'webfilter_block_twitter': o.get_value('webfilter_block-twitter', ''),
         'webfilter_custom_rules': o.get_value('webfilter_custom-rules', ''),
         'webfilter_custom_rules_text': custom_rules_text,
+        'teletext_enabled': o.get_value('teletext_enabled', '0'),
     })
 
