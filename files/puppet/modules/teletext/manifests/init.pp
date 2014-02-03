@@ -42,11 +42,4 @@ class teletext($teletext_enabled = '') {
 
     }
 
-    service { "nginx":
-        ensure => running,
-        enable => true,
-        hasrestart => true,
-        hasstatus => false,
-    }
-
 }
