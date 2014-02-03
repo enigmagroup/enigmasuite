@@ -28,14 +28,13 @@ class teletext($teletext_enabled = '') {
     }
 
     file { "/var/local/enigmasuite/teletext-avatars":
-		ensure => directory,
+        ensure => directory,
         owner => "www-data",
     }
 
     if($teletext_enabled == '1'){
 
         file { "/etc/nginx/sites-enabled/teletext":
-            source => "puppet:///modules/teletext/nginx-site-teletext",
             ensure => link,
             target => "/etc/nginx/sites-available/teletext",
             require => File["/etc/nginx/sites-available/teletext"],
