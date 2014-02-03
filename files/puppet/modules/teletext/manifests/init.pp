@@ -9,7 +9,6 @@ class teletext($teletext_enabled = '') {
 
     $packages = [
         "beanstalkd",
-        "python-bottle",
         "python-gevent",
         "python-yaml",
         "python-imaging",
