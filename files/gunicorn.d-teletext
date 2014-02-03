@@ -1,0 +1,12 @@
+CONFIG = {
+    # 'mode': 'wsgi',
+    'working_dir': '/var/local/enigmasuite/teletext',
+    # 'python': '/usr/bin/python',
+    'args': (
+        '--bind=127.0.0.1:8008',
+        '--workers=1',
+        '--worker-class=gevent_pywsgi',
+        '--timeout=60',
+        'teletext:app',
+    ),
+}
