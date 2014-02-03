@@ -39,6 +39,8 @@ do_start()
     rm -rfv "$enigmasuite/teletext"
     cd "$enigmasuite"
     tar xzvf teletext.tar.gz
+    rm /var/local/enigmasuite/teletext/public/img/profile
+    ln -s /var/local/enigmasuite/teletext-avatars /var/local/enigmasuite/teletext/public/img/profile
 
     /etc/init.d/gunicorn start
 }

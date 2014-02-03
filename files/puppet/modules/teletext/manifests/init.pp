@@ -23,6 +23,15 @@ class teletext($teletext_enabled = '') {
         source => "puppet:///modules/teletext/nginx-site-teletext",
     }
 
+    file { "/etc/default/beanstalkd":
+        source => "puppet:///modules/teletext/etc-default-beanstalkd",
+    }
+
+    file { "/var/local/enigmasuite/teletext-avatars":
+		ensure => directory,
+        owner => "www-data",
+    }
+
     if($teletext_enabled == '1'){
 
         file { "/etc/nginx/sites-enabled/teletext":
@@ -40,6 +49,14 @@ class teletext($teletext_enabled = '') {
             notify => Service["nginx"],
         }
 
+    }
+
+    service { "beanstalkd":
+        ensure => running,
+        enable => true,
+        hasrestart => true,
+        hasstatus => true,
+        require => [ Package["beanstalkd"], File["/etc/default/beanstalkd"] ],
     }
 
 }
