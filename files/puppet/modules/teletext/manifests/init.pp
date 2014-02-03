@@ -16,6 +16,7 @@ class teletext($teletext_enabled = '') {
 
     package { $packages:
         ensure => installed,
+        notify => Service["gunicorn"],
     }
 
     file { "/etc/nginx/sites-available/teletext":
@@ -55,6 +56,13 @@ class teletext($teletext_enabled = '') {
         hasrestart => true,
         hasstatus => true,
         require => [ Package["beanstalkd"], File["/etc/default/beanstalkd"] ],
+    }
+
+    service { "gunicorn":
+        ensure => running,
+        enable => true,
+        hasrestart => true,
+        require => Package["python-imaging"],
     }
 
 }
