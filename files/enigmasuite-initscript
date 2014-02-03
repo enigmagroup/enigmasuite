@@ -29,12 +29,18 @@ do_start()
     ./manage.py syncdb
     ./manage.py migrate app
     chown www-data:www-data /box /box/settings.sqlite
-    /etc/init.d/gunicorn start
 
     # puppet
     rm -rfv "$enigmasuite/puppet"
     cd "$enigmasuite"
     tar xzvf puppet.tar.gz
+
+    # Teletext
+    rm -rfv "$enigmasuite/teletext"
+    cd "$enigmasuite"
+    tar xzvf teletext.tar.gz
+
+    /etc/init.d/gunicorn start
 }
 
 do_stop()
