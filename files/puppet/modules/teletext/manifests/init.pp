@@ -7,7 +7,7 @@ class teletext($teletext_enabled = '') {
         group => "root",
     }
 
-	$enhancers = [
+    $packages = [
         "beanstalkd",
         "python-bottle",
         "python-gevent",
@@ -15,9 +15,9 @@ class teletext($teletext_enabled = '') {
         "python-imaging",
     ]
 
-	package { $enhancers:
-		ensure => installed,
-	}
+    package { $packages:
+        ensure => installed,
+    }
 
     file { "/etc/nginx/sites-available/teletext":
         source => "puppet:///modules/teletext/nginx-site-teletext",
