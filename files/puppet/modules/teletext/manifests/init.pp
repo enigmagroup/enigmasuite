@@ -63,7 +63,7 @@ class teletext($teletext_enabled = '') {
         enable => true,
         hasrestart => true,
         hasstatus => false,
-        require => Package["python-imaging"],
+        require => [ Package["python-yaml"], Package["python-gevent"], Package["python-imaging"] ],
     }
 
 }
