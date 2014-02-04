@@ -45,9 +45,11 @@ $iptables -I POSTROUTING -t nat -o tun0 -j MASQUERADE
 
 ################################################################################
 
-<% if teletext_enabled == '1' then %>
+<% if teletext_enabled == '1' then %># teletext
 $ip6tables -A INPUT -i tun0 -p tcp --dport 3838 -j ACCEPT
 $ip6tables -A OUTPUT -o tun0 -p tcp --sport 3838 -j ACCEPT
+$ip6tables -A INPUT -i tun0 -p tcp --sport 3838 -j ACCEPT
+$ip6tables -A OUTPUT -o tun0 -p tcp --dport 3838 -j ACCEPT
 <% end %>
 
 <% if addresses.class == Array then %># friends<% addresses.each do |address| %>
