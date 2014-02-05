@@ -3,7 +3,7 @@
 import beanstalkc
 import sqlite3
 from gevent import spawn, sleep, monkey; monkey.patch_all()
-from bottle import route, run, static_file, template, request, abort, redirect, debug, default_app, html_escape
+from bottle import route, error, run, static_file, template, request, abort, redirect, debug, default_app, html_escape
 from urllib import quote
 from urllib2 import urlopen
 from datetime import datetime, timedelta
@@ -1207,6 +1207,16 @@ def external_unsubscribe():
         result = 'failed'
 
     return {"result": result}
+
+
+
+@error(404)
+def error404(error):
+    return '404'
+
+@error(405)
+def error405(error):
+    return '405'
 
 
 
