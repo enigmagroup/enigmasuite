@@ -597,6 +597,7 @@ class Data():
         VALUES (?)""", (ipv6,))
         self.db.commit()
         self.refresh_counters()
+        spawn(data.get_profile, ipv6)
         return True
 
     def remove_subscriber(self, ipv6):
