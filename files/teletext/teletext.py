@@ -220,7 +220,6 @@ class Data():
         return profile
 
     def _fetch_remote_profile(self, ipv6):
-        print '_fetch_remote_profile(' + ipv6 + ')'
         try:
             # bio
             response = urlopen(url='http://[' + ipv6 + ']:3838/api/v1/get_profile.json', timeout = 5)
@@ -816,6 +815,16 @@ def settings():
     user_id = data._get_or_create_userid(ipv6)
     data.set_meta('ipv6', ipv6)
 
+    # prefetch all profiles from the address book in the background
+    try:
+        response = urlopen(url='http://127.0.0.1:8000/api/v1/get_contacts', timeout = 5)
+        content = response.read()
+        user_list = json_loads(content)['value']
+        for u in user_list:
+            spawn(data.get_profile, u['ipv6'])
+    except:
+        pass
+
     if request.POST.get('save'):
         username = request.POST.get('username', '')[:30].decode('utf-8')
         bio = request.POST.get('bio', '')[:256].decode('utf-8')
@@ -1262,12 +1271,9 @@ def check_new_transmissions():
 
 
 def get_transmissions(ipv6):
-
     queue = Queue()
-
     since = data.get_latest_telegram(ipv6)
     step = 0
-
     data.get_profile(ipv6)
 
     while True:
