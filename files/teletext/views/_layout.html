@@ -8,6 +8,9 @@
 %if urlpath == '/addressbook':
 %    active_menu = 'addressbook'
 %end
+%if urlpath == '/settings':
+%    active_menu = 'settings'
+%end
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -57,7 +60,11 @@
             </ul>
             <ul class="nav pull-right">
                 <li class="divider-vertical"></li>
+            %if active_menu == 'settings':
+                <li class="active"><a href="/settings"><i class="icon-wrench icon-white"></i>&nbsp;Settings</a></li>
+            %else:
                 <li><a href="/settings"><i class="icon-wrench icon-white"></i>&nbsp;Settings</a></li>
+            %end
             </ul>
           </div>
         </div>
