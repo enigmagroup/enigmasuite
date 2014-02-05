@@ -9,6 +9,7 @@ from urllib2 import urlopen
 from datetime import datetime, timedelta
 from time import timezone, strptime, strftime
 from json import loads as json_loads, dumps as json_dumps
+from re import compile as re_compile
 
 
 
@@ -42,7 +43,8 @@ def format_datestring(date):
 def format_text(text):
     text = html_escape(text)
     text = text.replace('\n', '<br />\n')
-    #TODO: Links
+    r = re_compile(r"(http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+)")
+    text = r.sub('<a target="_blank" href="\\1">\\1</a>', text)
     return text
 
 
