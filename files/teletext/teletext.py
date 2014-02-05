@@ -856,13 +856,6 @@ def settings():
 @route('/static/<filepath:path>')
 @internal
 def server_static(filepath):
-    if 'img/profile/fc' in filepath:
-        try:
-            ipv6 = filepath.split('/')[2].split('.')[0]
-            data.get_profile(ipv6)
-        except:
-            pass
-
     return static_file(filepath, root = './public')
 
 
