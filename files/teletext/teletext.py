@@ -771,7 +771,7 @@ def single_telegram(ipv6, created_at):
 
 
 
-@route('/addressbook', method = ['GET', 'POST'])
+@route('/addressbook')
 @internal
 def addressbook():
     username = data.get_meta('username', '')
