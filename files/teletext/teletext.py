@@ -145,8 +145,9 @@ class Data():
             self.c.execute("""SELECT id
             FROM users
             WHERE ipv6 = ?""", (ipv6,))
+            user_id = self.c.fetchone()[0]
 
-            return self.c.fetchone()[0]
+            return user_id
 
         except:
             self.c.execute("""INSERT INTO users (ipv6)
@@ -168,70 +169,78 @@ class Data():
         }
 
     def get_profile(self, ipv6):
-
         my_ipv6 = self.get_meta('ipv6')
         user_id = self._get_or_create_userid(ipv6)
 
+        self.c.execute("""SELECT ipv6, name, bio, transmissions, subscribers, subscriptions, updated_at
+        FROM users
+        WHERE id = ?""", (user_id,))
+
+        result = self.c.fetchone()
+
+        profile = {}
+        profile['ipv6'] = result[0]
+        profile['name'] = result[1]
+        profile['bio'] = format_text(result[2])
+        profile['bio_unescaped'] = result[2]
+        profile['transmissions'] = result[3]
+        profile['subscribers'] = result[4]
+        profile['subscriptions'] = result[5]
+        profile['updated_at'] = result[6]
+
+        db_time = profile['updated_at']
+        one_hour_ago = datetime.utcnow() - timedelta(hours = 1 - (1 + timezone/60/60))
         try:
-            self.c.execute("""SELECT ipv6, name, bio, transmissions, subscribers, subscriptions, updated_at
-            FROM users
-            WHERE id = ?""", (user_id,))
-
-            result = self.c.fetchone()
-
-            profile = {}
-            profile['ipv6'] = result[0]
-            profile['name'] = result[1]
-            profile['bio'] = format_text(result[2])
-            profile['bio_unescaped'] = result[2]
-            profile['transmissions'] = result[3]
-            profile['subscribers'] = result[4]
-            profile['subscriptions'] = result[5]
-            profile['updated_at'] = result[6]
-
-            db_time = profile['updated_at']
-            one_hour_ago = datetime.utcnow() - timedelta(hours = 1 - (1 + timezone/60/60))
-            try:
-                t = strptime(db_time, '%Y-%m-%d %H:%M:%S.%f')
-                db_time = datetime(t[0], t[1], t[2], t[3], t[4], t[5])
-            except:
-                pass
-
-            if db_time == None or db_time < one_hour_ago:
-                if my_ipv6 == ipv6:
-                    self.refresh_counters()
-                else:
-                    if self._fetch_remote_profile(ipv6):
-                        return self.get_profile(ipv6)
-                    else:
-                        return self.ghost_profile()
-
-            return profile
-
+            t = strptime(db_time, '%Y-%m-%d %H:%M:%S.%f')
+            db_time = datetime(t[0], t[1], t[2], t[3], t[4], t[5])
         except:
-            print 'profile not found, fetching...'
-            if self._fetch_remote_profile(ipv6):
-                return self.get_profile(ipv6)
+            pass
+
+        if db_time == None:
+            #print 'no db time found, new profile, waiting for fetch...'
+            profile = self._fetch_remote_profile(ipv6)
+
+        elif db_time < one_hour_ago:
+            if my_ipv6 == ipv6:
+                self.refresh_counters()
             else:
-                return self.ghost_profile()
+                #print 'profile outdated, fetching...'
+                queue = Queue()
+
+                json = {
+                    'job_desc': 'fetch_remote_profile',
+                    'ipv6': ipv6
+                }
+
+                json = json_dumps(json)
+                queue.add('write', json)
+
+                queue.close()
+
+        return profile
 
     def _fetch_remote_profile(self, ipv6):
+        print '_fetch_remote_profile(' + ipv6 + ')'
         try:
+            # bio
             response = urlopen(url='http://[' + ipv6 + ']:3838/api/v1/get_profile.json', timeout = 5)
             content = response.read()
             profile = json_loads(content)['profile']
+            profile['ipv6'] = ipv6
 
-            user_id = self._get_or_create_userid(ipv6)
-            data.set_user_attr(user_id, 'name', profile['name'])
-            data.set_user_attr(user_id, 'bio', profile['bio'])
-            data.set_user_attr(user_id, 'transmissions', profile['transmissions'])
-            data.set_user_attr(user_id, 'subscribers', profile['subscribers'])
-            data.set_user_attr(user_id, 'subscriptions', profile['subscriptions'])
+            queue = Queue()
 
-        except:
-            return False
+            json = {
+                'job_desc': 'save_profile',
+                'profile': profile
+            }
 
-        try:
+            json = json_dumps(json)
+            queue.add('write', json)
+
+            queue.close()
+
+            # avatar
             response = urlopen(url='http://[' + ipv6 + ']:3838/avatar.png', timeout = 5)
             content = response.read()
             f = open('./public/img/profile/' + ipv6 + '.png', 'wb')
@@ -239,33 +248,21 @@ class Data():
             f.close()
 
         except:
-            return False
+            profile = self.ghost_profile()
 
-        return True
+        return profile
 
     def refresh_counters(self):
-        my_ipv6 = self.get_meta('ipv6')
-        user_id = self._get_or_create_userid(my_ipv6)
+        queue = Queue()
 
-        # count transmissions
-        self.c.execute("""SELECT Count(id)
-        FROM telegrams
-        WHERE user_id = ?""", (user_id,))
-        transmissions_count = self.c.fetchone()[0]
+        json = {
+            'job_desc': 'refresh_counters',
+        }
 
-        # count subscribers
-        self.c.execute("""SELECT Count(id)
-        FROM subscribers""")
-        subscribers_count = self.c.fetchone()[0]
+        json = json_dumps(json)
+        queue.add('write', json)
 
-        # count subscriptions
-        self.c.execute("""SELECT Count(id)
-        FROM subscriptions""")
-        subscriptions_count = self.c.fetchone()[0]
-
-        self.set_user_attr(user_id, 'transmissions', transmissions_count)
-        self.set_user_attr(user_id, 'subscribers', subscribers_count)
-        self.set_user_attr(user_id, 'subscriptions', subscriptions_count)
+        queue.close()
 
     def get_telegrams(self, author = False, no_imported = False, step = 0, since = False, fetch_external = False):
 
@@ -1376,6 +1373,52 @@ def write_worker():
                 ipv6 = job_body['telegram']['ipv6']
                 created_at = job_body['telegram']['created_at']
                 data.delete_telegram(ipv6, created_at)
+
+            elif job_body['job_desc'] == 'save_profile':
+                profile = job_body['profile']
+                user_id = data._get_or_create_userid(profile['ipv6'])
+                data.set_user_attr(user_id, 'name', profile['name'])
+                data.set_user_attr(user_id, 'bio', profile['bio'])
+                data.set_user_attr(user_id, 'transmissions', profile['transmissions'])
+                data.set_user_attr(user_id, 'subscribers', profile['subscribers'])
+                data.set_user_attr(user_id, 'subscriptions', profile['subscriptions'])
+
+            elif job_body['job_desc'] == 'refresh_counters':
+                my_ipv6 = data.get_meta('ipv6')
+                user_id = data._get_or_create_userid(my_ipv6)
+
+                # count transmissions
+                data.c.execute("""SELECT Count(id)
+                FROM telegrams
+                WHERE user_id = ?""", (user_id,))
+                transmissions_count = data.c.fetchone()[0]
+
+                # count subscribers
+                data.c.execute("""SELECT Count(id)
+                FROM subscribers""")
+                subscribers_count = data.c.fetchone()[0]
+
+                # count subscriptions
+                data.c.execute("""SELECT Count(id)
+                FROM subscriptions""")
+                subscriptions_count = data.c.fetchone()[0]
+
+                data.set_user_attr(user_id, 'transmissions', transmissions_count)
+                data.set_user_attr(user_id, 'subscribers', subscribers_count)
+                data.set_user_attr(user_id, 'subscriptions', subscriptions_count)
+
+            elif job_body['job_desc'] == 'fetch_remote_profile':
+                ipv6 = job_body['ipv6']
+                profile = data.get_profile(ipv6)
+                db_time = profile['updated_at']
+                one_hour_ago = datetime.utcnow() - timedelta(hours = 1 - (1 + timezone/60/60))
+                t = strptime(db_time, '%Y-%m-%d %H:%M:%S.%f')
+                db_time = datetime(t[0], t[1], t[2], t[3], t[4], t[5])
+
+                if db_time < one_hour_ago:
+                    user_id = data._get_or_create_userid(ipv6)
+                    data.set_user_attr(user_id, 'name', profile['name'])    # just to refresh updated_at
+                    data._fetch_remote_profile(ipv6)
 
         except:
             print 'error processing job'
