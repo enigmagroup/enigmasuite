@@ -60,6 +60,12 @@
   </div>
 </div>
 
+%if message[0] != '':
+<div class="alert alert-{{message[0]}}">
+    {{message[1]}}
+</div>
+%end
+
 <!-- Button -->
 <div class="control-group">
   <label class="control-label" for="save"></label>
