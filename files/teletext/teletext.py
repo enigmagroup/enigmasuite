@@ -787,7 +787,7 @@ def addressbook():
         user_list = {}
 
     for i, user in enumerate(user_list):
-        ipv6 = pad_ipv6(user_list[i]['ipv6'].strip())
+        ipv6 = pad_ipv6(user_list[i]['ipv6'])
         user_list[i]['ipv6'] = ipv6
         user_list[i]['subscribed'] = data.is_in_subscriptions(ipv6)
         user_list[i]['name'] = user_list[i]['display_name']
