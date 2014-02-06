@@ -866,16 +866,20 @@ def addressbook():
 def addressbook_requests():
 
     if request.POST.get('confirm_request'):
-        req_from = request.POST.get('ipv6')
-        data.addr_confirm_request('from', req_from, comments)
-
-        #TODO: send confirmation via api/v1 to req_from
+        ipv6 = request.POST.get('ipv6')
+        urlopen(url='http://[' + ipv6 + ']:3838/api/v1/contact_request',
+            data = 'what=confirm',
+            timeout = 5,
+        )
+        data.addr_remove_request('from', ipv6)
 
     if request.POST.get('decline_request'):
-        req_from = request.POST.get('ipv6')
-        data.addr_decline_request('from', req_from, comments)
-
-        #TODO: send decline via api/v1 to req_from
+        ipv6 = request.POST.get('ipv6')
+        urlopen(url='http://[' + ipv6 + ']:3838/api/v1/contact_request',
+            data = 'what=decline',
+            timeout = 5,
+        )
+        data.addr_remove_request('from', ipv6)
 
     requests_list = data.addr_get_requests('from')
 
@@ -896,8 +900,8 @@ def addressbook_new_request(ipv6):
     comments = request.POST.get('comments', '')[:256].decode('utf-8')
 
     if request.POST.get('send_request') and ipv6 != '':
-        response = urlopen(url='http://[' + ipv6 + ']:3838/api/v1/contact_request',
-            data = 'what=new&ipv6=' + ipv6,
+        urlopen(url='http://[' + ipv6 + ']:3838/api/v1/contact_request',
+            data = 'what=new&comments=' + quote(comments),
             timeout = 5,
         )
         data.addr_add_request('to', ipv6, comments)
