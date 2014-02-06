@@ -890,15 +890,14 @@ def addressbook_requests():
 @internal
 def addressbook_new_request(ipv6):
 
-    message = ('', '')
+    message = ''
 
-    if request.POST.get('send_request'):
-        ipv6 = request.POST.get('ipv6')
-        comments = request.POST.get('comments', '')[:256].decode('utf-8')
+    ipv6 = request.POST.get('ipv6', '')
+    comments = request.POST.get('comments', '')[:256].decode('utf-8')
 
+    if request.POST.get('send_request') and ipv6 != '':
         data.addr_add_request('to', ipv6, comments)
-
-        message = ('success', 'Request sent.')
+        message = 'Request sent.'
 
     return template('addressbook_new_request',
         ipv6 = ipv6,
