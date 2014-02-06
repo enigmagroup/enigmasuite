@@ -1354,7 +1354,11 @@ def contact_request():
         if what == 'new':
             data.addr_add_request('from', ipv6, comments)
         elif what == 'confirm':
-            #TODO: addrbook via api
+            profile = data.get_profile(ipv6)
+            urlopen(url='http://127.0.0.1:8000/api/v1/add_contact',
+                data = 'ipv6=' + ipv6 + '&hostname=' + profile['name'],
+                timeout = 5,
+            )
             data.addr_remove_request('to', ipv6)
         elif what == 'decline':
             data.addr_remove_request('to', ipv6)
