@@ -13,7 +13,7 @@
             <li>
                 <div class="row-fluid">
                     <div class="profile-image">
-                        <img class="img-rounded" src="/static/img/profile/{{user['ipv6']}}.png" alt="" />
+                        <img class="img-rounded" src="/static/img/profile/{{user['ipv6']}}.png" alt="" onerror="imgError(this);" />
                     </div>
                     <div class="span8">
                         <div class="author"><a href="/{{user['ipv6']}}">{{user['name']}}</a></div>

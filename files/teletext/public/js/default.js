@@ -143,7 +143,6 @@ $(document).ready(function() {
                 $.get('/xhr/check_status', {
                     'ipv6': ipv6
                 }, function(data){
-                    console.info(data);
                     if(data.result == 'pong'){
                         $button.text(original_text).attr('disabled', false);
                     }else{
