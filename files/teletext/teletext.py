@@ -110,8 +110,26 @@ class Data():
             self.db.execute("""INSERT INTO meta (key,value)
             VALUES ('dbversion','1')""")
             self.db.commit()
-        #elif version < 2:
-        #    print 'migrating to version 2'
+        elif version < 2:
+            print 'migrating to version 2'
+            self.db.execute("""CREATE TABLE requests (
+                id INTEGER PRIMARY KEY,
+                direction char(10) NOT NULL,
+                ipv6 char(39) NOT NULL,
+                comments char(256) DEFAULT ''
+            )""")
+
+            self.db.execute("""UPDATE meta
+            SET value = '2'
+            WHERE key = 'dbversion'""")
+            self.db.commit()
+        #elif version < 3:
+        #    print 'migrating to version 3'
+        #
+        #    self.db.execute("""UPDATE meta
+        #    SET value = '2'
+        #    WHERE key = 'dbversion'""")
+        #    self.db.commit()
 
     def get_meta(self, option_key, default=None):
         try:
@@ -634,6 +652,50 @@ class Data():
 
         return len(self.c.fetchall()) > 0
 
+    def addr_get_requests(self, direction):
+        self.c.execute("""SELECT ipv6, comments
+        FROM requests
+        WHERE direction = ?
+        ORDER BY id ASC""", (direction,))
+
+        result = self.c.fetchall()
+
+        requests = []
+        for res in result:
+            ipv6 = res[0]
+            comments = res[1]
+
+            requests.append({
+                'ipv6': ipv6,
+                'comments': comments,
+            })
+
+        return requests
+
+    # send or receive
+    def addr_add_request(self, direction, ipv6, comments):
+        if self.addr_is_in_requests(direction, ipv6):
+            return False
+
+        self.db.execute("""INSERT INTO requests (direction, ipv6, comments)
+        VALUES (?,?,?)""", (direction,ipv6, comments))
+        self.db.commit()
+
+    # decline or confirm
+    def addr_remove_request(self, direction, ipv6):
+        self.db.execute("""DELETE FROM requests
+        WHERE ipv6 = ?
+        AND direction = ?""", (ipv6,direction))
+        self.db.commit()
+
+    def addr_is_in_requests(self, direction, ipv6):
+        self.c.execute("""SELECT id
+        FROM requests
+        WHERE ipv6 = ?
+        AND direction = ?""", (ipv6,direction))
+
+        return len(self.c.fetchall()) > 0
+
 data = Data('/box/teletext.db')
 
 
@@ -794,6 +856,53 @@ def addressbook():
 
     return template('addressbook',
         user_list = user_list,
+        my_ipv6 = data.get_meta('ipv6'),
+    )
+
+
+
+@route('/addressbook/requests', method = ['GET', 'POST'])
+@internal
+def addressbook_requests():
+
+    if request.POST.get('confirm_request'):
+        req_from = request.POST.get('ipv6')
+        data.addr_confirm_request('from', req_from, comments)
+
+        #TODO: send confirmation via api/v1 to req_from
+
+    if request.POST.get('decline_request'):
+        req_from = request.POST.get('ipv6')
+        data.addr_decline_request('from', req_from, comments)
+
+        #TODO: send decline via api/v1 to req_from
+
+    requests_list = data.addr_get_requests('from')
+
+    return template('addressbook_requests',
+        requests_list = requests_list,
+        my_ipv6 = data.get_meta('ipv6'),
+    )
+
+
+
+@route('/addressbook/requests/<ipv6:re:.{4}:.{4}:.{4}:.{4}:.{4}:.{4}:.{4}:.{4}>', method = ['GET', 'POST'])
+@internal
+def addressbook_new_request(ipv6):
+
+    message = ('', '')
+
+    if request.POST.get('send_request'):
+        ipv6 = request.POST.get('ipv6')
+        comments = request.POST.get('comments', '')[:256].decode('utf-8')
+
+        data.addr_add_request('to', ipv6, comments)
+
+        message = ('success', 'Request sent.')
+
+    return template('addressbook_new_request',
+        ipv6 = ipv6,
+        message = message,
         my_ipv6 = data.get_meta('ipv6'),
     )
 
@@ -1592,7 +1701,7 @@ for i in range(100):
 
 if __name__ == "__main__":
     debug(True)
-    run(host='127.0.0.1', port=8008, server='gevent')
+    run(host='127.0.0.1', port=8008, server='gevent', reloader=True)
 
 app = default_app()
 
