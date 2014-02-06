@@ -7,7 +7,7 @@ from bottle import route, error, run, static_file, template, request, abort, red
 from urllib import quote
 from urllib2 import urlopen
 from datetime import datetime, timedelta
-from time import timezone, strptime, strftime
+from time import timezone, strptime, strftime, mktime
 from json import loads as json_loads, dumps as json_dumps
 from re import compile as re_compile
 
@@ -37,8 +37,11 @@ def pad_ipv6(ipv6):
     return ':'.join([ str(block).zfill(4) for block in splitter ])
 
 def format_datestring(date):
-    t = strptime(date, '%Y-%m-%d %H:%M:%S.%f')
-    return strftime('%H:%M - %d. %B %Y', t)
+    dt = datetime.strptime(date, '%Y-%m-%d %H:%M:%S.%f')
+    epoch = mktime(dt.timetuple())
+    offset = datetime.fromtimestamp(epoch) - datetime.utcfromtimestamp(epoch)
+    dt = dt + offset
+    return dt.strftime('%H:%M - %d. %B %Y')
 
 def format_text(text):
     text = html_escape(text)
@@ -227,7 +230,7 @@ class Data():
             response = urlopen(url='http://[' + ipv6 + ']:3838/api/v1/get_profile.json', timeout = 5)
             content = response.read()
             profile = json_loads(content)['profile']
-            profile['ipv6'] = ipv6
+            profile['ipv6'] = ipv6.strip()
 
             queue = Queue()
 
@@ -784,7 +787,7 @@ def addressbook():
         user_list = {}
 
     for i, user in enumerate(user_list):
-        ipv6 = pad_ipv6(user_list[i]['ipv6'])
+        ipv6 = pad_ipv6(user_list[i]['ipv6'].strip())
         user_list[i]['ipv6'] = ipv6
         user_list[i]['subscribed'] = data.is_in_subscriptions(ipv6)
         user_list[i]['name'] = user_list[i]['display_name']
