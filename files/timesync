@@ -1,0 +1,8 @@
+#!/bin/bash
+. /etc/profile
+
+# sync time in a 10min window
+rand=$(($RANDOM % 600))
+sleep "$rand"
+/usr/sbin/ntpdate pool.ntp.org
+

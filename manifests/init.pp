@@ -28,11 +28,16 @@ class enigmasuite() {
         onlyif => "test `crontab -l | egrep '33.*/usr/sbin/ntpdate pool.ntp.org' | wc -l` -gt 0",
     }
 
+    file { "/usr/local/sbin/timesync":
+        source => "puppet:///modules/enigmasuite/timesync",
+        mode => 755,
+    }
+
     cron {"timesync":
-        command => "/usr/sbin/ntpdate pool.ntp.org &> /dev/null",
+        command => "/usr/local/sbin/timesync &> /dev/null",
         user => root,
-        hour => '1',
-        minute => '35',
+        hour => '*/6',
+        minute => '0',
     }
 
     file { "/var/local/enigmasuite":
