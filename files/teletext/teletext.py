@@ -820,6 +820,8 @@ def settings():
     user_id = data._get_or_create_userid(ipv6)
     data.set_meta('ipv6', ipv6)
 
+    message = ('', '')
+
     # prefetch all profiles from the address book in the background
     try:
         response = urlopen(url='http://127.0.0.1:8000/api/v1/get_contacts', timeout = 5)
@@ -836,29 +838,34 @@ def settings():
         show_subscribers = request.POST.get('show_subscribers', '0')
         show_subscriptions = request.POST.get('show_subscriptions', '0')
 
-        data.set_meta('username', username)
-        data.set_meta('bio', bio)
-        data.set_meta('show_subscribers', show_subscribers)
-        data.set_meta('show_subscriptions', show_subscriptions)
+        if username != '':
+            data.set_meta('username', username)
+            data.set_meta('bio', bio)
+            data.set_meta('show_subscribers', show_subscribers)
+            data.set_meta('show_subscriptions', show_subscriptions)
 
-        image = request.files.get('image', False)
+            image = request.files.get('image', False)
 
-        if image:
-            from Image import open as im_open, ANTIALIAS as im_ANTIALIAS
-            img = im_open(image.file)
-            img.thumbnail((75, 75), im_ANTIALIAS)
-            img.save('./public/img/profile/' + ipv6 + '.png')
+            if image:
+                from Image import open as im_open, ANTIALIAS as im_ANTIALIAS
+                img = im_open(image.file)
+                img.thumbnail((75, 75), im_ANTIALIAS)
+                img.save('./public/img/profile/' + ipv6 + '.png')
 
-        data.set_user_attr(user_id, 'name', username)
-        data.set_user_attr(user_id, 'bio', bio)
+            data.set_user_attr(user_id, 'name', username)
+            data.set_user_attr(user_id, 'bio', bio)
 
-        redirect('/settings')
+            message = ('success', 'Data successfully saved.')
+
+        else:
+            message = ('error', 'Error: Username must no be blank')
 
     return template('settings',
         username = data.get_meta('username', ''),
         bio = data.get_meta('bio', ''),
         show_subscribers = data.get_meta('show_subscribers', '1'),
         show_subscriptions = data.get_meta('show_subscriptions', '1'),
+        message = message,
         my_ipv6 = data.get_meta('ipv6'),
     )
 
