@@ -896,6 +896,10 @@ def addressbook_new_request(ipv6):
     comments = request.POST.get('comments', '')[:256].decode('utf-8')
 
     if request.POST.get('send_request') and ipv6 != '':
+        response = urlopen(url='http://[' + ipv6 + ']:3838/api/v1/contact_request',
+            data = 'what=new&ipv6=' + ipv6,
+            timeout = 5,
+        )
         data.addr_add_request('to', ipv6, comments)
         message = 'Request sent.'
 
@@ -1329,6 +1333,32 @@ def external_unsubscribe():
         ipv6 = pad_ipv6(request.environ['HTTP_X_REAL_IP'])
         data.remove_subscriber(ipv6)
         result = 'success'
+    except:
+        result = 'failed'
+
+    return {"result": result}
+
+
+
+@route('/api/v1/contact_request', method = 'POST')
+def contact_request():
+    try:
+        ipv6 = pad_ipv6(request.environ['HTTP_X_REAL_IP'])
+        what = request.POST.get('what', False)
+        comments = request.POST.get('comments', '')
+
+        if what == 'new':
+            data.addr_add_request('from', ipv6, comments)
+        elif what == 'confirm':
+            #TODO: addrbook via api
+            data.addr_remove_request('to', ipv6)
+        elif what == 'decline':
+            data.addr_remove_request('to', ipv6)
+        else:
+            raise
+
+        result = 'success'
+
     except:
         result = 'failed'
 
