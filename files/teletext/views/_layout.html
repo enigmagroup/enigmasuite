@@ -5,10 +5,10 @@
 %if my_ipv6 != None and my_ipv6 in urlpath:
 %    active_menu = 'me'
 %end
-%if urlpath == '/addressbook':
+%if '/addressbook' in urlpath:
 %    active_menu = 'addressbook'
 %end
-%if urlpath == '/settings':
+%if '/settings' in urlpath:
 %    active_menu = 'settings'
 %end
 <!DOCTYPE html>
