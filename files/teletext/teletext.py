@@ -895,11 +895,15 @@ def addressbook_requests():
 def addressbook_new_request(ipv6):
 
     message = ''
-
-    ipv6 = request.POST.get('ipv6', '')
+    profile = data.get_profile(ipv6)
+    username = profile['name']
     comments = request.POST.get('comments', '')[:256].decode('utf-8')
 
     if request.POST.get('send_request') and ipv6 != '':
+        urlopen(url='http://127.0.0.1:8000/api/v1/add_contact',
+            data = 'ipv6=' + ipv6 + '&hostname=' + quote(username),
+            timeout = 5,
+        )
         urlopen(url='http://[' + ipv6 + ']:3838/api/v1/contact_request',
             data = 'what=new&comments=' + quote(comments),
             timeout = 5,
@@ -909,6 +913,7 @@ def addressbook_new_request(ipv6):
 
     return template('addressbook_new_request',
         ipv6 = ipv6,
+        username = username,
         message = message,
         my_ipv6 = data.get_meta('ipv6'),
     )
@@ -1352,6 +1357,7 @@ def contact_request():
         comments = request.POST.get('comments', '')
 
         if what == 'new':
+            data.get_profile(ipv6)
             data.addr_add_request('from', ipv6, comments)
         elif what == 'confirm':
             profile = data.get_profile(ipv6)
