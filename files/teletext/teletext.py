@@ -809,7 +809,7 @@ def settings():
                 timeout = 5,
             )
             content = response.read()
-            ipv6 = json_loads(content)['value']
+            ipv6 = json_loads(content)['value'].strip()
 
         except:
             ipv6 = '0000:0000:0000:0000:0000:0000:0000:0000' #TODO
