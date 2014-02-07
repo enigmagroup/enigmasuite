@@ -678,11 +678,12 @@ class Data():
 
     # send or receive
     def addr_add_request(self, direction, ipv6, comments):
+        comments = comments.decode('utf-8')
         if self.addr_is_in_requests(direction, ipv6):
             return False
 
         self.db.execute("""INSERT INTO requests (direction, ipv6, comments)
-        VALUES (?,?,?)""", (direction,ipv6, comments))
+        VALUES (?,?,?)""", (direction,ipv6,comments))
         self.db.commit()
 
     # decline or confirm
@@ -914,7 +915,7 @@ def addressbook_new_request(ipv6):
     message = ''
     profile = data.get_profile(ipv6)
     username = profile['name'].encode('utf-8')
-    comments = request.POST.get('comments', '')[:256].decode('utf-8')
+    comments = request.POST.get('comments', '')[:256]
 
     if request.POST.get('send_request') and ipv6 != '':
         print 'making request to 127...'
