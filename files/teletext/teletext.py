@@ -653,10 +653,12 @@ class Data():
         return len(self.c.fetchall()) > 0
 
     def addr_get_requests(self, direction):
-        self.c.execute("""SELECT ipv6, comments
+        self.c.execute("""SELECT requests.ipv6, requests.comments, users.name
         FROM requests
-        WHERE direction = ?
-        ORDER BY id ASC""", (direction,))
+        LEFT JOIN users
+        ON users.ipv6 = requests.ipv6
+        WHERE requests.direction = ?
+        ORDER BY requests.id ASC""", (direction,))
 
         result = self.c.fetchall()
 
@@ -664,10 +666,12 @@ class Data():
         for res in result:
             ipv6 = res[0]
             comments = res[1]
+            name = res[2]
 
             requests.append({
                 'ipv6': ipv6,
                 'comments': comments,
+                'name': name,
             })
 
         return requests
@@ -866,7 +870,15 @@ def addressbook():
 def addressbook_requests():
 
     if request.POST.get('confirm_request'):
-        ipv6 = request.POST.get('ipv6')
+        ipv6 = request.POST.get('confirm_request')
+        profile = data.get_profile(ipv6)
+        username = profile['name'].decode('utf-8')
+
+        #TODO: confirm klick: make api req to 127, show addrbook button
+        urlopen(url='http://127.0.0.1:8000/api/v1/add_contact',
+            data = 'ipv6=' + ipv6 + '&hostname=' + quote(username),
+            timeout = 5,
+        )
         urlopen(url='http://[' + ipv6 + ']:3838/api/v1/contact_request',
             data = 'what=confirm',
             timeout = 5,
@@ -874,7 +886,7 @@ def addressbook_requests():
         data.addr_remove_request('from', ipv6)
 
     if request.POST.get('decline_request'):
-        ipv6 = request.POST.get('ipv6')
+        ipv6 = request.POST.get('decline_request')
         urlopen(url='http://[' + ipv6 + ']:3838/api/v1/contact_request',
             data = 'what=decline',
             timeout = 5,
@@ -896,7 +908,7 @@ def addressbook_new_request(ipv6):
 
     message = ''
     profile = data.get_profile(ipv6)
-    username = profile['name']
+    username = profile['name'].decode('utf-8')
     comments = request.POST.get('comments', '')[:256].decode('utf-8')
 
     if request.POST.get('send_request') and ipv6 != '':
@@ -910,6 +922,7 @@ def addressbook_new_request(ipv6):
         )
         data.addr_add_request('to', ipv6, comments)
         message = 'Request sent.'
+        #TODO: show addrbook button
 
     return template('addressbook_new_request',
         ipv6 = ipv6,
