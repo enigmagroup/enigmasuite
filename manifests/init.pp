@@ -86,6 +86,10 @@ class enigmasuite() {
         ensure => installed,
     }
 
+    package { "python-unidecode":
+        ensure => installed,
+    }
+
     package { "python-django":
         ensure => installed,
     }

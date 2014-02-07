@@ -8,6 +8,7 @@ import string
 import json
 from django.views.decorators.csrf import csrf_exempt
 from django.utils.translation import ugettext as _
+from slugify import slugify
 
 
 
@@ -603,6 +604,26 @@ def api_v1(request, api_url):
                 })
             resp['value'] = data
             resp['result'] = 'success'
+        except:
+            resp['message'] = 'fail'
+
+    if api_url == 'add_contact':
+        try:
+            hostname = request.POST.get('hostname', '').strip()
+            hostname = slugify(hostname)
+            ipv6 = request.POST.get('ipv6', '').strip()
+
+            if hostname != '' and ipv6 != '':
+                a = Address()
+                a.name = hostname
+                a.display_name = hostname.replace('-', ' ').title()
+                a.ipv6 = ipv6
+                a.save()
+                resp['addrbook_url'] = 'http://enigma.box/addressbook/edit/' + str(a.id) + '/'
+                resp['result'] = 'success'
+            else:
+                raise
+
         except:
             resp['message'] = 'fail'
 
