@@ -6,7 +6,8 @@
     <div class="container">
 
       <h1>{% trans "Teletext" %}</h1>
-      <p>{% trans 'Teletext is a distributed Twitter clone. Find other ciphernauts in the intertubes and subscribe to their telegrams!' %}</p>
+      <p>{% trans 'Teletext is a distributed Twitter clone.' %}</p>
+      <p>{% trans 'Publish telegrams, find other ciphernauts, coordinate a revolution below the radar.' %}</p>
       <br />
 
 <form method="post" class="form-horizontal">
@@ -19,19 +20,11 @@
   <label class="control-label" for="teletext">{% trans "Enable Teletext" %}:</label>
   <div class="controls">
 {% if teletext_enabled == '1' %}
-    <button id="teletext" name="teletext" class="btn btn-success">{% trans "Enabled" %}</button>&nbsp;{% trans "Awesome" %}!!
+    <button id="teletext" name="teletext" class="btn btn-success">{% trans "Enabled" %}</button>
 {% else %}
     <button id="teletext" name="teletext" class="btn btn-inverse">{% trans "Disabled" %}</button>
 {% endif %}
   </div>
-</div>
-
-<p>{% trans 'After you have enabled Teletext and applied changes, visit this URL and get the party started: <a target="_blank" href="http://text.box/">http://text.box/</a>' %}
-
-<div class="alert">
-  <button type="button" class="close" data-dismiss="alert">&times;</button>
-  <strong>{% trans "Note" %}</strong><br />
-  {% trans "Telegrams are only visible inside this encrypted network. However, other unknown users may find you.<br /> And you may find other unknown users.<br /> <br /> Have fun!" %}
 </div>
 
 </fieldset>

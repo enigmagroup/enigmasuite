@@ -7,7 +7,7 @@
     });
 
     $unveil = $('.unveil');
-    unveil_text = $unveil.text();
+    unveil_text = $unveil.data('text');
     $unveil.html('<a href="#">' + trans['show'] + '</a>');
     $unveil.on('click', function(){
         $unveil.html(unveil_text);
