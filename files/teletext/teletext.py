@@ -870,17 +870,21 @@ def addressbook():
 @internal
 def addressbook_requests():
 
+    addrbook_url = ''
+
     if request.POST.get('confirm_request'):
         ipv6 = request.POST.get('confirm_request')
         profile = data.get_profile(ipv6)
         username = profile['name'].encode('utf-8')
 
-        #TODO: confirm klick: make api req to 127, show addrbook button
+        #TODO: remove print statements
         print 'making request to 127...'
-        urlopen(url='http://127.0.0.1:8000/api/v1/add_contact',
+        response = urlopen(url='http://127.0.0.1:8000/api/v1/add_contact',
             data = 'ipv6=' + ipv6 + '&hostname=' + quote(username),
             timeout = 5,
         )
+        content = response.read()
+        addrbook_url = json_loads(content)['addrbook_url']
         print 'making request to ' + ipv6
         urlopen(url='http://[' + ipv6 + ']:3838/api/v1/contact_request',
             data = 'what=confirm',
@@ -903,6 +907,7 @@ def addressbook_requests():
 
     return template('addressbook_requests',
         requests_list = requests_list,
+        addrbook_url = addrbook_url,
         my_ipv6 = data.get_meta('ipv6'),
     )
 
@@ -912,17 +917,20 @@ def addressbook_requests():
 @internal
 def addressbook_new_request(ipv6):
 
-    message = ''
+    addrbook_url = ''
     profile = data.get_profile(ipv6)
     username = profile['name'].encode('utf-8')
     comments = request.POST.get('comments', '')[:256]
 
     if request.POST.get('send_request') and ipv6 != '':
+        #TODO: remove printies
         print 'making request to 127...'
-        urlopen(url='http://127.0.0.1:8000/api/v1/add_contact',
+        response = urlopen(url='http://127.0.0.1:8000/api/v1/add_contact',
             data = 'ipv6=' + ipv6 + '&hostname=' + quote(username),
             timeout = 5,
         )
+        content = response.read()
+        addrbook_url = json_loads(content)['addrbook_url']
         print 'making request to ' + ipv6
         urlopen(url='http://[' + ipv6 + ']:3838/api/v1/contact_request',
             data = 'what=new&comments=' + quote(comments),
@@ -931,12 +939,10 @@ def addressbook_new_request(ipv6):
         data.addr_add_request('to', ipv6, comments)
         print 'done.'
         message = 'Request sent.'
-        #TODO: show addrbook button
 
     return template('addressbook_new_request',
         ipv6 = ipv6,
-        username = username,
-        message = message,
+        addrbook_url = addrbook_url,
         my_ipv6 = data.get_meta('ipv6'),
     )
 
