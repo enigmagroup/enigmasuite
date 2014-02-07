@@ -875,23 +875,28 @@ def addressbook_requests():
         username = profile['name'].decode('utf-8')
 
         #TODO: confirm klick: make api req to 127, show addrbook button
+        print 'making request to 127...'
         urlopen(url='http://127.0.0.1:8000/api/v1/add_contact',
             data = 'ipv6=' + ipv6 + '&hostname=' + quote(username),
             timeout = 5,
         )
+        print 'making request to ' + ipv6
         urlopen(url='http://[' + ipv6 + ']:3838/api/v1/contact_request',
             data = 'what=confirm',
             timeout = 5,
         )
         data.addr_remove_request('from', ipv6)
+        print 'done.'
 
     if request.POST.get('decline_request'):
         ipv6 = request.POST.get('decline_request')
+        print 'making request to ' + ipv6
         urlopen(url='http://[' + ipv6 + ']:3838/api/v1/contact_request',
             data = 'what=decline',
             timeout = 5,
         )
         data.addr_remove_request('from', ipv6)
+        print 'done.'
 
     requests_list = data.addr_get_requests('from')
 
@@ -908,19 +913,22 @@ def addressbook_new_request(ipv6):
 
     message = ''
     profile = data.get_profile(ipv6)
-    username = profile['name'].decode('utf-8')
+    username = profile['name'].encode('utf-8')
     comments = request.POST.get('comments', '')[:256].decode('utf-8')
 
     if request.POST.get('send_request') and ipv6 != '':
+        print 'making request to 127...'
         urlopen(url='http://127.0.0.1:8000/api/v1/add_contact',
             data = 'ipv6=' + ipv6 + '&hostname=' + quote(username),
             timeout = 5,
         )
+        print 'making request to ' + ipv6
         urlopen(url='http://[' + ipv6 + ']:3838/api/v1/contact_request',
             data = 'what=new&comments=' + quote(comments),
             timeout = 5,
         )
         data.addr_add_request('to', ipv6, comments)
+        print 'done.'
         message = 'Request sent.'
         #TODO: show addrbook button
 
@@ -1370,16 +1378,22 @@ def contact_request():
         comments = request.POST.get('comments', '')
 
         if what == 'new':
+            print 'receiving new request'
             data.get_profile(ipv6)
             data.addr_add_request('from', ipv6, comments)
+            print 'done.'
         elif what == 'confirm':
+            print 'receiving confirmation from ' + ipv6
             profile = data.get_profile(ipv6)
+            print 'making request to 127...'
             urlopen(url='http://127.0.0.1:8000/api/v1/add_contact',
                 data = 'ipv6=' + ipv6 + '&hostname=' + profile['name'],
                 timeout = 5,
             )
             data.addr_remove_request('to', ipv6)
+            print 'done.'
         elif what == 'decline':
+            print 'receiving declination from ' + ipv6
             data.addr_remove_request('to', ipv6)
         else:
             raise
