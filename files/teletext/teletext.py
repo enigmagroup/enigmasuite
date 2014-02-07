@@ -676,6 +676,13 @@ class Data():
 
         return requests
 
+    def pending_requests_exist(self):
+        self.c.execute("""SELECT id
+        FROM requests
+        WHERE direction = 'from'""")
+
+        return len(self.c.fetchall()) > 0
+
     # send or receive
     def addr_add_request(self, direction, ipv6, comments):
         comments = comments.decode('utf-8')
@@ -723,6 +730,7 @@ def root():
         telegrams = telegrams,
         xhr_url = '/xhr/timeline',
         my_ipv6 = data.get_meta('ipv6'),
+        pending_requests = data.pending_requests_exist(),
     )
 
 
@@ -792,6 +800,7 @@ def profile_page(ipv6):
         subscribers = profile['subscribers'],
         subscriptions = profile['subscriptions'],
         my_ipv6 = my_ipv6,
+        pending_requests = data.pending_requests_exist(),
         subscribed = subscribed,
     )
 
@@ -817,6 +826,7 @@ def me(ipv6, subscription_type):
         subscribers = profile['subscribers'],
         subscriptions = profile['subscriptions'],
         my_ipv6 = my_ipv6,
+        pending_requests = data.pending_requests_exist(),
         subscribed = subscribed,
     )
 
@@ -835,6 +845,7 @@ def single_telegram(ipv6, created_at):
     return template('telegram',
         telegram = telegram,
         my_ipv6 = my_ipv6,
+        pending_requests = data.pending_requests_exist(),
     )
 
 
@@ -862,6 +873,7 @@ def addressbook():
     return template('addressbook',
         user_list = user_list,
         my_ipv6 = data.get_meta('ipv6'),
+        pending_requests = data.pending_requests_exist(),
     )
 
 
@@ -909,6 +921,7 @@ def addressbook_requests():
         requests_list = requests_list,
         addrbook_url = addrbook_url,
         my_ipv6 = data.get_meta('ipv6'),
+        pending_requests = data.pending_requests_exist(),
     )
 
 
@@ -944,6 +957,7 @@ def addressbook_new_request(ipv6):
         ipv6 = ipv6,
         addrbook_url = addrbook_url,
         my_ipv6 = data.get_meta('ipv6'),
+        pending_requests = data.pending_requests_exist(),
     )
 
 
@@ -1016,6 +1030,7 @@ def settings():
         show_subscriptions = data.get_meta('show_subscriptions', '1'),
         message = message,
         my_ipv6 = data.get_meta('ipv6'),
+        pending_requests = data.pending_requests_exist(),
     )
 
 
@@ -1044,6 +1059,7 @@ def xhr_timeline():
         telegrams = telegrams,
         xhr = True,
         my_ipv6 = data.get_meta('ipv6'),
+        pending_requests = data.pending_requests_exist(),
     )
 
 
