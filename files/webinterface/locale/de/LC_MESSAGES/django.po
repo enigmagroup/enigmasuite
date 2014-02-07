@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-01-23 17:54+0100\n"
-"PO-Revision-Date: 2014-01-23 17:54+0100\n"
+"POT-Creation-Date: 2014-02-07 15:12+0100\n"
+"PO-Revision-Date: 2014-02-07 15:13+0100\n"
 "Last-Translator: Agent 42 <42@enigmabox.net>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -25,19 +25,19 @@ msgstr "Deutsch"
 msgid "English"
 msgstr "Englisch"
 
-#: app/views.py:393
+#: app/views.py:395
 msgid "Hungary"
 msgstr "Ungarn"
 
-#: app/views.py:394
+#: app/views.py:396
 msgid "France"
 msgstr "Frankreich"
 
-#: app/views.py:395
+#: app/views.py:397
 msgid "Switzerland"
 msgstr "Schweiz"
 
-#: app/views.py:397
+#: app/views.py:399
 msgid "United Stasi of America"
 msgstr "Vereinigte Daten von Amerika"
 
@@ -65,7 +65,7 @@ msgid "System"
 msgstr "System"
 
 #: app/templates/base.html:57
-#: app/templates/home.html:13
+#: app/templates/home.html:18
 #: app/templates/addressbook/detail.html:9
 #: app/templates/addressbook/overview.html:8
 msgid "Addressbook"
@@ -86,7 +86,7 @@ msgid "Backup &amp; restore"
 msgstr "Sichern &amp; Wiederherstellen"
 
 #: app/templates/base.html:63
-#: app/templates/home.html:18
+#: app/templates/home.html:31
 msgid "Internet"
 msgstr "Internet"
 
@@ -98,10 +98,6 @@ msgstr "Land auswählen"
 #: app/templates/webfilter/overview.html:8
 msgid "Ad blocking"
 msgstr "Werbeblocker"
-
-#: app/templates/base.html:65
-msgid "New"
-msgstr "Neu"
 
 #: app/templates/base.html:66
 msgid "Network"
@@ -119,6 +115,21 @@ msgstr "Peerings"
 msgid "WLAN settings"
 msgstr "WLAN-Einstellungen"
 
+#: app/templates/base.html:69
+msgid "Services"
+msgstr "Dienste"
+
+#: app/templates/base.html:70
+#: app/templates/home.html:21
+#: app/templates/home.html.py:23
+#: app/templates/teletext/overview.html:8
+msgid "Teletext"
+msgstr "Teletext"
+
+#: app/templates/base.html:70
+msgid "New"
+msgstr "Neu"
+
 #: app/templates/home.html:11
 msgid "Your hostid is"
 msgstr "Deine Hostid ist"
@@ -127,38 +138,43 @@ msgstr "Deine Hostid ist"
 msgid "Network access valid until"
 msgstr "Dein Netzwerkzugang ist noch gültig bis zum"
 
-#: app/templates/home.html:13
-msgid "Manage your contacts in the"
-msgstr "Verwalte Deine Adressen im"
+#: app/templates/home.html:16
+msgid "Applications"
+msgstr "Anwendungen"
 
-#: app/templates/home.html:17
+#: app/templates/home.html:19
+msgid "Webmail"
+msgstr "Webmail"
+
+#: app/templates/home.html:28
+msgid "System status"
+msgstr "Systemstatus"
+
+#: app/templates/home.html:30
 msgid "DHCP"
 msgstr "DHCP"
 
-#: app/templates/home.html:19
+#: app/templates/home.html:32
 msgid "cjdns"
 msgstr "cjdns"
 
-#: app/templates/home.html:20
+#: app/templates/home.html:33
 msgid "Internet via cjdns"
 msgstr "Internet via cjdns"
 
-#: app/templates/home.html:24
-#: app/templates/home.html.py:30
+#: app/templates/home.html:37
 msgid "Connection info"
 msgstr "Verbindungsinfos"
 
-#: app/templates/home.html:24
-msgid "SIP phone"
-msgstr "IP-Telefon"
+#: app/templates/home.html:37
+msgid "SSH access"
+msgstr "SSH-Zugang"
 
-#: app/templates/home.html:25
-#: app/templates/home.html.py:31
+#: app/templates/home.html:38
 msgid "Username"
 msgstr "Benutzername"
 
-#: app/templates/home.html:26
-#: app/templates/home.html.py:32
+#: app/templates/home.html:39
 #: app/templates/peerings/detail.html:49
 #: app/templates/peerings/detail.html:51
 #: app/templates/peerings/overview.html:61
@@ -166,15 +182,7 @@ msgstr "Benutzername"
 msgid "Password"
 msgstr "Passwort"
 
-#: app/templates/home.html:27
-msgid "Domain/Server"
-msgstr "Domain/Server"
-
-#: app/templates/home.html:30
-msgid "SSH access"
-msgstr "SSH-Zugang"
-
-#: app/templates/home.html:33
+#: app/templates/home.html:40
 msgid "Server"
 msgstr "Server"
 
@@ -509,6 +517,7 @@ msgstr "Eingehendes Peering"
 
 #: app/templates/peerings/overview.html:44
 #: app/templates/peerings/overview.html:100
+#: app/templates/teletext/overview.html:23
 #: app/templates/webfilter/overview.html:37
 #: app/templates/webfilter/overview.html:49
 #: app/templates/webfilter/overview.html:62
@@ -521,6 +530,7 @@ msgstr "Aktiviert"
 
 #: app/templates/peerings/overview.html:46
 #: app/templates/peerings/overview.html:102
+#: app/templates/teletext/overview.html:25
 #: app/templates/webfilter/overview.html:39
 #: app/templates/webfilter/overview.html:51
 #: app/templates/webfilter/overview.html:64
@@ -550,6 +560,18 @@ msgstr "Autopeering"
 #: app/templates/peerings/overview.html:97
 msgid "Automatically connect to other cjdns nodes in the same LAN"
 msgstr "Automatisch zu anderen cjdns-Knoten im gleichen Netzwerk verbinden"
+
+#: app/templates/teletext/overview.html:9
+msgid "Teletext is a distributed Twitter clone."
+msgstr "Teletext ist ein dezentrales Twitter."
+
+#: app/templates/teletext/overview.html:10
+msgid "Publish telegrams, find other ciphernauts, coordinate a revolution below the radar."
+msgstr "Publiziere Telegramme, finde andere Ciphernauten, koordiniere eine Revolution unter dem Radar."
+
+#: app/templates/teletext/overview.html:20
+msgid "Enable Teletext"
+msgstr "Teletext aktivieren"
 
 #: app/templates/webfilter/overview.html:9
 msgid "Filter out ads and trackers, block whole domains."
@@ -653,6 +675,15 @@ msgstr "Aktualisieren"
 #: app/templates/wlan_settings/scan.html:22
 msgid "Quality"
 msgstr "Signalstärke"
+
+#~ msgid "Manage your contacts in the"
+#~ msgstr "Verwalte Deine Adressen im"
+
+#~ msgid "SIP phone"
+#~ msgstr "IP-Telefon"
+
+#~ msgid "Domain/Server"
+#~ msgstr "Domain/Server"
 
 #, fuzzy
 #~ msgid "Internet interface"
