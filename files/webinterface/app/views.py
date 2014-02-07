@@ -621,6 +621,8 @@ def api_v1(request, api_url):
                 a.save()
                 resp['addrbook_url'] = 'http://enigma.box/addressbook/edit/' + str(a.id) + '/'
                 resp['result'] = 'success'
+                o = Option()
+                o.config_changed(True)
             else:
                 raise
 
