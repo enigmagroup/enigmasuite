@@ -147,6 +147,8 @@ $(document).ready(function() {
                         $button.text(original_text).attr('disabled', false);
                     }else{
                         $button.text('Disabled');
+                        var $dropdown = $button.parents('.buttonblock').find('.dropdown-toggle');
+                        $dropdown.attr('disabled', 'disabled');
                     }
                 });
 
