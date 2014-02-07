@@ -5,10 +5,12 @@
 <!-- Form Name -->
 <legend>New contact request</legend>
 
-%if message != '':
+%if addrbook_url != '':
 <div class="alert alert-success">
-    {{message}}
+    Request sent successfully.
 </div>
+
+<a href="{{addrbook_url}}" target="_blank" class="btn btn-success btn-xlarge">Open address book...</a>
 
 %else:
 

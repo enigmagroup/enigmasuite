@@ -5,6 +5,15 @@
 <!-- Form Name -->
 <legend>New contact request</legend>
 
+%if addrbook_url != '':
+<div class="alert alert-success">
+    Contact confirmed successfully.
+</div>
+
+<a href="{{addrbook_url}}" target="_blank" class="btn btn-success btn-xlarge">Open address book...</a>
+
+%else:
+
 <div class="row">
     <div class="span8 offset1">
         <ul class="user_list">
@@ -32,5 +41,7 @@
 
 </fieldset>
 </form>
+
+%end
 
 %rebase _layout my_ipv6=my_ipv6
