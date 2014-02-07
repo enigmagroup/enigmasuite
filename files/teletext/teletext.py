@@ -873,7 +873,7 @@ def addressbook_requests():
     if request.POST.get('confirm_request'):
         ipv6 = request.POST.get('confirm_request')
         profile = data.get_profile(ipv6)
-        username = profile['name'].decode('utf-8')
+        username = profile['name'].encode('utf-8')
 
         #TODO: confirm klick: make api req to 127, show addrbook button
         print 'making request to 127...'
@@ -1385,12 +1385,6 @@ def contact_request():
             print 'done.'
         elif what == 'confirm':
             print 'receiving confirmation from ' + ipv6
-            profile = data.get_profile(ipv6)
-            print 'making request to 127...'
-            urlopen(url='http://127.0.0.1:8000/api/v1/add_contact',
-                data = 'ipv6=' + ipv6 + '&hostname=' + profile['name'],
-                timeout = 5,
-            )
             data.addr_remove_request('to', ipv6)
             print 'done.'
         elif what == 'decline':
