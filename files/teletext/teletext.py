@@ -110,7 +110,7 @@ class Data():
             self.db.execute("""INSERT INTO meta (key,value)
             VALUES ('dbversion','1')""")
             self.db.commit()
-        elif version < 2:
+        if version < 2:
             print 'migrating to version 2'
             self.db.execute("""CREATE TABLE requests (
                 id INTEGER PRIMARY KEY,
@@ -123,7 +123,7 @@ class Data():
             SET value = '2'
             WHERE key = 'dbversion'""")
             self.db.commit()
-        #elif version < 3:
+        #if version < 3:
         #    print 'migrating to version 3'
         #
         #    self.db.execute("""UPDATE meta
