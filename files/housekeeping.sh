@@ -4,9 +4,6 @@
 # in case of: "dpkg was interrupted, you must manually run 'dpkg --configure -a' to correct the problem"
 /usr/bin/dpkg --configure -a
 
-# update apt
-/usr/bin/apt-get update
-
 # flush logs
 > /var/log/asterisk/messages
 > /var/log/nginx/access.log
@@ -21,8 +18,13 @@ killall -9 puppet
 /usr/bin/puppet agent --enable  # remove any lockfiles
 rm -r /var/lib/puppet/*     # give us some memory back
 
-# run puppet, but don't start agent anymore
+# randomly wait before run
 rand=$(($RANDOM % 600))
 sleep "$rand"
+
+# update apt
+/usr/bin/apt-get update
+
+# run puppet, but don't start agent anymore
 /usr/bin/puppet agent --test
 
