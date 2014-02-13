@@ -5,7 +5,7 @@ all:
 	./manage.py runserver
 
 trans:
-	./manage.py makemessages -l de
+	./manage.py makemessages -a
 
 compiletrans:
 	./manage.py compilemessages

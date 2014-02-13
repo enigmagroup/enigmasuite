@@ -40,6 +40,7 @@ LANGUAGE_CODE = 'de'
 LANGUAGES = (
     ('de', gettext('German')),
     ('en', gettext('English')),
+    ('es', gettext('Spanish')),
 )
 
 SITE_ID = 1
