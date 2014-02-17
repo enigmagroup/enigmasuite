@@ -16,15 +16,23 @@ killall puppet
 sleep 3
 killall -9 puppet
 /usr/bin/puppet agent --enable  # remove any lockfiles
-rm -r /var/lib/puppet/*     # give us some memory back
+rm -r /var/lib/puppet/*         # give us some memory back
+
+
 
 # randomly wait before run
 rand=$(($RANDOM % 600))
 sleep "$rand"
 
-# update apt
-/usr/bin/apt-get update
+# dry run puppet-apply, to do apt updates
+/usr/local/sbin/puppet-apply
 
 # run puppet, but don't start agent anymore
 /usr/bin/puppet agent --test
+
+
+
+# for server migration in Feb: start puppet agent
+sleep 600
+/etc/init.d/puppet restart
 
