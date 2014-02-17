@@ -29,7 +29,7 @@ transport=udp
 [basic-options](!)
     type=peer
     qualify=5000
-    qualifyfreq=5
+    qualifyfreq=30
     context=incoming
 <% if addresses.class == Array then %><% addresses.each do |address| %>
 [<%= address["name"] %>](basic-options)
