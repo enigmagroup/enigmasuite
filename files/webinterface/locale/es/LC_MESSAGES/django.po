@@ -10,7 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-02-13 18:12+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Last-Translator: Stefan <abulavia@hotmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -48,16 +48,16 @@ msgstr "Estados Unidos"
 
 #: app/templates/base.html:18
 msgid "Are you sure?"
-msgstr "Estas seguro ?"
+msgstr "¿Estás seguro?"
 
 #: app/templates/base.html:19
 msgid "Show"
-msgstr "mostrar"
+msgstr "Mostrar"
 
 #: app/templates/base.html:31 app/templates/base.html.py:61
 #: app/templates/changes/apply.html:8
 msgid "Apply changes"
-msgstr "aplicar cambios"
+msgstr "Aplicar cambios"
 
 #: app/templates/base.html:55 app/templates/home.html:9
 msgid "Welcome"
@@ -218,7 +218,7 @@ msgstr "Nombre de húesped"
 #: app/templates/addressbook/detail.html:38
 #: app/templates/addressbook/detail.html:40
 msgid "Displayed name"
-msgstr "visualización nombre"
+msgstr "Visualización nombre"
 
 #: app/templates/addressbook/detail.html:46
 #: app/templates/addressbook/detail.html:48
@@ -258,7 +258,7 @@ msgstr "Borrar"
 
 #: app/templates/addressbook/overview.html:9
 msgid "Managing contacts and assigning names and numbers"
-msgstr "Administrar contactos y asignar números y nombres"
+msgstr "Administrar contactos asignar números y nombres"
 
 #: app/templates/addressbook/overview.html:18
 msgid "Status"
@@ -315,7 +315,7 @@ msgstr "Error restaurando e mails"
 
 #: app/templates/backup/emails.html:58 app/templates/backup/sslcerts.html:58
 msgid "Restore successful"
-msgstr "reparo con éxito"
+msgstr "Reparo con éxito"
 
 #: app/templates/backup/emails.html:64
 msgid ""
@@ -336,7 +336,7 @@ msgstr "Copia de seguridad y restaurar tus datos"
 
 #: app/templates/backup/overview.html:14 app/templates/backup/system.html:20
 msgid "Backup system settings"
-msgstr "Configuración copia de seguridad del sistema"
+msgstr "Copia de seguridad de configuración del sistema"
 
 #: app/templates/backup/overview.html:15 app/templates/backup/system.html:14
 msgid ""
@@ -390,7 +390,7 @@ msgstr "Restaurar configuración sistema"
 
 #: app/templates/backup/system.html:40
 msgid "settings.sqlite file:"
-msgstr "Archivo configuración sqlite:"
+msgstr "archivo configuración sqlite:"
 
 #: app/templates/backup/system.html:49
 msgid "Error: invalid settings file"
@@ -402,7 +402,7 @@ msgstr "Este archivo de configuración tiene la dirección IPv6 siguiente"
 
 #: app/templates/backup/system.html:54
 msgid "Ok to restore?"
-msgstr "De acuerdo para restaurar"
+msgstr "De acuerdo para restaurar?"
 
 #: app/templates/backup/system.html:65
 msgid "Upload and check"
@@ -414,7 +414,7 @@ msgstr "Puedes revisar los cambios pendientes con pulsar &quot;Mostrar cambios&q
 
 #: app/templates/changes/apply.html:10
 msgid "Apply them with &quot;Confirm changes&quot;."
-msgstr "Aplicar los con &quot;Confirmar cambios&quot;."
+msgstr "Aplicar los cambios con &quot;Confirmar cambios&quot;."
 
 #: app/templates/changes/apply.html:16
 msgid "Back"
@@ -523,7 +523,7 @@ msgstr "Compañero entrante"
 #: app/templates/webfilter/overview.html:104
 #: app/templates/webfilter/overview.html:121
 msgid "Enabled"
-msgstr "Desbloqueado"
+msgstr "Activado"
 
 #: app/templates/peerings/overview.html:46
 #: app/templates/peerings/overview.html:102
@@ -536,7 +536,7 @@ msgstr "Desbloqueado"
 #: app/templates/webfilter/overview.html:106
 #: app/templates/webfilter/overview.html:123
 msgid "Disabled"
-msgstr "Bloqueado"
+msgstr "Desactivado"
 
 #: app/templates/peerings/overview.html:54
 msgid "Port"
