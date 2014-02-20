@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-13 18:12+0100\n"
+"POT-Creation-Date: 2014-02-20 13:05+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Stefan <abulavia@hotmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -41,6 +41,11 @@ msgstr "Francia"
 #: app/views.py:397
 msgid "Switzerland"
 msgstr "Suiza"
+
+#: app/views.py:398
+#, fuzzy
+msgid "Germany"
+msgstr "Alemán"
 
 #: app/views.py:399
 msgid "United Stasi of America"
@@ -84,7 +89,7 @@ msgstr "Contraseñas"
 msgid "Backup &amp; restore"
 msgstr "Copia de seguridad y restaurar"
 
-#: app/templates/base.html:63 app/templates/home.html:31
+#: app/templates/base.html:63 app/templates/home.html:37
 msgid "Internet"
 msgstr "Internet"
 
@@ -139,42 +144,42 @@ msgstr "Aplicaciones"
 msgid "Webmail"
 msgstr "E mail web"
 
-#: app/templates/home.html:28
+#: app/templates/home.html:34
 msgid "System status"
 msgstr "Estado de sistema"
 
-#: app/templates/home.html:30
+#: app/templates/home.html:36
 msgid "DHCP"
 msgstr "DHCP"
 
-#: app/templates/home.html:32
+#: app/templates/home.html:38
 msgid "cjdns"
 msgstr "cjdns"
 
-#: app/templates/home.html:33
+#: app/templates/home.html:39
 msgid "Internet via cjdns"
 msgstr "Internet por cjdns"
 
-#: app/templates/home.html:37
+#: app/templates/home.html:43
 msgid "Connection info"
 msgstr "Información conexión"
 
-#: app/templates/home.html:37
+#: app/templates/home.html:43
 msgid "SSH access"
 msgstr "Dirección SSH"
 
-#: app/templates/home.html:38
+#: app/templates/home.html:44
 msgid "Username"
 msgstr "Nombre de usuario"
 
-#: app/templates/home.html:39 app/templates/peerings/detail.html:49
+#: app/templates/home.html:45 app/templates/peerings/detail.html:49
 #: app/templates/peerings/detail.html:51
 #: app/templates/peerings/overview.html:61
 #: app/templates/wlan_settings/overview.html:43
 msgid "Password"
 msgstr "Contraseña"
 
-#: app/templates/home.html:40
+#: app/templates/home.html:46
 msgid "Server"
 msgstr "Servidor"
 
@@ -322,8 +327,8 @@ msgid ""
 "Warning: all your emails currently stored on your box <strong>will be "
 "overwritten!</strong>"
 msgstr ""
-"Aviso: todos tus e mails que están actualmente almacenados en tu carpeta <strong>son "
-"sobreescritos</strong>"
+"Aviso: todos tus e mails que están actualmente almacenados en tu carpeta "
+"<strong>son sobreescritos</strong>"
 
 #: app/templates/backup/emails.html:70 app/templates/backup/sslcerts.html:66
 #: app/templates/backup/system.html:63
@@ -342,19 +347,21 @@ msgstr "Copia de seguridad de configuración del sistema"
 msgid ""
 "Your IPv6 address, addressbook, passwords, internet- and network settings."
 msgstr ""
-"Tu dirección IPv6, libreta de direcciones, contraseñas, configuración red e internet."
+"Tu dirección IPv6, libreta de direcciones, contraseñas, configuración red e "
+"internet."
 
 #: app/templates/backup/overview.html:28 app/templates/backup/sslcerts.html:19
 msgid "Backup SSL certificates"
 msgstr "Copia de seguridad certificados SSL"
 
 #: app/templates/backup/overview.html:29 app/templates/backup/sslcerts.html:13
+#, fuzzy
 msgid ""
-"The SSL certificates used for communication with our server, e.g.  requesting "
+"The SSL certificates used for communication with our server, e.g. requesting "
 "internet or updates."
 msgstr ""
-"Los certificados SSL utilizados para la comunicación con nuestro servidor p.ej. consultar "
-"actualizaciones o internet."
+"Los certificados SSL utilizados para la comunicación con nuestro servidor p."
+"ej. consultar actualizaciones o internet."
 
 #: app/templates/backup/sslcerts.html:9
 msgid "SSL certificates"
@@ -410,7 +417,8 @@ msgstr "Subir y comprobar"
 
 #: app/templates/changes/apply.html:9
 msgid "You can review outstanding changes by hitting &quot;Show changes&quot;."
-msgstr "Puedes revisar los cambios pendientes con pulsar &quot;Mostrar cambios&quot;."
+msgstr ""
+"Puedes revisar los cambios pendientes con pulsar &quot;Mostrar cambios&quot;."
 
 #: app/templates/changes/apply.html:10
 msgid "Apply them with &quot;Confirm changes&quot;."
@@ -449,14 +457,15 @@ msgid ""
 "Note: It may take some time after a country switch until all contacts are "
 "reachable again!"
 msgstr ""
-"Anota: tal vez se necesita un poco tiempo después de cambiar el país hasta que todos los contactos son "
-"accesibles de nuevo"
+"Anota: tal vez se necesita un poco tiempo después de cambiar el país hasta "
+"que todos los contactos son accesibles de nuevo"
 
 #: app/templates/countryselect/overview.html:30
 msgid ""
 "If a server goes down, the next available server is automatically selected."
 msgstr ""
-"Cuando un servidor se desconecta, el siguiente servidor disponible es selecionado automáticamente."
+"Cuando un servidor se desconecta, el siguiente servidor disponible es "
+"selecionado automáticamente."
 
 #: app/templates/peerings/detail.html:20
 msgid "Insert connection data to your peer"
@@ -493,7 +502,9 @@ msgstr "Remover compañero"
 
 #: app/templates/peerings/overview.html:9
 msgid "Manage peerings (encrypted, direct connections to other cjdns users)"
-msgstr "Administrar compañeros (codificados, conexiones directos a otros usuarios cjdns)"
+msgstr ""
+"Administrar compañeros (codificados, conexiones directos a otros usuarios "
+"cjdns)"
 
 #: app/templates/peerings/overview.html:11
 msgid "Outgoing peerings"
@@ -567,8 +578,8 @@ msgid ""
 "Publish telegrams, find other ciphernauts, coordinate a revolution below the "
 "radar."
 msgstr ""
-"Publica telegramas, encuentra otros cibernautas, coordina la revolución debajo del "
-"radar."
+"Publica telegramas, encuentra otros cibernautas, coordina la revolución "
+"debajo del radar."
 
 #: app/templates/teletext/overview.html:20
 msgid "Enable Teletext"

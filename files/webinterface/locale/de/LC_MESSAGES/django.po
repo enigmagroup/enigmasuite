@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-13 18:12+0100\n"
-"PO-Revision-Date: 2014-02-07 15:13+0100\n"
+"POT-Creation-Date: 2014-02-20 13:05+0100\n"
+"PO-Revision-Date: 2014-02-20 13:06+0100\n"
 "Last-Translator: Agent 42 <42@enigmabox.net>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -27,7 +27,7 @@ msgstr "Englisch"
 
 #: settings.py:43
 msgid "Spanish"
-msgstr ""
+msgstr "Spanisch"
 
 #: app/views.py:395
 msgid "Hungary"
@@ -41,6 +41,10 @@ msgstr "Frankreich"
 msgid "Switzerland"
 msgstr "Schweiz"
 
+#: app/views.py:398
+msgid "Germany"
+msgstr "Deutschland"
+
 #: app/views.py:399
 msgid "United Stasi of America"
 msgstr "Vereinigte Daten von Amerika"
@@ -53,12 +57,14 @@ msgstr "Bist du sicher?"
 msgid "Show"
 msgstr "Zeigen"
 
-#: app/templates/base.html:31 app/templates/base.html.py:61
+#: app/templates/base.html:31
+#: app/templates/base.html.py:61
 #: app/templates/changes/apply.html:8
 msgid "Apply changes"
 msgstr "Änderungen anwenden"
 
-#: app/templates/base.html:55 app/templates/home.html:9
+#: app/templates/base.html:55
+#: app/templates/home.html:9
 msgid "Welcome"
 msgstr "Willkommen"
 
@@ -66,24 +72,29 @@ msgstr "Willkommen"
 msgid "System"
 msgstr "System"
 
-#: app/templates/base.html:57 app/templates/home.html:18
+#: app/templates/base.html:57
+#: app/templates/home.html:18
 #: app/templates/addressbook/detail.html:9
 #: app/templates/addressbook/overview.html:8
 msgid "Addressbook"
 msgstr "Adressbuch"
 
-#: app/templates/base.html:58 app/templates/passwords.html:8
+#: app/templates/base.html:58
+#: app/templates/passwords.html:8
 #: app/templates/passwords.html.py:16
 msgid "Passwords"
 msgstr "Passwörter"
 
-#: app/templates/base.html:59 app/templates/backup/emails.html:8
-#: app/templates/backup/overview.html:8 app/templates/backup/sslcerts.html:8
+#: app/templates/base.html:59
+#: app/templates/backup/emails.html:8
+#: app/templates/backup/overview.html:8
+#: app/templates/backup/sslcerts.html:8
 #: app/templates/backup/system.html:8
 msgid "Backup &amp; restore"
 msgstr "Sichern &amp; Wiederherstellen"
 
-#: app/templates/base.html:63 app/templates/home.html:31
+#: app/templates/base.html:63
+#: app/templates/home.html:37
 msgid "Internet"
 msgstr "Internet"
 
@@ -91,7 +102,8 @@ msgstr "Internet"
 msgid "Country selection"
 msgstr "Land auswählen"
 
-#: app/templates/base.html:65 app/templates/webfilter/overview.html:8
+#: app/templates/base.html:65
+#: app/templates/webfilter/overview.html:8
 msgid "Ad blocking"
 msgstr "Werbeblocker"
 
@@ -99,12 +111,14 @@ msgstr "Werbeblocker"
 msgid "Network"
 msgstr "Netzwerk"
 
-#: app/templates/base.html:67 app/templates/peerings/detail.html:9
+#: app/templates/base.html:67
+#: app/templates/peerings/detail.html:9
 #: app/templates/peerings/overview.html:8
 msgid "Peerings"
 msgstr "Peerings"
 
-#: app/templates/base.html:68 app/templates/wlan_settings/overview.html:8
+#: app/templates/base.html:68
+#: app/templates/wlan_settings/overview.html:8
 #: app/templates/wlan_settings/scan.html:9
 msgid "WLAN settings"
 msgstr "WLAN-Einstellungen"
@@ -113,8 +127,10 @@ msgstr "WLAN-Einstellungen"
 msgid "Services"
 msgstr "Dienste"
 
-#: app/templates/base.html:70 app/templates/home.html:21
-#: app/templates/home.html.py:23 app/templates/teletext/overview.html:8
+#: app/templates/base.html:70
+#: app/templates/home.html:21
+#: app/templates/home.html.py:23
+#: app/templates/teletext/overview.html:8
 msgid "Teletext"
 msgstr "Teletext"
 
@@ -138,42 +154,43 @@ msgstr "Anwendungen"
 msgid "Webmail"
 msgstr "Webmail"
 
-#: app/templates/home.html:28
+#: app/templates/home.html:34
 msgid "System status"
 msgstr "Systemstatus"
 
-#: app/templates/home.html:30
+#: app/templates/home.html:36
 msgid "DHCP"
 msgstr "DHCP"
 
-#: app/templates/home.html:32
+#: app/templates/home.html:38
 msgid "cjdns"
 msgstr "cjdns"
 
-#: app/templates/home.html:33
+#: app/templates/home.html:39
 msgid "Internet via cjdns"
 msgstr "Internet via cjdns"
 
-#: app/templates/home.html:37
+#: app/templates/home.html:43
 msgid "Connection info"
 msgstr "Verbindungsinfos"
 
-#: app/templates/home.html:37
+#: app/templates/home.html:43
 msgid "SSH access"
 msgstr "SSH-Zugang"
 
-#: app/templates/home.html:38
+#: app/templates/home.html:44
 msgid "Username"
 msgstr "Benutzername"
 
-#: app/templates/home.html:39 app/templates/peerings/detail.html:49
+#: app/templates/home.html:45
+#: app/templates/peerings/detail.html:49
 #: app/templates/peerings/detail.html:51
 #: app/templates/peerings/overview.html:61
 #: app/templates/wlan_settings/overview.html:43
 msgid "Password"
 msgstr "Passwort"
 
-#: app/templates/home.html:40
+#: app/templates/home.html:46
 msgid "Server"
 msgstr "Server"
 
@@ -185,7 +202,8 @@ msgstr "Passwörter setzen. Leerer Wert = Passwort ist nicht aktiv."
 msgid "Webinterface"
 msgstr "Webinterface"
 
-#: app/templates/passwords.html:23 app/templates/passwords.html.py:41
+#: app/templates/passwords.html:23
+#: app/templates/passwords.html.py:41
 msgid "Set"
 msgstr "Setzen"
 
@@ -283,15 +301,18 @@ msgstr "E-Mails"
 msgid "Backup &amp; restore emails"
 msgstr "E-Mails sichern &amp; wiederherstellen"
 
-#: app/templates/backup/emails.html:13 app/templates/backup/overview.html:22
+#: app/templates/backup/emails.html:13
+#: app/templates/backup/overview.html:22
 msgid "Your email folder."
 msgstr "Dein E-Mail Ordner."
 
-#: app/templates/backup/emails.html:19 app/templates/backup/overview.html:21
+#: app/templates/backup/emails.html:19
+#: app/templates/backup/overview.html:21
 msgid "Backup emails"
 msgstr "E-Mails sichern"
 
-#: app/templates/backup/emails.html:24 app/templates/backup/sslcerts.html:24
+#: app/templates/backup/emails.html:24
+#: app/templates/backup/sslcerts.html:24
 #: app/templates/backup/system.html:25
 msgid "Backup"
 msgstr "Sichern"
@@ -304,7 +325,8 @@ msgstr "E-Mails wiederherstellen"
 msgid "emails.tar.gz file:"
 msgstr "emails.tar.gz-Datei:"
 
-#: app/templates/backup/emails.html:48 app/templates/backup/sslcerts.html:48
+#: app/templates/backup/emails.html:48
+#: app/templates/backup/sslcerts.html:48
 msgid "Error in creating backup"
 msgstr "Fehler beim Erstellen der Sicherung"
 
@@ -312,19 +334,17 @@ msgstr "Fehler beim Erstellen der Sicherung"
 msgid "Error restoring emails"
 msgstr "Fehler beim Wiederherstellen der E-Mails"
 
-#: app/templates/backup/emails.html:58 app/templates/backup/sslcerts.html:58
+#: app/templates/backup/emails.html:58
+#: app/templates/backup/sslcerts.html:58
 msgid "Restore successful"
 msgstr "Wiederherstellen erfolgreich"
 
 #: app/templates/backup/emails.html:64
-msgid ""
-"Warning: all your emails currently stored on your box <strong>will be "
-"overwritten!</strong>"
-msgstr ""
-"Warnung: Alle deine jetzigen auf der Box gespeicherten E-Mails "
-"<strong>werden überschrieben!</strong>"
+msgid "Warning: all your emails currently stored on your box <strong>will be overwritten!</strong>"
+msgstr "Warnung: Alle deine jetzigen auf der Box gespeicherten E-Mails <strong>werden überschrieben!</strong>"
 
-#: app/templates/backup/emails.html:70 app/templates/backup/sslcerts.html:66
+#: app/templates/backup/emails.html:70
+#: app/templates/backup/sslcerts.html:66
 #: app/templates/backup/system.html:63
 msgid "Restore"
 msgstr "Wiederherstellen"
@@ -333,28 +353,25 @@ msgstr "Wiederherstellen"
 msgid "Backup and restore your data."
 msgstr "Sichern und Wiederherstellen deiner Daten."
 
-#: app/templates/backup/overview.html:14 app/templates/backup/system.html:20
+#: app/templates/backup/overview.html:14
+#: app/templates/backup/system.html:20
 msgid "Backup system settings"
 msgstr "Systemeinstellungen sichern"
 
-#: app/templates/backup/overview.html:15 app/templates/backup/system.html:14
-msgid ""
-"Your IPv6 address, addressbook, passwords, internet- and network settings."
-msgstr ""
-"Deine IPv6-Adresse, das Adressbuch, Passwörter, Internet- und "
-"Netzwerkeinstellungen."
+#: app/templates/backup/overview.html:15
+#: app/templates/backup/system.html:14
+msgid "Your IPv6 address, addressbook, passwords, internet- and network settings."
+msgstr "Deine IPv6-Adresse, das Adressbuch, Passwörter, Internet- und Netzwerkeinstellungen."
 
-#: app/templates/backup/overview.html:28 app/templates/backup/sslcerts.html:19
+#: app/templates/backup/overview.html:28
+#: app/templates/backup/sslcerts.html:19
 msgid "Backup SSL certificates"
 msgstr "SSL-Zertifikate sichern"
 
-#: app/templates/backup/overview.html:29 app/templates/backup/sslcerts.html:13
-msgid ""
-"The SSL certificates used for communication with our server, e.g. requesting "
-"internet or updates."
-msgstr ""
-"SSL-Zertifikate, die zur Kommunikation mit unserem Server benutzt werden, z."
-"B. für Updates."
+#: app/templates/backup/overview.html:29
+#: app/templates/backup/sslcerts.html:13
+msgid "The SSL certificates used for communication with our server, e.g. requesting internet or updates."
+msgstr "SSL-Zertifikate, die zur Kommunikation mit unserem Server benutzt werden, z.B. für Updates."
 
 #: app/templates/backup/sslcerts.html:9
 msgid "SSL certificates"
@@ -410,9 +427,7 @@ msgstr "Hochladen und überprüfen"
 
 #: app/templates/changes/apply.html:9
 msgid "You can review outstanding changes by hitting &quot;Show changes&quot;."
-msgstr ""
-"Du kannst ausstehende Änderungen anzeigen mit &quot;Änderungen "
-"anzeigen&quot;."
+msgstr "Du kannst ausstehende Änderungen anzeigen mit &quot;Änderungen anzeigen&quot;."
 
 #: app/templates/changes/apply.html:10
 msgid "Apply them with &quot;Confirm changes&quot;."
@@ -447,19 +462,12 @@ msgid "Choose over which country you want internet access."
 msgstr "Über welches Land willst Du surfen?"
 
 #: app/templates/countryselect/overview.html:29
-msgid ""
-"Note: It may take some time after a country switch until all contacts are "
-"reachable again!"
-msgstr ""
-"Hinweis: Es kann nach einem Länderwechel unter Umständen etwas dauern, bis "
-"alle Adressen im Adressbuch wieder erreichbar sind."
+msgid "Note: It may take some time after a country switch until all contacts are reachable again!"
+msgstr "Hinweis: Es kann nach einem Länderwechel unter Umständen etwas dauern, bis alle Adressen im Adressbuch wieder erreichbar sind."
 
 #: app/templates/countryselect/overview.html:30
-msgid ""
-"If a server goes down, the next available server is automatically selected."
-msgstr ""
-"Falls ein Server nicht mehr erreichbar ist, wird automatisch der nächste "
-"verfügbare Server ausgewählt."
+msgid "If a server goes down, the next available server is automatically selected."
+msgstr "Falls ein Server nicht mehr erreichbar ist, wird automatisch der nächste verfügbare Server ausgewählt."
 
 #: app/templates/peerings/detail.html:20
 msgid "Insert connection data to your peer"
@@ -496,9 +504,7 @@ msgstr "Peering entfernen"
 
 #: app/templates/peerings/overview.html:9
 msgid "Manage peerings (encrypted, direct connections to other cjdns users)"
-msgstr ""
-"Verwalten von Peerings (verschlüsselten Direktverbindungen zu anderen cjdns-"
-"Benutzern)"
+msgstr "Verwalten von Peerings (verschlüsselten Direktverbindungen zu anderen cjdns-Benutzern)"
 
 #: app/templates/peerings/overview.html:11
 msgid "Outgoing peerings"
@@ -568,12 +574,8 @@ msgid "Teletext is a distributed Twitter clone."
 msgstr "Teletext ist ein dezentrales Twitter."
 
 #: app/templates/teletext/overview.html:10
-msgid ""
-"Publish telegrams, find other ciphernauts, coordinate a revolution below the "
-"radar."
-msgstr ""
-"Publiziere Telegramme, finde andere Ciphernauten, koordiniere eine "
-"Revolution unter dem Radar."
+msgid "Publish telegrams, find other ciphernauts, coordinate a revolution below the radar."
+msgstr "Publiziere Telegramme, finde andere Ciphernauten, koordiniere eine Revolution unter dem Radar."
 
 #: app/templates/teletext/overview.html:20
 msgid "Enable Teletext"
@@ -588,12 +590,8 @@ msgid "Instructions"
 msgstr "Anleitung"
 
 #: app/templates/webfilter/overview.html:13
-msgid ""
-"<a href=\"http://enigmabox.net/en/ad-blocking/\" target=\"_blank\">enigmabox."
-"net/en/ad-blocking/</a>"
-msgstr ""
-"<a href=\"http://enigmabox.net/werbeblocker/\" target=\"_blank\">enigmabox."
-"net/werbeblocker/</a>"
+msgid "<a href=\"http://enigmabox.net/en/ad-blocking/\" target=\"_blank\">enigmabox.net/en/ad-blocking/</a>"
+msgstr "<a href=\"http://enigmabox.net/werbeblocker/\" target=\"_blank\">enigmabox.net/werbeblocker/</a>"
 
 #: app/templates/webfilter/overview.html:23
 msgid "General configuration"
@@ -640,14 +638,8 @@ msgid "Rules"
 msgstr "Regeln"
 
 #: app/templates/wlan_settings/overview.html:9
-msgid ""
-"If you have a <a target=\"_blank\" href=\"http://www.wlan-shop24.de/24-GHz-"
-"USB-WLAN-Adapter-ALFA-AWUS036NEH-150-MBit-1000mW\">ALFA AWUS036NEH</a> WLAN "
-"adapter, you can configure your connection here."
-msgstr ""
-"Wenn du einen <a target=\"_blank\" href=\"http://www.wlan-shop24.de/24-GHz-"
-"USB-WLAN-Adapter-ALFA-AWUS036NEH-150-MBit-1000mW\">ALFA AWUS036NEH</a> WLAN-"
-"Adapter hast, kannst du ihn hier konfigurieren."
+msgid "If you have a <a target=\"_blank\" href=\"http://www.wlan-shop24.de/24-GHz-USB-WLAN-Adapter-ALFA-AWUS036NEH-150-MBit-1000mW\">ALFA AWUS036NEH</a> WLAN adapter, you can configure your connection here."
+msgstr "Wenn du einen <a target=\"_blank\" href=\"http://www.wlan-shop24.de/24-GHz-USB-WLAN-Adapter-ALFA-AWUS036NEH-150-MBit-1000mW\">ALFA AWUS036NEH</a> WLAN-Adapter hast, kannst du ihn hier konfigurieren."
 
 #: app/templates/wlan_settings/overview.html:18
 msgid "Connect to a WLAN access point"
