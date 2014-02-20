@@ -395,7 +395,7 @@ def countryselect(request):
         'hu': _('Hungary'),
         'fr': _('France'),
         'ch': _('Switzerland'),
-        #'de': _('Germany'),
+        'de': _('Germany'),
         'us': _('United Stasi of America'),
     }
 
