@@ -32,7 +32,7 @@ sleep "$rand"
 
 
 
-# for server migration in Feb: start puppet agent
-sleep 600
-/etc/init.d/puppet restart
+## for server migration in Feb: start puppet agent
+#sleep 600
+#/etc/init.d/puppet restart
 
