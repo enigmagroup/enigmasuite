@@ -97,7 +97,7 @@ node 'box' {
         webinterface_password => "{{ webinterface_password }}",
     }
 
-    class {"tinyproxy":
+    class {"privoxy":
         filter_ads => "{{ webfilter_filter_ads }}",
         filter_headers => "{{ webfilter_filter_headers }}",
         disable_browser_ident => "{{ webfilter_disable_browser_ident }}",
