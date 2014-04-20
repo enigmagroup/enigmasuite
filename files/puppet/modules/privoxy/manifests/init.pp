@@ -32,12 +32,19 @@ class privoxy(
         require => Package["privoxy"],
     }
 
+    service { "tinyproxy":
+        ensure => stopped,
+        enable => false,
+        hasrestart => true,
+        hasstatus => false,
+    }
+
     service { "privoxy":
         ensure => running,
         enable => true,
         hasrestart => true,
         hasstatus => false,
-        require => File["/etc/privoxy/config"],
+        require => [ File["/etc/privoxy/config"], Service["tinyproxy"] ],
     }
 
 #    exec { "transparent fw rule eth1 port 80":
