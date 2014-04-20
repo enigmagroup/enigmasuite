@@ -74,7 +74,16 @@
 
     $('#countrysort').sortable({
         cancel: ".ui-state-disabled",
-        placeholder: "ui-state-highlight"
+        placeholder: "ui-state-highlight",
+        update: function(ev) {
+            var countries = [];
+            $('#countrysort button[name=country]').each(function(i, c){
+                countries.push($(c).val());
+            });
+            $.post('/api/v1/set_countries', {
+                'countries': countries.join(',')
+            });
+        }
     });
 
 })();

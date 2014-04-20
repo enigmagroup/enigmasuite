@@ -664,6 +664,19 @@ def api_v1(request, api_url):
         except:
             resp['message'] = 'fail'
 
+    if api_url == 'set_countries':
+        try:
+            countries = request.POST.get('countries', '').strip()
+            prio = 1
+            for country in countries.split(','):
+                c = Country.objects.get(countrycode=country)
+                c.priority = prio
+                c.save()
+                prio = prio + 1
+
+        except:
+            resp['message'] = 'fail'
+
     return HttpResponse(json.dumps(resp), content_type='application/json')
 
 
