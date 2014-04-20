@@ -703,6 +703,8 @@ def api_v1(request, api_url):
             if no_next_country:
                 next_country = countries[0].countrycode
 
+        o.set_value('selected_country', next_country)
+
         resp['value'] = next_country
         resp['result'] = 'success'
 
