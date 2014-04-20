@@ -196,12 +196,22 @@ www.example.com/nasty-ads/sponsor.gif
 {+block{Facebook "like" and similar tracking URLs.}}
 www.facebook.com/(extern|plugins)/(login_status|like(box)?|activity|fan)\.php
 
+<% if block_google == '1' then %>
 {+block{Block all google}}
 .*google..*
+<% end %>
 
+<% if block_facebook == '1' then %>
 {+block{Block all facebook}}
 .*facebook..*
+<% end %>
 
+<% if block_twitter == '1' then %>
 {+block{Block all twitter}}
 .*twitter..*
+<% end %>
 
+<% if custom_rules == '1' then %>
+{+block{Block custom rules}}
+<%= custom_rules_text %>
+<% end %>

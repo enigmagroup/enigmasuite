@@ -39,12 +39,21 @@ class privoxy(
         hasstatus => false,
     }
 
-    service { "privoxy":
-        ensure => running,
-        enable => true,
-        hasrestart => true,
-        hasstatus => false,
-        require => [ File["/etc/privoxy/config"], Service["tinyproxy"] ],
+    if($filter_ads != '') {
+        service { "privoxy":
+            ensure => running,
+            enable => true,
+            hasrestart => true,
+            hasstatus => false,
+            require => [ File["/etc/privoxy/config"], Service["tinyproxy"] ],
+        }
+    }else{
+        service { "privoxy":
+            ensure => stopped,
+            enable => false,
+            hasrestart => true,
+            hasstatus => false,
+        }
     }
 
 #    exec { "transparent fw rule eth1 port 80":
