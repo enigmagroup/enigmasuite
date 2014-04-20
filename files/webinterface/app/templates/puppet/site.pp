@@ -99,8 +99,6 @@ node 'box' {
 
     class {"privoxy":
         filter_ads => "{{ webfilter_filter_ads }}",
-        filter_headers => "{{ webfilter_filter_headers }}",
-        disable_browser_ident => "{{ webfilter_disable_browser_ident }}",
         block_facebook => "{{ webfilter_block_facebook }}",
         block_google => "{{ webfilter_block_google }}",
         block_twitter => "{{ webfilter_block_twitter }}",
