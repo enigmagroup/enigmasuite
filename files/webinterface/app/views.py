@@ -391,6 +391,10 @@ def countryselect(request):
         o.set_value('selected_country', country)
         o.config_changed(True)
 
+    peerings = Peering.objects.filter(custom=False)
+    for p in peerings:
+        print p.country
+
     countries = {
         'hu': _('Hungary'),
         'fr': _('France'),

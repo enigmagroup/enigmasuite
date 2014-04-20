@@ -11,19 +11,23 @@
 
 <form method="post" class="form-horizontal">
 {% csrf_token %}
-    <table class="table table-hover table-bordered" style="width: auto;">
-        <tbody>
+    <ul id="countrysort">
 {% for countrycode, country in countries.items %}
-        <tr>
     {% if countrycode == selected_country %}
-            <td><button id="{{ countrycode }}" name="country" type="text" class="btn btn-warning" value="{{ countrycode }}">{{ country }}</button></td>
+        {% if countrycode == country_active %}
+            <li><button name="country-active" type="text" class="btn btn-success">Aktiv</button>&nbsp;<button id="{{ countrycode }}" name="country" type="text" class="btn btn-warning" value="{{ countrycode }}">{{ country }}</button></li>
+        {% else %}
+            <li><button name="country" type="text" class="btn btn-inverse">Inaktiv</button>&nbsp;<button id="{{ countrycode }}" name="country" type="text" class="btn btn-warning" value="{{ countrycode }}">{{ country }}</button></li>
+        {% endif %}
     {% else %}
-            <td><button id="{{ countrycode }}" name="country" type="text" class="btn btn-default" value="{{ countrycode }}">{{ country }}</button></td>
+        {% if countrycode == country_active %}
+            <li><button name="country-active" type="text" class="btn btn-success">Aktiv</button>&nbsp;<button id="{{ countrycode }}" name="country" type="text" class="btn btn-default" value="{{ countrycode }}">{{ country }}</button></li>
+        {% else %}
+            <li><button name="country" type="text" class="btn btn-inverse">Inaktiv</button>&nbsp;<button id="{{ countrycode }}" name="country" type="text" class="btn btn-default" value="{{ countrycode }}">{{ country }}</button></li>
+        {% endif %}
     {% endif %}
-        </tr>
 {% endfor %}
-        </tbody>
-    </table>
+    </ul>
 </form>
 
       <p>{% trans "Note: It may take some time after a country switch until all contacts are reachable again!" %}</p>

@@ -72,4 +72,9 @@
         $(this).tab('show');
     })
 
+    $('#countrysort').sortable({
+        cancel: ".ui-state-disabled",
+        placeholder: "ui-state-highlight"
+    });
+
 })();
