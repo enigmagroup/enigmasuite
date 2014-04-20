@@ -728,9 +728,10 @@ def puppet_site(request, program):
 
     # webfilter: format custom rules
     custom_rules_text = o.get_value('webfilter_custom-rules-text', '')
-    # four backslashes: django -> puppet -> tinyproxy-regex
-    custom_rules_text = custom_rules_text.replace('.', '\\\\.')
-    custom_rules_text = custom_rules_text.replace('-', '\\\\-')
+    # two backslashes: django -> puppet
+    custom_rules_text = custom_rules_text.replace('.', '\\.')
+    custom_rules_text = custom_rules_text.replace('-', '\\-')
+    custom_rules_text = '.*' + custom_rules_text + '.*'
 
     return render_to_response(template, {
         'box': box,
