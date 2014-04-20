@@ -105,7 +105,7 @@ request_cjdns_internet() {
     # try another countryserver after the 2nd try
     if [[ "$try" -ge 2 ]]; then
         e "switching to an alternative server"
-        curl http://127.0.0.1:8000/api/v1/get_next_country &> /dev/null
+        curl http://127.0.0.1:8000/api/v1/set_next_country &> /dev/null
         puppet-apply -r
     fi
 

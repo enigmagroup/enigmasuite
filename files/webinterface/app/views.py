@@ -677,7 +677,7 @@ def api_v1(request, api_url):
         except:
             resp['message'] = 'fail'
 
-    if api_url == 'get_next_country':
+    if api_url == 'set_next_country':
         our_default = 'ch'
 
         o = Option()
