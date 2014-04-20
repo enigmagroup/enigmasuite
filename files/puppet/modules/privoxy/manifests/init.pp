@@ -39,7 +39,7 @@ class privoxy(
         hasstatus => false,
     }
 
-    if($filter_ads != '') {
+    if($filter_ads == '1') {
         service { "privoxy":
             ensure => running,
             enable => true,
