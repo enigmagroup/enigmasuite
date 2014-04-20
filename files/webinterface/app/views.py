@@ -396,14 +396,12 @@ def countryselect(request):
         c = Country.objects.get(countrycode=country_active)
         c.active = False
         c.save()
-        o.config_changed(True)
 
     country_inactive = request.POST.get('country-inactive', False)
     if country_inactive:
         c = Country.objects.get(countrycode=country_inactive)
         c.active = True
         c.save()
-        o.config_changed(True)
 
     peerings = Peering.objects.filter(custom=False)
     for p in peerings:
