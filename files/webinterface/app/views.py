@@ -731,7 +731,18 @@ def puppet_site(request, program):
     ## four backslashes: django -> puppet -> tinyproxy
     #custom_rules_text = custom_rules_text.replace('.', '\\\\.')
     #custom_rules_text = custom_rules_text.replace('-', '\\\\-')
-    custom_rules_text = '.*' + custom_rules_text + '.*'
+
+    custom_rules_text = custom_rules_text.replace('\r', '')
+
+    cr2 = ''
+    for crt in custom_rules_text.split('\n'):
+        cr2 += '.*' + crt + '.*\n'
+
+    custom_rules_text = cr2
+    custom_rules = o.get_value('webfilter_custom-rules', '')
+
+    if custom_rules != '1':
+        custom_rules_text = ''
 
     return render_to_response(template, {
         'box': box,
@@ -756,7 +767,7 @@ def puppet_site(request, program):
         'webfilter_block_facebook': o.get_value('webfilter_block-facebook', ''),
         'webfilter_block_google': o.get_value('webfilter_block-google', ''),
         'webfilter_block_twitter': o.get_value('webfilter_block-twitter', ''),
-        'webfilter_custom_rules': o.get_value('webfilter_custom-rules', ''),
+        'webfilter_custom_rules': custom_rules,
         'webfilter_custom_rules_text': custom_rules_text,
         'teletext_enabled': o.get_value('teletext_enabled', '0'),
     })
