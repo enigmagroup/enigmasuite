@@ -12,18 +12,30 @@
 <form method="post" class="form-horizontal">
 {% csrf_token %}
     <ul id="countrysort">
-{% for countrycode, country in countries.items %}
-    {% if countrycode == selected_country %}
-        {% if countrycode == country_active %}
-            <li><button name="country-active" type="text" class="btn btn-success">Aktiv</button>&nbsp;<button id="{{ countrycode }}" name="country" type="text" class="btn btn-warning" value="{{ countrycode }}">{{ country }}</button></li>
+{% for c in countries %}
+    {% if c.countrycode == selected_country %}
+        {% if c.active %}
+            <li>
+                <button name="country-active" type="text" class="btn btn-success">Aktiv</button>
+                <button id="{{ c.countrycode }}" name="country" type="text" class="btn btn-warning" value="{{ c.countrycode }}">{% trans c.countryname %}</button>
+            </li>
         {% else %}
-            <li><button name="country" type="text" class="btn btn-inverse">Inaktiv</button>&nbsp;<button id="{{ countrycode }}" name="country" type="text" class="btn btn-warning" value="{{ countrycode }}">{{ country }}</button></li>
+            <li>
+                <button name="country-active" type="text" class="btn btn-inverse">Inaktiv</button>
+                <button id="{{ c.countrycode }}" name="country" type="text" class="btn btn-warning" value="{{ c.countrycode }}">{% trans c.countryname %}</button>
+            </li>
         {% endif %}
     {% else %}
-        {% if countrycode == country_active %}
-            <li><button name="country-active" type="text" class="btn btn-success">Aktiv</button>&nbsp;<button id="{{ countrycode }}" name="country" type="text" class="btn btn-default" value="{{ countrycode }}">{{ country }}</button></li>
+        {% if c.active %}
+            <li>
+                <button name="country-active" type="text" class="btn btn-success">Aktiv</button>
+                <button id="{{ c.countrycode }}" name="country" type="text" class="btn btn-default" value="{{ c.countrycode }}">{% trans c.countryname %}</button>
+            </li>
         {% else %}
-            <li><button name="country" type="text" class="btn btn-inverse">Inaktiv</button>&nbsp;<button id="{{ countrycode }}" name="country" type="text" class="btn btn-default" value="{{ countrycode }}">{{ country }}</button></li>
+            <li>
+                <button name="country-active" type="text" class="btn btn-inverse">Inaktiv</button>
+                <button id="{{ c.countrycode }}" name="country" type="text" class="btn btn-default" value="{{ c.countrycode }}">{% trans c.countryname %}</button>
+            </li>
         {% endif %}
     {% endif %}
 {% endfor %}

@@ -393,9 +393,14 @@ def countryselect(request):
 
     peerings = Peering.objects.filter(custom=False)
     for p in peerings:
-        print p.country
+        country = Country.objects.filter(countrycode=p.country)
+        if len(country) < 1:
+            c = Country()
+            c.countrycode = p.country
+            c.priority = 0
+            c.save()
 
-    countries = {
+    countries_trans = {
         'hu': _('Hungary'),
         'fr': _('France'),
         'ch': _('Switzerland'),
@@ -403,8 +408,19 @@ def countryselect(request):
         'us': _('United Stasi of America'),
     }
 
+    db_countries = Country.objects.all().order_by('priority')
+    countries = []
+    for c in db_countries:
+        countries.append({
+            'countrycode': c.countrycode,
+            'active': c.active,
+            'priority': c.priority,
+            'countryname': countries_trans.get(c.countrycode),
+        })
+
     return render_to_response('countryselect/overview.html', {
         'countries': countries,
+        'countries_trans': countries_trans,
         'selected_country': o.get_value('selected_country', 'hu'),
     }, context_instance=RequestContext(request))
 
