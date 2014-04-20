@@ -386,9 +386,23 @@ def countryselect(request):
 
     o = Option()
 
-    if request.POST:
-        country = request.POST.get('country')
+    country = request.POST.get('country', False)
+    if country:
         o.set_value('selected_country', country)
+        o.config_changed(True)
+
+    country_active = request.POST.get('country-active', False)
+    if country_active:
+        c = Country.objects.get(countrycode=country_active)
+        c.active = False
+        c.save()
+        o.config_changed(True)
+
+    country_inactive = request.POST.get('country-inactive', False)
+    if country_inactive:
+        c = Country.objects.get(countrycode=country_inactive)
+        c.active = True
+        c.save()
         o.config_changed(True)
 
     peerings = Peering.objects.filter(custom=False)

@@ -16,24 +16,24 @@
     {% if c.countrycode == selected_country %}
         {% if c.active %}
             <li>
-                <button name="country-active" type="text" class="btn btn-success">Aktiv</button>
+                <button name="country-active" type="text" class="btn btn-success" value="{{ c.countrycode }}">{% trans "Active" %}</button>
                 <button id="{{ c.countrycode }}" name="country" type="text" class="btn btn-warning" value="{{ c.countrycode }}">{% trans c.countryname %}</button>
             </li>
         {% else %}
             <li>
-                <button name="country-active" type="text" class="btn btn-inverse">Inaktiv</button>
+                <button name="country-inactive" type="text" class="btn btn-inverse" value="{{ c.countrycode }}">{% trans "Inactive" %}</button>
                 <button id="{{ c.countrycode }}" name="country" type="text" class="btn btn-warning" value="{{ c.countrycode }}">{% trans c.countryname %}</button>
             </li>
         {% endif %}
     {% else %}
         {% if c.active %}
             <li>
-                <button name="country-active" type="text" class="btn btn-success">Aktiv</button>
+                <button name="country-active" type="text" class="btn btn-success" value="{{ c.countrycode }}">{% trans "Active" %}</button>
                 <button id="{{ c.countrycode }}" name="country" type="text" class="btn btn-default" value="{{ c.countrycode }}">{% trans c.countryname %}</button>
             </li>
         {% else %}
             <li>
-                <button name="country-active" type="text" class="btn btn-inverse">Inaktiv</button>
+                <button name="country-inactive" type="text" class="btn btn-inverse" value="{{ c.countrycode }}">{% trans "Inactive" %}</button>
                 <button id="{{ c.countrycode }}" name="country" type="text" class="btn btn-default" value="{{ c.countrycode }}">{% trans c.countryname %}</button>
             </li>
         {% endif %}
