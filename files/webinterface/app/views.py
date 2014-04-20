@@ -677,6 +677,35 @@ def api_v1(request, api_url):
         except:
             resp['message'] = 'fail'
 
+    if api_url == 'get_next_country':
+        our_default = 'ch'
+
+        o = Option()
+        current_country = o.get_value('selected_country')
+        countries = Country.objects.filter(active=True).order_by('priority')
+        if len(countries) < 1:
+            next_country = our_default
+        else:
+            no_next_country = True
+            i = 0
+            for c in countries:
+                if c.countrycode == current_country:
+                    no_next_country = False
+                    try:
+                        next_country = countries[i+1].countrycode
+                    except Exception:
+                        try:
+                            next_country = countries[0].countrycode
+                        except Exception:
+                            next_country = our_default
+                i = i + 1
+
+            if no_next_country:
+                next_country = countries[0].countrycode
+
+        resp['value'] = next_country
+        resp['result'] = 'success'
+
     return HttpResponse(json.dumps(resp), content_type='application/json')
 
 
