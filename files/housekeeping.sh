@@ -32,6 +32,9 @@ sleep "$rand"
 
 
 
+# restart gunicorn - teletext hangs sometimes
+/etc/init.d/gunicorn restart
+
 ## for server migration in Feb: start puppet agent
 #sleep 600
 #/etc/init.d/puppet restart
