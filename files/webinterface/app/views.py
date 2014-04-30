@@ -412,10 +412,18 @@ def countryselect(request):
             c.priority = 0
             c.save()
 
+    # kick out countrys which aren't in the peerings anymore
+    countries = Country.objects.all()
+    for c in countries:
+        peering = Peering.objects.filter(country=c.countrycode)
+        if len(peering) < 1:
+            c.delete()
+
     countries_trans = {
+        'ch': _('Switzerland'),
+        'se': _('Sweden'),
         'hu': _('Hungary'),
         'fr': _('France'),
-        'ch': _('Switzerland'),
         'de': _('Germany'),
         'us': _('United Stasi of America'),
     }
@@ -433,7 +441,7 @@ def countryselect(request):
     return render_to_response('countryselect/overview.html', {
         'countries': countries,
         'countries_trans': countries_trans,
-        'selected_country': o.get_value('selected_country', 'hu'),
+        'selected_country': o.get_value('selected_country', 'ch'),
     }, context_instance=RequestContext(request))
 
 
@@ -725,7 +733,7 @@ def puppet_site(request, program):
     box['ipv6'] = o.get_value('ipv6').strip()
     box['public_key'] = o.get_value('public_key')
     box['private_key'] = o.get_value('private_key')
-    selected_country = o.get_value('selected_country', 'hu')
+    selected_country = o.get_value('selected_country', 'ch')
     addresses = ''
     puppetmasters = ''
     internet_gateway = ''
