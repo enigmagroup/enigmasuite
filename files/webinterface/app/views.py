@@ -252,8 +252,8 @@ def backup_emails(request):
 def backup_sslcerts(request):
 
     o = Option()
-    filename = '/tmp/sslcerts-' + hostid + '.zip'
     hostid = o.get_value('hostid')
+    filename = '/tmp/sslcerts-' + hostid + '.zip'
     msg = False
 
     if request.POST.get('backup'):
