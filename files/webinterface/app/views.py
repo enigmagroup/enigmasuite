@@ -288,6 +288,7 @@ def backup_sslcerts(request):
 
     return render_to_response('backup/sslcerts.html', {
         'msg': msg,
+        'hostid': hostid,
     }, context_instance=RequestContext(request))
 
 
