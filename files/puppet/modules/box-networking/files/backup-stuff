@@ -11,8 +11,8 @@ if [[ $task == 'sslcerts' ]]; then
     cp "/etc/puppet/ssl/private_keys/$hostid.pem" "/tmp/$hostid-private_key.pem"
 
     cd /tmp
-    tar czf sslcerts.tar.gz "$hostid-cert.pem" "$hostid-public_key.pem" "$hostid-private_key.pem"
-    chown www-data:www-data /tmp/sslcerts.tar.gz    #so that this can be immediately deleted by the webserver after download
+    zip "sslcerts-$hostid.zip" "$hostid-cert.pem" "$hostid-public_key.pem" "$hostid-private_key.pem"
+    chown www-data:www-data "/tmp/sslcerts-$hostid.zip"    #so that this can be immediately deleted by the webserver after download
 
     rm "/tmp/$hostid-"*
 

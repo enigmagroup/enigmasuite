@@ -252,7 +252,8 @@ def backup_emails(request):
 def backup_sslcerts(request):
 
     o = Option()
-    filename = '/tmp/sslcerts.tar.gz'
+    filename = '/tmp/sslcerts-' + hostid + '.zip'
+    hostid = o.get_value('hostid')
     msg = False
 
     if request.POST.get('backup'):
@@ -265,7 +266,7 @@ def backup_sslcerts(request):
 
             wrapper = FileWrapper(file(filename))
             response = HttpResponse(wrapper, content_type='application/x-gzip')
-            response['Content-Disposition'] = 'attachment; filename=sslcerts.tar.gz'
+            response['Content-Disposition'] = 'attachment; filename=sslcerts-' + hostid + '.zip'
             response['Content-Length'] = os.path.getsize(filename)
             return response
         except:
@@ -274,7 +275,7 @@ def backup_sslcerts(request):
     if request.POST.get('restore'):
 
         try:
-            destination = open('/tmp/sslcerts.tar.gz', 'wb+')
+            destination = open(filename, 'wb+')
             for chunk in request.FILES['file'].chunks():
                 destination.write(chunk)
             destination.close()
