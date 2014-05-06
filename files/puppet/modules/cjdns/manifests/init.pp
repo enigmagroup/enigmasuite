@@ -61,7 +61,7 @@ class cjdns(
         enable => true,
         hasrestart => true,
         hasstatus => true,
-        require => [ File["/etc/init.d/cjdns"], File["/usr/sbin/cjdns"], File["/usr/sbin/cjdroute"], File["/usr/sbin/cjdroute"] ],
+        require => [ File["/etc/init.d/cjdns"], File["/box/cjdroute.conf"], File["/usr/sbin/cjdroute"] ],
     }
 
     package { "vnstat":
