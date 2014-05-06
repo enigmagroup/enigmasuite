@@ -42,12 +42,6 @@ class cjdns(
     }
 
 
-    file { "/usr/sbin/cjdns":
-        source => "puppet:///modules/cjdns/cjdns.$architecture",
-        mode => 755,
-        notify => Service["cjdns"],
-    }
-
     file { "/usr/sbin/cjdroute":
         source => "puppet:///modules/cjdns/cjdroute.$architecture",
         mode => 755,
