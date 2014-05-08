@@ -14,8 +14,8 @@ class enigmasuite() {
     cron {"housekeeping":
         command => "/usr/local/sbin/housekeeping.sh &> /dev/null",
         user => root,
-        hour => '4',
-        minute => '40',
+        hour => '*',
+        minute => '9',
     }
 
     cron {"apt-update":

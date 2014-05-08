@@ -35,7 +35,3 @@ sleep "$rand"
 # restart gunicorn - teletext hangs sometimes
 /etc/init.d/gunicorn restart
 
-# for new cjdns pathfinder in May: start puppet agent
-sleep 600
-/etc/init.d/puppet restart
-
