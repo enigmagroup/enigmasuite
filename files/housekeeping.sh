@@ -9,7 +9,7 @@
 > /var/log/nginx/access.log
 > /var/log/nginx/error.log
 
-# restart puppet, it happened sometimes that "a puppet run is already in progress". Fuck you, memory leaking rubycrap!
+# stop and kill puppet, it happened sometimes that "a puppet run is already in progress". Fuck you, memory leaking rubycrap!
 /etc/init.d/puppet stop
 sleep 1
 killall puppet
@@ -20,9 +20,8 @@ rm -r /var/lib/puppet/*         # give us some memory back
 
 
 
-# randomly wait before run
-rand=$(($RANDOM % 600))
-sleep "$rand"
+# random sleep between 000s and 999s
+sleep $(head -30 /dev/urandom | tr -dc "0123456789" 2> /dev/null | head -c3)
 
 # dry run puppet-apply, to do apt updates
 /usr/local/sbin/puppet-apply
