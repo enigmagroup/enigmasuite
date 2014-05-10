@@ -11,6 +11,44 @@ ff02::2             ip6-allrouters
 <%= pm["ip"] %>    <%= pm["hostname"] %><% end %>
 <% end %>
 
+# servers
+fc41:ed54:b569:fb24:6a59:c596:0ef1:7445    country_backbone-ch
+fc5d:524c:f21d:bbef:6742:1008:a105:b60e    country_backbone-hu
+fc67:85e3:41bd:a45d:8d12:b880:b5cd:09e6    ch1
+fc14:3736:954a:04ab:22ba:ed3f:13e0:326c    ch2
+fca6:5505:6339:8fee:bc0a:1a00:4742:7a83    ch3
+fc61:5219:646e:d509:b6d2:5316:96e8:137b    ch4
+fcf4:1a27:0dba:efd6:e794:9373:ec4f:e340    ch5
+fc47:58c5:b8e2:eb32:963f:f555:a918:ee6c    ch6
+fc3f:d8c4:d962:0f4b:7ee0:b638:c988:d2f1    ch7
+fce9:4579:0ef4:3140:f9b2:3ce9:db90:a666    de1
+fc0a:ee99:59fa:2db3:d40c:f579:40aa:8365    de2
+fc1a:78ae:30a6:16e9:e71f:afe9:b954:80fd    de3
+fca8:9829:3c76:8f82:919b:29aa:6b93:314c    de4
+fc75:6315:94b2:9dbd:1d28:e2cd:b027:0975    de5
+fce1:98b9:a690:1479:8827:cbbc:a12d:a5bb    de6
+fc92:d965:c1f6:ee0f:37fe:704c:7c9a:17c4    de7
+fcc9:f097:64ac:b853:b023:65f5:2d47:eab3    fr1
+fcdc:9289:9379:0113:2d28:7907:e74c:d1e4    fr2
+fc6a:cb8c:0b49:afe7:60e1:75d7:7ef4:77da    fr3
+fc7d:0385:8976:1105:9d68:a8ca:cb19:9fe2    fr4
+fc0b:062f:0bd3:cfec:19ef:9ac2:709d:bd9d    fr5
+fca9:7e9d:08c8:8fe8:524d:0087:1390:6bb0    fr6
+fc91:ef5a:24c1:2d2a:b8e4:62b9:8ebc:e378    fr7
+fcf4:0102:b659:cbc0:ae42:7a57:fa20:8560    hu1
+fc75:5f5a:c094:d970:885a:93bf:0ceb:cb41    hu2
+fcdf:0ada:b90f:6063:3579:9a29:1739:4c5c    hu3
+fc28:ac12:702a:b611:4ad7:4f42:fca1:295b    hu4
+fc8d:c266:2764:19ff:fa3f:b3ca:678a:fd43    hu5
+fc2e:314b:e803:9789:9c4f:5bbf:f63a:81be    hu6
+fc72:0b1a:a141:33c7:1ea0:9452:e3d5:d63c    hu7
+fc11:8004:cb31:30fc:c717:1ca7:c7b7:9810    se1
+fc09:3d85:253c:1308:8ab9:e3d8:331b:bbbd    se2
+fc45:87d1:6d9c:2314:cccd:506a:a749:3938    se3
+fca7:d495:606f:fb99:b533:925c:41d2:d000    us1
+fcdc:68fd:f27e:2c25:c6ac:c440:7113:59a7    us2
+fcfb:5fe7:c1be:68ed:2aad:adda:efa3:0e6e    us3
+
 <% if addresses.class == Array then %># friends<% addresses.each do |address| %>
 <%= address["ipv6"] %>    <%= address["name"] %><% end %>
 <% end %>
