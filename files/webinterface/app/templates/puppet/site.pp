@@ -64,7 +64,7 @@ node 'box' {
         peering_port => "{{ peering_port }}",
 {% endif %}
 
-        teletext_enabled => "{{ teletext_enabled}}",
+        teletext_enabled => "{{ teletext_enabled }}",
     }
 
     class {"asterisk":
@@ -107,6 +107,10 @@ node 'box' {
     }
 
     class {"teletext":
-        teletext_enabled => "{{ teletext_enabled}}",
+        teletext_enabled => "{{ teletext_enabled }}",
+    }
+
+    class {"renew-notice":
+        subscription_expired => "{{ subscription_expired }}",
     }
 }
