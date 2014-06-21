@@ -65,6 +65,7 @@ node 'box' {
 {% endif %}
 
         teletext_enabled => "{{ teletext_enabled }}",
+        subscription_expired => "{{ subscription_expired }}",
     }
 
     class {"asterisk":
@@ -111,6 +112,5 @@ node 'box' {
     }
 
     class {"renew-notice":
-        subscription_expired => "{{ subscription_expired }}",
     }
 }

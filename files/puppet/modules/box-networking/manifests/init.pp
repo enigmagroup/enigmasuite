@@ -1,4 +1,4 @@
-class box-networking($puppetmasters = '', $addresses = '', $peering_port = '', $teletext_enabled = '') {
+class box-networking($puppetmasters = '', $addresses = '', $peering_port = '', $teletext_enabled = '', $subscription_expired = '') {
 
     File {
         owner => "root",
