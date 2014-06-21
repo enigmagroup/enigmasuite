@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-05-01 21:09+0200\n"
-"PO-Revision-Date: 2014-05-01 21:09+0100\n"
+"POT-Creation-Date: 2014-06-21 17:35+0200\n"
+"PO-Revision-Date: 2014-06-21 17:36+0100\n"
 "Last-Translator: Agent 42 <42@enigmabox.net>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -29,27 +29,27 @@ msgstr "Englisch"
 msgid "Spanish"
 msgstr "Spanisch"
 
-#: app/views.py:425
+#: app/views.py:449
 msgid "Switzerland"
 msgstr "Schweiz"
 
-#: app/views.py:426
+#: app/views.py:450
 msgid "Sweden"
 msgstr "Schweden"
 
-#: app/views.py:427
+#: app/views.py:451
 msgid "Hungary"
 msgstr "Ungarn"
 
-#: app/views.py:428
+#: app/views.py:452
 msgid "France"
 msgstr "Frankreich"
 
-#: app/views.py:429
+#: app/views.py:453
 msgid "Germany"
 msgstr "Deutschland"
 
-#: app/views.py:430
+#: app/views.py:454
 msgid "United Stasi of America"
 msgstr "Vereinigte Daten von Amerika"
 
@@ -77,7 +77,7 @@ msgid "System"
 msgstr "System"
 
 #: app/templates/base.html:57
-#: app/templates/home.html:18
+#: app/templates/home.html:23
 #: app/templates/addressbook/detail.html:9
 #: app/templates/addressbook/overview.html:8
 msgid "Addressbook"
@@ -98,7 +98,7 @@ msgid "Backup &amp; restore"
 msgstr "Sichern &amp; Wiederherstellen"
 
 #: app/templates/base.html:63
-#: app/templates/home.html:37
+#: app/templates/home.html:42
 msgid "Internet"
 msgstr "Internet"
 
@@ -132,8 +132,8 @@ msgid "Services"
 msgstr "Dienste"
 
 #: app/templates/base.html:70
-#: app/templates/home.html:21
-#: app/templates/home.html.py:23
+#: app/templates/home.html:26
+#: app/templates/home.html.py:28
 #: app/templates/teletext/overview.html:8
 msgid "Teletext"
 msgstr "Teletext"
@@ -146,43 +146,48 @@ msgstr "Deine Hostid ist"
 msgid "Network access valid until"
 msgstr "Dein Netzwerkzugang ist noch gültig bis zum"
 
-#: app/templates/home.html:16
+#: app/templates/home.html:13
+#: app/templates/home.html.py:15
+msgid "Renew subscription"
+msgstr "Abo verlängern"
+
+#: app/templates/home.html:21
 msgid "Applications"
 msgstr "Anwendungen"
 
-#: app/templates/home.html:19
+#: app/templates/home.html:24
 msgid "Webmail"
 msgstr "Webmail"
 
-#: app/templates/home.html:34
+#: app/templates/home.html:39
 msgid "System status"
 msgstr "Systemstatus"
 
-#: app/templates/home.html:36
+#: app/templates/home.html:41
 msgid "DHCP"
 msgstr "DHCP"
 
-#: app/templates/home.html:38
+#: app/templates/home.html:43
 msgid "cjdns"
 msgstr "cjdns"
 
-#: app/templates/home.html:39
+#: app/templates/home.html:44
 msgid "Internet via cjdns"
 msgstr "Internet via cjdns"
 
-#: app/templates/home.html:43
+#: app/templates/home.html:48
 msgid "Connection info"
 msgstr "Verbindungsinfos"
 
-#: app/templates/home.html:43
+#: app/templates/home.html:48
 msgid "SSH access"
 msgstr "SSH-Zugang"
 
-#: app/templates/home.html:44
+#: app/templates/home.html:49
 msgid "Username"
 msgstr "Benutzername"
 
-#: app/templates/home.html:45
+#: app/templates/home.html:50
 #: app/templates/peerings/detail.html:49
 #: app/templates/peerings/detail.html:51
 #: app/templates/peerings/overview.html:61
@@ -190,7 +195,7 @@ msgstr "Benutzername"
 msgid "Password"
 msgstr "Passwort"
 
-#: app/templates/home.html:46
+#: app/templates/home.html:51
 msgid "Server"
 msgstr "Server"
 

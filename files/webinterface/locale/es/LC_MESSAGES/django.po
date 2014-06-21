@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-05-01 21:09+0200\n"
+"POT-Creation-Date: 2014-06-21 17:35+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Stefan <abulavia@hotmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -30,28 +30,28 @@ msgstr "Inglés"
 msgid "Spanish"
 msgstr "Español"
 
-#: app/views.py:425
+#: app/views.py:449
 msgid "Switzerland"
 msgstr "Suiza"
 
-#: app/views.py:426
+#: app/views.py:450
 msgid "Sweden"
 msgstr ""
 
-#: app/views.py:427
+#: app/views.py:451
 msgid "Hungary"
 msgstr "Hungría"
 
-#: app/views.py:428
+#: app/views.py:452
 msgid "France"
 msgstr "Francia"
 
-#: app/views.py:429
+#: app/views.py:453
 #, fuzzy
 msgid "Germany"
 msgstr "Alemán"
 
-#: app/views.py:430
+#: app/views.py:454
 msgid "United Stasi of America"
 msgstr "Estados Unidos"
 
@@ -76,7 +76,7 @@ msgstr "Bienvenido"
 msgid "System"
 msgstr "Sistema"
 
-#: app/templates/base.html:57 app/templates/home.html:18
+#: app/templates/base.html:57 app/templates/home.html:23
 #: app/templates/addressbook/detail.html:9
 #: app/templates/addressbook/overview.html:8
 msgid "Addressbook"
@@ -93,7 +93,7 @@ msgstr "Contraseñas"
 msgid "Backup &amp; restore"
 msgstr "Copia de seguridad y restaurar"
 
-#: app/templates/base.html:63 app/templates/home.html:37
+#: app/templates/base.html:63 app/templates/home.html:42
 msgid "Internet"
 msgstr "Internet"
 
@@ -123,8 +123,8 @@ msgstr "Configuración WLAN"
 msgid "Services"
 msgstr "Servicios"
 
-#: app/templates/base.html:70 app/templates/home.html:21
-#: app/templates/home.html.py:23 app/templates/teletext/overview.html:8
+#: app/templates/base.html:70 app/templates/home.html:26
+#: app/templates/home.html.py:28 app/templates/teletext/overview.html:8
 msgid "Teletext"
 msgstr "Teletext"
 
@@ -136,50 +136,55 @@ msgstr "Tu id de huésped es"
 msgid "Network access valid until"
 msgstr "Dirección de red valida hasta"
 
-#: app/templates/home.html:16
+#: app/templates/home.html:13 app/templates/home.html.py:15
+#, fuzzy
+msgid "Renew subscription"
+msgstr "Descripción"
+
+#: app/templates/home.html:21
 msgid "Applications"
 msgstr "Aplicaciones"
 
-#: app/templates/home.html:19
+#: app/templates/home.html:24
 msgid "Webmail"
 msgstr "E mail web"
 
-#: app/templates/home.html:34
+#: app/templates/home.html:39
 msgid "System status"
 msgstr "Estado de sistema"
 
-#: app/templates/home.html:36
+#: app/templates/home.html:41
 msgid "DHCP"
 msgstr "DHCP"
 
-#: app/templates/home.html:38
+#: app/templates/home.html:43
 msgid "cjdns"
 msgstr "cjdns"
 
-#: app/templates/home.html:39
+#: app/templates/home.html:44
 msgid "Internet via cjdns"
 msgstr "Internet por cjdns"
 
-#: app/templates/home.html:43
+#: app/templates/home.html:48
 msgid "Connection info"
 msgstr "Información conexión"
 
-#: app/templates/home.html:43
+#: app/templates/home.html:48
 msgid "SSH access"
 msgstr "Dirección SSH"
 
-#: app/templates/home.html:44
+#: app/templates/home.html:49
 msgid "Username"
 msgstr "Nombre de usuario"
 
-#: app/templates/home.html:45 app/templates/peerings/detail.html:49
+#: app/templates/home.html:50 app/templates/peerings/detail.html:49
 #: app/templates/peerings/detail.html:51
 #: app/templates/peerings/overview.html:61
 #: app/templates/wlan_settings/overview.html:43
 msgid "Password"
 msgstr "Contraseña"
 
-#: app/templates/home.html:46
+#: app/templates/home.html:51
 msgid "Server"
 msgstr "Servidor"
 
