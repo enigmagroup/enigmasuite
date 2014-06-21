@@ -6,6 +6,7 @@ from app.forms import *
 import random
 import string
 import json
+from datetime import datetime
 from django.views.decorators.csrf import csrf_exempt
 from django.utils.translation import ugettext as _
 from slugify import slugify
@@ -791,19 +792,11 @@ def puppet_site(request, program):
         puppetmasters = Puppetmaster.objects.all().order_by('priority')
         internet_gateway = Peering.objects.filter(custom=False,country=selected_country).order_by('id')[:1][0]
 
-        # TODO
-
-        #def format_datestring(date):
-        #    dt = datetime.strptime(date, '%Y-%m-%d %H:%M:%S.%f')
-        #    epoch = mktime(dt.timetuple())
-        #    offset = datetime.fromtimestamp(epoch) - datetime.utcfromtimestamp(epoch)
-        #    dt = dt + offset
-        #    return dt.strftime('%H:%M - %d. %B %Y')
-
-        # now = datetime.utcnow()
-
-        internet_access = json_data['internet_access']
-        subscription_expired = '1'
+        # renew notice
+        dt = datetime.strptime(internet_access, '%Y-%m-%d')
+        now = datetime.utcnow()
+        if now > dt:
+            subscription_expired = '1'
 
     except:
         # no additional server data found, moving on...
