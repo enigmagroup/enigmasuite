@@ -792,6 +792,16 @@ def puppet_site(request, program):
         internet_gateway = Peering.objects.filter(custom=False,country=selected_country).order_by('id')[:1][0]
 
         # TODO
+
+        #def format_datestring(date):
+        #    dt = datetime.strptime(date, '%Y-%m-%d %H:%M:%S.%f')
+        #    epoch = mktime(dt.timetuple())
+        #    offset = datetime.fromtimestamp(epoch) - datetime.utcfromtimestamp(epoch)
+        #    dt = dt + offset
+        #    return dt.strftime('%H:%M - %d. %B %Y')
+
+        # now = datetime.utcnow()
+
         internet_access = json_data['internet_access']
         subscription_expired = '1'
 
