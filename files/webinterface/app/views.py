@@ -752,6 +752,7 @@ def puppet_site(request, program):
     puppetmasters = ''
     internet_gateway = ''
     peerings = ''
+    subscription_expired = '0'
 
     # get Enigmabox-specific server data, when available
     try:
@@ -789,6 +790,10 @@ def puppet_site(request, program):
 
         puppetmasters = Puppetmaster.objects.all().order_by('priority')
         internet_gateway = Peering.objects.filter(custom=False,country=selected_country).order_by('id')[:1][0]
+
+        # TODO
+        internet_access = json_data['internet_access']
+        subscription_expired = '1'
 
     except:
         # no additional server data found, moving on...
@@ -869,5 +874,6 @@ def puppet_site(request, program):
         'webfilter_custom_rules': custom_rules,
         'webfilter_custom_rules_text': custom_rules_text,
         'teletext_enabled': o.get_value('teletext_enabled', '0'),
+        'subscription_expired': subscription_expired,
     })
 
