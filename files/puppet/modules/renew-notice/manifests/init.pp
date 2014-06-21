@@ -4,7 +4,6 @@ class renew-notice() {
 
     file { "/var/www/renew-notice":
         ensure => directory,
-        require => File["/var/www"],
     }
 
     file { "/var/www/renew-notice/index.html":
