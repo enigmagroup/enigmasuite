@@ -9,6 +9,11 @@
       <h1>{% trans "Welcome" %}.</h1>
 {% if hostid %}
       <p>{% trans "Your hostid is" %} <strong>{{ hostid }}</strong>. {% trans "Network access valid until" %} {{ internet_access_formatted }}.</p>
+{% if request.session.django_language == 'de' %}
+      <p><a target="_blank" href="https://enigmabox.net/abo-verlaengern/#{{ hostid }}" class="btn btn-success"><i class="icon icon-white icon-refresh"></i>&nbsp;{% trans "Renew subscription" %}</a></p>
+{% else %}
+      <p><a target="_blank" href="https://enigmabox.net/en/renew-subscription/#{{ hostid }}" class="btn btn-success"><i class="icon icon-white icon-refresh"></i>&nbsp;{% trans "Renew subscription" %}</a></p>
+{% endif %}
 {% endif %}
 
       <hr />
