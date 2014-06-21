@@ -46,6 +46,10 @@ $iptables -A INPUT -p udp --dport <%= peering_port %> -j ACCEPT
 # nat
 $iptables -I POSTROUTING -t nat -o tun0 -j MASQUERADE
 
+<% if subscription_expired == '1' then %># show renew notice if subscription has expired
+$iptables -t nat -A PREROUTING -i eth1 -p tcp --dport 80 -j REDIRECT --to-port 8117
+<% end %>
+
 ################################################################################
 
 <% if teletext_enabled == '1' then %># teletext
@@ -73,6 +77,9 @@ for interface in $(echo "eth1 eth2"); do
 
     # webinterface
     $iptables -A INPUT -p tcp -i "$interface" --dport 80 -j ACCEPT
+
+    # renew notice
+    $iptables -A INPUT -p tcp -i "$interface" --dport 8117 -j ACCEPT
 
     # email
     $iptables -A INPUT -p tcp -i "$interface" --dport 25 -j ACCEPT
