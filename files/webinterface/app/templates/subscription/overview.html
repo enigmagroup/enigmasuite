@@ -9,6 +9,55 @@
 
       <p>{% trans "Renew your subscription." %}</p>
 
+<form action="" method="post" class="form-horizontal">
+{% csrf_token %}
+<fieldset>
+
+<!-- Form Name -->
+<legend>Network access</legend>
+
+<!-- Multiple Radios (inline) -->
+<div class="control-group">
+  <label class="control-label" for="currency">Currency</label>
+  <div class="controls">
+    <label class="radio inline" for="currency-0">
+      <input type="radio" name="currency" id="currency-0" value="CHF" checked="checked">
+      CHF
+    </label>
+    <label class="radio inline" for="currency-1">
+      <input type="radio" name="currency" id="currency-1" value="EUR">
+      EUR
+    </label>
+    <label class="radio inline" for="currency-2">
+      <input type="radio" name="currency" id="currency-2" value="USD">
+      USD
+    </label>
+  </div>
+</div>
+
+<!-- Select Basic -->
+<div class="control-group">
+  <label class="control-label" for="subscription">Subscription</label>
+  <div class="controls">
+    <select id="subscription" name="subscription" class="input-xlarge">
+      <option>1 year</option>
+      <option>5 years</option>
+      <option>Lifetime</option>
+    </select>
+  </div>
+</div>
+
+<!-- Button -->
+<div class="control-group">
+  <label class="control-label" for="submit"></label>
+  <div class="controls">
+    <button id="submit" name="submit" class="btn btn-primary">{% trans "Show invoice" %}</button>
+  </div>
+</div>
+
+</fieldset>
+</form>
+
       <p>{% trans "Please send" %} <strong>CHF 120.-</strong> {% trans "to the following account" %}:</p>
 
 <pre>Valiant Bank AG
