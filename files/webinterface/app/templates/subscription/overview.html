@@ -60,7 +60,7 @@
 
 {% if show_invoice %}
 
-      <p>{% trans "Please send" %} <strong>{{ currency }} {{ amount }}.-</strong> {% trans "to the following account" %}:</p>
+<p>{% trans "Please send" %} <strong>{{ currency }} {{ amount }}.-</strong> {% trans "to the following account" %}:</p>
 
 <pre>Valiant Bank AG
 Gerliswilstrasse 43
@@ -70,13 +70,13 @@ Schweiz
 
 {% trans "Account" %}: Verein Enigmabox, Emmenbrücke
 <strong>{% trans "Payment reference" %}: abo-{{ hostid }}</strong>
-
-CHF-Konto: 50.295.383.368.7
-IBAN: CH61 0630 0502 9538 3368 7
-
+{% if currency == 'EUR' %}
 EUR-Konto: 50.295.383.190.0
 IBAN: CH04 0630 0502 9538 3190 0
-
+{% else %}
+CHF-Konto: 50.295.383.368.7
+IBAN: CH61 0630 0502 9538 3368 7
+{% endif %}
 SWIFT/BIC: VABECH22XXX</pre>
 
 <p>{% trans "As soon as we've received the money, your subscription will be renewed. This can take up to two business days." %}</p>

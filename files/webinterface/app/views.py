@@ -323,13 +323,33 @@ def subscription(request):
 
     o = Option()
 
-    amount = 120
+    currency = request.POST.get('currency', 'CHF')
+    subscription = request.POST.get('subscription', '1')
+
+    amount_table = {}
+    amount_table['CHF'] = {
+        '1': 120,
+        '5': 500,
+        'lt': 1000,
+    }
+    amount_table['EUR'] = {
+        '1': 100,
+        '5': 400,
+        'lt': 800,
+    }
+    amount_table['USD'] = {
+        '1': 130,
+        '5': 550,
+        'lt': 1100,
+    }
+
+    amount = amount_table[currency][subscription]
 
     return render_to_response('subscription/overview.html', {
         'hostid': o.get_value('hostid'),
         'show_invoice': request.POST.get('show_invoice'),
-        'subscription': request.POST.get('subscription', '1'),
-        'currency': request.POST.get('currency', 'CHF'),
+        'currency': currency,
+        'subscription': subscription,
         'amount': amount,
     }, context_instance=RequestContext(request))
 
