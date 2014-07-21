@@ -27,6 +27,9 @@ urlpatterns = patterns('app.views',
     url(r'^backup/sslcerts/$', 'backup_sslcerts'),
     url(r'^backup/$', 'backup'),
 
+    # subscription
+    url(r'^subscription/$', 'subscription'),
+
     # peerings
     url(r'^peerings/new/$', 'peerings_edit'),
     url(r'^peerings/(?P<peering_id>.*)/$', 'peerings_edit'),

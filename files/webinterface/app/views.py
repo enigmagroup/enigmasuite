@@ -317,6 +317,18 @@ def backup_sslcerts(request):
 
 
 
+# Subscription
+
+def subscription(request):
+
+    o = Option()
+
+    return render_to_response('subscription/overview.html', {
+        'hostid': o.get_value('hostid'),
+    }, context_instance=RequestContext(request))
+
+
+
 # Peerings
 
 def peerings(request):
