@@ -9,5 +9,26 @@
 
       <p>{% trans "Renew your subscription." %}</p>
 
+      <p>{% trans "Please send" %} <strong>CHF 120.-</strong> {% trans "to the following account" %}:</p>
+
+<pre>Valiant Bank AG
+Gerliswilstrasse 43
+Postfach
+6021 Emmenbrücke
+Schweiz
+
+{% trans "Account" %}: Verein Enigmabox, Emmenbrücke
+<strong>{% trans "Payment reference" %}: abo-{{ hostid }}</strong>
+
+CHF-Konto: 50.295.383.368.7
+IBAN: CH61 0630 0502 9538 3368 7
+
+EUR-Konto: 50.295.383.190.0
+IBAN: CH04 0630 0502 9538 3190 0
+
+SWIFT/BIC: VABECH22XXX</pre>
+
+<p>{% trans "As soon as we've received the money, your subscription will be renewed. This can take up to two business days." %}</p>
+
     </div> <!-- /container -->
 {% endblock %}
