@@ -14,11 +14,11 @@
 <fieldset>
 
 <!-- Form Name -->
-<legend>Network access</legend>
+<legend>{% trans "Network access" %}</legend>
 
 <!-- Multiple Radios (inline) -->
 <div class="control-group">
-  <label class="control-label" for="currency">Currency</label>
+  <label class="control-label" for="currency">{% trans "Currency" %}</label>
   <div class="controls">
     <label class="radio inline" for="currency-0">
       <input type="radio" name="currency" id="currency-0" value="CHF" {% btn_state currency 'CHF' 'checked="checked"' '' %}>
@@ -37,12 +37,12 @@
 
 <!-- Select Basic -->
 <div class="control-group">
-  <label class="control-label" for="subscription">Subscription</label>
+  <label class="control-label" for="subscription">{% trans "Subscription" %}</label>
   <div class="controls">
     <select id="subscription" name="subscription" class="input-xlarge">
-      <option value="1" {% btn_state subscription '1' 'selected="selected"' '' %}>1 year</option>
-      <option value="5" {% btn_state subscription '5' 'selected="selected"' '' %}>5 years</option>
-      <option value="lt" {% btn_state subscription 'lt' 'selected="selected"' '' %}>Lifetime</option>
+      <option value="1" {% btn_state subscription '1' 'selected="selected"' '' %}>{% trans "1 year" %}</option>
+      <option value="5" {% btn_state subscription '5' 'selected="selected"' '' %}>{% trans "5 years" %}</option>
+      <option value="lt" {% btn_state subscription 'lt' 'selected="selected"' '' %}>{% trans "Lifetime" %}</option>
     </select>
   </div>
 </div>
