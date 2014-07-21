@@ -21,15 +21,15 @@
   <label class="control-label" for="currency">Currency</label>
   <div class="controls">
     <label class="radio inline" for="currency-0">
-      <input type="radio" name="currency" id="currency-0" value="CHF" checked="checked">
+      <input type="radio" name="currency" id="currency-0" value="CHF" {% btn_state currency 'CHF' 'checked="checked"' '' %}>
       CHF
     </label>
     <label class="radio inline" for="currency-1">
-      <input type="radio" name="currency" id="currency-1" value="EUR">
+      <input type="radio" name="currency" id="currency-1" value="EUR" {% btn_state currency 'EUR' 'checked="checked"' '' %}>
       EUR
     </label>
     <label class="radio inline" for="currency-2">
-      <input type="radio" name="currency" id="currency-2" value="USD">
+      <input type="radio" name="currency" id="currency-2" value="USD" {% btn_state currency 'USD' 'checked="checked"' '' %}>
       USD
     </label>
   </div>
@@ -40,25 +40,27 @@
   <label class="control-label" for="subscription">Subscription</label>
   <div class="controls">
     <select id="subscription" name="subscription" class="input-xlarge">
-      <option>1 year</option>
-      <option>5 years</option>
-      <option>Lifetime</option>
+      <option value="1" {% btn_state subscription '1' 'selected="selected"' '' %}>1 year</option>
+      <option value="5" {% btn_state subscription '5' 'selected="selected"' '' %}>5 years</option>
+      <option value="lt" {% btn_state subscription 'lt' 'selected="selected"' '' %}>Lifetime</option>
     </select>
   </div>
 </div>
 
 <!-- Button -->
 <div class="control-group">
-  <label class="control-label" for="submit"></label>
+  <label class="control-label" for="show_invoice"></label>
   <div class="controls">
-    <button id="submit" name="submit" class="btn btn-primary">{% trans "Show invoice" %}</button>
+    <button id="show_invoice" name="show_invoice" class="btn btn-primary" value="1">{% trans "Show invoice" %}</button>
   </div>
 </div>
 
 </fieldset>
 </form>
 
-      <p>{% trans "Please send" %} <strong>CHF 120.-</strong> {% trans "to the following account" %}:</p>
+{% if show_invoice %}
+
+      <p>{% trans "Please send" %} <strong>{{ currency }} {{ amount }}.-</strong> {% trans "to the following account" %}:</p>
 
 <pre>Valiant Bank AG
 Gerliswilstrasse 43
@@ -78,6 +80,8 @@ IBAN: CH04 0630 0502 9538 3190 0
 SWIFT/BIC: VABECH22XXX</pre>
 
 <p>{% trans "As soon as we've received the money, your subscription will be renewed. This can take up to two business days." %}</p>
+
+{% endif %}
 
     </div> <!-- /container -->
 {% endblock %}

@@ -323,8 +323,14 @@ def subscription(request):
 
     o = Option()
 
+    amount = 120
+
     return render_to_response('subscription/overview.html', {
         'hostid': o.get_value('hostid'),
+        'show_invoice': request.POST.get('show_invoice'),
+        'subscription': request.POST.get('subscription', '1'),
+        'currency': request.POST.get('currency', 'CHF'),
+        'amount': amount,
     }, context_instance=RequestContext(request))
 
 
