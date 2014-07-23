@@ -1,6 +1,7 @@
 from django import template
 from app.models import *
 from condtag import *
+from datetime import datetime, timedelta
 import re
 
 register = template.Library()
@@ -60,5 +61,15 @@ def if_config_changed(object, __=None):
 @condition_tag
 def if_internet_access_expiring(object, __=None):
     o = Option()
-    return False
+    internet_access = o.get_value('internet_access')
+
+    try:
+        dt = datetime.strptime(internet_access, '%Y-%m-%d')
+        now = datetime.utcnow()
+        hundred_days = timedelta(days=100)
+        if (now + hundred_days) > dt:
+            return True
+
+    except Exception:
+        return False
 
