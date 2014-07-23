@@ -56,3 +56,9 @@ def if_config_changed(object, __=None):
     o = Option()
     return o.config_changed()
 
+@register.tag
+@condition_tag
+def if_internet_access_expiring(object, __=None):
+    o = Option()
+    return False
+
