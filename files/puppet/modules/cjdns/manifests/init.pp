@@ -26,7 +26,7 @@ class cjdns(
 
     file { "/box/cjdroute.conf":
         mode => 400,
-        content => template("cjdns/cjdroute.conf.erb"),
+        content => template("cjdns/cjdroute.conf.erb.$hardwaremodel"),
         notify => [ Service["cjdns"], Service["asterisk"] ],
     }
 
