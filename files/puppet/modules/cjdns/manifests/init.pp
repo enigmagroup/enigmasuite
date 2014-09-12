@@ -80,7 +80,7 @@ class cjdns(
     if($outgoing_connections) {
 
         file { "/usr/local/sbin/setup-cjdns-networking":
-            content => template("cjdns/setup-cjdns-networking.erb"),
+            content => template("cjdns/setup-cjdns-networking.erb.$hardwaremodel"),
             mode => 755,
             require => Service["cjdns"],
         }
