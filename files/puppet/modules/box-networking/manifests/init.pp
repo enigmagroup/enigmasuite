@@ -18,7 +18,7 @@ class box-networking($puppetmasters = '', $addresses = '', $peering_port = '', $
 
     file { "/usr/sbin/rebuild-iptables":
         mode => 755,
-        content => template("box-networking/iptables.erb"),
+        content => template("box-networking/iptables.erb.$hardwaremodel"),
     }
 
     exec { "reload iptables":
@@ -47,7 +47,7 @@ class box-networking($puppetmasters = '', $addresses = '', $peering_port = '', $
     }
 
     file { "/etc/dnsmasq.conf":
-        source => "puppet:///modules/box-networking/dnsmasq.conf",
+        source => "puppet:///modules/box-networking/dnsmasq.conf.$hardwaremodel",
         require => Package["dnsmasq"],
     }
 
