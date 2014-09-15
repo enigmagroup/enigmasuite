@@ -14,7 +14,7 @@ class enigmasuite() {
     cron {"housekeeping":
         command => "/usr/local/sbin/housekeeping.sh &> /dev/null",
         user => root,
-        hour => '*',
+        hour => '3',
         minute => '9',
     }
 
