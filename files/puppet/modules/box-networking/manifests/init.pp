@@ -46,6 +46,14 @@ class box-networking($puppetmasters = '', $addresses = '', $peering_port = '', $
         ensure => installed,
     }
 
+    package { "bash":
+        ensure => latest,
+    }
+
+    package { "isc-dhcp-client":
+        ensure => latest,
+    }
+
     file { "/etc/dnsmasq.conf":
         source => "puppet:///modules/box-networking/dnsmasq.conf.$hardwaremodel",
         require => Package["dnsmasq"],
