@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-21 17:14+0200\n"
+"POT-Creation-Date: 2014-09-29 18:17+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Stefan <abulavia@hotmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,44 +18,45 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
-#: settings.py:41
+#: settings.py:41 django/conf/global_settings.py:61
 msgid "German"
 msgstr "Alemán"
 
-#: settings.py:42
+#: settings.py:42 django/conf/global_settings.py:63
 msgid "English"
 msgstr "Inglés"
 
-#: settings.py:43
+#: settings.py:43 django/conf/global_settings.py:66
 msgid "Spanish"
 msgstr "Español"
 
-#: app/views.py:487
+#: app/views.py:492
 msgid "Switzerland"
 msgstr "Suiza"
 
-#: app/views.py:488
+#: app/views.py:493
 msgid "Sweden"
 msgstr ""
 
-#: app/views.py:489
+#: app/views.py:494
 msgid "Hungary"
 msgstr "Hungría"
 
-#: app/views.py:490
+#: app/views.py:495
 msgid "France"
 msgstr "Francia"
 
-#: app/views.py:491
+#: app/views.py:496
 #, fuzzy
 msgid "Germany"
 msgstr "Alemán"
 
-#: app/views.py:492
+#: app/views.py:497
 msgid "United Stasi of America"
 msgstr "Estados Unidos"
 
-#: app/templates/base.html:18
+#: app/templates/base.html:18 django/contrib/admin/actions.py:62
+#: django/contrib/admin/options.py:1317
 msgid "Are you sure?"
 msgstr "¿Estás seguro?"
 
@@ -63,7 +64,7 @@ msgstr "¿Estás seguro?"
 msgid "Show"
 msgstr "Mostrar"
 
-#: app/templates/base.html:31 app/templates/base.html.py:64
+#: app/templates/base.html:31 app/templates/base.html.py:61
 #: app/templates/changes/apply.html:8
 msgid "Apply changes"
 msgstr "Aplicar cambios"
@@ -76,7 +77,7 @@ msgstr "Bienvenido"
 msgid "System"
 msgstr "Sistema"
 
-#: app/templates/base.html:57 app/templates/home.html:23
+#: app/templates/base.html:57 app/templates/home.html:22
 #: app/templates/addressbook/detail.html:9
 #: app/templates/addressbook/overview.html:8
 msgid "Addressbook"
@@ -93,27 +94,27 @@ msgstr "Contraseñas"
 msgid "Backup &amp; restore"
 msgstr "Copia de seguridad y restaurar"
 
-#: app/templates/base.html:61 app/templates/subscription/overview.html:8
+#: app/templates/base.html:63 app/templates/home.html:41
+msgid "Internet"
+msgstr "Internet"
+
+#: app/templates/base.html:64
+msgid "Country selection"
+msgstr "Selección de país"
+
+#: app/templates/base.html:65 app/templates/webfilter/overview.html:8
+msgid "Ad blocking"
+msgstr "Añadir bloqueo"
+
+#: app/templates/base.html:66
+msgid "Network"
+msgstr "Red"
+
+#: app/templates/base.html:68 app/templates/subscription/overview.html:8
 #: app/templates/subscription/overview.html:40
 #, fuzzy
 msgid "Subscription"
 msgstr "Descripción"
-
-#: app/templates/base.html:66 app/templates/home.html:42
-msgid "Internet"
-msgstr "Internet"
-
-#: app/templates/base.html:67
-msgid "Country selection"
-msgstr "Selección de país"
-
-#: app/templates/base.html:68 app/templates/webfilter/overview.html:8
-msgid "Ad blocking"
-msgstr "Añadir bloqueo"
-
-#: app/templates/base.html:69
-msgid "Network"
-msgstr "Red"
 
 #: app/templates/base.html:70 app/templates/peerings/detail.html:9
 #: app/templates/peerings/overview.html:8
@@ -129,8 +130,8 @@ msgstr "Configuración WLAN"
 msgid "Services"
 msgstr "Servicios"
 
-#: app/templates/base.html:73 app/templates/home.html:26
-#: app/templates/home.html.py:28 app/templates/teletext/overview.html:8
+#: app/templates/base.html:73 app/templates/home.html:25
+#: app/templates/home.html.py:27 app/templates/teletext/overview.html:8
 msgid "Teletext"
 msgstr "Teletext"
 
@@ -142,55 +143,64 @@ msgstr "Tu id de huésped es"
 msgid "Network access valid until"
 msgstr "Dirección de red valida hasta"
 
-#: app/templates/home.html:13 app/templates/home.html.py:15
+#: app/templates/home.html:13
 #, fuzzy
 msgid "Renew subscription"
 msgstr "Descripción"
 
-#: app/templates/home.html:21
+#: app/templates/home.html:14
+msgid ""
+"Note: it can take several days after payment until this notice disappears."
+msgstr ""
+
+#: app/templates/home.html:20
 msgid "Applications"
 msgstr "Aplicaciones"
 
-#: app/templates/home.html:24
+#: app/templates/home.html:23
 msgid "Webmail"
 msgstr "E mail web"
 
-#: app/templates/home.html:39
+#: app/templates/home.html:38
 msgid "System status"
 msgstr "Estado de sistema"
 
-#: app/templates/home.html:41
+#: app/templates/home.html:40
 msgid "DHCP"
 msgstr "DHCP"
 
-#: app/templates/home.html:43
+#: app/templates/home.html:42
 msgid "cjdns"
 msgstr "cjdns"
 
-#: app/templates/home.html:44
+#: app/templates/home.html:43
 msgid "Internet via cjdns"
 msgstr "Internet por cjdns"
 
-#: app/templates/home.html:48
+#: app/templates/home.html:47
 msgid "Connection info"
 msgstr "Información conexión"
 
-#: app/templates/home.html:48
+#: app/templates/home.html:47
 msgid "SSH access"
 msgstr "Dirección SSH"
 
-#: app/templates/home.html:49
+#: app/templates/home.html:48 django/contrib/auth/forms.py:65
+#: django/contrib/auth/forms.py:110 django/contrib/auth/forms.py:139
 msgid "Username"
 msgstr "Nombre de usuario"
 
-#: app/templates/home.html:50 app/templates/peerings/detail.html:49
+#: app/templates/home.html:49 app/templates/peerings/detail.html:49
 #: app/templates/peerings/detail.html:51
 #: app/templates/peerings/overview.html:61
 #: app/templates/wlan_settings/overview.html:43
+#: django/contrib/admin/templates/admin/auth/user/change_password.html:40
+#: django/contrib/auth/forms.py:72 django/contrib/auth/forms.py:116
+#: django/contrib/auth/forms.py:140 django/contrib/auth/forms.py:310
 msgid "Password"
 msgstr "Contraseña"
 
-#: app/templates/home.html:51
+#: app/templates/home.html:50
 msgid "Server"
 msgstr "Servidor"
 
@@ -247,6 +257,7 @@ msgstr "Dirección IPv6"
 #: app/templates/addressbook/detail.html:56
 #: app/templates/addressbook/overview.html:17
 #: app/templates/addressbook/overview.html:55
+#: django/contrib/localflavor/us/models.py:26
 msgid "Phone number"
 msgstr "Número teléfono"
 
@@ -255,6 +266,8 @@ msgstr "Número teléfono"
 #: app/templates/peerings/overview.html:70
 #: app/templates/webfilter/overview.html:114
 #: app/templates/wlan_settings/overview.html:74
+#: django/contrib/admin/templates/admin/pagination.html:11
+#: django/contrib/admin/templates/admin/submit_line.html:3
 msgid "Save"
 msgstr "Guardar"
 
@@ -269,6 +282,9 @@ msgstr "Borrar número teléfono"
 
 #: app/templates/addressbook/detail.html:75
 #: app/templates/peerings/detail.html:80
+#: django/contrib/admin/templates/admin/delete_confirmation.html:12
+#: django/contrib/admin/templates/admin/submit_line.html:4
+#: django/forms/formsets.py:324
 msgid "Delete"
 msgstr "Borrar"
 
@@ -289,6 +305,8 @@ msgid "Add contact"
 msgstr "Añadir contacto"
 
 #: app/templates/addressbook/overview.html:56
+#: django/contrib/admin/templates/admin/change_form.html:24
+#: django/contrib/admin/templates/admin/index.html:29
 msgid "Add"
 msgstr "Añadir"
 
@@ -748,6 +766,7 @@ msgid "SSID"
 msgstr "SSID"
 
 #: app/templates/wlan_settings/overview.html:28
+#: django/contrib/admin/templates/admin/object_history.html:26
 msgid "Action"
 msgstr "Acción"
 
@@ -779,6 +798,6759 @@ msgstr "Renovar"
 #: app/templates/wlan_settings/scan.html:22
 msgid "Quality"
 msgstr "Calidad"
+
+#: django/conf/global_settings.py:52
+msgid "Arabic"
+msgstr ""
+
+#: django/conf/global_settings.py:53
+msgid "Azerbaijani"
+msgstr ""
+
+#: django/conf/global_settings.py:54
+msgid "Bulgarian"
+msgstr ""
+
+#: django/conf/global_settings.py:55
+msgid "Bengali"
+msgstr ""
+
+#: django/conf/global_settings.py:56
+msgid "Bosnian"
+msgstr ""
+
+#: django/conf/global_settings.py:57
+msgid "Catalan"
+msgstr ""
+
+#: django/conf/global_settings.py:58
+msgid "Czech"
+msgstr ""
+
+#: django/conf/global_settings.py:59
+msgid "Welsh"
+msgstr ""
+
+#: django/conf/global_settings.py:60
+#, fuzzy
+msgid "Danish"
+msgstr "Español"
+
+#: django/conf/global_settings.py:62
+msgid "Greek"
+msgstr ""
+
+#: django/conf/global_settings.py:64
+#, fuzzy
+msgid "British English"
+msgstr "Inglés"
+
+#: django/conf/global_settings.py:65
+msgid "Esperanto"
+msgstr ""
+
+#: django/conf/global_settings.py:67
+msgid "Argentinian Spanish"
+msgstr ""
+
+#: django/conf/global_settings.py:68
+#, fuzzy
+msgid "Mexican Spanish"
+msgstr "Español"
+
+#: django/conf/global_settings.py:69
+msgid "Nicaraguan Spanish"
+msgstr ""
+
+#: django/conf/global_settings.py:70
+msgid "Estonian"
+msgstr ""
+
+#: django/conf/global_settings.py:71
+msgid "Basque"
+msgstr ""
+
+#: django/conf/global_settings.py:72
+msgid "Persian"
+msgstr ""
+
+#: django/conf/global_settings.py:73
+msgid "Finnish"
+msgstr ""
+
+#: django/conf/global_settings.py:74
+msgid "French"
+msgstr ""
+
+#: django/conf/global_settings.py:75
+msgid "Frisian"
+msgstr ""
+
+#: django/conf/global_settings.py:76
+msgid "Irish"
+msgstr ""
+
+#: django/conf/global_settings.py:77
+msgid "Galician"
+msgstr ""
+
+#: django/conf/global_settings.py:78
+msgid "Hebrew"
+msgstr ""
+
+#: django/conf/global_settings.py:79
+msgid "Hindi"
+msgstr ""
+
+#: django/conf/global_settings.py:80
+msgid "Croatian"
+msgstr ""
+
+#: django/conf/global_settings.py:81
+#, fuzzy
+msgid "Hungarian"
+msgstr "Hungría"
+
+#: django/conf/global_settings.py:82
+msgid "Indonesian"
+msgstr ""
+
+#: django/conf/global_settings.py:83
+msgid "Icelandic"
+msgstr ""
+
+#: django/conf/global_settings.py:84
+msgid "Italian"
+msgstr ""
+
+#: django/conf/global_settings.py:85
+msgid "Japanese"
+msgstr ""
+
+#: django/conf/global_settings.py:86
+msgid "Georgian"
+msgstr ""
+
+#: django/conf/global_settings.py:87
+msgid "Kazakh"
+msgstr ""
+
+#: django/conf/global_settings.py:88
+msgid "Khmer"
+msgstr ""
+
+#: django/conf/global_settings.py:89
+msgid "Kannada"
+msgstr ""
+
+#: django/conf/global_settings.py:90
+msgid "Korean"
+msgstr ""
+
+#: django/conf/global_settings.py:91
+msgid "Lithuanian"
+msgstr ""
+
+#: django/conf/global_settings.py:92
+msgid "Latvian"
+msgstr ""
+
+#: django/conf/global_settings.py:93
+msgid "Macedonian"
+msgstr ""
+
+#: django/conf/global_settings.py:94
+msgid "Malayalam"
+msgstr ""
+
+#: django/conf/global_settings.py:95
+msgid "Mongolian"
+msgstr ""
+
+#: django/conf/global_settings.py:96
+msgid "Norwegian Bokmal"
+msgstr ""
+
+#: django/conf/global_settings.py:97
+msgid "Nepali"
+msgstr ""
+
+#: django/conf/global_settings.py:98
+msgid "Dutch"
+msgstr ""
+
+#: django/conf/global_settings.py:99
+msgid "Norwegian Nynorsk"
+msgstr ""
+
+#: django/conf/global_settings.py:100
+msgid "Punjabi"
+msgstr ""
+
+#: django/conf/global_settings.py:101
+#, fuzzy
+msgid "Polish"
+msgstr "Inglés"
+
+#: django/conf/global_settings.py:102
+msgid "Portuguese"
+msgstr ""
+
+#: django/conf/global_settings.py:103
+msgid "Brazilian Portuguese"
+msgstr ""
+
+#: django/conf/global_settings.py:104
+msgid "Romanian"
+msgstr ""
+
+#: django/conf/global_settings.py:105
+msgid "Russian"
+msgstr ""
+
+#: django/conf/global_settings.py:106
+msgid "Slovak"
+msgstr ""
+
+#: django/conf/global_settings.py:107
+msgid "Slovenian"
+msgstr ""
+
+#: django/conf/global_settings.py:108
+msgid "Albanian"
+msgstr ""
+
+#: django/conf/global_settings.py:109
+msgid "Serbian"
+msgstr ""
+
+#: django/conf/global_settings.py:110
+msgid "Serbian Latin"
+msgstr ""
+
+#: django/conf/global_settings.py:111
+msgid "Swedish"
+msgstr ""
+
+#: django/conf/global_settings.py:112
+msgid "Swahili"
+msgstr ""
+
+#: django/conf/global_settings.py:113
+msgid "Tamil"
+msgstr ""
+
+#: django/conf/global_settings.py:114
+msgid "Telugu"
+msgstr ""
+
+#: django/conf/global_settings.py:115
+msgid "Thai"
+msgstr ""
+
+#: django/conf/global_settings.py:116
+msgid "Turkish"
+msgstr ""
+
+#: django/conf/global_settings.py:117
+msgid "Tatar"
+msgstr ""
+
+#: django/conf/global_settings.py:118
+msgid "Ukrainian"
+msgstr ""
+
+#: django/conf/global_settings.py:119
+msgid "Urdu"
+msgstr ""
+
+#: django/conf/global_settings.py:120
+msgid "Vietnamese"
+msgstr ""
+
+#: django/conf/global_settings.py:121
+msgid "Simplified Chinese"
+msgstr ""
+
+#: django/conf/global_settings.py:122
+msgid "Traditional Chinese"
+msgstr ""
+
+#: django/contrib/admin/actions.py:48
+#, python-format
+msgid "Successfully deleted %(count)d %(items)s."
+msgstr ""
+
+#: django/contrib/admin/actions.py:60 django/contrib/admin/options.py:1315
+#, python-format
+msgid "Cannot delete %(name)s"
+msgstr ""
+
+#: django/contrib/admin/actions.py:83
+#, python-format
+msgid "Delete selected %(verbose_name_plural)s"
+msgstr ""
+
+#: django/contrib/admin/filters.py:101 django/contrib/admin/filters.py:197
+#: django/contrib/admin/filters.py:237 django/contrib/admin/filters.py:274
+#: django/contrib/admin/filters.py:384
+msgid "All"
+msgstr ""
+
+#: django/contrib/admin/filters.py:238 django/forms/widgets.py:586
+msgid "Yes"
+msgstr ""
+
+#: django/contrib/admin/filters.py:239 django/forms/widgets.py:587
+msgid "No"
+msgstr ""
+
+#: django/contrib/admin/filters.py:253 django/forms/widgets.py:585
+msgid "Unknown"
+msgstr ""
+
+#: django/contrib/admin/filters.py:312
+msgid "Any date"
+msgstr ""
+
+#: django/contrib/admin/filters.py:313
+msgid "Today"
+msgstr ""
+
+#: django/contrib/admin/filters.py:317
+msgid "Past 7 days"
+msgstr ""
+
+#: django/contrib/admin/filters.py:321
+msgid "This month"
+msgstr ""
+
+#: django/contrib/admin/filters.py:325
+msgid "This year"
+msgstr ""
+
+#: django/contrib/admin/forms.py:9
+msgid ""
+"Please enter the correct username and password for a staff account. Note "
+"that both fields are case-sensitive."
+msgstr ""
+
+#: django/contrib/admin/forms.py:18
+msgid "Please log in again, because your session has expired."
+msgstr ""
+
+#: django/contrib/admin/forms.py:37
+#, python-format
+msgid "Your e-mail address is not your username. Try '%s' instead."
+msgstr ""
+
+#: django/contrib/admin/helpers.py:20
+#, fuzzy
+msgid "Action:"
+msgstr "Acción"
+
+#: django/contrib/admin/models.py:19
+msgid "action time"
+msgstr ""
+
+#: django/contrib/admin/models.py:22
+msgid "object id"
+msgstr ""
+
+#: django/contrib/admin/models.py:23
+msgid "object repr"
+msgstr ""
+
+#: django/contrib/admin/models.py:24
+msgid "action flag"
+msgstr ""
+
+#: django/contrib/admin/models.py:25
+msgid "change message"
+msgstr ""
+
+#: django/contrib/admin/models.py:30
+msgid "log entry"
+msgstr ""
+
+#: django/contrib/admin/models.py:31
+msgid "log entries"
+msgstr ""
+
+#: django/contrib/admin/models.py:40
+#, python-format
+msgid "Added \"%(object)s\"."
+msgstr ""
+
+#: django/contrib/admin/models.py:42
+#, python-format
+msgid "Changed \"%(object)s\" - %(changes)s"
+msgstr ""
+
+#: django/contrib/admin/models.py:44
+#, python-format
+msgid "Deleted \"%(object)s.\""
+msgstr ""
+
+#: django/contrib/admin/models.py:46
+msgid "LogEntry Object"
+msgstr ""
+
+#: django/contrib/admin/options.py:150 django/contrib/admin/options.py:166
+msgid "None"
+msgstr ""
+
+#: django/contrib/admin/options.py:691
+#, python-format
+msgid "Changed %s."
+msgstr ""
+
+#: django/contrib/admin/options.py:691 django/contrib/admin/options.py:701
+#: django/contrib/comments/forms.py:181
+#: django/contrib/comments/templates/comments/preview.html:16
+#: django/db/models/base.py:787 django/forms/models.py:577
+msgid "and"
+msgstr ""
+
+#: django/contrib/admin/options.py:696
+#, python-format
+msgid "Added %(name)s \"%(object)s\"."
+msgstr ""
+
+#: django/contrib/admin/options.py:700
+#, python-format
+msgid "Changed %(list)s for %(name)s \"%(object)s\"."
+msgstr ""
+
+#: django/contrib/admin/options.py:705
+#, python-format
+msgid "Deleted %(name)s \"%(object)s\"."
+msgstr ""
+
+#: django/contrib/admin/options.py:709
+#, fuzzy
+msgid "No fields changed."
+msgstr "Confirmar cambios"
+
+#: django/contrib/admin/options.py:792
+#, python-format
+msgid "The %(name)s \"%(obj)s\" was added successfully."
+msgstr ""
+
+#: django/contrib/admin/options.py:796 django/contrib/admin/options.py:844
+msgid "You may edit it again below."
+msgstr ""
+
+#: django/contrib/admin/options.py:808 django/contrib/admin/options.py:857
+#, python-format
+msgid "You may add another %s below."
+msgstr ""
+
+#: django/contrib/admin/options.py:842
+#, python-format
+msgid "The %(name)s \"%(obj)s\" was changed successfully."
+msgstr ""
+
+#: django/contrib/admin/options.py:850
+#, python-format
+msgid ""
+"The %(name)s \"%(obj)s\" was added successfully. You may edit it again below."
+msgstr ""
+
+#: django/contrib/admin/options.py:919 django/contrib/admin/options.py:1179
+msgid ""
+"Items must be selected in order to perform actions on them. No items have "
+"been changed."
+msgstr ""
+
+#: django/contrib/admin/options.py:938
+msgid "No action selected."
+msgstr ""
+
+#: django/contrib/admin/options.py:1018
+#, python-format
+msgid "Add %s"
+msgstr ""
+
+#: django/contrib/admin/options.py:1043 django/contrib/admin/options.py:1287
+#, python-format
+msgid "%(name)s object with primary key %(key)r does not exist."
+msgstr ""
+
+#: django/contrib/admin/options.py:1109
+#, python-format
+msgid "Change %s"
+msgstr ""
+
+#: django/contrib/admin/options.py:1158
+msgid "Database error"
+msgstr ""
+
+#: django/contrib/admin/options.py:1221
+#, python-format
+msgid "%(count)s %(name)s was changed successfully."
+msgid_plural "%(count)s %(name)s were changed successfully."
+msgstr[0] ""
+msgstr[1] ""
+
+#: django/contrib/admin/options.py:1248
+#, python-format
+msgid "%(total_count)s selected"
+msgid_plural "All %(total_count)s selected"
+msgstr[0] ""
+msgstr[1] ""
+
+#: django/contrib/admin/options.py:1253
+#, python-format
+msgid "0 of %(cnt)s selected"
+msgstr ""
+
+#: django/contrib/admin/options.py:1303
+#, python-format
+msgid "The %(name)s \"%(obj)s\" was deleted successfully."
+msgstr ""
+
+#: django/contrib/admin/options.py:1356
+#, python-format
+msgid "Change history: %s"
+msgstr ""
+
+#: django/contrib/admin/sites.py:315 django/contrib/admin/tests.py:75
+#: django/contrib/admin/templates/admin/login.html:49
+#: django/contrib/admin/templates/registration/password_reset_complete.html:20
+#: django/contrib/admin/views/decorators.py:23
+msgid "Log in"
+msgstr ""
+
+#: django/contrib/admin/sites.py:380
+msgid "Site administration"
+msgstr ""
+
+#: django/contrib/admin/sites.py:432
+#, python-format
+msgid "%s administration"
+msgstr ""
+
+#: django/contrib/admin/widgets.py:87
+msgid "Date:"
+msgstr ""
+
+#: django/contrib/admin/widgets.py:87
+msgid "Time:"
+msgstr ""
+
+#: django/contrib/admin/widgets.py:161
+msgid "Lookup"
+msgstr ""
+
+#: django/contrib/admin/widgets.py:267
+msgid "Add Another"
+msgstr ""
+
+#: django/contrib/admin/templates/admin/404.html:4
+#: django/contrib/admin/templates/admin/404.html:8
+msgid "Page not found"
+msgstr ""
+
+#: django/contrib/admin/templates/admin/404.html:10
+msgid "We're sorry, but the requested page could not be found."
+msgstr ""
+
+#: django/contrib/admin/templates/admin/500.html:7
+#: django/contrib/admin/templates/admin/app_index.html:8
+#: django/contrib/admin/templates/admin/base.html:45
+#: django/contrib/admin/templates/admin/change_form.html:21
+#: django/contrib/admin/templates/admin/change_list.html:43
+#: django/contrib/admin/templates/admin/delete_confirmation.html:8
+#: django/contrib/admin/templates/admin/delete_selected_confirmation.html:8
+#: django/contrib/admin/templates/admin/invalid_setup.html:7
+#: django/contrib/admin/templates/admin/object_history.html:8
+#: django/contrib/admin/templates/admin/auth/user/change_password.html:15
+#: django/contrib/admin/templates/registration/logged_out.html:5
+#: django/contrib/admin/templates/registration/password_change_done.html:7
+#: django/contrib/admin/templates/registration/password_change_form.html:8
+#: django/contrib/admin/templates/registration/password_reset_complete.html:7
+#: django/contrib/admin/templates/registration/password_reset_confirm.html:7
+#: django/contrib/admin/templates/registration/password_reset_done.html:7
+#: django/contrib/admin/templates/registration/password_reset_form.html:7
+#: django/contrib/admindocs/templates/admin_doc/bookmarklets.html:7
+#: django/contrib/admindocs/templates/admin_doc/index.html:7
+#: django/contrib/admindocs/templates/admin_doc/missing_docutils.html:7
+#: django/contrib/admindocs/templates/admin_doc/model_detail.html:15
+#: django/contrib/admindocs/templates/admin_doc/model_index.html:9
+#: django/contrib/admindocs/templates/admin_doc/template_detail.html:7
+#: django/contrib/admindocs/templates/admin_doc/template_filter_index.html:8
+#: django/contrib/admindocs/templates/admin_doc/template_tag_index.html:8
+#: django/contrib/admindocs/templates/admin_doc/view_detail.html:7
+#: django/contrib/admindocs/templates/admin_doc/view_index.html:8
+msgid "Home"
+msgstr ""
+
+#: django/contrib/admin/templates/admin/500.html:8
+#, fuzzy
+msgid "Server error"
+msgstr "Servidor"
+
+#: django/contrib/admin/templates/admin/500.html:12
+msgid "Server error (500)"
+msgstr ""
+
+#: django/contrib/admin/templates/admin/500.html:15
+msgid "Server Error <em>(500)</em>"
+msgstr ""
+
+#: django/contrib/admin/templates/admin/500.html:16
+msgid ""
+"There's been an error. It's been reported to the site administrators via e-"
+"mail and should be fixed shortly. Thanks for your patience."
+msgstr ""
+
+#: django/contrib/admin/templates/admin/actions.html:4
+#, fuzzy
+msgid "Run the selected action"
+msgstr "Selección de país"
+
+#: django/contrib/admin/templates/admin/actions.html:4
+msgid "Go"
+msgstr ""
+
+#: django/contrib/admin/templates/admin/actions.html:11
+msgid "Click here to select the objects across all pages"
+msgstr ""
+
+#: django/contrib/admin/templates/admin/actions.html:11
+#, python-format
+msgid "Select all %(total_count)s %(module_name)s"
+msgstr ""
+
+#: django/contrib/admin/templates/admin/actions.html:13
+#, fuzzy
+msgid "Clear selection"
+msgstr "Selección de país"
+
+#: django/contrib/admin/templates/admin/app_index.html:11
+#: django/contrib/admin/templates/admin/index.html:19
+#, python-format
+msgid "%(name)s"
+msgstr ""
+
+#: django/contrib/admin/templates/admin/base.html:28
+#, fuzzy
+msgid "Welcome,"
+msgstr "Bienvenido"
+
+#: django/contrib/admin/templates/admin/base.html:33
+#: django/contrib/admin/templates/registration/password_change_done.html:4
+#: django/contrib/admin/templates/registration/password_change_form.html:5
+#: django/contrib/admindocs/templates/admin_doc/bookmarklets.html:8
+#: django/contrib/admindocs/templates/admin_doc/index.html:8
+#: django/contrib/admindocs/templates/admin_doc/missing_docutils.html:8
+#: django/contrib/admindocs/templates/admin_doc/model_detail.html:16
+#: django/contrib/admindocs/templates/admin_doc/model_index.html:10
+#: django/contrib/admindocs/templates/admin_doc/template_detail.html:8
+#: django/contrib/admindocs/templates/admin_doc/template_filter_index.html:9
+#: django/contrib/admindocs/templates/admin_doc/template_tag_index.html:9
+#: django/contrib/admindocs/templates/admin_doc/view_detail.html:8
+#: django/contrib/admindocs/templates/admin_doc/view_index.html:9
+msgid "Documentation"
+msgstr ""
+
+#: django/contrib/admin/templates/admin/base.html:35
+#: django/contrib/admin/templates/admin/auth/user/change_password.html:19
+#: django/contrib/admin/templates/admin/auth/user/change_password.html:53
+#: django/contrib/admin/templates/registration/password_change_done.html:4
+#: django/contrib/admin/templates/registration/password_change_form.html:5
+#, fuzzy
+msgid "Change password"
+msgstr "Contraseña WLAN"
+
+#: django/contrib/admin/templates/admin/base.html:36
+#: django/contrib/admin/templates/registration/password_change_done.html:4
+#: django/contrib/admin/templates/registration/password_change_form.html:5
+msgid "Log out"
+msgstr ""
+
+#: django/contrib/admin/templates/admin/base_site.html:4
+msgid "Django site admin"
+msgstr ""
+
+#: django/contrib/admin/templates/admin/base_site.html:7
+msgid "Django administration"
+msgstr ""
+
+#: django/contrib/admin/templates/admin/change_form.html:34
+#: django/contrib/admin/templates/admin/object_history.html:12
+msgid "History"
+msgstr ""
+
+#: django/contrib/admin/templates/admin/change_form.html:35
+#: django/contrib/admin/templates/admin/edit_inline/stacked.html:9
+#: django/contrib/admin/templates/admin/edit_inline/tabular.html:30
+msgid "View on site"
+msgstr ""
+
+#: django/contrib/admin/templates/admin/change_form.html:46
+#: django/contrib/admin/templates/admin/change_list.html:69
+#: django/contrib/admin/templates/admin/login.html:18
+#: django/contrib/admin/templates/admin/auth/user/change_password.html:29
+#: django/contrib/admin/templates/registration/password_change_form.html:21
+msgid "Please correct the error below."
+msgid_plural "Please correct the errors below."
+msgstr[0] ""
+msgstr[1] ""
+
+#: django/contrib/admin/templates/admin/change_list.html:60
+#, python-format
+msgid "Add %(name)s"
+msgstr ""
+
+#: django/contrib/admin/templates/admin/change_list.html:80
+msgid "Filter"
+msgstr ""
+
+#: django/contrib/admin/templates/admin/change_list_results.html:17
+#, fuzzy
+msgid "Remove from sorting"
+msgstr "Remover compañero"
+
+#: django/contrib/admin/templates/admin/change_list_results.html:18
+#, python-format
+msgid "Sorting priority: %(priority_number)s"
+msgstr ""
+
+#: django/contrib/admin/templates/admin/change_list_results.html:19
+msgid "Toggle sorting"
+msgstr ""
+
+#: django/contrib/admin/templates/admin/delete_confirmation.html:19
+#, python-format
+msgid ""
+"Deleting the %(object_name)s '%(escaped_object)s' would result in deleting "
+"related objects, but your account doesn't have permission to delete the "
+"following types of objects:"
+msgstr ""
+
+#: django/contrib/admin/templates/admin/delete_confirmation.html:27
+#, python-format
+msgid ""
+"Deleting the %(object_name)s '%(escaped_object)s' would require deleting the "
+"following protected related objects:"
+msgstr ""
+
+#: django/contrib/admin/templates/admin/delete_confirmation.html:35
+#, python-format
+msgid ""
+"Are you sure you want to delete the %(object_name)s \"%(escaped_object)s\"? "
+"All of the following related items will be deleted:"
+msgstr ""
+
+#: django/contrib/admin/templates/admin/delete_confirmation.html:40
+#: django/contrib/admin/templates/admin/delete_selected_confirmation.html:45
+msgid "Yes, I'm sure"
+msgstr ""
+
+#: django/contrib/admin/templates/admin/delete_selected_confirmation.html:11
+msgid "Delete multiple objects"
+msgstr ""
+
+#: django/contrib/admin/templates/admin/delete_selected_confirmation.html:18
+#, python-format
+msgid ""
+"Deleting the selected %(objects_name)s would result in deleting related "
+"objects, but your account doesn't have permission to delete the following "
+"types of objects:"
+msgstr ""
+
+#: django/contrib/admin/templates/admin/delete_selected_confirmation.html:26
+#, python-format
+msgid ""
+"Deleting the selected %(objects_name)s would require deleting the following "
+"protected related objects:"
+msgstr ""
+
+#: django/contrib/admin/templates/admin/delete_selected_confirmation.html:34
+#, python-format
+msgid ""
+"Are you sure you want to delete the selected %(objects_name)s? All of the "
+"following objects and their related items will be deleted:"
+msgstr ""
+
+#: django/contrib/admin/templates/admin/filter.html:2
+#, python-format
+msgid " By %(filter_title)s "
+msgstr ""
+
+#: django/contrib/admin/templates/admin/index.html:18
+#, python-format
+msgid "Models available in the %(name)s application."
+msgstr ""
+
+#: django/contrib/admin/templates/admin/index.html:35
+#: django/forms/widgets.py:326
+msgid "Change"
+msgstr ""
+
+#: django/contrib/admin/templates/admin/index.html:45
+msgid "You don't have permission to edit anything."
+msgstr ""
+
+#: django/contrib/admin/templates/admin/index.html:53
+#, fuzzy
+msgid "Recent Actions"
+msgstr "Instrucciones"
+
+#: django/contrib/admin/templates/admin/index.html:54
+#, fuzzy
+msgid "My Actions"
+msgstr "Acción"
+
+#: django/contrib/admin/templates/admin/index.html:58
+msgid "None available"
+msgstr ""
+
+#: django/contrib/admin/templates/admin/index.html:72
+msgid "Unknown content"
+msgstr ""
+
+#: django/contrib/admin/templates/admin/invalid_setup.html:13
+msgid ""
+"Something's wrong with your database installation. Make sure the appropriate "
+"database tables have been created, and make sure the database is readable by "
+"the appropriate user."
+msgstr ""
+
+#: django/contrib/admin/templates/admin/login.html:34
+#, fuzzy
+msgid "Username:"
+msgstr "Nombre de usuario"
+
+#: django/contrib/admin/templates/admin/login.html:38
+#, fuzzy
+msgid "Password:"
+msgstr "Contraseña"
+
+#: django/contrib/admin/templates/admin/login.html:45
+msgid "Forgotten your password or username?"
+msgstr ""
+
+#: django/contrib/admin/templates/admin/object_history.html:24
+msgid "Date/time"
+msgstr ""
+
+#: django/contrib/admin/templates/admin/object_history.html:25
+#, fuzzy
+msgid "User"
+msgstr "Nombre de usuario"
+
+#: django/contrib/admin/templates/admin/object_history.html:40
+msgid ""
+"This object doesn't have a change history. It probably wasn't added via this "
+"admin site."
+msgstr ""
+
+#: django/contrib/admin/templates/admin/pagination.html:10
+#, fuzzy
+msgid "Show all"
+msgstr "Mostrar"
+
+#: django/contrib/admin/templates/admin/search_form.html:7
+msgid "Search"
+msgstr ""
+
+#: django/contrib/admin/templates/admin/search_form.html:9
+#, python-format
+msgid "%(counter)s result"
+msgid_plural "%(counter)s results"
+msgstr[0] ""
+msgstr[1] ""
+
+#: django/contrib/admin/templates/admin/search_form.html:9
+#, python-format
+msgid "%(full_result_count)s total"
+msgstr ""
+
+#: django/contrib/admin/templates/admin/submit_line.html:5
+msgid "Save as new"
+msgstr ""
+
+#: django/contrib/admin/templates/admin/submit_line.html:6
+msgid "Save and add another"
+msgstr ""
+
+#: django/contrib/admin/templates/admin/submit_line.html:7
+msgid "Save and continue editing"
+msgstr ""
+
+#: django/contrib/admin/templates/admin/auth/user/add_form.html:6
+msgid ""
+"First, enter a username and password. Then, you'll be able to edit more user "
+"options."
+msgstr ""
+
+#: django/contrib/admin/templates/admin/auth/user/add_form.html:8
+msgid "Enter a username and password."
+msgstr ""
+
+#: django/contrib/admin/templates/admin/auth/user/change_password.html:33
+#, python-format
+msgid "Enter a new password for the user <strong>%(username)s</strong>."
+msgstr ""
+
+#: django/contrib/admin/templates/admin/auth/user/change_password.html:46
+#: django/contrib/admin/templates/registration/password_change_form.html:43
+#: django/contrib/auth/forms.py:312
+#, fuzzy
+msgid "Password (again)"
+msgstr "Contraseña"
+
+#: django/contrib/admin/templates/admin/auth/user/change_password.html:47
+#: django/contrib/auth/forms.py:76
+msgid "Enter the same password as above, for verification."
+msgstr ""
+
+#: django/contrib/admin/templates/admin/edit_inline/stacked.html:67
+#: django/contrib/admin/templates/admin/edit_inline/tabular.html:115
+#, python-format
+msgid "Add another %(verbose_name)s"
+msgstr ""
+
+#: django/contrib/admin/templates/admin/edit_inline/stacked.html:70
+#: django/contrib/admin/templates/admin/edit_inline/tabular.html:118
+#: django/contrib/comments/templates/comments/delete.html:12
+#, fuzzy
+msgid "Remove"
+msgstr "Remover compañero"
+
+#: django/contrib/admin/templates/admin/edit_inline/tabular.html:17
+#, fuzzy
+msgid "Delete?"
+msgstr "Borrar"
+
+#: django/contrib/admin/templates/registration/logged_out.html:9
+msgid "Thanks for spending some quality time with the Web site today."
+msgstr ""
+
+#: django/contrib/admin/templates/registration/logged_out.html:11
+msgid "Log in again"
+msgstr ""
+
+#: django/contrib/admin/templates/registration/password_change_done.html:8
+#: django/contrib/admin/templates/registration/password_change_form.html:9
+#: django/contrib/admin/templates/registration/password_change_form.html:13
+#: django/contrib/admin/templates/registration/password_change_form.html:25
+#, fuzzy
+msgid "Password change"
+msgstr "Contraseña"
+
+#: django/contrib/admin/templates/registration/password_change_done.html:12
+#: django/contrib/admin/templates/registration/password_change_done.html:16
+#, fuzzy
+msgid "Password change successful"
+msgstr "Reparo con éxito"
+
+#: django/contrib/admin/templates/registration/password_change_done.html:18
+msgid "Your password was changed."
+msgstr ""
+
+#: django/contrib/admin/templates/registration/password_change_form.html:27
+msgid ""
+"Please enter your old password, for security's sake, and then enter your new "
+"password twice so we can verify you typed it in correctly."
+msgstr ""
+
+#: django/contrib/admin/templates/registration/password_change_form.html:33
+#: django/contrib/auth/forms.py:287
+#, fuzzy
+msgid "Old password"
+msgstr "Contraseña WLAN"
+
+#: django/contrib/admin/templates/registration/password_change_form.html:38
+#: django/contrib/auth/forms.py:253
+#, fuzzy
+msgid "New password"
+msgstr "Contraseña WLAN"
+
+#: django/contrib/admin/templates/registration/password_change_form.html:49
+#: django/contrib/admin/templates/registration/password_reset_confirm.html:27
+msgid "Change my password"
+msgstr ""
+
+#: django/contrib/admin/templates/registration/password_reset_complete.html:8
+#: django/contrib/admin/templates/registration/password_reset_confirm.html:12
+#: django/contrib/admin/templates/registration/password_reset_done.html:8
+#: django/contrib/admin/templates/registration/password_reset_form.html:8
+#: django/contrib/admin/templates/registration/password_reset_form.html:12
+#: django/contrib/admin/templates/registration/password_reset_form.html:16
+#, fuzzy
+msgid "Password reset"
+msgstr "Contraseñas"
+
+#: django/contrib/admin/templates/registration/password_reset_complete.html:12
+#: django/contrib/admin/templates/registration/password_reset_complete.html:16
+#, fuzzy
+msgid "Password reset complete"
+msgstr "Contraseña para la cuenta e mail"
+
+#: django/contrib/admin/templates/registration/password_reset_complete.html:18
+msgid "Your password has been set.  You may go ahead and log in now."
+msgstr ""
+
+#: django/contrib/admin/templates/registration/password_reset_confirm.html:8
+msgid "Password reset confirmation"
+msgstr ""
+
+#: django/contrib/admin/templates/registration/password_reset_confirm.html:18
+msgid "Enter new password"
+msgstr ""
+
+#: django/contrib/admin/templates/registration/password_reset_confirm.html:20
+msgid ""
+"Please enter your new password twice so we can verify you typed it in "
+"correctly."
+msgstr ""
+
+#: django/contrib/admin/templates/registration/password_reset_confirm.html:24
+#, fuzzy
+msgid "New password:"
+msgstr "Contraseña WLAN"
+
+#: django/contrib/admin/templates/registration/password_reset_confirm.html:26
+#, fuzzy
+msgid "Confirm password:"
+msgstr "Confirmar cambios"
+
+#: django/contrib/admin/templates/registration/password_reset_confirm.html:32
+#, fuzzy
+msgid "Password reset unsuccessful"
+msgstr "Reparo con éxito"
+
+#: django/contrib/admin/templates/registration/password_reset_confirm.html:34
+msgid ""
+"The password reset link was invalid, possibly because it has already been "
+"used.  Please request a new password reset."
+msgstr ""
+
+#: django/contrib/admin/templates/registration/password_reset_done.html:12
+#: django/contrib/admin/templates/registration/password_reset_done.html:16
+#, fuzzy
+msgid "Password reset successful"
+msgstr "Reparo con éxito"
+
+#: django/contrib/admin/templates/registration/password_reset_done.html:18
+msgid ""
+"We've e-mailed you instructions for setting your password to the e-mail "
+"address you submitted. You should be receiving it shortly."
+msgstr ""
+
+#: django/contrib/admin/templates/registration/password_reset_email.html:2
+#, python-format
+msgid ""
+"You're receiving this e-mail because you requested a password reset for your "
+"user account at %(site_name)s."
+msgstr ""
+
+#: django/contrib/admin/templates/registration/password_reset_email.html:4
+msgid "Please go to the following page and choose a new password:"
+msgstr ""
+
+#: django/contrib/admin/templates/registration/password_reset_email.html:8
+msgid "Your username, in case you've forgotten:"
+msgstr ""
+
+#: django/contrib/admin/templates/registration/password_reset_email.html:10
+msgid "Thanks for using our site!"
+msgstr ""
+
+#: django/contrib/admin/templates/registration/password_reset_email.html:12
+#, python-format
+msgid "The %(site_name)s team"
+msgstr ""
+
+#: django/contrib/admin/templates/registration/password_reset_form.html:18
+msgid ""
+"Forgotten your password? Enter your e-mail address below, and we'll e-mail "
+"instructions for setting a new one."
+msgstr ""
+
+#: django/contrib/admin/templates/registration/password_reset_form.html:22
+#, fuzzy
+msgid "E-mail address:"
+msgstr "Mi dirección"
+
+#: django/contrib/admin/templates/registration/password_reset_form.html:22
+#, fuzzy
+msgid "Reset my password"
+msgstr "Contraseña WLAN"
+
+#: django/contrib/admin/templatetags/admin_list.py:336
+msgid "All dates"
+msgstr ""
+
+#: django/contrib/admin/views/main.py:32
+msgid "(None)"
+msgstr ""
+
+#: django/contrib/admin/views/main.py:78
+#, fuzzy, python-format
+msgid "Select %s"
+msgstr "Seleccionar país"
+
+#: django/contrib/admin/views/main.py:80
+#, python-format
+msgid "Select %s to change"
+msgstr ""
+
+#: django/contrib/admindocs/views.py:57 django/contrib/admindocs/views.py:59
+#: django/contrib/admindocs/views.py:61
+msgid "tag:"
+msgstr ""
+
+#: django/contrib/admindocs/views.py:92 django/contrib/admindocs/views.py:94
+#: django/contrib/admindocs/views.py:96
+msgid "filter:"
+msgstr ""
+
+#: django/contrib/admindocs/views.py:155 django/contrib/admindocs/views.py:157
+#: django/contrib/admindocs/views.py:159
+msgid "view:"
+msgstr ""
+
+#: django/contrib/admindocs/views.py:187
+#, python-format
+msgid "App %r not found"
+msgstr ""
+
+#: django/contrib/admindocs/views.py:194
+#, python-format
+msgid "Model %(model_name)r not found in app %(app_label)r"
+msgstr ""
+
+#: django/contrib/admindocs/views.py:206
+#, python-format
+msgid "the related `%(app_label)s.%(data_type)s` object"
+msgstr ""
+
+#: django/contrib/admindocs/views.py:206 django/contrib/admindocs/views.py:225
+#: django/contrib/admindocs/views.py:230 django/contrib/admindocs/views.py:244
+#: django/contrib/admindocs/views.py:258 django/contrib/admindocs/views.py:263
+msgid "model:"
+msgstr ""
+
+#: django/contrib/admindocs/views.py:221 django/contrib/admindocs/views.py:253
+#, python-format
+msgid "related `%(app_label)s.%(object_name)s` objects"
+msgstr ""
+
+#: django/contrib/admindocs/views.py:225 django/contrib/admindocs/views.py:258
+#, python-format
+msgid "all %s"
+msgstr ""
+
+#: django/contrib/admindocs/views.py:230 django/contrib/admindocs/views.py:263
+#, python-format
+msgid "number of %s"
+msgstr ""
+
+#: django/contrib/admindocs/views.py:268
+#, python-format
+msgid "Fields on %s objects"
+msgstr ""
+
+#: django/contrib/admindocs/views.py:360
+#, python-format
+msgid "%s does not appear to be a urlpattern object"
+msgstr ""
+
+#: django/contrib/admindocs/templates/admin_doc/bookmarklets.html:9
+msgid "Bookmarklets"
+msgstr ""
+
+#: django/contrib/admindocs/templates/admin_doc/bookmarklets.html:12
+msgid "Documentation bookmarklets"
+msgstr ""
+
+#: django/contrib/admindocs/templates/admin_doc/bookmarklets.html:16
+msgid ""
+"\n"
+"<p class=\"help\">To install bookmarklets, drag the link to your bookmarks\n"
+"toolbar, or right-click the link and add it to your bookmarks. Now you can\n"
+"select the bookmarklet from any page in the site.  Note that some of these\n"
+"bookmarklets require you to be viewing the site from a computer designated\n"
+"as \"internal\" (talk to your system administrator if you aren't sure if\n"
+"your computer is \"internal\").</p>\n"
+msgstr ""
+
+#: django/contrib/admindocs/templates/admin_doc/bookmarklets.html:26
+msgid "Documentation for this page"
+msgstr ""
+
+#: django/contrib/admindocs/templates/admin_doc/bookmarklets.html:27
+msgid ""
+"Jumps you from any page to the documentation for the view that generates "
+"that page."
+msgstr ""
+
+#: django/contrib/admindocs/templates/admin_doc/bookmarklets.html:29
+msgid "Show object ID"
+msgstr ""
+
+#: django/contrib/admindocs/templates/admin_doc/bookmarklets.html:30
+msgid ""
+"Shows the content-type and unique ID for pages that represent a single "
+"object."
+msgstr ""
+
+#: django/contrib/admindocs/templates/admin_doc/bookmarklets.html:32
+msgid "Edit this object (current window)"
+msgstr ""
+
+#: django/contrib/admindocs/templates/admin_doc/bookmarklets.html:33
+msgid "Jumps to the admin page for pages that represent a single object."
+msgstr ""
+
+#: django/contrib/admindocs/templates/admin_doc/bookmarklets.html:35
+msgid "Edit this object (new window)"
+msgstr ""
+
+#: django/contrib/admindocs/templates/admin_doc/bookmarklets.html:36
+msgid "As above, but opens the admin page in a new window."
+msgstr ""
+
+#: django/contrib/admindocs/templates/admin_doc/model_detail.html:17
+#: django/contrib/admindocs/templates/admin_doc/model_index.html:11
+msgid "Models"
+msgstr ""
+
+#: django/contrib/admindocs/templates/admin_doc/template_detail.html:9
+msgid "Templates"
+msgstr ""
+
+#: django/contrib/admindocs/templates/admin_doc/template_filter_index.html:10
+msgid "Filters"
+msgstr ""
+
+#: django/contrib/admindocs/templates/admin_doc/template_tag_index.html:10
+msgid "Tags"
+msgstr ""
+
+#: django/contrib/admindocs/templates/admin_doc/view_detail.html:9
+#: django/contrib/admindocs/templates/admin_doc/view_index.html:10
+msgid "Views"
+msgstr ""
+
+#: django/contrib/auth/admin.py:43
+#, fuzzy
+msgid "Personal info"
+msgstr "Información compañero"
+
+#: django/contrib/auth/admin.py:44
+msgid "Permissions"
+msgstr ""
+
+#: django/contrib/auth/admin.py:46
+msgid "Important dates"
+msgstr ""
+
+#: django/contrib/auth/admin.py:127
+#, fuzzy
+msgid "Password changed successfully."
+msgstr "Cambios aplicados con éxito"
+
+#: django/contrib/auth/admin.py:137
+#, python-format
+msgid "Change password: %s"
+msgstr ""
+
+#: django/contrib/auth/forms.py:62
+msgid "A user with that username already exists."
+msgstr ""
+
+#: django/contrib/auth/forms.py:63 django/contrib/auth/forms.py:251
+#: django/contrib/auth/forms.py:308
+msgid "The two password fields didn't match."
+msgstr ""
+
+#: django/contrib/auth/forms.py:67 django/contrib/auth/forms.py:111
+msgid "Required. 30 characters or fewer. Letters, digits and @/./+/-/_ only."
+msgstr ""
+
+#: django/contrib/auth/forms.py:70 django/contrib/auth/forms.py:114
+msgid "This value may contain only letters, numbers and @/./+/-/_ characters."
+msgstr ""
+
+#: django/contrib/auth/forms.py:74
+#, fuzzy
+msgid "Password confirmation"
+msgstr "Contraseña para la cuenta e mail"
+
+#: django/contrib/auth/forms.py:117
+msgid ""
+"Raw passwords are not stored, so there is no way to see this user's "
+"password, but you can change the password using <a href=\"password/\">this "
+"form</a>."
+msgstr ""
+
+#: django/contrib/auth/forms.py:143
+msgid ""
+"Please enter a correct username and password. Note that both fields are case-"
+"sensitive."
+msgstr ""
+
+#: django/contrib/auth/forms.py:145
+msgid ""
+"Your Web browser doesn't appear to have cookies enabled. Cookies are "
+"required for logging in."
+msgstr ""
+
+#: django/contrib/auth/forms.py:147
+msgid "This account is inactive."
+msgstr ""
+
+#: django/contrib/auth/forms.py:191
+msgid ""
+"That e-mail address doesn't have an associated user account. Are you sure "
+"you've registered?"
+msgstr ""
+
+#: django/contrib/auth/forms.py:193 django/contrib/auth/tests/forms.py:337
+msgid ""
+"The user account associated with this e-mail address cannot reset the "
+"password."
+msgstr ""
+
+#: django/contrib/auth/forms.py:196
+#, fuzzy
+msgid "E-mail"
+msgstr "E mails"
+
+#: django/contrib/auth/forms.py:255
+#, fuzzy
+msgid "New password confirmation"
+msgstr "Configuración general"
+
+#: django/contrib/auth/forms.py:284
+msgid "Your old password was entered incorrectly. Please enter it again."
+msgstr ""
+
+#: django/contrib/auth/hashers.py:224 django/contrib/auth/hashers.py:275
+#: django/contrib/auth/hashers.py:304 django/contrib/auth/hashers.py:332
+#: django/contrib/auth/hashers.py:365 django/contrib/auth/hashers.py:398
+#: django/contrib/auth/hashers.py:432
+msgid "algorithm"
+msgstr ""
+
+#: django/contrib/auth/hashers.py:225
+#, fuzzy
+msgid "iterations"
+msgstr "Aplicaciones"
+
+#: django/contrib/auth/hashers.py:226 django/contrib/auth/hashers.py:277
+#: django/contrib/auth/hashers.py:305 django/contrib/auth/hashers.py:333
+#: django/contrib/auth/hashers.py:433
+msgid "salt"
+msgstr ""
+
+#: django/contrib/auth/hashers.py:227 django/contrib/auth/hashers.py:306
+#: django/contrib/auth/hashers.py:334 django/contrib/auth/hashers.py:366
+#: django/contrib/auth/hashers.py:399 django/contrib/auth/hashers.py:434
+msgid "hash"
+msgstr ""
+
+#: django/contrib/auth/hashers.py:276
+msgid "work factor"
+msgstr ""
+
+#: django/contrib/auth/hashers.py:278
+msgid "checksum"
+msgstr ""
+
+#: django/contrib/auth/models.py:66 django/contrib/auth/models.py:113
+#, fuzzy
+msgid "name"
+msgstr "Nombre de usuario"
+
+#: django/contrib/auth/models.py:68
+#, fuzzy
+msgid "codename"
+msgstr "Nombre de usuario"
+
+#: django/contrib/auth/models.py:72
+msgid "permission"
+msgstr ""
+
+#: django/contrib/auth/models.py:73 django/contrib/auth/models.py:115
+msgid "permissions"
+msgstr ""
+
+#: django/contrib/auth/models.py:120
+msgid "group"
+msgstr ""
+
+#: django/contrib/auth/models.py:121 django/contrib/auth/models.py:250
+msgid "groups"
+msgstr ""
+
+#: django/contrib/auth/models.py:232
+#, fuzzy
+msgid "username"
+msgstr "Nombre de usuario"
+
+#: django/contrib/auth/models.py:233
+msgid ""
+"Required. 30 characters or fewer. Letters, numbers and @/./+/-/_ characters"
+msgstr ""
+
+#: django/contrib/auth/models.py:235
+#, fuzzy
+msgid "first name"
+msgstr "Nombre de húesped"
+
+#: django/contrib/auth/models.py:236
+#, fuzzy
+msgid "last name"
+msgstr "Nombre de húesped"
+
+#: django/contrib/auth/models.py:237
+#, fuzzy
+msgid "e-mail address"
+msgstr "Direcciones compañeros"
+
+#: django/contrib/auth/models.py:238
+#, fuzzy
+msgid "password"
+msgstr "Contraseña"
+
+#: django/contrib/auth/models.py:239
+#, fuzzy
+msgid "staff status"
+msgstr "Estado de sistema"
+
+#: django/contrib/auth/models.py:240
+msgid "Designates whether the user can log into this admin site."
+msgstr ""
+
+#: django/contrib/auth/models.py:242
+#, fuzzy
+msgid "active"
+msgstr "Acción"
+
+#: django/contrib/auth/models.py:243
+msgid ""
+"Designates whether this user should be treated as active. Unselect this "
+"instead of deleting accounts."
+msgstr ""
+
+#: django/contrib/auth/models.py:245
+#, fuzzy
+msgid "superuser status"
+msgstr "Estado de sistema"
+
+#: django/contrib/auth/models.py:246
+msgid ""
+"Designates that this user has all permissions without explicitly assigning "
+"them."
+msgstr ""
+
+#: django/contrib/auth/models.py:248
+msgid "last login"
+msgstr ""
+
+#: django/contrib/auth/models.py:249
+msgid "date joined"
+msgstr ""
+
+#: django/contrib/auth/models.py:251
+msgid ""
+"The groups this user belongs to. A user will get all permissions granted to "
+"each of his/her group."
+msgstr ""
+
+#: django/contrib/auth/models.py:255
+msgid "user permissions"
+msgstr ""
+
+#: django/contrib/auth/models.py:260 django/contrib/comments/models.py:50
+#: django/contrib/comments/models.py:168
+msgid "user"
+msgstr ""
+
+#: django/contrib/auth/models.py:261
+msgid "users"
+msgstr ""
+
+#: django/contrib/auth/views.py:89
+msgid "Logged out"
+msgstr ""
+
+#: django/contrib/auth/management/commands/createsuperuser.py:27
+#: django/core/validators.py:165 django/forms/fields.py:474
+msgid "Enter a valid e-mail address."
+msgstr ""
+
+#: django/contrib/auth/templates/registration/password_reset_subject.txt:2
+#, python-format
+msgid "Password reset on %(site_name)s"
+msgstr ""
+
+#: django/contrib/comments/admin.py:12
+msgid "Content"
+msgstr ""
+
+#: django/contrib/comments/admin.py:15
+msgid "Metadata"
+msgstr ""
+
+#: django/contrib/comments/admin.py:42
+msgid "flagged"
+msgid_plural "flagged"
+msgstr[0] ""
+msgstr[1] ""
+
+#: django/contrib/comments/admin.py:43
+msgid "Flag selected comments"
+msgstr ""
+
+#: django/contrib/comments/admin.py:47
+msgid "approved"
+msgid_plural "approved"
+msgstr[0] ""
+msgstr[1] ""
+
+#: django/contrib/comments/admin.py:48
+msgid "Approve selected comments"
+msgstr ""
+
+#: django/contrib/comments/admin.py:52
+msgid "removed"
+msgid_plural "removed"
+msgstr[0] ""
+msgstr[1] ""
+
+#: django/contrib/comments/admin.py:53
+msgid "Remove selected comments"
+msgstr ""
+
+#: django/contrib/comments/admin.py:65
+#, python-format
+msgid "1 comment was successfully %(action)s."
+msgid_plural "%(count)s comments were successfully %(action)s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: django/contrib/comments/feeds.py:13
+#, python-format
+msgid "%(site_name)s comments"
+msgstr ""
+
+#: django/contrib/comments/feeds.py:23
+#, python-format
+msgid "Latest comments on %(site_name)s"
+msgstr ""
+
+#: django/contrib/comments/forms.py:96
+msgid "Name"
+msgstr ""
+
+#: django/contrib/comments/forms.py:97
+#, fuzzy
+msgid "Email address"
+msgstr "Mi dirección"
+
+#: django/contrib/comments/forms.py:98 django/contrib/flatpages/forms.py:7
+#: django/contrib/flatpages/models.py:7
+#: django/db/models/fields/__init__.py:1264
+msgid "URL"
+msgstr ""
+
+#: django/contrib/comments/forms.py:99
+msgid "Comment"
+msgstr ""
+
+#: django/contrib/comments/forms.py:177
+#, python-format
+msgid "Watch your mouth! The word %s is not allowed here."
+msgid_plural "Watch your mouth! The words %s are not allowed here."
+msgstr[0] ""
+msgstr[1] ""
+
+#: django/contrib/comments/forms.py:186
+msgid ""
+"If you enter anything in this field your comment will be treated as spam"
+msgstr ""
+
+#: django/contrib/comments/models.py:22
+#: django/contrib/contenttypes/models.py:127
+msgid "content type"
+msgstr ""
+
+#: django/contrib/comments/models.py:24
+msgid "object ID"
+msgstr ""
+
+#: django/contrib/comments/models.py:52
+#, fuzzy
+msgid "user's name"
+msgstr "Nombre de usuario"
+
+#: django/contrib/comments/models.py:53
+#, fuzzy
+msgid "user's email address"
+msgstr "Direcciones compañeros"
+
+#: django/contrib/comments/models.py:54
+msgid "user's URL"
+msgstr ""
+
+#: django/contrib/comments/models.py:56 django/contrib/comments/models.py:76
+#: django/contrib/comments/models.py:169
+msgid "comment"
+msgstr ""
+
+#: django/contrib/comments/models.py:59
+msgid "date/time submitted"
+msgstr ""
+
+#: django/contrib/comments/models.py:60
+#: django/db/models/fields/__init__.py:1035
+#, fuzzy
+msgid "IP address"
+msgstr "Dirección IPv6"
+
+#: django/contrib/comments/models.py:61
+#, fuzzy
+msgid "is public"
+msgstr "llavepública.k"
+
+#: django/contrib/comments/models.py:62
+msgid ""
+"Uncheck this box to make the comment effectively disappear from the site."
+msgstr ""
+
+#: django/contrib/comments/models.py:64
+msgid "is removed"
+msgstr ""
+
+#: django/contrib/comments/models.py:65
+msgid ""
+"Check this box if the comment is inappropriate. A \"This comment has been "
+"removed\" message will be displayed instead."
+msgstr ""
+
+#: django/contrib/comments/models.py:77
+msgid "comments"
+msgstr ""
+
+#: django/contrib/comments/models.py:119
+msgid ""
+"This comment was posted by an authenticated user and thus the name is read-"
+"only."
+msgstr ""
+
+#: django/contrib/comments/models.py:128
+msgid ""
+"This comment was posted by an authenticated user and thus the email is read-"
+"only."
+msgstr ""
+
+#: django/contrib/comments/models.py:153
+#, python-format
+msgid ""
+"Posted by %(user)s at %(date)s\n"
+"\n"
+"%(comment)s\n"
+"\n"
+"http://%(domain)s%(url)s"
+msgstr ""
+
+#: django/contrib/comments/models.py:170
+msgid "flag"
+msgstr ""
+
+#: django/contrib/comments/models.py:171
+msgid "date"
+msgstr ""
+
+#: django/contrib/comments/models.py:181
+msgid "comment flag"
+msgstr ""
+
+#: django/contrib/comments/models.py:182
+msgid "comment flags"
+msgstr ""
+
+#: django/contrib/comments/templates/comments/approve.html:4
+msgid "Approve a comment"
+msgstr ""
+
+#: django/contrib/comments/templates/comments/approve.html:7
+msgid "Really make this comment public?"
+msgstr ""
+
+#: django/contrib/comments/templates/comments/approve.html:12
+msgid "Approve"
+msgstr ""
+
+#: django/contrib/comments/templates/comments/approved.html:4
+msgid "Thanks for approving"
+msgstr ""
+
+#: django/contrib/comments/templates/comments/approved.html:7
+#: django/contrib/comments/templates/comments/deleted.html:7
+#: django/contrib/comments/templates/comments/flagged.html:7
+msgid ""
+"Thanks for taking the time to improve the quality of discussion on our site"
+msgstr ""
+
+#: django/contrib/comments/templates/comments/delete.html:4
+#, fuzzy
+msgid "Remove a comment"
+msgstr "Remover compañero"
+
+#: django/contrib/comments/templates/comments/delete.html:7
+msgid "Really remove this comment?"
+msgstr ""
+
+#: django/contrib/comments/templates/comments/deleted.html:4
+msgid "Thanks for removing"
+msgstr ""
+
+#: django/contrib/comments/templates/comments/flag.html:4
+msgid "Flag this comment"
+msgstr ""
+
+#: django/contrib/comments/templates/comments/flag.html:7
+msgid "Really flag this comment?"
+msgstr ""
+
+#: django/contrib/comments/templates/comments/flag.html:12
+msgid "Flag"
+msgstr ""
+
+#: django/contrib/comments/templates/comments/flagged.html:4
+msgid "Thanks for flagging"
+msgstr ""
+
+#: django/contrib/comments/templates/comments/form.html:17
+#: django/contrib/comments/templates/comments/preview.html:32
+msgid "Post"
+msgstr ""
+
+#: django/contrib/comments/templates/comments/form.html:18
+#: django/contrib/comments/templates/comments/preview.html:33
+msgid "Preview"
+msgstr ""
+
+#: django/contrib/comments/templates/comments/posted.html:4
+msgid "Thanks for commenting"
+msgstr ""
+
+#: django/contrib/comments/templates/comments/posted.html:7
+msgid "Thank you for your comment"
+msgstr ""
+
+#: django/contrib/comments/templates/comments/preview.html:4
+#: django/contrib/comments/templates/comments/preview.html:13
+msgid "Preview your comment"
+msgstr ""
+
+#: django/contrib/comments/templates/comments/preview.html:11
+msgid "Please correct the error below"
+msgid_plural "Please correct the errors below"
+msgstr[0] ""
+msgstr[1] ""
+
+#: django/contrib/comments/templates/comments/preview.html:16
+msgid "Post your comment"
+msgstr ""
+
+#: django/contrib/comments/templates/comments/preview.html:16
+#, fuzzy
+msgid "or make changes"
+msgstr "Confirmar cambios"
+
+#: django/contrib/contenttypes/models.py:123
+msgid "python model class name"
+msgstr ""
+
+#: django/contrib/contenttypes/models.py:128
+msgid "content types"
+msgstr ""
+
+#: django/contrib/contenttypes/views.py:15
+#, python-format
+msgid "Content type %(ct_id)s object has no associated model"
+msgstr ""
+
+#: django/contrib/contenttypes/views.py:19
+#, python-format
+msgid "Content type %(ct_id)s object %(obj_id)s doesn't exist"
+msgstr ""
+
+#: django/contrib/contenttypes/views.py:25
+#, python-format
+msgid "%(ct_name)s objects don't have a get_absolute_url() method"
+msgstr ""
+
+#: django/contrib/flatpages/admin.py:10
+msgid "Advanced options"
+msgstr ""
+
+#: django/contrib/flatpages/forms.py:8
+msgid ""
+"Example: '/about/contact/'. Make sure to have leading and trailing slashes."
+msgstr ""
+
+#: django/contrib/flatpages/forms.py:10
+msgid ""
+"This value must contain only letters, numbers, dots, underscores, dashes, "
+"slashes or tildes."
+msgstr ""
+
+#: django/contrib/flatpages/forms.py:19
+msgid "URL is missing a leading slash."
+msgstr ""
+
+#: django/contrib/flatpages/forms.py:23
+msgid "URL is missing a trailing slash."
+msgstr ""
+
+#: django/contrib/flatpages/forms.py:38
+#, python-format
+msgid "Flatpage with url %(url)s already exists for site %(site)s"
+msgstr ""
+
+#: django/contrib/flatpages/models.py:8
+msgid "title"
+msgstr ""
+
+#: django/contrib/flatpages/models.py:9
+msgid "content"
+msgstr ""
+
+#: django/contrib/flatpages/models.py:10
+msgid "enable comments"
+msgstr ""
+
+#: django/contrib/flatpages/models.py:11
+#, fuzzy
+msgid "template name"
+msgstr "Visualización nombre"
+
+#: django/contrib/flatpages/models.py:12
+msgid ""
+"Example: 'flatpages/contact_page.html'. If this isn't provided, the system "
+"will use 'flatpages/default.html'."
+msgstr ""
+
+#: django/contrib/flatpages/models.py:13
+msgid "registration required"
+msgstr ""
+
+#: django/contrib/flatpages/models.py:13
+msgid "If this is checked, only logged-in users will be able to view the page."
+msgstr ""
+
+#: django/contrib/flatpages/models.py:18
+msgid "flat page"
+msgstr ""
+
+#: django/contrib/flatpages/models.py:19
+msgid "flat pages"
+msgstr ""
+
+#: django/contrib/formtools/templates/formtools/wizard/wizard_form.html:15
+msgid "first step"
+msgstr ""
+
+#: django/contrib/formtools/templates/formtools/wizard/wizard_form.html:16
+msgid "prev step"
+msgstr ""
+
+#: django/contrib/formtools/templates/formtools/wizard/wizard_form.html:18
+msgid "submit"
+msgstr ""
+
+#: django/contrib/formtools/wizard/legacy.py:159
+msgid ""
+"We apologize, but your form has expired. Please continue filling out the "
+"form from this page."
+msgstr ""
+
+#: django/contrib/gis/views.py:7
+msgid "No feeds are registered."
+msgstr ""
+
+#: django/contrib/gis/views.py:17
+#, python-format
+msgid "Slug %r isn't registered."
+msgstr ""
+
+#: django/contrib/gis/db/models/fields.py:50
+msgid "The base GIS field -- maps to the OpenGIS Specification Geometry type."
+msgstr ""
+
+#: django/contrib/gis/db/models/fields.py:270
+msgid "Point"
+msgstr ""
+
+#: django/contrib/gis/db/models/fields.py:274
+msgid "Line string"
+msgstr ""
+
+#: django/contrib/gis/db/models/fields.py:278
+msgid "Polygon"
+msgstr ""
+
+#: django/contrib/gis/db/models/fields.py:282
+msgid "Multi-point"
+msgstr ""
+
+#: django/contrib/gis/db/models/fields.py:286
+msgid "Multi-line string"
+msgstr ""
+
+#: django/contrib/gis/db/models/fields.py:290
+msgid "Multi polygon"
+msgstr ""
+
+#: django/contrib/gis/db/models/fields.py:294
+#, fuzzy
+msgid "Geometry collection"
+msgstr "Selección de país"
+
+#: django/contrib/gis/forms/fields.py:17
+msgid "No geometry value provided."
+msgstr ""
+
+#: django/contrib/gis/forms/fields.py:18
+msgid "Invalid geometry value."
+msgstr ""
+
+#: django/contrib/gis/forms/fields.py:19
+msgid "Invalid geometry type."
+msgstr ""
+
+#: django/contrib/gis/forms/fields.py:20
+msgid ""
+"An error occurred when transforming the geometry to the SRID of the geometry "
+"form field."
+msgstr ""
+
+#: django/contrib/gis/sitemaps/views.py:44
+#, python-format
+msgid "No sitemap available for section: %r"
+msgstr ""
+
+#: django/contrib/gis/sitemaps/views.py:58
+#, python-format
+msgid "Page %s empty"
+msgstr ""
+
+#: django/contrib/gis/sitemaps/views.py:60
+#, python-format
+msgid "No page '%s'"
+msgstr ""
+
+#: django/contrib/humanize/tests.py:108
+#: django/contrib/humanize/templatetags/humanize.py:164
+msgid "today"
+msgstr ""
+
+#: django/contrib/humanize/tests.py:108
+#: django/contrib/humanize/templatetags/humanize.py:168
+msgid "yesterday"
+msgstr ""
+
+#: django/contrib/humanize/tests.py:108
+#: django/contrib/humanize/templatetags/humanize.py:166
+msgid "tomorrow"
+msgstr ""
+
+#: django/contrib/humanize/templatetags/humanize.py:24
+msgid "th"
+msgstr ""
+
+#: django/contrib/humanize/templatetags/humanize.py:24
+msgid "st"
+msgstr ""
+
+#: django/contrib/humanize/templatetags/humanize.py:24
+msgid "nd"
+msgstr ""
+
+#: django/contrib/humanize/templatetags/humanize.py:24
+msgid "rd"
+msgstr ""
+
+#: django/contrib/humanize/templatetags/humanize.py:53
+#, python-format
+msgid "%(value).1f million"
+msgid_plural "%(value).1f million"
+msgstr[0] ""
+msgstr[1] ""
+
+#: django/contrib/humanize/templatetags/humanize.py:54
+#, python-format
+msgid "%(value)s million"
+msgid_plural "%(value)s million"
+msgstr[0] ""
+msgstr[1] ""
+
+#: django/contrib/humanize/templatetags/humanize.py:57
+#, python-format
+msgid "%(value).1f billion"
+msgid_plural "%(value).1f billion"
+msgstr[0] ""
+msgstr[1] ""
+
+#: django/contrib/humanize/templatetags/humanize.py:58
+#, python-format
+msgid "%(value)s billion"
+msgid_plural "%(value)s billion"
+msgstr[0] ""
+msgstr[1] ""
+
+#: django/contrib/humanize/templatetags/humanize.py:61
+#, python-format
+msgid "%(value).1f trillion"
+msgid_plural "%(value).1f trillion"
+msgstr[0] ""
+msgstr[1] ""
+
+#: django/contrib/humanize/templatetags/humanize.py:62
+#, python-format
+msgid "%(value)s trillion"
+msgid_plural "%(value)s trillion"
+msgstr[0] ""
+msgstr[1] ""
+
+#: django/contrib/humanize/templatetags/humanize.py:65
+#, python-format
+msgid "%(value).1f quadrillion"
+msgid_plural "%(value).1f quadrillion"
+msgstr[0] ""
+msgstr[1] ""
+
+#: django/contrib/humanize/templatetags/humanize.py:66
+#, python-format
+msgid "%(value)s quadrillion"
+msgid_plural "%(value)s quadrillion"
+msgstr[0] ""
+msgstr[1] ""
+
+#: django/contrib/humanize/templatetags/humanize.py:69
+#, python-format
+msgid "%(value).1f quintillion"
+msgid_plural "%(value).1f quintillion"
+msgstr[0] ""
+msgstr[1] ""
+
+#: django/contrib/humanize/templatetags/humanize.py:70
+#, python-format
+msgid "%(value)s quintillion"
+msgid_plural "%(value)s quintillion"
+msgstr[0] ""
+msgstr[1] ""
+
+#: django/contrib/humanize/templatetags/humanize.py:73
+#, python-format
+msgid "%(value).1f sextillion"
+msgid_plural "%(value).1f sextillion"
+msgstr[0] ""
+msgstr[1] ""
+
+#: django/contrib/humanize/templatetags/humanize.py:74
+#, python-format
+msgid "%(value)s sextillion"
+msgid_plural "%(value)s sextillion"
+msgstr[0] ""
+msgstr[1] ""
+
+#: django/contrib/humanize/templatetags/humanize.py:77
+#, python-format
+msgid "%(value).1f septillion"
+msgid_plural "%(value).1f septillion"
+msgstr[0] ""
+msgstr[1] ""
+
+#: django/contrib/humanize/templatetags/humanize.py:78
+#, python-format
+msgid "%(value)s septillion"
+msgid_plural "%(value)s septillion"
+msgstr[0] ""
+msgstr[1] ""
+
+#: django/contrib/humanize/templatetags/humanize.py:81
+#, python-format
+msgid "%(value).1f octillion"
+msgid_plural "%(value).1f octillion"
+msgstr[0] ""
+msgstr[1] ""
+
+#: django/contrib/humanize/templatetags/humanize.py:82
+#, python-format
+msgid "%(value)s octillion"
+msgid_plural "%(value)s octillion"
+msgstr[0] ""
+msgstr[1] ""
+
+#: django/contrib/humanize/templatetags/humanize.py:85
+#, python-format
+msgid "%(value).1f nonillion"
+msgid_plural "%(value).1f nonillion"
+msgstr[0] ""
+msgstr[1] ""
+
+#: django/contrib/humanize/templatetags/humanize.py:86
+#, python-format
+msgid "%(value)s nonillion"
+msgid_plural "%(value)s nonillion"
+msgstr[0] ""
+msgstr[1] ""
+
+#: django/contrib/humanize/templatetags/humanize.py:89
+#, python-format
+msgid "%(value).1f decillion"
+msgid_plural "%(value).1f decillion"
+msgstr[0] ""
+msgstr[1] ""
+
+#: django/contrib/humanize/templatetags/humanize.py:90
+#, python-format
+msgid "%(value)s decillion"
+msgid_plural "%(value)s decillion"
+msgstr[0] ""
+msgstr[1] ""
+
+#: django/contrib/humanize/templatetags/humanize.py:93
+#, python-format
+msgid "%(value).1f googol"
+msgid_plural "%(value).1f googol"
+msgstr[0] ""
+msgstr[1] ""
+
+#: django/contrib/humanize/templatetags/humanize.py:94
+#, python-format
+msgid "%(value)s googol"
+msgid_plural "%(value)s googol"
+msgstr[0] ""
+msgstr[1] ""
+
+#: django/contrib/humanize/templatetags/humanize.py:143
+msgid "one"
+msgstr ""
+
+#: django/contrib/humanize/templatetags/humanize.py:143
+#, fuzzy
+msgid "two"
+msgstr "Red"
+
+#: django/contrib/humanize/templatetags/humanize.py:143
+msgid "three"
+msgstr ""
+
+#: django/contrib/humanize/templatetags/humanize.py:143
+msgid "four"
+msgstr ""
+
+#: django/contrib/humanize/templatetags/humanize.py:143
+msgid "five"
+msgstr ""
+
+#: django/contrib/humanize/templatetags/humanize.py:143
+msgid "six"
+msgstr ""
+
+#: django/contrib/humanize/templatetags/humanize.py:143
+msgid "seven"
+msgstr ""
+
+#: django/contrib/humanize/templatetags/humanize.py:143
+msgid "eight"
+msgstr ""
+
+#: django/contrib/humanize/templatetags/humanize.py:143
+msgid "nine"
+msgstr ""
+
+#: django/contrib/humanize/templatetags/humanize.py:185
+#, python-format
+msgctxt "naturaltime"
+msgid "%(delta)s ago"
+msgstr ""
+
+#: django/contrib/humanize/templatetags/humanize.py:188
+#: django/contrib/humanize/templatetags/humanize.py:210
+msgid "now"
+msgstr ""
+
+#: django/contrib/humanize/templatetags/humanize.py:191
+#, python-format
+msgid "a second ago"
+msgid_plural "%(count)s seconds ago"
+msgstr[0] ""
+msgstr[1] ""
+
+#: django/contrib/humanize/templatetags/humanize.py:196
+#, python-format
+msgid "a minute ago"
+msgid_plural "%(count)s minutes ago"
+msgstr[0] ""
+msgstr[1] ""
+
+#: django/contrib/humanize/templatetags/humanize.py:201
+#, python-format
+msgid "an hour ago"
+msgid_plural "%(count)s hours ago"
+msgstr[0] ""
+msgstr[1] ""
+
+#: django/contrib/humanize/templatetags/humanize.py:207
+#, python-format
+msgctxt "naturaltime"
+msgid "%(delta)s from now"
+msgstr ""
+
+#: django/contrib/humanize/templatetags/humanize.py:213
+#, python-format
+msgid "a second from now"
+msgid_plural "%(count)s seconds from now"
+msgstr[0] ""
+msgstr[1] ""
+
+#: django/contrib/humanize/templatetags/humanize.py:218
+#, python-format
+msgid "a minute from now"
+msgid_plural "%(count)s minutes from now"
+msgstr[0] ""
+msgstr[1] ""
+
+#: django/contrib/humanize/templatetags/humanize.py:223
+#, python-format
+msgid "an hour from now"
+msgid_plural "%(count)s hours from now"
+msgstr[0] ""
+msgstr[1] ""
+
+#: django/contrib/localflavor/ar/forms.py:30
+msgid "Enter a postal code in the format NNNN or ANNNNAAA."
+msgstr ""
+
+#: django/contrib/localflavor/ar/forms.py:52
+#: django/contrib/localflavor/br/forms.py:95
+#: django/contrib/localflavor/br/forms.py:134
+#: django/contrib/localflavor/pe/forms.py:27
+#: django/contrib/localflavor/pe/forms.py:55
+msgid "This field requires only numbers."
+msgstr ""
+
+#: django/contrib/localflavor/ar/forms.py:53
+msgid "This field requires 7 or 8 digits."
+msgstr ""
+
+#: django/contrib/localflavor/ar/forms.py:82
+msgid "Enter a valid CUIT in XX-XXXXXXXX-X or XXXXXXXXXXXX format."
+msgstr ""
+
+#: django/contrib/localflavor/ar/forms.py:83
+msgid "Invalid CUIT."
+msgstr ""
+
+#: django/contrib/localflavor/at/at_states.py:5
+msgid "Burgenland"
+msgstr ""
+
+#: django/contrib/localflavor/at/at_states.py:6
+msgid "Carinthia"
+msgstr ""
+
+#: django/contrib/localflavor/at/at_states.py:7
+msgid "Lower Austria"
+msgstr ""
+
+#: django/contrib/localflavor/at/at_states.py:8
+msgid "Upper Austria"
+msgstr ""
+
+#: django/contrib/localflavor/at/at_states.py:9
+msgid "Salzburg"
+msgstr ""
+
+#: django/contrib/localflavor/at/at_states.py:10
+msgid "Styria"
+msgstr ""
+
+#: django/contrib/localflavor/at/at_states.py:11
+msgid "Tyrol"
+msgstr ""
+
+#: django/contrib/localflavor/at/at_states.py:12
+msgid "Vorarlberg"
+msgstr ""
+
+#: django/contrib/localflavor/at/at_states.py:13
+msgid "Vienna"
+msgstr ""
+
+#: django/contrib/localflavor/at/forms.py:22
+#: django/contrib/localflavor/ch/forms.py:22
+#: django/contrib/localflavor/no/forms.py:19
+msgid "Enter a zip code in the format XXXX."
+msgstr ""
+
+#: django/contrib/localflavor/at/forms.py:50
+msgid "Enter a valid Austrian Social Security Number in XXXX XXXXXX format."
+msgstr ""
+
+#: django/contrib/localflavor/au/forms.py:26
+msgid "Enter a 4 digit postcode."
+msgstr ""
+
+#: django/contrib/localflavor/au/models.py:9
+msgid "Australian State"
+msgstr ""
+
+#: django/contrib/localflavor/au/models.py:19
+msgid "Australian Postcode"
+msgstr ""
+
+#: django/contrib/localflavor/au/models.py:33
+#, fuzzy
+msgid "Australian Phone number"
+msgstr "Número teléfono"
+
+#: django/contrib/localflavor/be/be_provinces.py:5
+msgid "Antwerp"
+msgstr ""
+
+#: django/contrib/localflavor/be/be_provinces.py:6
+msgid "Brussels"
+msgstr ""
+
+#: django/contrib/localflavor/be/be_provinces.py:7
+msgid "East Flanders"
+msgstr ""
+
+#: django/contrib/localflavor/be/be_provinces.py:8
+msgid "Flemish Brabant"
+msgstr ""
+
+#: django/contrib/localflavor/be/be_provinces.py:9
+msgid "Hainaut"
+msgstr ""
+
+#: django/contrib/localflavor/be/be_provinces.py:10
+msgid "Liege"
+msgstr ""
+
+#: django/contrib/localflavor/be/be_provinces.py:11
+#: django/contrib/localflavor/nl/nl_provinces.py:9
+msgid "Limburg"
+msgstr ""
+
+#: django/contrib/localflavor/be/be_provinces.py:12
+msgid "Luxembourg"
+msgstr ""
+
+#: django/contrib/localflavor/be/be_provinces.py:13
+msgid "Namur"
+msgstr ""
+
+#: django/contrib/localflavor/be/be_provinces.py:14
+msgid "Walloon Brabant"
+msgstr ""
+
+#: django/contrib/localflavor/be/be_provinces.py:15
+msgid "West Flanders"
+msgstr ""
+
+#: django/contrib/localflavor/be/be_regions.py:5
+msgid "Brussels Capital Region"
+msgstr ""
+
+#: django/contrib/localflavor/be/be_regions.py:6
+msgid "Flemish Region"
+msgstr ""
+
+#: django/contrib/localflavor/be/be_regions.py:7
+msgid "Wallonia"
+msgstr ""
+
+#: django/contrib/localflavor/be/forms.py:25
+msgid "Enter a valid postal code in the range and format 1XXX - 9XXX."
+msgstr ""
+
+#: django/contrib/localflavor/be/forms.py:48
+msgid ""
+"Enter a valid phone number in one of the formats 0x xxx xx xx, 0xx xx xx xx, "
+"04xx xx xx xx, 0x/xxx.xx.xx, 0xx/xx.xx.xx, 04xx/xx.xx.xx, 0x.xxx.xx.xx, 0xx."
+"xx.xx.xx, 04xx.xx.xx.xx, 0xxxxxxxx or 04xxxxxxxx."
+msgstr ""
+
+#: django/contrib/localflavor/br/forms.py:22
+msgid "Enter a zip code in the format XXXXX-XXX."
+msgstr ""
+
+#: django/contrib/localflavor/br/forms.py:31
+msgid "Phone numbers must be in XX-XXXX-XXXX format."
+msgstr ""
+
+#: django/contrib/localflavor/br/forms.py:58
+msgid ""
+"Select a valid brazilian state. That state is not one of the available "
+"states."
+msgstr ""
+
+#: django/contrib/localflavor/br/forms.py:93
+msgid "Invalid CPF number."
+msgstr ""
+
+#: django/contrib/localflavor/br/forms.py:94
+msgid "This field requires at most 11 digits or 14 characters."
+msgstr ""
+
+#: django/contrib/localflavor/br/forms.py:133
+msgid "Invalid CNPJ number."
+msgstr ""
+
+#: django/contrib/localflavor/br/forms.py:135
+msgid "This field requires at least 14 digits"
+msgstr ""
+
+#: django/contrib/localflavor/ca/forms.py:29
+msgid "Enter a postal code in the format XXX XXX."
+msgstr ""
+
+#: django/contrib/localflavor/ca/forms.py:110
+msgid "Enter a valid Canadian Social Insurance number in XXX-XXX-XXX format."
+msgstr ""
+
+#: django/contrib/localflavor/ch/ch_states.py:5
+msgid "Aargau"
+msgstr ""
+
+#: django/contrib/localflavor/ch/ch_states.py:6
+msgid "Appenzell Innerrhoden"
+msgstr ""
+
+#: django/contrib/localflavor/ch/ch_states.py:7
+msgid "Appenzell Ausserrhoden"
+msgstr ""
+
+#: django/contrib/localflavor/ch/ch_states.py:8
+msgid "Basel-Stadt"
+msgstr ""
+
+#: django/contrib/localflavor/ch/ch_states.py:9
+msgid "Basel-Land"
+msgstr ""
+
+#: django/contrib/localflavor/ch/ch_states.py:10
+#, fuzzy
+msgid "Berne"
+msgstr "Internet"
+
+#: django/contrib/localflavor/ch/ch_states.py:11
+msgid "Fribourg"
+msgstr ""
+
+#: django/contrib/localflavor/ch/ch_states.py:12
+msgid "Geneva"
+msgstr ""
+
+#: django/contrib/localflavor/ch/ch_states.py:13
+msgid "Glarus"
+msgstr ""
+
+#: django/contrib/localflavor/ch/ch_states.py:14
+msgid "Graubuenden"
+msgstr ""
+
+#: django/contrib/localflavor/ch/ch_states.py:15
+msgid "Jura"
+msgstr ""
+
+#: django/contrib/localflavor/ch/ch_states.py:16
+msgid "Lucerne"
+msgstr ""
+
+#: django/contrib/localflavor/ch/ch_states.py:17
+msgid "Neuchatel"
+msgstr ""
+
+#: django/contrib/localflavor/ch/ch_states.py:18
+msgid "Nidwalden"
+msgstr ""
+
+#: django/contrib/localflavor/ch/ch_states.py:19
+msgid "Obwalden"
+msgstr ""
+
+#: django/contrib/localflavor/ch/ch_states.py:20
+msgid "Schaffhausen"
+msgstr ""
+
+#: django/contrib/localflavor/ch/ch_states.py:21
+msgid "Schwyz"
+msgstr ""
+
+#: django/contrib/localflavor/ch/ch_states.py:22
+msgid "Solothurn"
+msgstr ""
+
+#: django/contrib/localflavor/ch/ch_states.py:23
+msgid "St. Gallen"
+msgstr ""
+
+#: django/contrib/localflavor/ch/ch_states.py:24
+msgid "Thurgau"
+msgstr ""
+
+#: django/contrib/localflavor/ch/ch_states.py:25
+msgid "Ticino"
+msgstr ""
+
+#: django/contrib/localflavor/ch/ch_states.py:26
+msgid "Uri"
+msgstr ""
+
+#: django/contrib/localflavor/ch/ch_states.py:27
+msgid "Valais"
+msgstr ""
+
+#: django/contrib/localflavor/ch/ch_states.py:28
+msgid "Vaud"
+msgstr ""
+
+#: django/contrib/localflavor/ch/ch_states.py:29
+msgid "Zug"
+msgstr ""
+
+#: django/contrib/localflavor/ch/ch_states.py:30
+msgid "Zurich"
+msgstr ""
+
+#: django/contrib/localflavor/ch/forms.py:68
+msgid ""
+"Enter a valid Swiss identity or passport card number in X1234567<0 or "
+"1234567890 format."
+msgstr ""
+
+#: django/contrib/localflavor/cl/forms.py:32
+msgid "Enter a valid Chilean RUT."
+msgstr ""
+
+#: django/contrib/localflavor/cl/forms.py:33
+msgid "Enter a valid Chilean RUT. The format is XX.XXX.XXX-X."
+msgstr ""
+
+#: django/contrib/localflavor/cl/forms.py:34
+msgid "The Chilean RUT is not valid."
+msgstr ""
+
+#: django/contrib/localflavor/cn/forms.py:84
+msgid "Enter a post code in the format XXXXXX."
+msgstr ""
+
+#: django/contrib/localflavor/cn/forms.py:105
+msgid "ID Card Number consists of 15 or 18 digits."
+msgstr ""
+
+#: django/contrib/localflavor/cn/forms.py:106
+msgid "Invalid ID Card Number: Wrong checksum"
+msgstr ""
+
+#: django/contrib/localflavor/cn/forms.py:107
+msgid "Invalid ID Card Number: Wrong birthdate"
+msgstr ""
+
+#: django/contrib/localflavor/cn/forms.py:108
+msgid "Invalid ID Card Number: Wrong location code"
+msgstr ""
+
+#: django/contrib/localflavor/cn/forms.py:193
+#, fuzzy
+msgid "Enter a valid phone number."
+msgstr "Borrar número teléfono"
+
+#: django/contrib/localflavor/cn/forms.py:210
+msgid "Enter a valid cell number."
+msgstr ""
+
+#: django/contrib/localflavor/cz/cz_regions.py:8
+msgid "Prague"
+msgstr ""
+
+#: django/contrib/localflavor/cz/cz_regions.py:9
+msgid "Central Bohemian Region"
+msgstr ""
+
+#: django/contrib/localflavor/cz/cz_regions.py:10
+msgid "South Bohemian Region"
+msgstr ""
+
+#: django/contrib/localflavor/cz/cz_regions.py:11
+msgid "Pilsen Region"
+msgstr ""
+
+#: django/contrib/localflavor/cz/cz_regions.py:12
+msgid "Carlsbad Region"
+msgstr ""
+
+#: django/contrib/localflavor/cz/cz_regions.py:13
+msgid "Usti Region"
+msgstr ""
+
+#: django/contrib/localflavor/cz/cz_regions.py:14
+msgid "Liberec Region"
+msgstr ""
+
+#: django/contrib/localflavor/cz/cz_regions.py:15
+msgid "Hradec Region"
+msgstr ""
+
+#: django/contrib/localflavor/cz/cz_regions.py:16
+msgid "Pardubice Region"
+msgstr ""
+
+#: django/contrib/localflavor/cz/cz_regions.py:17
+msgid "Vysocina Region"
+msgstr ""
+
+#: django/contrib/localflavor/cz/cz_regions.py:18
+msgid "South Moravian Region"
+msgstr ""
+
+#: django/contrib/localflavor/cz/cz_regions.py:19
+msgid "Olomouc Region"
+msgstr ""
+
+#: django/contrib/localflavor/cz/cz_regions.py:20
+msgid "Zlin Region"
+msgstr ""
+
+#: django/contrib/localflavor/cz/cz_regions.py:21
+msgid "Moravian-Silesian Region"
+msgstr ""
+
+#: django/contrib/localflavor/cz/forms.py:32
+#: django/contrib/localflavor/sk/forms.py:33
+msgid "Enter a postal code in the format XXXXX or XXX XX."
+msgstr ""
+
+#: django/contrib/localflavor/cz/forms.py:52
+msgid "Enter a birth number in the format XXXXXX/XXXX or XXXXXXXXXX."
+msgstr ""
+
+#: django/contrib/localflavor/cz/forms.py:53
+msgid "Invalid optional parameter Gender, valid values are 'f' and 'm'"
+msgstr ""
+
+#: django/contrib/localflavor/cz/forms.py:54
+msgid "Enter a valid birth number."
+msgstr ""
+
+#: django/contrib/localflavor/cz/forms.py:115
+msgid "Enter a valid IC number."
+msgstr ""
+
+#: django/contrib/localflavor/de/de_states.py:5
+msgid "Baden-Wuerttemberg"
+msgstr ""
+
+#: django/contrib/localflavor/de/de_states.py:6
+msgid "Bavaria"
+msgstr ""
+
+#: django/contrib/localflavor/de/de_states.py:7
+msgid "Berlin"
+msgstr ""
+
+#: django/contrib/localflavor/de/de_states.py:8
+msgid "Brandenburg"
+msgstr ""
+
+#: django/contrib/localflavor/de/de_states.py:9
+msgid "Bremen"
+msgstr ""
+
+#: django/contrib/localflavor/de/de_states.py:10
+msgid "Hamburg"
+msgstr ""
+
+#: django/contrib/localflavor/de/de_states.py:11
+msgid "Hessen"
+msgstr ""
+
+#: django/contrib/localflavor/de/de_states.py:12
+msgid "Mecklenburg-Western Pomerania"
+msgstr ""
+
+#: django/contrib/localflavor/de/de_states.py:13
+msgid "Lower Saxony"
+msgstr ""
+
+#: django/contrib/localflavor/de/de_states.py:14
+msgid "North Rhine-Westphalia"
+msgstr ""
+
+#: django/contrib/localflavor/de/de_states.py:15
+msgid "Rhineland-Palatinate"
+msgstr ""
+
+#: django/contrib/localflavor/de/de_states.py:16
+#, fuzzy
+msgid "Saarland"
+msgstr "Suiza"
+
+#: django/contrib/localflavor/de/de_states.py:17
+msgid "Saxony"
+msgstr ""
+
+#: django/contrib/localflavor/de/de_states.py:18
+msgid "Saxony-Anhalt"
+msgstr ""
+
+#: django/contrib/localflavor/de/de_states.py:19
+msgid "Schleswig-Holstein"
+msgstr ""
+
+#: django/contrib/localflavor/de/de_states.py:20
+msgid "Thuringia"
+msgstr ""
+
+#: django/contrib/localflavor/de/forms.py:20
+#: django/contrib/localflavor/fi/forms.py:18
+#: django/contrib/localflavor/fr/forms.py:20
+msgid "Enter a zip code in the format XXXXX."
+msgstr ""
+
+#: django/contrib/localflavor/de/forms.py:46
+msgid ""
+"Enter a valid German identity card number in XXXXXXXXXXX-XXXXXXX-XXXXXXX-X "
+"format."
+msgstr ""
+
+#: django/contrib/localflavor/es/es_provinces.py:5
+msgid "Arava"
+msgstr ""
+
+#: django/contrib/localflavor/es/es_provinces.py:6
+msgid "Albacete"
+msgstr ""
+
+#: django/contrib/localflavor/es/es_provinces.py:7
+msgid "Alacant"
+msgstr ""
+
+#: django/contrib/localflavor/es/es_provinces.py:8
+msgid "Almeria"
+msgstr ""
+
+#: django/contrib/localflavor/es/es_provinces.py:9
+msgid "Avila"
+msgstr ""
+
+#: django/contrib/localflavor/es/es_provinces.py:10
+msgid "Badajoz"
+msgstr ""
+
+#: django/contrib/localflavor/es/es_provinces.py:11
+msgid "Illes Balears"
+msgstr ""
+
+#: django/contrib/localflavor/es/es_provinces.py:12
+msgid "Barcelona"
+msgstr ""
+
+#: django/contrib/localflavor/es/es_provinces.py:13
+msgid "Burgos"
+msgstr ""
+
+#: django/contrib/localflavor/es/es_provinces.py:14
+msgid "Caceres"
+msgstr ""
+
+#: django/contrib/localflavor/es/es_provinces.py:15
+msgid "Cadiz"
+msgstr ""
+
+#: django/contrib/localflavor/es/es_provinces.py:16
+msgid "Castello"
+msgstr ""
+
+#: django/contrib/localflavor/es/es_provinces.py:17
+msgid "Ciudad Real"
+msgstr ""
+
+#: django/contrib/localflavor/es/es_provinces.py:18
+msgid "Cordoba"
+msgstr ""
+
+#: django/contrib/localflavor/es/es_provinces.py:19
+msgid "A Coruna"
+msgstr ""
+
+#: django/contrib/localflavor/es/es_provinces.py:20
+msgid "Cuenca"
+msgstr ""
+
+#: django/contrib/localflavor/es/es_provinces.py:21
+msgid "Girona"
+msgstr ""
+
+#: django/contrib/localflavor/es/es_provinces.py:22
+msgid "Granada"
+msgstr ""
+
+#: django/contrib/localflavor/es/es_provinces.py:23
+msgid "Guadalajara"
+msgstr ""
+
+#: django/contrib/localflavor/es/es_provinces.py:24
+msgid "Guipuzkoa"
+msgstr ""
+
+#: django/contrib/localflavor/es/es_provinces.py:25
+msgid "Huelva"
+msgstr ""
+
+#: django/contrib/localflavor/es/es_provinces.py:26
+msgid "Huesca"
+msgstr ""
+
+#: django/contrib/localflavor/es/es_provinces.py:27
+msgid "Jaen"
+msgstr ""
+
+#: django/contrib/localflavor/es/es_provinces.py:28
+msgid "Leon"
+msgstr ""
+
+#: django/contrib/localflavor/es/es_provinces.py:29
+msgid "Lleida"
+msgstr ""
+
+#: django/contrib/localflavor/es/es_provinces.py:30
+#: django/contrib/localflavor/es/es_regions.py:17
+msgid "La Rioja"
+msgstr ""
+
+#: django/contrib/localflavor/es/es_provinces.py:31
+msgid "Lugo"
+msgstr ""
+
+#: django/contrib/localflavor/es/es_provinces.py:32
+#: django/contrib/localflavor/es/es_regions.py:18
+msgid "Madrid"
+msgstr ""
+
+#: django/contrib/localflavor/es/es_provinces.py:33
+msgid "Malaga"
+msgstr ""
+
+#: django/contrib/localflavor/es/es_provinces.py:34
+msgid "Murcia"
+msgstr ""
+
+#: django/contrib/localflavor/es/es_provinces.py:35
+msgid "Navarre"
+msgstr ""
+
+#: django/contrib/localflavor/es/es_provinces.py:36
+msgid "Ourense"
+msgstr ""
+
+#: django/contrib/localflavor/es/es_provinces.py:37
+msgid "Asturias"
+msgstr ""
+
+#: django/contrib/localflavor/es/es_provinces.py:38
+msgid "Palencia"
+msgstr ""
+
+#: django/contrib/localflavor/es/es_provinces.py:39
+msgid "Las Palmas"
+msgstr ""
+
+#: django/contrib/localflavor/es/es_provinces.py:40
+msgid "Pontevedra"
+msgstr ""
+
+#: django/contrib/localflavor/es/es_provinces.py:41
+msgid "Salamanca"
+msgstr ""
+
+#: django/contrib/localflavor/es/es_provinces.py:42
+msgid "Santa Cruz de Tenerife"
+msgstr ""
+
+#: django/contrib/localflavor/es/es_provinces.py:43
+#: django/contrib/localflavor/es/es_regions.py:11
+msgid "Cantabria"
+msgstr ""
+
+#: django/contrib/localflavor/es/es_provinces.py:44
+msgid "Segovia"
+msgstr ""
+
+#: django/contrib/localflavor/es/es_provinces.py:45
+msgid "Seville"
+msgstr ""
+
+#: django/contrib/localflavor/es/es_provinces.py:46
+msgid "Soria"
+msgstr ""
+
+#: django/contrib/localflavor/es/es_provinces.py:47
+msgid "Tarragona"
+msgstr ""
+
+#: django/contrib/localflavor/es/es_provinces.py:48
+msgid "Teruel"
+msgstr ""
+
+#: django/contrib/localflavor/es/es_provinces.py:49
+msgid "Toledo"
+msgstr ""
+
+#: django/contrib/localflavor/es/es_provinces.py:50
+msgid "Valencia"
+msgstr ""
+
+#: django/contrib/localflavor/es/es_provinces.py:51
+msgid "Valladolid"
+msgstr ""
+
+#: django/contrib/localflavor/es/es_provinces.py:52
+msgid "Bizkaia"
+msgstr ""
+
+#: django/contrib/localflavor/es/es_provinces.py:53
+msgid "Zamora"
+msgstr ""
+
+#: django/contrib/localflavor/es/es_provinces.py:54
+msgid "Zaragoza"
+msgstr ""
+
+#: django/contrib/localflavor/es/es_provinces.py:55
+msgid "Ceuta"
+msgstr ""
+
+#: django/contrib/localflavor/es/es_provinces.py:56
+msgid "Melilla"
+msgstr ""
+
+#: django/contrib/localflavor/es/es_regions.py:5
+msgid "Andalusia"
+msgstr ""
+
+#: django/contrib/localflavor/es/es_regions.py:6
+msgid "Aragon"
+msgstr ""
+
+#: django/contrib/localflavor/es/es_regions.py:7
+msgid "Principality of Asturias"
+msgstr ""
+
+#: django/contrib/localflavor/es/es_regions.py:8
+msgid "Balearic Islands"
+msgstr ""
+
+#: django/contrib/localflavor/es/es_regions.py:9
+msgid "Basque Country"
+msgstr ""
+
+#: django/contrib/localflavor/es/es_regions.py:10
+msgid "Canary Islands"
+msgstr ""
+
+#: django/contrib/localflavor/es/es_regions.py:12
+msgid "Castile-La Mancha"
+msgstr ""
+
+#: django/contrib/localflavor/es/es_regions.py:13
+msgid "Castile and Leon"
+msgstr ""
+
+#: django/contrib/localflavor/es/es_regions.py:14
+msgid "Catalonia"
+msgstr ""
+
+#: django/contrib/localflavor/es/es_regions.py:15
+msgid "Extremadura"
+msgstr ""
+
+#: django/contrib/localflavor/es/es_regions.py:16
+msgid "Galicia"
+msgstr ""
+
+#: django/contrib/localflavor/es/es_regions.py:19
+msgid "Region of Murcia"
+msgstr ""
+
+#: django/contrib/localflavor/es/es_regions.py:20
+msgid "Foral Community of Navarre"
+msgstr ""
+
+#: django/contrib/localflavor/es/es_regions.py:21
+msgid "Valencian Community"
+msgstr ""
+
+#: django/contrib/localflavor/es/forms.py:26
+msgid "Enter a valid postal code in the range and format 01XXX - 52XXX."
+msgstr ""
+
+#: django/contrib/localflavor/es/forms.py:46
+msgid ""
+"Enter a valid phone number in one of the formats 6XXXXXXXX, 8XXXXXXXX or "
+"9XXXXXXXX."
+msgstr ""
+
+#: django/contrib/localflavor/es/forms.py:73
+msgid "Please enter a valid NIF, NIE, or CIF."
+msgstr ""
+
+#: django/contrib/localflavor/es/forms.py:74
+msgid "Please enter a valid NIF or NIE."
+msgstr ""
+
+#: django/contrib/localflavor/es/forms.py:75
+msgid "Invalid checksum for NIF."
+msgstr ""
+
+#: django/contrib/localflavor/es/forms.py:76
+msgid "Invalid checksum for NIE."
+msgstr ""
+
+#: django/contrib/localflavor/es/forms.py:77
+msgid "Invalid checksum for CIF."
+msgstr ""
+
+#: django/contrib/localflavor/es/forms.py:149
+msgid ""
+"Please enter a valid bank account number in format XXXX-XXXX-XX-XXXXXXXXXX."
+msgstr ""
+
+#: django/contrib/localflavor/es/forms.py:150
+msgid "Invalid checksum for bank account number."
+msgstr ""
+
+#: django/contrib/localflavor/fi/forms.py:33
+msgid "Enter a valid Finnish social security number."
+msgstr ""
+
+#: django/contrib/localflavor/fr/forms.py:35
+msgid "Phone numbers must be in 0X XX XX XX XX format."
+msgstr ""
+
+#: django/contrib/localflavor/gb/forms.py:25
+msgid "Enter a valid postcode."
+msgstr ""
+
+#: django/contrib/localflavor/gb/gb_regions.py:11
+msgid "Bedfordshire"
+msgstr ""
+
+#: django/contrib/localflavor/gb/gb_regions.py:12
+msgid "Buckinghamshire"
+msgstr ""
+
+#: django/contrib/localflavor/gb/gb_regions.py:14
+msgid "Cheshire"
+msgstr ""
+
+#: django/contrib/localflavor/gb/gb_regions.py:15
+msgid "Cornwall and Isles of Scilly"
+msgstr ""
+
+#: django/contrib/localflavor/gb/gb_regions.py:16
+msgid "Cumbria"
+msgstr ""
+
+#: django/contrib/localflavor/gb/gb_regions.py:17
+msgid "Derbyshire"
+msgstr ""
+
+#: django/contrib/localflavor/gb/gb_regions.py:18
+msgid "Devon"
+msgstr ""
+
+#: django/contrib/localflavor/gb/gb_regions.py:19
+msgid "Dorset"
+msgstr ""
+
+#: django/contrib/localflavor/gb/gb_regions.py:20
+msgid "Durham"
+msgstr ""
+
+#: django/contrib/localflavor/gb/gb_regions.py:21
+msgid "East Sussex"
+msgstr ""
+
+#: django/contrib/localflavor/gb/gb_regions.py:22
+msgid "Essex"
+msgstr ""
+
+#: django/contrib/localflavor/gb/gb_regions.py:23
+msgid "Gloucestershire"
+msgstr ""
+
+#: django/contrib/localflavor/gb/gb_regions.py:24
+msgid "Greater London"
+msgstr ""
+
+#: django/contrib/localflavor/gb/gb_regions.py:25
+msgid "Greater Manchester"
+msgstr ""
+
+#: django/contrib/localflavor/gb/gb_regions.py:26
+msgid "Hampshire"
+msgstr ""
+
+#: django/contrib/localflavor/gb/gb_regions.py:27
+msgid "Hertfordshire"
+msgstr ""
+
+#: django/contrib/localflavor/gb/gb_regions.py:28
+msgid "Kent"
+msgstr ""
+
+#: django/contrib/localflavor/gb/gb_regions.py:29
+msgid "Lancashire"
+msgstr ""
+
+#: django/contrib/localflavor/gb/gb_regions.py:30
+msgid "Leicestershire"
+msgstr ""
+
+#: django/contrib/localflavor/gb/gb_regions.py:31
+msgid "Lincolnshire"
+msgstr ""
+
+#: django/contrib/localflavor/gb/gb_regions.py:32
+msgid "Merseyside"
+msgstr ""
+
+#: django/contrib/localflavor/gb/gb_regions.py:33
+msgid "Norfolk"
+msgstr ""
+
+#: django/contrib/localflavor/gb/gb_regions.py:34
+msgid "North Yorkshire"
+msgstr ""
+
+#: django/contrib/localflavor/gb/gb_regions.py:35
+msgid "Northamptonshire"
+msgstr ""
+
+#: django/contrib/localflavor/gb/gb_regions.py:36
+msgid "Northumberland"
+msgstr ""
+
+#: django/contrib/localflavor/gb/gb_regions.py:37
+msgid "Nottinghamshire"
+msgstr ""
+
+#: django/contrib/localflavor/gb/gb_regions.py:38
+msgid "Oxfordshire"
+msgstr ""
+
+#: django/contrib/localflavor/gb/gb_regions.py:39
+msgid "Shropshire"
+msgstr ""
+
+#: django/contrib/localflavor/gb/gb_regions.py:40
+msgid "Somerset"
+msgstr ""
+
+#: django/contrib/localflavor/gb/gb_regions.py:41
+msgid "South Yorkshire"
+msgstr ""
+
+#: django/contrib/localflavor/gb/gb_regions.py:42
+msgid "Staffordshire"
+msgstr ""
+
+#: django/contrib/localflavor/gb/gb_regions.py:43
+msgid "Suffolk"
+msgstr ""
+
+#: django/contrib/localflavor/gb/gb_regions.py:44
+msgid "Surrey"
+msgstr ""
+
+#: django/contrib/localflavor/gb/gb_regions.py:45
+msgid "Tyne and Wear"
+msgstr ""
+
+#: django/contrib/localflavor/gb/gb_regions.py:46
+msgid "Warwickshire"
+msgstr ""
+
+#: django/contrib/localflavor/gb/gb_regions.py:47
+msgid "West Midlands"
+msgstr ""
+
+#: django/contrib/localflavor/gb/gb_regions.py:48
+msgid "West Sussex"
+msgstr ""
+
+#: django/contrib/localflavor/gb/gb_regions.py:49
+msgid "West Yorkshire"
+msgstr ""
+
+#: django/contrib/localflavor/gb/gb_regions.py:50
+msgid "Wiltshire"
+msgstr ""
+
+#: django/contrib/localflavor/gb/gb_regions.py:51
+msgid "Worcestershire"
+msgstr ""
+
+#: django/contrib/localflavor/gb/gb_regions.py:55
+#, fuzzy
+msgid "County Antrim"
+msgstr "Selección de país"
+
+#: django/contrib/localflavor/gb/gb_regions.py:56
+msgid "County Armagh"
+msgstr ""
+
+#: django/contrib/localflavor/gb/gb_regions.py:57
+#, fuzzy
+msgid "County Down"
+msgstr "Selección de país"
+
+#: django/contrib/localflavor/gb/gb_regions.py:58
+msgid "County Fermanagh"
+msgstr ""
+
+#: django/contrib/localflavor/gb/gb_regions.py:59
+msgid "County Londonderry"
+msgstr ""
+
+#: django/contrib/localflavor/gb/gb_regions.py:60
+#, fuzzy
+msgid "County Tyrone"
+msgstr "Selección de país"
+
+#: django/contrib/localflavor/gb/gb_regions.py:64
+msgid "Clwyd"
+msgstr ""
+
+#: django/contrib/localflavor/gb/gb_regions.py:65
+msgid "Dyfed"
+msgstr ""
+
+#: django/contrib/localflavor/gb/gb_regions.py:66
+msgid "Gwent"
+msgstr ""
+
+#: django/contrib/localflavor/gb/gb_regions.py:67
+msgid "Gwynedd"
+msgstr ""
+
+#: django/contrib/localflavor/gb/gb_regions.py:68
+msgid "Mid Glamorgan"
+msgstr ""
+
+#: django/contrib/localflavor/gb/gb_regions.py:69
+msgid "Powys"
+msgstr ""
+
+#: django/contrib/localflavor/gb/gb_regions.py:70
+msgid "South Glamorgan"
+msgstr ""
+
+#: django/contrib/localflavor/gb/gb_regions.py:71
+msgid "West Glamorgan"
+msgstr ""
+
+#: django/contrib/localflavor/gb/gb_regions.py:75
+msgid "Borders"
+msgstr ""
+
+#: django/contrib/localflavor/gb/gb_regions.py:76
+msgid "Central Scotland"
+msgstr ""
+
+#: django/contrib/localflavor/gb/gb_regions.py:77
+msgid "Dumfries and Galloway"
+msgstr ""
+
+#: django/contrib/localflavor/gb/gb_regions.py:78
+msgid "Fife"
+msgstr ""
+
+#: django/contrib/localflavor/gb/gb_regions.py:79
+msgid "Grampian"
+msgstr ""
+
+#: django/contrib/localflavor/gb/gb_regions.py:80
+msgid "Highland"
+msgstr ""
+
+#: django/contrib/localflavor/gb/gb_regions.py:81
+msgid "Lothian"
+msgstr ""
+
+#: django/contrib/localflavor/gb/gb_regions.py:82
+msgid "Orkney Islands"
+msgstr ""
+
+#: django/contrib/localflavor/gb/gb_regions.py:83
+msgid "Shetland Islands"
+msgstr ""
+
+#: django/contrib/localflavor/gb/gb_regions.py:84
+msgid "Strathclyde"
+msgstr ""
+
+#: django/contrib/localflavor/gb/gb_regions.py:85
+msgid "Tayside"
+msgstr ""
+
+#: django/contrib/localflavor/gb/gb_regions.py:86
+msgid "Western Isles"
+msgstr ""
+
+#: django/contrib/localflavor/gb/gb_regions.py:90
+msgid "England"
+msgstr ""
+
+#: django/contrib/localflavor/gb/gb_regions.py:91
+msgid "Northern Ireland"
+msgstr ""
+
+#: django/contrib/localflavor/gb/gb_regions.py:92
+#, fuzzy
+msgid "Scotland"
+msgstr "Suiza"
+
+#: django/contrib/localflavor/gb/gb_regions.py:93
+msgid "Wales"
+msgstr ""
+
+#: django/contrib/localflavor/hr/forms.py:75
+msgid "Enter a valid 13 digit JMBG"
+msgstr ""
+
+#: django/contrib/localflavor/hr/forms.py:76
+msgid "Error in date segment"
+msgstr ""
+
+#: django/contrib/localflavor/hr/forms.py:123
+msgid "Enter a valid 11 digit OIB"
+msgstr ""
+
+#: django/contrib/localflavor/hr/forms.py:152
+#: django/contrib/localflavor/id/forms.py:112
+msgid "Enter a valid vehicle license plate number"
+msgstr ""
+
+#: django/contrib/localflavor/hr/forms.py:153
+msgid "Enter a valid location code"
+msgstr ""
+
+#: django/contrib/localflavor/hr/forms.py:154
+msgid "Number part cannot be zero"
+msgstr ""
+
+#: django/contrib/localflavor/hr/forms.py:190
+msgid "Enter a valid 5 digit postal code"
+msgstr ""
+
+#: django/contrib/localflavor/hr/forms.py:218
+#: django/contrib/localflavor/id/forms.py:72
+#: django/contrib/localflavor/nl/forms.py:56
+#, fuzzy
+msgid "Enter a valid phone number"
+msgstr "Borrar número teléfono"
+
+#: django/contrib/localflavor/hr/forms.py:219
+msgid "Enter a valid area or mobile network code"
+msgstr ""
+
+#: django/contrib/localflavor/hr/forms.py:220
+msgid "The phone nubmer is too long"
+msgstr ""
+
+#: django/contrib/localflavor/hr/forms.py:258
+msgid "Enter a valid 19 digit JMBAG starting with 601983"
+msgstr ""
+
+#: django/contrib/localflavor/hr/forms.py:259
+msgid "Card issue number cannot be zero"
+msgstr ""
+
+#: django/contrib/localflavor/hr/hr_choices.py:12
+msgid "Grad Zagreb"
+msgstr ""
+
+#: django/contrib/localflavor/hr/hr_choices.py:13
+msgid "Bjelovarsko-bilogorska županija"
+msgstr ""
+
+#: django/contrib/localflavor/hr/hr_choices.py:14
+msgid "Brodsko-posavska županija"
+msgstr ""
+
+#: django/contrib/localflavor/hr/hr_choices.py:15
+msgid "Dubrovačko-neretvanska županija"
+msgstr ""
+
+#: django/contrib/localflavor/hr/hr_choices.py:16
+msgid "Istarska županija"
+msgstr ""
+
+#: django/contrib/localflavor/hr/hr_choices.py:17
+msgid "Karlovačka županija"
+msgstr ""
+
+#: django/contrib/localflavor/hr/hr_choices.py:18
+msgid "Koprivničko-križevačka županija"
+msgstr ""
+
+#: django/contrib/localflavor/hr/hr_choices.py:19
+msgid "Krapinsko-zagorska županija"
+msgstr ""
+
+#: django/contrib/localflavor/hr/hr_choices.py:20
+msgid "Ličko-senjska županija"
+msgstr ""
+
+#: django/contrib/localflavor/hr/hr_choices.py:21
+msgid "Međimurska županija"
+msgstr ""
+
+#: django/contrib/localflavor/hr/hr_choices.py:22
+msgid "Osječko-baranjska županija"
+msgstr ""
+
+#: django/contrib/localflavor/hr/hr_choices.py:23
+msgid "Požeško-slavonska županija"
+msgstr ""
+
+#: django/contrib/localflavor/hr/hr_choices.py:24
+msgid "Primorsko-goranska županija"
+msgstr ""
+
+#: django/contrib/localflavor/hr/hr_choices.py:25
+msgid "Sisačko-moslavačka županija"
+msgstr ""
+
+#: django/contrib/localflavor/hr/hr_choices.py:26
+msgid "Splitsko-dalmatinska županija"
+msgstr ""
+
+#: django/contrib/localflavor/hr/hr_choices.py:27
+msgid "Šibensko-kninska županija"
+msgstr ""
+
+#: django/contrib/localflavor/hr/hr_choices.py:28
+msgid "Varaždinska županija"
+msgstr ""
+
+#: django/contrib/localflavor/hr/hr_choices.py:29
+msgid "Virovitičko-podravska županija"
+msgstr ""
+
+#: django/contrib/localflavor/hr/hr_choices.py:30
+msgid "Vukovarsko-srijemska županija"
+msgstr ""
+
+#: django/contrib/localflavor/hr/hr_choices.py:31
+msgid "Zadarska županija"
+msgstr ""
+
+#: django/contrib/localflavor/hr/hr_choices.py:32
+msgid "Zagrebačka županija"
+msgstr ""
+
+#: django/contrib/localflavor/id/forms.py:31
+msgid "Enter a valid post code"
+msgstr ""
+
+#: django/contrib/localflavor/id/forms.py:176
+msgid "Enter a valid NIK/KTP number"
+msgstr ""
+
+#: django/contrib/localflavor/id/id_choices.py:15
+msgid "Aceh"
+msgstr ""
+
+#: django/contrib/localflavor/id/id_choices.py:16
+#: django/contrib/localflavor/id/id_choices.py:79
+msgid "Bali"
+msgstr ""
+
+#: django/contrib/localflavor/id/id_choices.py:17
+#: django/contrib/localflavor/id/id_choices.py:51
+msgid "Banten"
+msgstr ""
+
+#: django/contrib/localflavor/id/id_choices.py:18
+#: django/contrib/localflavor/id/id_choices.py:60
+msgid "Bengkulu"
+msgstr ""
+
+#: django/contrib/localflavor/id/id_choices.py:19
+#: django/contrib/localflavor/id/id_choices.py:53
+msgid "Yogyakarta"
+msgstr ""
+
+#: django/contrib/localflavor/id/id_choices.py:20
+#: django/contrib/localflavor/id/id_choices.py:57
+msgid "Jakarta"
+msgstr ""
+
+#: django/contrib/localflavor/id/id_choices.py:21
+#: django/contrib/localflavor/id/id_choices.py:81
+msgid "Gorontalo"
+msgstr ""
+
+#: django/contrib/localflavor/id/id_choices.py:22
+#: django/contrib/localflavor/id/id_choices.py:63
+msgid "Jambi"
+msgstr ""
+
+#: django/contrib/localflavor/id/id_choices.py:23
+msgid "Jawa Barat"
+msgstr ""
+
+#: django/contrib/localflavor/id/id_choices.py:24
+msgid "Jawa Tengah"
+msgstr ""
+
+#: django/contrib/localflavor/id/id_choices.py:25
+msgid "Jawa Timur"
+msgstr ""
+
+#: django/contrib/localflavor/id/id_choices.py:26
+#: django/contrib/localflavor/id/id_choices.py:94
+msgid "Kalimantan Barat"
+msgstr ""
+
+#: django/contrib/localflavor/id/id_choices.py:27
+#: django/contrib/localflavor/id/id_choices.py:72
+msgid "Kalimantan Selatan"
+msgstr ""
+
+#: django/contrib/localflavor/id/id_choices.py:28
+#: django/contrib/localflavor/id/id_choices.py:95
+msgid "Kalimantan Tengah"
+msgstr ""
+
+#: django/contrib/localflavor/id/id_choices.py:29
+#: django/contrib/localflavor/id/id_choices.py:96
+msgid "Kalimantan Timur"
+msgstr ""
+
+#: django/contrib/localflavor/id/id_choices.py:30
+msgid "Kepulauan Bangka-Belitung"
+msgstr ""
+
+#: django/contrib/localflavor/id/id_choices.py:31
+#: django/contrib/localflavor/id/id_choices.py:68
+msgid "Kepulauan Riau"
+msgstr ""
+
+#: django/contrib/localflavor/id/id_choices.py:32
+#: django/contrib/localflavor/id/id_choices.py:61
+msgid "Lampung"
+msgstr ""
+
+#: django/contrib/localflavor/id/id_choices.py:33
+#: django/contrib/localflavor/id/id_choices.py:76
+msgid "Maluku"
+msgstr ""
+
+#: django/contrib/localflavor/id/id_choices.py:34
+#: django/contrib/localflavor/id/id_choices.py:77
+msgid "Maluku Utara"
+msgstr ""
+
+#: django/contrib/localflavor/id/id_choices.py:35
+msgid "Nusa Tenggara Barat"
+msgstr ""
+
+#: django/contrib/localflavor/id/id_choices.py:36
+msgid "Nusa Tenggara Timur"
+msgstr ""
+
+#: django/contrib/localflavor/id/id_choices.py:37
+msgid "Papua"
+msgstr ""
+
+#: django/contrib/localflavor/id/id_choices.py:38
+msgid "Papua Barat"
+msgstr ""
+
+#: django/contrib/localflavor/id/id_choices.py:39
+#: django/contrib/localflavor/id/id_choices.py:66
+msgid "Riau"
+msgstr ""
+
+#: django/contrib/localflavor/id/id_choices.py:40
+#: django/contrib/localflavor/id/id_choices.py:74
+msgid "Sulawesi Barat"
+msgstr ""
+
+#: django/contrib/localflavor/id/id_choices.py:41
+#: django/contrib/localflavor/id/id_choices.py:75
+msgid "Sulawesi Selatan"
+msgstr ""
+
+#: django/contrib/localflavor/id/id_choices.py:42
+#: django/contrib/localflavor/id/id_choices.py:82
+msgid "Sulawesi Tengah"
+msgstr ""
+
+#: django/contrib/localflavor/id/id_choices.py:43
+#: django/contrib/localflavor/id/id_choices.py:85
+msgid "Sulawesi Tenggara"
+msgstr ""
+
+#: django/contrib/localflavor/id/id_choices.py:44
+msgid "Sulawesi Utara"
+msgstr ""
+
+#: django/contrib/localflavor/id/id_choices.py:45
+#: django/contrib/localflavor/id/id_choices.py:58
+msgid "Sumatera Barat"
+msgstr ""
+
+#: django/contrib/localflavor/id/id_choices.py:46
+#: django/contrib/localflavor/id/id_choices.py:62
+msgid "Sumatera Selatan"
+msgstr ""
+
+#: django/contrib/localflavor/id/id_choices.py:47
+#: django/contrib/localflavor/id/id_choices.py:64
+msgid "Sumatera Utara"
+msgstr ""
+
+#: django/contrib/localflavor/id/id_choices.py:52
+msgid "Magelang"
+msgstr ""
+
+#: django/contrib/localflavor/id/id_choices.py:54
+msgid "Surakarta - Solo"
+msgstr ""
+
+#: django/contrib/localflavor/id/id_choices.py:55
+msgid "Madiun"
+msgstr ""
+
+#: django/contrib/localflavor/id/id_choices.py:56
+msgid "Kediri"
+msgstr ""
+
+#: django/contrib/localflavor/id/id_choices.py:59
+msgid "Tapanuli"
+msgstr ""
+
+#: django/contrib/localflavor/id/id_choices.py:65
+msgid "Nanggroe Aceh Darussalam"
+msgstr ""
+
+#: django/contrib/localflavor/id/id_choices.py:67
+msgid "Kepulauan Bangka Belitung"
+msgstr ""
+
+#: django/contrib/localflavor/id/id_choices.py:69
+msgid "Corps Consulate"
+msgstr ""
+
+#: django/contrib/localflavor/id/id_choices.py:70
+msgid "Corps Diplomatic"
+msgstr ""
+
+#: django/contrib/localflavor/id/id_choices.py:71
+msgid "Bandung"
+msgstr ""
+
+#: django/contrib/localflavor/id/id_choices.py:73
+msgid "Sulawesi Utara Daratan"
+msgstr ""
+
+#: django/contrib/localflavor/id/id_choices.py:78
+msgid "NTT - Timor"
+msgstr ""
+
+#: django/contrib/localflavor/id/id_choices.py:80
+msgid "Sulawesi Utara Kepulauan"
+msgstr ""
+
+#: django/contrib/localflavor/id/id_choices.py:83
+msgid "NTB - Lombok"
+msgstr ""
+
+#: django/contrib/localflavor/id/id_choices.py:84
+msgid "Papua dan Papua Barat"
+msgstr ""
+
+#: django/contrib/localflavor/id/id_choices.py:86
+msgid "Cirebon"
+msgstr ""
+
+#: django/contrib/localflavor/id/id_choices.py:87
+msgid "NTB - Sumbawa"
+msgstr ""
+
+#: django/contrib/localflavor/id/id_choices.py:88
+msgid "NTT - Flores"
+msgstr ""
+
+#: django/contrib/localflavor/id/id_choices.py:89
+msgid "NTT - Sumba"
+msgstr ""
+
+#: django/contrib/localflavor/id/id_choices.py:90
+msgid "Bogor"
+msgstr ""
+
+#: django/contrib/localflavor/id/id_choices.py:91
+msgid "Pekalongan"
+msgstr ""
+
+#: django/contrib/localflavor/id/id_choices.py:92
+msgid "Semarang"
+msgstr ""
+
+#: django/contrib/localflavor/id/id_choices.py:93
+msgid "Pati"
+msgstr ""
+
+#: django/contrib/localflavor/id/id_choices.py:97
+msgid "Surabaya"
+msgstr ""
+
+#: django/contrib/localflavor/id/id_choices.py:98
+msgid "Madura"
+msgstr ""
+
+#: django/contrib/localflavor/id/id_choices.py:99
+msgid "Malang"
+msgstr ""
+
+#: django/contrib/localflavor/id/id_choices.py:100
+msgid "Jember"
+msgstr ""
+
+#: django/contrib/localflavor/id/id_choices.py:101
+msgid "Banyumas"
+msgstr ""
+
+#: django/contrib/localflavor/id/id_choices.py:102
+msgid "Federal Government"
+msgstr ""
+
+#: django/contrib/localflavor/id/id_choices.py:103
+msgid "Bojonegoro"
+msgstr ""
+
+#: django/contrib/localflavor/id/id_choices.py:104
+msgid "Purwakarta"
+msgstr ""
+
+#: django/contrib/localflavor/id/id_choices.py:105
+msgid "Sidoarjo"
+msgstr ""
+
+#: django/contrib/localflavor/id/id_choices.py:106
+msgid "Garut"
+msgstr ""
+
+#: django/contrib/localflavor/ie/ie_counties.py:8
+msgid "Antrim"
+msgstr ""
+
+#: django/contrib/localflavor/ie/ie_counties.py:9
+msgid "Armagh"
+msgstr ""
+
+#: django/contrib/localflavor/ie/ie_counties.py:10
+msgid "Carlow"
+msgstr ""
+
+#: django/contrib/localflavor/ie/ie_counties.py:11
+msgid "Cavan"
+msgstr ""
+
+#: django/contrib/localflavor/ie/ie_counties.py:12
+msgid "Clare"
+msgstr ""
+
+#: django/contrib/localflavor/ie/ie_counties.py:13
+msgid "Cork"
+msgstr ""
+
+#: django/contrib/localflavor/ie/ie_counties.py:14
+msgid "Derry"
+msgstr ""
+
+#: django/contrib/localflavor/ie/ie_counties.py:15
+msgid "Donegal"
+msgstr ""
+
+#: django/contrib/localflavor/ie/ie_counties.py:16
+msgid "Down"
+msgstr ""
+
+#: django/contrib/localflavor/ie/ie_counties.py:17
+msgid "Dublin"
+msgstr ""
+
+#: django/contrib/localflavor/ie/ie_counties.py:18
+#, fuzzy
+msgid "Fermanagh"
+msgstr "Alemán"
+
+#: django/contrib/localflavor/ie/ie_counties.py:19
+msgid "Galway"
+msgstr ""
+
+#: django/contrib/localflavor/ie/ie_counties.py:20
+msgid "Kerry"
+msgstr ""
+
+#: django/contrib/localflavor/ie/ie_counties.py:21
+msgid "Kildare"
+msgstr ""
+
+#: django/contrib/localflavor/ie/ie_counties.py:22
+msgid "Kilkenny"
+msgstr ""
+
+#: django/contrib/localflavor/ie/ie_counties.py:23
+msgid "Laois"
+msgstr ""
+
+#: django/contrib/localflavor/ie/ie_counties.py:24
+msgid "Leitrim"
+msgstr ""
+
+#: django/contrib/localflavor/ie/ie_counties.py:25
+msgid "Limerick"
+msgstr ""
+
+#: django/contrib/localflavor/ie/ie_counties.py:26
+msgid "Longford"
+msgstr ""
+
+#: django/contrib/localflavor/ie/ie_counties.py:27
+msgid "Louth"
+msgstr ""
+
+#: django/contrib/localflavor/ie/ie_counties.py:28
+msgid "Mayo"
+msgstr ""
+
+#: django/contrib/localflavor/ie/ie_counties.py:29
+msgid "Meath"
+msgstr ""
+
+#: django/contrib/localflavor/ie/ie_counties.py:30
+msgid "Monaghan"
+msgstr ""
+
+#: django/contrib/localflavor/ie/ie_counties.py:31
+msgid "Offaly"
+msgstr ""
+
+#: django/contrib/localflavor/ie/ie_counties.py:32
+msgid "Roscommon"
+msgstr ""
+
+#: django/contrib/localflavor/ie/ie_counties.py:33
+msgid "Sligo"
+msgstr ""
+
+#: django/contrib/localflavor/ie/ie_counties.py:34
+msgid "Tipperary"
+msgstr ""
+
+#: django/contrib/localflavor/ie/ie_counties.py:35
+msgid "Tyrone"
+msgstr ""
+
+#: django/contrib/localflavor/ie/ie_counties.py:36
+msgid "Waterford"
+msgstr ""
+
+#: django/contrib/localflavor/ie/ie_counties.py:37
+msgid "Westmeath"
+msgstr ""
+
+#: django/contrib/localflavor/ie/ie_counties.py:38
+msgid "Wexford"
+msgstr ""
+
+#: django/contrib/localflavor/ie/ie_counties.py:39
+msgid "Wicklow"
+msgstr ""
+
+#: django/contrib/localflavor/il/forms.py:31
+msgid "Enter a postal code in the format XXXXX"
+msgstr ""
+
+#: django/contrib/localflavor/il/forms.py:50
+msgid "Enter a valid ID number."
+msgstr ""
+
+#: django/contrib/localflavor/in_/forms.py:41
+msgid "Enter a zip code in the format XXXXXX or XXX XXX."
+msgstr ""
+
+#: django/contrib/localflavor/in_/forms.py:64
+msgid "Enter an Indian state or territory."
+msgstr ""
+
+#: django/contrib/localflavor/in_/forms.py:103
+msgid "Phone numbers must be in 02X-8X or 03X-7X or 04X-6X format."
+msgstr ""
+
+#: django/contrib/localflavor/is_/forms.py:22
+msgid ""
+"Enter a valid Icelandic identification number. The format is XXXXXX-XXXX."
+msgstr ""
+
+#: django/contrib/localflavor/is_/forms.py:23
+msgid "The Icelandic identification number is not valid."
+msgstr ""
+
+#: django/contrib/localflavor/it/forms.py:21
+msgid "Enter a valid zip code."
+msgstr ""
+
+#: django/contrib/localflavor/it/forms.py:48
+msgid "Enter a valid Social Security number."
+msgstr ""
+
+#: django/contrib/localflavor/it/forms.py:73
+msgid "Enter a valid VAT number."
+msgstr ""
+
+#: django/contrib/localflavor/jp/forms.py:19
+msgid "Enter a postal code in the format XXXXXXX or XXX-XXXX."
+msgstr ""
+
+#: django/contrib/localflavor/jp/jp_prefectures.py:4
+msgid "Hokkaido"
+msgstr ""
+
+#: django/contrib/localflavor/jp/jp_prefectures.py:5
+msgid "Aomori"
+msgstr ""
+
+#: django/contrib/localflavor/jp/jp_prefectures.py:6
+msgid "Iwate"
+msgstr ""
+
+#: django/contrib/localflavor/jp/jp_prefectures.py:7
+msgid "Miyagi"
+msgstr ""
+
+#: django/contrib/localflavor/jp/jp_prefectures.py:8
+msgid "Akita"
+msgstr ""
+
+#: django/contrib/localflavor/jp/jp_prefectures.py:9
+msgid "Yamagata"
+msgstr ""
+
+#: django/contrib/localflavor/jp/jp_prefectures.py:10
+msgid "Fukushima"
+msgstr ""
+
+#: django/contrib/localflavor/jp/jp_prefectures.py:11
+msgid "Ibaraki"
+msgstr ""
+
+#: django/contrib/localflavor/jp/jp_prefectures.py:12
+msgid "Tochigi"
+msgstr ""
+
+#: django/contrib/localflavor/jp/jp_prefectures.py:13
+msgid "Gunma"
+msgstr ""
+
+#: django/contrib/localflavor/jp/jp_prefectures.py:14
+msgid "Saitama"
+msgstr ""
+
+#: django/contrib/localflavor/jp/jp_prefectures.py:15
+msgid "Chiba"
+msgstr ""
+
+#: django/contrib/localflavor/jp/jp_prefectures.py:16
+msgid "Tokyo"
+msgstr ""
+
+#: django/contrib/localflavor/jp/jp_prefectures.py:17
+msgid "Kanagawa"
+msgstr ""
+
+#: django/contrib/localflavor/jp/jp_prefectures.py:18
+msgid "Yamanashi"
+msgstr ""
+
+#: django/contrib/localflavor/jp/jp_prefectures.py:19
+msgid "Nagano"
+msgstr ""
+
+#: django/contrib/localflavor/jp/jp_prefectures.py:20
+msgid "Niigata"
+msgstr ""
+
+#: django/contrib/localflavor/jp/jp_prefectures.py:21
+msgid "Toyama"
+msgstr ""
+
+#: django/contrib/localflavor/jp/jp_prefectures.py:22
+msgid "Ishikawa"
+msgstr ""
+
+#: django/contrib/localflavor/jp/jp_prefectures.py:23
+msgid "Fukui"
+msgstr ""
+
+#: django/contrib/localflavor/jp/jp_prefectures.py:24
+msgid "Gifu"
+msgstr ""
+
+#: django/contrib/localflavor/jp/jp_prefectures.py:25
+msgid "Shizuoka"
+msgstr ""
+
+#: django/contrib/localflavor/jp/jp_prefectures.py:26
+msgid "Aichi"
+msgstr ""
+
+#: django/contrib/localflavor/jp/jp_prefectures.py:27
+msgid "Mie"
+msgstr ""
+
+#: django/contrib/localflavor/jp/jp_prefectures.py:28
+msgid "Shiga"
+msgstr ""
+
+#: django/contrib/localflavor/jp/jp_prefectures.py:29
+msgid "Kyoto"
+msgstr ""
+
+#: django/contrib/localflavor/jp/jp_prefectures.py:30
+msgid "Osaka"
+msgstr ""
+
+#: django/contrib/localflavor/jp/jp_prefectures.py:31
+msgid "Hyogo"
+msgstr ""
+
+#: django/contrib/localflavor/jp/jp_prefectures.py:32
+msgid "Nara"
+msgstr ""
+
+#: django/contrib/localflavor/jp/jp_prefectures.py:33
+msgid "Wakayama"
+msgstr ""
+
+#: django/contrib/localflavor/jp/jp_prefectures.py:34
+msgid "Tottori"
+msgstr ""
+
+#: django/contrib/localflavor/jp/jp_prefectures.py:35
+msgid "Shimane"
+msgstr ""
+
+#: django/contrib/localflavor/jp/jp_prefectures.py:36
+msgid "Okayama"
+msgstr ""
+
+#: django/contrib/localflavor/jp/jp_prefectures.py:37
+msgid "Hiroshima"
+msgstr ""
+
+#: django/contrib/localflavor/jp/jp_prefectures.py:38
+msgid "Yamaguchi"
+msgstr ""
+
+#: django/contrib/localflavor/jp/jp_prefectures.py:39
+msgid "Tokushima"
+msgstr ""
+
+#: django/contrib/localflavor/jp/jp_prefectures.py:40
+msgid "Kagawa"
+msgstr ""
+
+#: django/contrib/localflavor/jp/jp_prefectures.py:41
+msgid "Ehime"
+msgstr ""
+
+#: django/contrib/localflavor/jp/jp_prefectures.py:42
+msgid "Kochi"
+msgstr ""
+
+#: django/contrib/localflavor/jp/jp_prefectures.py:43
+msgid "Fukuoka"
+msgstr ""
+
+#: django/contrib/localflavor/jp/jp_prefectures.py:44
+msgid "Saga"
+msgstr ""
+
+#: django/contrib/localflavor/jp/jp_prefectures.py:45
+msgid "Nagasaki"
+msgstr ""
+
+#: django/contrib/localflavor/jp/jp_prefectures.py:46
+msgid "Kumamoto"
+msgstr ""
+
+#: django/contrib/localflavor/jp/jp_prefectures.py:47
+msgid "Oita"
+msgstr ""
+
+#: django/contrib/localflavor/jp/jp_prefectures.py:48
+msgid "Miyazaki"
+msgstr ""
+
+#: django/contrib/localflavor/jp/jp_prefectures.py:49
+msgid "Kagoshima"
+msgstr ""
+
+#: django/contrib/localflavor/jp/jp_prefectures.py:50
+msgid "Okinawa"
+msgstr ""
+
+#: django/contrib/localflavor/kw/forms.py:25
+msgid "Enter a valid Kuwaiti Civil ID number"
+msgstr ""
+
+#: django/contrib/localflavor/mk/forms.py:18
+msgid ""
+"Identity card numbers must contain either 4 to 7 digits or an uppercase "
+"letter and 7 digits."
+msgstr ""
+
+#: django/contrib/localflavor/mk/forms.py:57
+#: django/contrib/localflavor/si/forms.py:24
+msgid "This field should contain exactly 13 digits."
+msgstr ""
+
+#: django/contrib/localflavor/mk/forms.py:58
+msgid "The first 7 digits of the UMCN must represent a valid past date."
+msgstr ""
+
+#: django/contrib/localflavor/mk/forms.py:59
+msgid "The UMCN is not valid."
+msgstr ""
+
+#: django/contrib/localflavor/mk/mk_choices.py:8
+msgid "Aerodrom"
+msgstr ""
+
+#: django/contrib/localflavor/mk/mk_choices.py:9
+msgid "Aračinovo"
+msgstr ""
+
+#: django/contrib/localflavor/mk/mk_choices.py:10
+msgid "Berovo"
+msgstr ""
+
+#: django/contrib/localflavor/mk/mk_choices.py:11
+msgid "Bitola"
+msgstr ""
+
+#: django/contrib/localflavor/mk/mk_choices.py:12
+msgid "Bogdanci"
+msgstr ""
+
+#: django/contrib/localflavor/mk/mk_choices.py:13
+msgid "Bogovinje"
+msgstr ""
+
+#: django/contrib/localflavor/mk/mk_choices.py:14
+msgid "Bosilovo"
+msgstr ""
+
+#: django/contrib/localflavor/mk/mk_choices.py:15
+msgid "Brvenica"
+msgstr ""
+
+#: django/contrib/localflavor/mk/mk_choices.py:16
+msgid "Butel"
+msgstr ""
+
+#: django/contrib/localflavor/mk/mk_choices.py:17
+msgid "Valandovo"
+msgstr ""
+
+#: django/contrib/localflavor/mk/mk_choices.py:18
+msgid "Vasilevo"
+msgstr ""
+
+#: django/contrib/localflavor/mk/mk_choices.py:19
+msgid "Vevčani"
+msgstr ""
+
+#: django/contrib/localflavor/mk/mk_choices.py:20
+msgid "Veles"
+msgstr ""
+
+#: django/contrib/localflavor/mk/mk_choices.py:21
+msgid "Vinica"
+msgstr ""
+
+#: django/contrib/localflavor/mk/mk_choices.py:22
+msgid "Vraneštica"
+msgstr ""
+
+#: django/contrib/localflavor/mk/mk_choices.py:23
+msgid "Vrapčište"
+msgstr ""
+
+#: django/contrib/localflavor/mk/mk_choices.py:24
+msgid "Gazi Baba"
+msgstr ""
+
+#: django/contrib/localflavor/mk/mk_choices.py:25
+msgid "Gevgelija"
+msgstr ""
+
+#: django/contrib/localflavor/mk/mk_choices.py:26
+msgid "Gostivar"
+msgstr ""
+
+#: django/contrib/localflavor/mk/mk_choices.py:27
+msgid "Gradsko"
+msgstr ""
+
+#: django/contrib/localflavor/mk/mk_choices.py:28
+msgid "Debar"
+msgstr ""
+
+#: django/contrib/localflavor/mk/mk_choices.py:29
+msgid "Debarca"
+msgstr ""
+
+#: django/contrib/localflavor/mk/mk_choices.py:30
+msgid "Delčevo"
+msgstr ""
+
+#: django/contrib/localflavor/mk/mk_choices.py:31
+msgid "Demir Kapija"
+msgstr ""
+
+#: django/contrib/localflavor/mk/mk_choices.py:32
+msgid "Demir Hisar"
+msgstr ""
+
+#: django/contrib/localflavor/mk/mk_choices.py:33
+msgid "Dolneni"
+msgstr ""
+
+#: django/contrib/localflavor/mk/mk_choices.py:34
+msgid "Drugovo"
+msgstr ""
+
+#: django/contrib/localflavor/mk/mk_choices.py:35
+msgid "Gjorče Petrov"
+msgstr ""
+
+#: django/contrib/localflavor/mk/mk_choices.py:36
+msgid "Želino"
+msgstr ""
+
+#: django/contrib/localflavor/mk/mk_choices.py:37
+msgid "Zajas"
+msgstr ""
+
+#: django/contrib/localflavor/mk/mk_choices.py:38
+msgid "Zelenikovo"
+msgstr ""
+
+#: django/contrib/localflavor/mk/mk_choices.py:39
+msgid "Zrnovci"
+msgstr ""
+
+#: django/contrib/localflavor/mk/mk_choices.py:40
+msgid "Ilinden"
+msgstr ""
+
+#: django/contrib/localflavor/mk/mk_choices.py:41
+msgid "Jegunovce"
+msgstr ""
+
+#: django/contrib/localflavor/mk/mk_choices.py:42
+msgid "Kavadarci"
+msgstr ""
+
+#: django/contrib/localflavor/mk/mk_choices.py:43
+msgid "Karbinci"
+msgstr ""
+
+#: django/contrib/localflavor/mk/mk_choices.py:44
+msgid "Karpoš"
+msgstr ""
+
+#: django/contrib/localflavor/mk/mk_choices.py:45
+msgid "Kisela Voda"
+msgstr ""
+
+#: django/contrib/localflavor/mk/mk_choices.py:46
+msgid "Kičevo"
+msgstr ""
+
+#: django/contrib/localflavor/mk/mk_choices.py:47
+msgid "Konče"
+msgstr ""
+
+#: django/contrib/localflavor/mk/mk_choices.py:48
+msgid "Koćani"
+msgstr ""
+
+#: django/contrib/localflavor/mk/mk_choices.py:49
+msgid "Kratovo"
+msgstr ""
+
+#: django/contrib/localflavor/mk/mk_choices.py:50
+msgid "Kriva Palanka"
+msgstr ""
+
+#: django/contrib/localflavor/mk/mk_choices.py:51
+msgid "Krivogaštani"
+msgstr ""
+
+#: django/contrib/localflavor/mk/mk_choices.py:52
+msgid "Kruševo"
+msgstr ""
+
+#: django/contrib/localflavor/mk/mk_choices.py:53
+msgid "Kumanovo"
+msgstr ""
+
+#: django/contrib/localflavor/mk/mk_choices.py:54
+msgid "Lipkovo"
+msgstr ""
+
+#: django/contrib/localflavor/mk/mk_choices.py:55
+msgid "Lozovo"
+msgstr ""
+
+#: django/contrib/localflavor/mk/mk_choices.py:56
+msgid "Mavrovo i Rostuša"
+msgstr ""
+
+#: django/contrib/localflavor/mk/mk_choices.py:57
+msgid "Makedonska Kamenica"
+msgstr ""
+
+#: django/contrib/localflavor/mk/mk_choices.py:58
+msgid "Makedonski Brod"
+msgstr ""
+
+#: django/contrib/localflavor/mk/mk_choices.py:59
+msgid "Mogila"
+msgstr ""
+
+#: django/contrib/localflavor/mk/mk_choices.py:60
+msgid "Negotino"
+msgstr ""
+
+#: django/contrib/localflavor/mk/mk_choices.py:61
+msgid "Novaci"
+msgstr ""
+
+#: django/contrib/localflavor/mk/mk_choices.py:62
+msgid "Novo Selo"
+msgstr ""
+
+#: django/contrib/localflavor/mk/mk_choices.py:63
+msgid "Oslomej"
+msgstr ""
+
+#: django/contrib/localflavor/mk/mk_choices.py:64
+msgid "Ohrid"
+msgstr ""
+
+#: django/contrib/localflavor/mk/mk_choices.py:65
+msgid "Petrovec"
+msgstr ""
+
+#: django/contrib/localflavor/mk/mk_choices.py:66
+msgid "Pehčevo"
+msgstr ""
+
+#: django/contrib/localflavor/mk/mk_choices.py:67
+msgid "Plasnica"
+msgstr ""
+
+#: django/contrib/localflavor/mk/mk_choices.py:68
+msgid "Prilep"
+msgstr ""
+
+#: django/contrib/localflavor/mk/mk_choices.py:69
+msgid "Probištip"
+msgstr ""
+
+#: django/contrib/localflavor/mk/mk_choices.py:70
+msgid "Radoviš"
+msgstr ""
+
+#: django/contrib/localflavor/mk/mk_choices.py:71
+msgid "Rankovce"
+msgstr ""
+
+#: django/contrib/localflavor/mk/mk_choices.py:72
+msgid "Resen"
+msgstr ""
+
+#: django/contrib/localflavor/mk/mk_choices.py:73
+msgid "Rosoman"
+msgstr ""
+
+#: django/contrib/localflavor/mk/mk_choices.py:74
+msgid "Saraj"
+msgstr ""
+
+#: django/contrib/localflavor/mk/mk_choices.py:75
+msgid "Sveti Nikole"
+msgstr ""
+
+#: django/contrib/localflavor/mk/mk_choices.py:76
+msgid "Sopište"
+msgstr ""
+
+#: django/contrib/localflavor/mk/mk_choices.py:77
+msgid "Star Dojran"
+msgstr ""
+
+#: django/contrib/localflavor/mk/mk_choices.py:78
+msgid "Staro Nagoričane"
+msgstr ""
+
+#: django/contrib/localflavor/mk/mk_choices.py:79
+msgid "Struga"
+msgstr ""
+
+#: django/contrib/localflavor/mk/mk_choices.py:80
+msgid "Strumica"
+msgstr ""
+
+#: django/contrib/localflavor/mk/mk_choices.py:81
+msgid "Studeničani"
+msgstr ""
+
+#: django/contrib/localflavor/mk/mk_choices.py:82
+msgid "Tearce"
+msgstr ""
+
+#: django/contrib/localflavor/mk/mk_choices.py:83
+msgid "Tetovo"
+msgstr ""
+
+#: django/contrib/localflavor/mk/mk_choices.py:84
+msgid "Centar"
+msgstr ""
+
+#: django/contrib/localflavor/mk/mk_choices.py:85
+msgid "Centar-Župa"
+msgstr ""
+
+#: django/contrib/localflavor/mk/mk_choices.py:86
+msgid "Čair"
+msgstr ""
+
+#: django/contrib/localflavor/mk/mk_choices.py:87
+msgid "Čaška"
+msgstr ""
+
+#: django/contrib/localflavor/mk/mk_choices.py:88
+msgid "Češinovo-Obleševo"
+msgstr ""
+
+#: django/contrib/localflavor/mk/mk_choices.py:89
+msgid "Čučer-Sandevo"
+msgstr ""
+
+#: django/contrib/localflavor/mk/mk_choices.py:90
+msgid "Štip"
+msgstr ""
+
+#: django/contrib/localflavor/mk/mk_choices.py:91
+msgid "Šuto Orizari"
+msgstr ""
+
+#: django/contrib/localflavor/mk/models.py:11
+msgid "Macedonian identity card number"
+msgstr ""
+
+#: django/contrib/localflavor/mk/models.py:25
+msgid "A Macedonian municipality (2 character code)"
+msgstr ""
+
+#: django/contrib/localflavor/mk/models.py:35
+msgid "Unique master citizen number (13 digits)"
+msgstr ""
+
+#: django/contrib/localflavor/mx/forms.py:65
+msgid "Enter a valid zip code in the format XXXXX."
+msgstr ""
+
+#: django/contrib/localflavor/mx/forms.py:108
+msgid "Enter a valid RFC."
+msgstr ""
+
+#: django/contrib/localflavor/mx/forms.py:109
+msgid "Invalid checksum for RFC."
+msgstr ""
+
+#: django/contrib/localflavor/mx/forms.py:189
+msgid "Enter a valid CURP."
+msgstr ""
+
+#: django/contrib/localflavor/mx/forms.py:190
+msgid "Invalid checksum for CURP."
+msgstr ""
+
+#: django/contrib/localflavor/mx/models.py:14
+msgid "Mexico state (three uppercase letters)"
+msgstr ""
+
+#: django/contrib/localflavor/mx/models.py:27
+msgid "Mexico zip code"
+msgstr ""
+
+#: django/contrib/localflavor/mx/models.py:44
+msgid "Mexican RFC"
+msgstr ""
+
+#: django/contrib/localflavor/mx/models.py:61
+msgid "Mexican CURP"
+msgstr ""
+
+#: django/contrib/localflavor/mx/mx_states.py:13
+msgid "Aguascalientes"
+msgstr ""
+
+#: django/contrib/localflavor/mx/mx_states.py:14
+msgid "Baja California"
+msgstr ""
+
+#: django/contrib/localflavor/mx/mx_states.py:15
+msgid "Baja California Sur"
+msgstr ""
+
+#: django/contrib/localflavor/mx/mx_states.py:16
+msgid "Campeche"
+msgstr ""
+
+#: django/contrib/localflavor/mx/mx_states.py:17
+msgid "Chihuahua"
+msgstr ""
+
+#: django/contrib/localflavor/mx/mx_states.py:18
+msgid "Chiapas"
+msgstr ""
+
+#: django/contrib/localflavor/mx/mx_states.py:19
+msgid "Coahuila"
+msgstr ""
+
+#: django/contrib/localflavor/mx/mx_states.py:20
+msgid "Colima"
+msgstr ""
+
+#: django/contrib/localflavor/mx/mx_states.py:21
+msgid "Distrito Federal"
+msgstr ""
+
+#: django/contrib/localflavor/mx/mx_states.py:22
+msgid "Durango"
+msgstr ""
+
+#: django/contrib/localflavor/mx/mx_states.py:23
+msgid "Guerrero"
+msgstr ""
+
+#: django/contrib/localflavor/mx/mx_states.py:24
+msgid "Guanajuato"
+msgstr ""
+
+#: django/contrib/localflavor/mx/mx_states.py:25
+msgid "Hidalgo"
+msgstr ""
+
+#: django/contrib/localflavor/mx/mx_states.py:26
+msgid "Jalisco"
+msgstr ""
+
+#: django/contrib/localflavor/mx/mx_states.py:27
+msgid "Estado de México"
+msgstr ""
+
+#: django/contrib/localflavor/mx/mx_states.py:28
+msgid "Michoacán"
+msgstr ""
+
+#: django/contrib/localflavor/mx/mx_states.py:29
+msgid "Morelos"
+msgstr ""
+
+#: django/contrib/localflavor/mx/mx_states.py:30
+msgid "Nayarit"
+msgstr ""
+
+#: django/contrib/localflavor/mx/mx_states.py:31
+msgid "Nuevo León"
+msgstr ""
+
+#: django/contrib/localflavor/mx/mx_states.py:32
+msgid "Oaxaca"
+msgstr ""
+
+#: django/contrib/localflavor/mx/mx_states.py:33
+msgid "Puebla"
+msgstr ""
+
+#: django/contrib/localflavor/mx/mx_states.py:34
+msgid "Querétaro"
+msgstr ""
+
+#: django/contrib/localflavor/mx/mx_states.py:35
+msgid "Quintana Roo"
+msgstr ""
+
+#: django/contrib/localflavor/mx/mx_states.py:36
+msgid "Sinaloa"
+msgstr ""
+
+#: django/contrib/localflavor/mx/mx_states.py:37
+msgid "San Luis Potosí"
+msgstr ""
+
+#: django/contrib/localflavor/mx/mx_states.py:38
+msgid "Sonora"
+msgstr ""
+
+#: django/contrib/localflavor/mx/mx_states.py:39
+msgid "Tabasco"
+msgstr ""
+
+#: django/contrib/localflavor/mx/mx_states.py:40
+msgid "Tamaulipas"
+msgstr ""
+
+#: django/contrib/localflavor/mx/mx_states.py:41
+msgid "Tlaxcala"
+msgstr ""
+
+#: django/contrib/localflavor/mx/mx_states.py:42
+msgid "Veracruz"
+msgstr ""
+
+#: django/contrib/localflavor/mx/mx_states.py:43
+msgid "Yucatán"
+msgstr ""
+
+#: django/contrib/localflavor/mx/mx_states.py:44
+msgid "Zacatecas"
+msgstr ""
+
+#: django/contrib/localflavor/nl/forms.py:26
+msgid "Enter a valid postal code"
+msgstr ""
+
+#: django/contrib/localflavor/nl/forms.py:82
+msgid "Enter a valid SoFi number"
+msgstr ""
+
+#: django/contrib/localflavor/nl/nl_provinces.py:4
+msgid "Drenthe"
+msgstr ""
+
+#: django/contrib/localflavor/nl/nl_provinces.py:5
+msgid "Flevoland"
+msgstr ""
+
+#: django/contrib/localflavor/nl/nl_provinces.py:6
+#, fuzzy
+msgid "Friesland"
+msgstr "Suiza"
+
+#: django/contrib/localflavor/nl/nl_provinces.py:7
+msgid "Gelderland"
+msgstr ""
+
+#: django/contrib/localflavor/nl/nl_provinces.py:8
+msgid "Groningen"
+msgstr ""
+
+#: django/contrib/localflavor/nl/nl_provinces.py:10
+msgid "Noord-Brabant"
+msgstr ""
+
+#: django/contrib/localflavor/nl/nl_provinces.py:11
+msgid "Noord-Holland"
+msgstr ""
+
+#: django/contrib/localflavor/nl/nl_provinces.py:12
+msgid "Overijssel"
+msgstr ""
+
+#: django/contrib/localflavor/nl/nl_provinces.py:13
+msgid "Utrecht"
+msgstr ""
+
+#: django/contrib/localflavor/nl/nl_provinces.py:14
+msgid "Zeeland"
+msgstr ""
+
+#: django/contrib/localflavor/nl/nl_provinces.py:15
+msgid "Zuid-Holland"
+msgstr ""
+
+#: django/contrib/localflavor/no/forms.py:39
+msgid "Enter a valid Norwegian social security number."
+msgstr ""
+
+#: django/contrib/localflavor/pe/forms.py:28
+msgid "This field requires 8 digits."
+msgstr ""
+
+#: django/contrib/localflavor/pe/forms.py:56
+msgid "This field requires 11 digits."
+msgstr ""
+
+#: django/contrib/localflavor/pl/forms.py:42
+msgid "National Identification Number consists of 11 digits."
+msgstr ""
+
+#: django/contrib/localflavor/pl/forms.py:43
+msgid "Wrong checksum for the National Identification Number."
+msgstr ""
+
+#: django/contrib/localflavor/pl/forms.py:79
+msgid "National ID Card Number consists of 3 letters and 6 digits."
+msgstr ""
+
+#: django/contrib/localflavor/pl/forms.py:80
+msgid "Wrong checksum for the National ID Card Number."
+msgstr ""
+
+#: django/contrib/localflavor/pl/forms.py:131
+msgid ""
+"Enter a tax number field (NIP) in the format XXX-XXX-XX-XX, XXX-XX-XX-XXX or "
+"XXXXXXXXXX."
+msgstr ""
+
+#: django/contrib/localflavor/pl/forms.py:132
+msgid "Wrong checksum for the Tax Number (NIP)."
+msgstr ""
+
+#: django/contrib/localflavor/pl/forms.py:171
+msgid "National Business Register Number (REGON) consists of 9 or 14 digits."
+msgstr ""
+
+#: django/contrib/localflavor/pl/forms.py:172
+msgid "Wrong checksum for the National Business Register Number (REGON)."
+msgstr ""
+
+#: django/contrib/localflavor/pl/forms.py:212
+msgid "Enter a postal code in the format XX-XXX."
+msgstr ""
+
+#: django/contrib/localflavor/pl/pl_voivodeships.py:8
+msgid "Lower Silesia"
+msgstr ""
+
+#: django/contrib/localflavor/pl/pl_voivodeships.py:9
+msgid "Kuyavia-Pomerania"
+msgstr ""
+
+#: django/contrib/localflavor/pl/pl_voivodeships.py:10
+msgid "Lublin"
+msgstr ""
+
+#: django/contrib/localflavor/pl/pl_voivodeships.py:11
+msgid "Lubusz"
+msgstr ""
+
+#: django/contrib/localflavor/pl/pl_voivodeships.py:12
+msgid "Lodz"
+msgstr ""
+
+#: django/contrib/localflavor/pl/pl_voivodeships.py:13
+msgid "Lesser Poland"
+msgstr ""
+
+#: django/contrib/localflavor/pl/pl_voivodeships.py:14
+msgid "Masovia"
+msgstr ""
+
+#: django/contrib/localflavor/pl/pl_voivodeships.py:15
+msgid "Opole"
+msgstr ""
+
+#: django/contrib/localflavor/pl/pl_voivodeships.py:16
+msgid "Subcarpatia"
+msgstr ""
+
+#: django/contrib/localflavor/pl/pl_voivodeships.py:17
+msgid "Podlasie"
+msgstr ""
+
+#: django/contrib/localflavor/pl/pl_voivodeships.py:18
+msgid "Pomerania"
+msgstr ""
+
+#: django/contrib/localflavor/pl/pl_voivodeships.py:19
+msgid "Silesia"
+msgstr ""
+
+#: django/contrib/localflavor/pl/pl_voivodeships.py:20
+msgid "Swietokrzyskie"
+msgstr ""
+
+#: django/contrib/localflavor/pl/pl_voivodeships.py:21
+msgid "Warmia-Masuria"
+msgstr ""
+
+#: django/contrib/localflavor/pl/pl_voivodeships.py:22
+msgid "Greater Poland"
+msgstr ""
+
+#: django/contrib/localflavor/pl/pl_voivodeships.py:23
+msgid "West Pomerania"
+msgstr ""
+
+#: django/contrib/localflavor/pt/forms.py:17
+msgid "Enter a zip code in the format XXXX-XXX."
+msgstr ""
+
+#: django/contrib/localflavor/pt/forms.py:37
+msgid "Phone numbers must have 9 digits, or start by + or 00."
+msgstr ""
+
+#: django/contrib/localflavor/ro/forms.py:20
+msgid "Enter a valid CIF."
+msgstr ""
+
+#: django/contrib/localflavor/ro/forms.py:57
+msgid "Enter a valid CNP."
+msgstr ""
+
+#: django/contrib/localflavor/ro/forms.py:142
+msgid "Enter a valid IBAN in ROXX-XXXX-XXXX-XXXX-XXXX-XXXX format"
+msgstr ""
+
+#: django/contrib/localflavor/ro/forms.py:174
+msgid "Phone numbers must be in XXXX-XXXXXX format."
+msgstr ""
+
+#: django/contrib/localflavor/ro/forms.py:199
+msgid "Enter a valid postal code in the format XXXXXX"
+msgstr ""
+
+#: django/contrib/localflavor/ru/forms.py:37
+msgid "Enter a postal code in the format XXXXXX."
+msgstr ""
+
+#: django/contrib/localflavor/ru/forms.py:50
+msgid "Enter a passport number in the format XXXX XXXXXX."
+msgstr ""
+
+#: django/contrib/localflavor/ru/forms.py:63
+msgid "Enter a passport number in the format XX XXXXXXX."
+msgstr ""
+
+#: django/contrib/localflavor/ru/ru_regions.py:10
+msgid "Central Federal County"
+msgstr ""
+
+#: django/contrib/localflavor/ru/ru_regions.py:11
+msgid "South Federal County"
+msgstr ""
+
+#: django/contrib/localflavor/ru/ru_regions.py:12
+msgid "North-West Federal County"
+msgstr ""
+
+#: django/contrib/localflavor/ru/ru_regions.py:13
+msgid "Far-East Federal County"
+msgstr ""
+
+#: django/contrib/localflavor/ru/ru_regions.py:14
+msgid "Siberian Federal County"
+msgstr ""
+
+#: django/contrib/localflavor/ru/ru_regions.py:15
+msgid "Ural Federal County"
+msgstr ""
+
+#: django/contrib/localflavor/ru/ru_regions.py:16
+msgid "Privolzhsky Federal County"
+msgstr ""
+
+#: django/contrib/localflavor/ru/ru_regions.py:17
+msgid "North-Caucasian Federal County"
+msgstr ""
+
+#: django/contrib/localflavor/ru/ru_regions.py:21
+msgid "Moskva"
+msgstr ""
+
+#: django/contrib/localflavor/ru/ru_regions.py:22
+msgid "Saint-Peterburg"
+msgstr ""
+
+#: django/contrib/localflavor/ru/ru_regions.py:23
+msgid "Moskovskaya oblast'"
+msgstr ""
+
+#: django/contrib/localflavor/ru/ru_regions.py:24
+msgid "Adygeya, Respublika"
+msgstr ""
+
+#: django/contrib/localflavor/ru/ru_regions.py:25
+msgid "Bashkortostan, Respublika"
+msgstr ""
+
+#: django/contrib/localflavor/ru/ru_regions.py:26
+msgid "Buryatia, Respublika"
+msgstr ""
+
+#: django/contrib/localflavor/ru/ru_regions.py:27
+msgid "Altay, Respublika"
+msgstr ""
+
+#: django/contrib/localflavor/ru/ru_regions.py:28
+msgid "Dagestan, Respublika"
+msgstr ""
+
+#: django/contrib/localflavor/ru/ru_regions.py:29
+msgid "Ingushskaya Respublika"
+msgstr ""
+
+#: django/contrib/localflavor/ru/ru_regions.py:30
+msgid "Kabardino-Balkarskaya Respublika"
+msgstr ""
+
+#: django/contrib/localflavor/ru/ru_regions.py:31
+msgid "Kalmykia, Respublika"
+msgstr ""
+
+#: django/contrib/localflavor/ru/ru_regions.py:32
+msgid "Karachaevo-Cherkesskaya Respublika"
+msgstr ""
+
+#: django/contrib/localflavor/ru/ru_regions.py:33
+msgid "Karelia, Respublika"
+msgstr ""
+
+#: django/contrib/localflavor/ru/ru_regions.py:34
+msgid "Komi, Respublika"
+msgstr ""
+
+#: django/contrib/localflavor/ru/ru_regions.py:35
+msgid "Mariy Ehl, Respublika"
+msgstr ""
+
+#: django/contrib/localflavor/ru/ru_regions.py:36
+msgid "Mordovia, Respublika"
+msgstr ""
+
+#: django/contrib/localflavor/ru/ru_regions.py:37
+msgid "Sakha, Respublika (Yakutiya)"
+msgstr ""
+
+#: django/contrib/localflavor/ru/ru_regions.py:38
+msgid "Severnaya Osetia, Respublika (Alania)"
+msgstr ""
+
+#: django/contrib/localflavor/ru/ru_regions.py:39
+msgid "Tatarstan, Respublika"
+msgstr ""
+
+#: django/contrib/localflavor/ru/ru_regions.py:40
+msgid "Tyva, Respublika (Tuva)"
+msgstr ""
+
+#: django/contrib/localflavor/ru/ru_regions.py:41
+msgid "Udmurtskaya Respublika"
+msgstr ""
+
+#: django/contrib/localflavor/ru/ru_regions.py:42
+msgid "Khakassiya, Respublika"
+msgstr ""
+
+#: django/contrib/localflavor/ru/ru_regions.py:43
+msgid "Chechenskaya Respublika"
+msgstr ""
+
+#: django/contrib/localflavor/ru/ru_regions.py:44
+msgid "Chuvashskaya Respublika"
+msgstr ""
+
+#: django/contrib/localflavor/ru/ru_regions.py:45
+msgid "Altayskiy Kray"
+msgstr ""
+
+#: django/contrib/localflavor/ru/ru_regions.py:46
+msgid "Zabaykalskiy Kray"
+msgstr ""
+
+#: django/contrib/localflavor/ru/ru_regions.py:47
+msgid "Kamchatskiy Kray"
+msgstr ""
+
+#: django/contrib/localflavor/ru/ru_regions.py:48
+msgid "Krasnodarskiy Kray"
+msgstr ""
+
+#: django/contrib/localflavor/ru/ru_regions.py:49
+msgid "Krasnoyarskiy Kray"
+msgstr ""
+
+#: django/contrib/localflavor/ru/ru_regions.py:50
+msgid "Permskiy Kray"
+msgstr ""
+
+#: django/contrib/localflavor/ru/ru_regions.py:51
+msgid "Primorskiy Kray"
+msgstr ""
+
+#: django/contrib/localflavor/ru/ru_regions.py:52
+msgid "Stavropol'siyy Kray"
+msgstr ""
+
+#: django/contrib/localflavor/ru/ru_regions.py:53
+msgid "Khabarovskiy Kray"
+msgstr ""
+
+#: django/contrib/localflavor/ru/ru_regions.py:54
+msgid "Amurskaya oblast'"
+msgstr ""
+
+#: django/contrib/localflavor/ru/ru_regions.py:55
+msgid "Arkhangel'skaya oblast'"
+msgstr ""
+
+#: django/contrib/localflavor/ru/ru_regions.py:56
+msgid "Astrakhanskaya oblast'"
+msgstr ""
+
+#: django/contrib/localflavor/ru/ru_regions.py:57
+msgid "Belgorodskaya oblast'"
+msgstr ""
+
+#: django/contrib/localflavor/ru/ru_regions.py:58
+msgid "Bryanskaya oblast'"
+msgstr ""
+
+#: django/contrib/localflavor/ru/ru_regions.py:59
+msgid "Vladimirskaya oblast'"
+msgstr ""
+
+#: django/contrib/localflavor/ru/ru_regions.py:60
+msgid "Volgogradskaya oblast'"
+msgstr ""
+
+#: django/contrib/localflavor/ru/ru_regions.py:61
+msgid "Vologodskaya oblast'"
+msgstr ""
+
+#: django/contrib/localflavor/ru/ru_regions.py:62
+msgid "Voronezhskaya oblast'"
+msgstr ""
+
+#: django/contrib/localflavor/ru/ru_regions.py:63
+msgid "Ivanovskaya oblast'"
+msgstr ""
+
+#: django/contrib/localflavor/ru/ru_regions.py:64
+msgid "Irkutskaya oblast'"
+msgstr ""
+
+#: django/contrib/localflavor/ru/ru_regions.py:65
+msgid "Kaliningradskaya oblast'"
+msgstr ""
+
+#: django/contrib/localflavor/ru/ru_regions.py:66
+msgid "Kaluzhskaya oblast'"
+msgstr ""
+
+#: django/contrib/localflavor/ru/ru_regions.py:67
+msgid "Kemerovskaya oblast'"
+msgstr ""
+
+#: django/contrib/localflavor/ru/ru_regions.py:68
+msgid "Kirovskaya oblast'"
+msgstr ""
+
+#: django/contrib/localflavor/ru/ru_regions.py:69
+msgid "Kostromskaya oblast'"
+msgstr ""
+
+#: django/contrib/localflavor/ru/ru_regions.py:70
+msgid "Kurganskaya oblast'"
+msgstr ""
+
+#: django/contrib/localflavor/ru/ru_regions.py:71
+msgid "Kurskaya oblast'"
+msgstr ""
+
+#: django/contrib/localflavor/ru/ru_regions.py:72
+msgid "Leningradskaya oblast'"
+msgstr ""
+
+#: django/contrib/localflavor/ru/ru_regions.py:73
+msgid "Lipeckaya oblast'"
+msgstr ""
+
+#: django/contrib/localflavor/ru/ru_regions.py:74
+msgid "Magadanskaya oblast'"
+msgstr ""
+
+#: django/contrib/localflavor/ru/ru_regions.py:75
+msgid "Murmanskaya oblast'"
+msgstr ""
+
+#: django/contrib/localflavor/ru/ru_regions.py:76
+msgid "Nizhegorodskaja oblast'"
+msgstr ""
+
+#: django/contrib/localflavor/ru/ru_regions.py:77
+msgid "Novgorodskaya oblast'"
+msgstr ""
+
+#: django/contrib/localflavor/ru/ru_regions.py:78
+msgid "Novosibirskaya oblast'"
+msgstr ""
+
+#: django/contrib/localflavor/ru/ru_regions.py:79
+msgid "Omskaya oblast'"
+msgstr ""
+
+#: django/contrib/localflavor/ru/ru_regions.py:80
+msgid "Orenburgskaya oblast'"
+msgstr ""
+
+#: django/contrib/localflavor/ru/ru_regions.py:81
+msgid "Orlovskaya oblast'"
+msgstr ""
+
+#: django/contrib/localflavor/ru/ru_regions.py:82
+msgid "Penzenskaya oblast'"
+msgstr ""
+
+#: django/contrib/localflavor/ru/ru_regions.py:83
+msgid "Pskovskaya oblast'"
+msgstr ""
+
+#: django/contrib/localflavor/ru/ru_regions.py:84
+msgid "Rostovskaya oblast'"
+msgstr ""
+
+#: django/contrib/localflavor/ru/ru_regions.py:85
+msgid "Rjazanskaya oblast'"
+msgstr ""
+
+#: django/contrib/localflavor/ru/ru_regions.py:86
+msgid "Samarskaya oblast'"
+msgstr ""
+
+#: django/contrib/localflavor/ru/ru_regions.py:87
+msgid "Saratovskaya oblast'"
+msgstr ""
+
+#: django/contrib/localflavor/ru/ru_regions.py:88
+msgid "Sakhalinskaya oblast'"
+msgstr ""
+
+#: django/contrib/localflavor/ru/ru_regions.py:89
+msgid "Sverdlovskaya oblast'"
+msgstr ""
+
+#: django/contrib/localflavor/ru/ru_regions.py:90
+msgid "Smolenskaya oblast'"
+msgstr ""
+
+#: django/contrib/localflavor/ru/ru_regions.py:91
+msgid "Tambovskaya oblast'"
+msgstr ""
+
+#: django/contrib/localflavor/ru/ru_regions.py:92
+msgid "Tverskaya oblast'"
+msgstr ""
+
+#: django/contrib/localflavor/ru/ru_regions.py:93
+msgid "Tomskaya oblast'"
+msgstr ""
+
+#: django/contrib/localflavor/ru/ru_regions.py:94
+msgid "Tul'skaya oblast'"
+msgstr ""
+
+#: django/contrib/localflavor/ru/ru_regions.py:95
+msgid "Tyumenskaya oblast'"
+msgstr ""
+
+#: django/contrib/localflavor/ru/ru_regions.py:96
+msgid "Ul'ianovskaya oblast'"
+msgstr ""
+
+#: django/contrib/localflavor/ru/ru_regions.py:97
+msgid "Chelyabinskaya oblast'"
+msgstr ""
+
+#: django/contrib/localflavor/ru/ru_regions.py:98
+msgid "Yaroslavskaya oblast'"
+msgstr ""
+
+#: django/contrib/localflavor/ru/ru_regions.py:99
+msgid "Evreyskaya avtonomnaja oblast'"
+msgstr ""
+
+#: django/contrib/localflavor/ru/ru_regions.py:100
+msgid "Neneckiy autonomnyy okrug"
+msgstr ""
+
+#: django/contrib/localflavor/ru/ru_regions.py:101
+msgid "Khanty-Mansiyskiy avtonomnyy okrug - Yugra"
+msgstr ""
+
+#: django/contrib/localflavor/ru/ru_regions.py:102
+msgid "Chukotskiy avtonomnyy okrug"
+msgstr ""
+
+#: django/contrib/localflavor/ru/ru_regions.py:103
+msgid "Yamalo-Neneckiy avtonomnyy okrug"
+msgstr ""
+
+#: django/contrib/localflavor/se/forms.py:54
+msgid "Enter a valid Swedish organisation number."
+msgstr ""
+
+#: django/contrib/localflavor/se/forms.py:111
+msgid "Enter a valid Swedish personal identity number."
+msgstr ""
+
+#: django/contrib/localflavor/se/forms.py:112
+msgid "Co-ordination numbers are not allowed."
+msgstr ""
+
+#: django/contrib/localflavor/se/forms.py:154
+msgid "Enter a Swedish postal code in the format XXXXX."
+msgstr ""
+
+#: django/contrib/localflavor/se/se_counties.py:15
+msgid "Stockholm"
+msgstr ""
+
+#: django/contrib/localflavor/se/se_counties.py:16
+msgid "Västerbotten"
+msgstr ""
+
+#: django/contrib/localflavor/se/se_counties.py:17
+msgid "Norrbotten"
+msgstr ""
+
+#: django/contrib/localflavor/se/se_counties.py:18
+msgid "Uppsala"
+msgstr ""
+
+#: django/contrib/localflavor/se/se_counties.py:19
+msgid "Södermanland"
+msgstr ""
+
+#: django/contrib/localflavor/se/se_counties.py:20
+msgid "Östergötland"
+msgstr ""
+
+#: django/contrib/localflavor/se/se_counties.py:21
+msgid "Jönköping"
+msgstr ""
+
+#: django/contrib/localflavor/se/se_counties.py:22
+msgid "Kronoberg"
+msgstr ""
+
+#: django/contrib/localflavor/se/se_counties.py:23
+msgid "Kalmar"
+msgstr ""
+
+#: django/contrib/localflavor/se/se_counties.py:24
+msgid "Gotland"
+msgstr ""
+
+#: django/contrib/localflavor/se/se_counties.py:25
+msgid "Blekinge"
+msgstr ""
+
+#: django/contrib/localflavor/se/se_counties.py:26
+msgid "Skåne"
+msgstr ""
+
+#: django/contrib/localflavor/se/se_counties.py:27
+msgid "Halland"
+msgstr ""
+
+#: django/contrib/localflavor/se/se_counties.py:28
+msgid "Västra Götaland"
+msgstr ""
+
+#: django/contrib/localflavor/se/se_counties.py:29
+msgid "Värmland"
+msgstr ""
+
+#: django/contrib/localflavor/se/se_counties.py:30
+msgid "Örebro"
+msgstr ""
+
+#: django/contrib/localflavor/se/se_counties.py:31
+msgid "Västmanland"
+msgstr ""
+
+#: django/contrib/localflavor/se/se_counties.py:32
+msgid "Dalarna"
+msgstr ""
+
+#: django/contrib/localflavor/se/se_counties.py:33
+msgid "Gävleborg"
+msgstr ""
+
+#: django/contrib/localflavor/se/se_counties.py:34
+msgid "Västernorrland"
+msgstr ""
+
+#: django/contrib/localflavor/se/se_counties.py:35
+msgid "Jämtland"
+msgstr ""
+
+#: django/contrib/localflavor/si/forms.py:25
+msgid "The first 7 digits of the EMSO must represent a valid past date."
+msgstr ""
+
+#: django/contrib/localflavor/si/forms.py:26
+msgid "The EMSO is not valid."
+msgstr ""
+
+#: django/contrib/localflavor/si/forms.py:86
+msgid "Enter a valid tax number in form SIXXXXXXXX"
+msgstr ""
+
+#: django/contrib/localflavor/si/forms.py:151
+msgid "Enter phone number in form +386XXXXXXXX or 0XXXXXXXX."
+msgstr ""
+
+#: django/contrib/localflavor/sk/sk_districts.py:8
+msgid "Banska Bystrica"
+msgstr ""
+
+#: django/contrib/localflavor/sk/sk_districts.py:9
+msgid "Banska Stiavnica"
+msgstr ""
+
+#: django/contrib/localflavor/sk/sk_districts.py:10
+msgid "Bardejov"
+msgstr ""
+
+#: django/contrib/localflavor/sk/sk_districts.py:11
+msgid "Banovce nad Bebravou"
+msgstr ""
+
+#: django/contrib/localflavor/sk/sk_districts.py:12
+msgid "Brezno"
+msgstr ""
+
+#: django/contrib/localflavor/sk/sk_districts.py:13
+msgid "Bratislava I"
+msgstr ""
+
+#: django/contrib/localflavor/sk/sk_districts.py:14
+msgid "Bratislava II"
+msgstr ""
+
+#: django/contrib/localflavor/sk/sk_districts.py:15
+msgid "Bratislava III"
+msgstr ""
+
+#: django/contrib/localflavor/sk/sk_districts.py:16
+msgid "Bratislava IV"
+msgstr ""
+
+#: django/contrib/localflavor/sk/sk_districts.py:17
+msgid "Bratislava V"
+msgstr ""
+
+#: django/contrib/localflavor/sk/sk_districts.py:18
+msgid "Bytca"
+msgstr ""
+
+#: django/contrib/localflavor/sk/sk_districts.py:19
+msgid "Cadca"
+msgstr ""
+
+#: django/contrib/localflavor/sk/sk_districts.py:20
+msgid "Detva"
+msgstr ""
+
+#: django/contrib/localflavor/sk/sk_districts.py:21
+msgid "Dolny Kubin"
+msgstr ""
+
+#: django/contrib/localflavor/sk/sk_districts.py:22
+msgid "Dunajska Streda"
+msgstr ""
+
+#: django/contrib/localflavor/sk/sk_districts.py:23
+msgid "Galanta"
+msgstr ""
+
+#: django/contrib/localflavor/sk/sk_districts.py:24
+msgid "Gelnica"
+msgstr ""
+
+#: django/contrib/localflavor/sk/sk_districts.py:25
+msgid "Hlohovec"
+msgstr ""
+
+#: django/contrib/localflavor/sk/sk_districts.py:26
+msgid "Humenne"
+msgstr ""
+
+#: django/contrib/localflavor/sk/sk_districts.py:27
+msgid "Ilava"
+msgstr ""
+
+#: django/contrib/localflavor/sk/sk_districts.py:28
+msgid "Kezmarok"
+msgstr ""
+
+#: django/contrib/localflavor/sk/sk_districts.py:29
+msgid "Komarno"
+msgstr ""
+
+#: django/contrib/localflavor/sk/sk_districts.py:30
+msgid "Kosice I"
+msgstr ""
+
+#: django/contrib/localflavor/sk/sk_districts.py:31
+msgid "Kosice II"
+msgstr ""
+
+#: django/contrib/localflavor/sk/sk_districts.py:32
+msgid "Kosice III"
+msgstr ""
+
+#: django/contrib/localflavor/sk/sk_districts.py:33
+msgid "Kosice IV"
+msgstr ""
+
+#: django/contrib/localflavor/sk/sk_districts.py:34
+msgid "Kosice - okolie"
+msgstr ""
+
+#: django/contrib/localflavor/sk/sk_districts.py:35
+msgid "Krupina"
+msgstr ""
+
+#: django/contrib/localflavor/sk/sk_districts.py:36
+msgid "Kysucke Nove Mesto"
+msgstr ""
+
+#: django/contrib/localflavor/sk/sk_districts.py:37
+#, fuzzy
+msgid "Levice"
+msgstr "Servicios"
+
+#: django/contrib/localflavor/sk/sk_districts.py:38
+msgid "Levoca"
+msgstr ""
+
+#: django/contrib/localflavor/sk/sk_districts.py:39
+msgid "Liptovsky Mikulas"
+msgstr ""
+
+#: django/contrib/localflavor/sk/sk_districts.py:40
+msgid "Lucenec"
+msgstr ""
+
+#: django/contrib/localflavor/sk/sk_districts.py:41
+msgid "Malacky"
+msgstr ""
+
+#: django/contrib/localflavor/sk/sk_districts.py:42
+msgid "Martin"
+msgstr ""
+
+#: django/contrib/localflavor/sk/sk_districts.py:43
+msgid "Medzilaborce"
+msgstr ""
+
+#: django/contrib/localflavor/sk/sk_districts.py:44
+msgid "Michalovce"
+msgstr ""
+
+#: django/contrib/localflavor/sk/sk_districts.py:45
+msgid "Myjava"
+msgstr ""
+
+#: django/contrib/localflavor/sk/sk_districts.py:46
+msgid "Namestovo"
+msgstr ""
+
+#: django/contrib/localflavor/sk/sk_districts.py:47
+msgid "Nitra"
+msgstr ""
+
+#: django/contrib/localflavor/sk/sk_districts.py:48
+msgid "Nove Mesto nad Vahom"
+msgstr ""
+
+#: django/contrib/localflavor/sk/sk_districts.py:49
+msgid "Nove Zamky"
+msgstr ""
+
+#: django/contrib/localflavor/sk/sk_districts.py:50
+msgid "Partizanske"
+msgstr ""
+
+#: django/contrib/localflavor/sk/sk_districts.py:51
+msgid "Pezinok"
+msgstr ""
+
+#: django/contrib/localflavor/sk/sk_districts.py:52
+msgid "Piestany"
+msgstr ""
+
+#: django/contrib/localflavor/sk/sk_districts.py:53
+msgid "Poltar"
+msgstr ""
+
+#: django/contrib/localflavor/sk/sk_districts.py:54
+msgid "Poprad"
+msgstr ""
+
+#: django/contrib/localflavor/sk/sk_districts.py:55
+msgid "Povazska Bystrica"
+msgstr ""
+
+#: django/contrib/localflavor/sk/sk_districts.py:56
+msgid "Presov"
+msgstr ""
+
+#: django/contrib/localflavor/sk/sk_districts.py:57
+msgid "Prievidza"
+msgstr ""
+
+#: django/contrib/localflavor/sk/sk_districts.py:58
+msgid "Puchov"
+msgstr ""
+
+#: django/contrib/localflavor/sk/sk_districts.py:59
+msgid "Revuca"
+msgstr ""
+
+#: django/contrib/localflavor/sk/sk_districts.py:60
+msgid "Rimavska Sobota"
+msgstr ""
+
+#: django/contrib/localflavor/sk/sk_districts.py:61
+msgid "Roznava"
+msgstr ""
+
+#: django/contrib/localflavor/sk/sk_districts.py:62
+msgid "Ruzomberok"
+msgstr ""
+
+#: django/contrib/localflavor/sk/sk_districts.py:63
+msgid "Sabinov"
+msgstr ""
+
+#: django/contrib/localflavor/sk/sk_districts.py:64
+msgid "Senec"
+msgstr ""
+
+#: django/contrib/localflavor/sk/sk_districts.py:65
+msgid "Senica"
+msgstr ""
+
+#: django/contrib/localflavor/sk/sk_districts.py:66
+msgid "Skalica"
+msgstr ""
+
+#: django/contrib/localflavor/sk/sk_districts.py:67
+msgid "Snina"
+msgstr ""
+
+#: django/contrib/localflavor/sk/sk_districts.py:68
+#, fuzzy
+msgid "Sobrance"
+msgstr "Francia"
+
+#: django/contrib/localflavor/sk/sk_districts.py:69
+msgid "Spisska Nova Ves"
+msgstr ""
+
+#: django/contrib/localflavor/sk/sk_districts.py:70
+msgid "Stara Lubovna"
+msgstr ""
+
+#: django/contrib/localflavor/sk/sk_districts.py:71
+msgid "Stropkov"
+msgstr ""
+
+#: django/contrib/localflavor/sk/sk_districts.py:72
+msgid "Svidnik"
+msgstr ""
+
+#: django/contrib/localflavor/sk/sk_districts.py:73
+msgid "Sala"
+msgstr ""
+
+#: django/contrib/localflavor/sk/sk_districts.py:74
+msgid "Topolcany"
+msgstr ""
+
+#: django/contrib/localflavor/sk/sk_districts.py:75
+msgid "Trebisov"
+msgstr ""
+
+#: django/contrib/localflavor/sk/sk_districts.py:76
+msgid "Trencin"
+msgstr ""
+
+#: django/contrib/localflavor/sk/sk_districts.py:77
+msgid "Trnava"
+msgstr ""
+
+#: django/contrib/localflavor/sk/sk_districts.py:78
+msgid "Turcianske Teplice"
+msgstr ""
+
+#: django/contrib/localflavor/sk/sk_districts.py:79
+msgid "Tvrdosin"
+msgstr ""
+
+#: django/contrib/localflavor/sk/sk_districts.py:80
+msgid "Velky Krtis"
+msgstr ""
+
+#: django/contrib/localflavor/sk/sk_districts.py:81
+msgid "Vranov nad Toplou"
+msgstr ""
+
+#: django/contrib/localflavor/sk/sk_districts.py:82
+msgid "Zlate Moravce"
+msgstr ""
+
+#: django/contrib/localflavor/sk/sk_districts.py:83
+msgid "Zvolen"
+msgstr ""
+
+#: django/contrib/localflavor/sk/sk_districts.py:84
+msgid "Zarnovica"
+msgstr ""
+
+#: django/contrib/localflavor/sk/sk_districts.py:85
+msgid "Ziar nad Hronom"
+msgstr ""
+
+#: django/contrib/localflavor/sk/sk_districts.py:86
+msgid "Zilina"
+msgstr ""
+
+#: django/contrib/localflavor/sk/sk_regions.py:8
+msgid "Banska Bystrica region"
+msgstr ""
+
+#: django/contrib/localflavor/sk/sk_regions.py:9
+msgid "Bratislava region"
+msgstr ""
+
+#: django/contrib/localflavor/sk/sk_regions.py:10
+msgid "Kosice region"
+msgstr ""
+
+#: django/contrib/localflavor/sk/sk_regions.py:11
+msgid "Nitra region"
+msgstr ""
+
+#: django/contrib/localflavor/sk/sk_regions.py:12
+msgid "Presov region"
+msgstr ""
+
+#: django/contrib/localflavor/sk/sk_regions.py:13
+msgid "Trencin region"
+msgstr ""
+
+#: django/contrib/localflavor/sk/sk_regions.py:14
+msgid "Trnava region"
+msgstr ""
+
+#: django/contrib/localflavor/sk/sk_regions.py:15
+msgid "Zilina region"
+msgstr ""
+
+#: django/contrib/localflavor/tr/forms.py:21
+msgid "Enter a postal code in the format XXXXX."
+msgstr ""
+
+#: django/contrib/localflavor/tr/forms.py:42
+msgid "Phone numbers must be in 0XXX XXX XXXX format."
+msgstr ""
+
+#: django/contrib/localflavor/tr/forms.py:69
+msgid "Enter a valid Turkish Identification number."
+msgstr ""
+
+#: django/contrib/localflavor/tr/forms.py:70
+msgid "Turkish Identification number must be 11 digits."
+msgstr ""
+
+#: django/contrib/localflavor/us/forms.py:21
+msgid "Enter a zip code in the format XXXXX or XXXXX-XXXX."
+msgstr ""
+
+#: django/contrib/localflavor/us/forms.py:30
+msgid "Phone numbers must be in XXX-XXX-XXXX format."
+msgstr ""
+
+#: django/contrib/localflavor/us/forms.py:59
+msgid "Enter a valid U.S. Social Security number in XXX-XX-XXXX format."
+msgstr ""
+
+#: django/contrib/localflavor/us/forms.py:92
+msgid "Enter a U.S. state or territory."
+msgstr ""
+
+#: django/contrib/localflavor/us/models.py:8
+msgid "U.S. state (two uppercase letters)"
+msgstr ""
+
+#: django/contrib/localflavor/us/models.py:17
+msgid "U.S. postal code (two uppercase letters)"
+msgstr ""
+
+#: django/contrib/localflavor/uy/forms.py:29
+msgid "Enter a valid CI number in X.XXX.XXX-X,XXXXXXX-X or XXXXXXXX format."
+msgstr ""
+
+#: django/contrib/localflavor/uy/forms.py:31
+msgid "Enter a valid CI number."
+msgstr ""
+
+#: django/contrib/localflavor/za/forms.py:21
+msgid "Enter a valid South African ID number"
+msgstr ""
+
+#: django/contrib/localflavor/za/forms.py:55
+msgid "Enter a valid South African postal code"
+msgstr ""
+
+#: django/contrib/localflavor/za/za_provinces.py:4
+msgid "Eastern Cape"
+msgstr ""
+
+#: django/contrib/localflavor/za/za_provinces.py:5
+msgid "Free State"
+msgstr ""
+
+#: django/contrib/localflavor/za/za_provinces.py:6
+msgid "Gauteng"
+msgstr ""
+
+#: django/contrib/localflavor/za/za_provinces.py:7
+msgid "KwaZulu-Natal"
+msgstr ""
+
+#: django/contrib/localflavor/za/za_provinces.py:8
+msgid "Limpopo"
+msgstr ""
+
+#: django/contrib/localflavor/za/za_provinces.py:9
+msgid "Mpumalanga"
+msgstr ""
+
+#: django/contrib/localflavor/za/za_provinces.py:10
+msgid "Northern Cape"
+msgstr ""
+
+#: django/contrib/localflavor/za/za_provinces.py:11
+msgid "North West"
+msgstr ""
+
+#: django/contrib/localflavor/za/za_provinces.py:12
+msgid "Western Cape"
+msgstr ""
+
+#: django/contrib/messages/tests/base.py:100
+msgid "lazy message"
+msgstr ""
+
+#: django/contrib/redirects/models.py:7
+msgid "redirect from"
+msgstr ""
+
+#: django/contrib/redirects/models.py:8
+msgid ""
+"This should be an absolute path, excluding the domain name. Example: '/"
+"events/search/'."
+msgstr ""
+
+#: django/contrib/redirects/models.py:9
+msgid "redirect to"
+msgstr ""
+
+#: django/contrib/redirects/models.py:10
+msgid ""
+"This can be either an absolute path (as above) or a full URL starting with "
+"'http://'."
+msgstr ""
+
+#: django/contrib/redirects/models.py:13
+msgid "redirect"
+msgstr ""
+
+#: django/contrib/redirects/models.py:14
+msgid "redirects"
+msgstr ""
+
+#: django/contrib/sessions/models.py:38
+msgid "session key"
+msgstr ""
+
+#: django/contrib/sessions/models.py:40
+msgid "session data"
+msgstr ""
+
+#: django/contrib/sessions/models.py:41
+msgid "expire date"
+msgstr ""
+
+#: django/contrib/sessions/models.py:46
+msgid "session"
+msgstr ""
+
+#: django/contrib/sessions/models.py:47
+msgid "sessions"
+msgstr ""
+
+#: django/contrib/sites/models.py:37
+msgid "domain name"
+msgstr ""
+
+#: django/contrib/sites/models.py:38
+#, fuzzy
+msgid "display name"
+msgstr "Visualización nombre"
+
+#: django/contrib/sites/models.py:43
+msgid "site"
+msgstr ""
+
+#: django/contrib/sites/models.py:44
+msgid "sites"
+msgstr ""
+
+#: django/core/validators.py:24 django/forms/fields.py:51
+msgid "Enter a valid value."
+msgstr ""
+
+#: django/core/validators.py:99 django/forms/fields.py:591
+msgid "This URL appears to be a broken link."
+msgstr ""
+
+#: django/core/validators.py:131 django/forms/fields.py:590
+msgid "Enter a valid URL."
+msgstr ""
+
+#: django/core/validators.py:168 django/forms/fields.py:1013
+msgid ""
+"Enter a valid 'slug' consisting of letters, numbers, underscores or hyphens."
+msgstr ""
+
+#: django/core/validators.py:171 django/core/validators.py:188
+#: django/forms/fields.py:987
+msgid "Enter a valid IPv4 address."
+msgstr ""
+
+#: django/core/validators.py:175 django/core/validators.py:189
+#, fuzzy
+msgid "Enter a valid IPv6 address."
+msgstr "Dirección IPv6"
+
+#: django/core/validators.py:184 django/core/validators.py:187
+msgid "Enter a valid IPv4 or IPv6 address."
+msgstr ""
+
+#: django/core/validators.py:209 django/db/models/fields/__init__.py:638
+msgid "Enter only digits separated by commas."
+msgstr ""
+
+#: django/core/validators.py:215
+#, python-format
+msgid "Ensure this value is %(limit_value)s (it is %(show_value)s)."
+msgstr ""
+
+#: django/core/validators.py:233 django/forms/fields.py:209
+#: django/forms/fields.py:262
+#, python-format
+msgid "Ensure this value is less than or equal to %(limit_value)s."
+msgstr ""
+
+#: django/core/validators.py:238 django/forms/fields.py:210
+#: django/forms/fields.py:263
+#, python-format
+msgid "Ensure this value is greater than or equal to %(limit_value)s."
+msgstr ""
+
+#: django/core/validators.py:244
+#, python-format
+msgid ""
+"Ensure this value has at least %(limit_value)d characters (it has "
+"%(show_value)d)."
+msgstr ""
+
+#: django/core/validators.py:250
+#, python-format
+msgid ""
+"Ensure this value has at most %(limit_value)d characters (it has "
+"%(show_value)d)."
+msgstr ""
+
+#: django/db/models/base.py:764
+#, python-format
+msgid "%(field_name)s must be unique for %(date_field)s %(lookup)s."
+msgstr ""
+
+#: django/db/models/base.py:788 django/db/models/fields/__init__.py:65
+#, python-format
+msgid "%(model_name)s with this %(field_label)s already exists."
+msgstr ""
+
+#: django/db/models/fields/__init__.py:62
+#, python-format
+msgid "Value %r is not a valid choice."
+msgstr ""
+
+#: django/db/models/fields/__init__.py:63
+msgid "This field cannot be null."
+msgstr ""
+
+#: django/db/models/fields/__init__.py:64
+msgid "This field cannot be blank."
+msgstr ""
+
+#: django/db/models/fields/__init__.py:71
+#, python-format
+msgid "Field of type: %(field_type)s"
+msgstr ""
+
+#: django/db/models/fields/__init__.py:506
+#: django/db/models/fields/__init__.py:967
+#, fuzzy
+msgid "Integer"
+msgstr "Internet"
+
+#: django/db/models/fields/__init__.py:510
+#: django/db/models/fields/__init__.py:965
+#, python-format
+msgid "'%s' value must be an integer."
+msgstr ""
+
+#: django/db/models/fields/__init__.py:552
+#, python-format
+msgid "'%s' value must be either True or False."
+msgstr ""
+
+#: django/db/models/fields/__init__.py:554
+msgid "Boolean (Either True or False)"
+msgstr ""
+
+#: django/db/models/fields/__init__.py:605
+#, python-format
+msgid "String (up to %(max_length)s)"
+msgstr ""
+
+#: django/db/models/fields/__init__.py:633
+msgid "Comma-separated integers"
+msgstr ""
+
+#: django/db/models/fields/__init__.py:647
+#, python-format
+msgid "'%s' value has an invalid date format. It must be in YYYY-MM-DD format."
+msgstr ""
+
+#: django/db/models/fields/__init__.py:649
+#: django/db/models/fields/__init__.py:734
+#, python-format
+msgid ""
+"'%s' value has the correct format (YYYY-MM-DD) but it is an invalid date."
+msgstr ""
+
+#: django/db/models/fields/__init__.py:652
+msgid "Date (without time)"
+msgstr ""
+
+#: django/db/models/fields/__init__.py:732
+#, python-format
+msgid ""
+"'%s' value has an invalid format. It must be in YYYY-MM-DD HH:MM[:ss[."
+"uuuuuu]][TZ] format."
+msgstr ""
+
+#: django/db/models/fields/__init__.py:736
+#, python-format
+msgid ""
+"'%s' value has the correct format (YYYY-MM-DD HH:MM[:ss[.uuuuuu]][TZ]) but "
+"it is an invalid date/time."
+msgstr ""
+
+#: django/db/models/fields/__init__.py:740
+msgid "Date (with time)"
+msgstr ""
+
+#: django/db/models/fields/__init__.py:831
+#, python-format
+msgid "'%s' value must be a decimal number."
+msgstr ""
+
+#: django/db/models/fields/__init__.py:833
+#, fuzzy
+msgid "Decimal number"
+msgstr "Número teléfono"
+
+#: django/db/models/fields/__init__.py:890
+#, fuzzy
+msgid "E-mail address"
+msgstr "Mi dirección"
+
+#: django/db/models/fields/__init__.py:906
+msgid "File path"
+msgstr ""
+
+#: django/db/models/fields/__init__.py:936
+#, python-format
+msgid "'%s' value must be a float."
+msgstr ""
+
+#: django/db/models/fields/__init__.py:938
+#, fuzzy
+msgid "Floating point number"
+msgstr "Borrar número teléfono"
+
+#: django/db/models/fields/__init__.py:999
+msgid "Big (8 byte) integer"
+msgstr ""
+
+#: django/db/models/fields/__init__.py:1013
+#, fuzzy
+msgid "IPv4 address"
+msgstr "Dirección IPv6"
+
+#: django/db/models/fields/__init__.py:1080
+#, python-format
+msgid "'%s' value must be either None, True or False."
+msgstr ""
+
+#: django/db/models/fields/__init__.py:1082
+msgid "Boolean (Either True, False or None)"
+msgstr ""
+
+#: django/db/models/fields/__init__.py:1131
+msgid "Positive integer"
+msgstr ""
+
+#: django/db/models/fields/__init__.py:1142
+msgid "Positive small integer"
+msgstr ""
+
+#: django/db/models/fields/__init__.py:1153
+#, python-format
+msgid "Slug (up to %(max_length)s)"
+msgstr ""
+
+#: django/db/models/fields/__init__.py:1171
+msgid "Small integer"
+msgstr ""
+
+#: django/db/models/fields/__init__.py:1177
+msgid "Text"
+msgstr ""
+
+#: django/db/models/fields/__init__.py:1195
+#, python-format
+msgid ""
+"'%s' value has an invalid format. It must be in HH:MM[:ss[.uuuuuu]] format."
+msgstr ""
+
+#: django/db/models/fields/__init__.py:1197
+#, python-format
+msgid ""
+"'%s' value has the correct format (HH:MM[:ss[.uuuuuu]]) but it is an invalid "
+"time."
+msgstr ""
+
+#: django/db/models/fields/__init__.py:1200
+msgid "Time"
+msgstr ""
+
+#: django/db/models/fields/files.py:214
+msgid "File"
+msgstr ""
+
+#: django/db/models/fields/files.py:321
+msgid "Image"
+msgstr ""
+
+#: django/db/models/fields/related.py:932
+#, python-format
+msgid "Model %(model)s with pk %(pk)r does not exist."
+msgstr ""
+
+#: django/db/models/fields/related.py:934
+msgid "Foreign Key (type determined by related field)"
+msgstr ""
+
+#: django/db/models/fields/related.py:1062
+msgid "One-to-one relationship"
+msgstr ""
+
+#: django/db/models/fields/related.py:1125
+msgid "Many-to-many relationship"
+msgstr ""
+
+#: django/db/models/fields/related.py:1149
+msgid ""
+"Hold down \"Control\", or \"Command\" on a Mac, to select more than one."
+msgstr ""
+
+#: django/forms/fields.py:50
+msgid "This field is required."
+msgstr ""
+
+#: django/forms/fields.py:208
+#, fuzzy
+msgid "Enter a whole number."
+msgstr "Borrar número teléfono"
+
+#: django/forms/fields.py:240 django/forms/fields.py:261
+#, fuzzy
+msgid "Enter a number."
+msgstr "Número teléfono"
+
+#: django/forms/fields.py:264
+#, python-format
+msgid "Ensure that there are no more than %s digits in total."
+msgstr ""
+
+#: django/forms/fields.py:265
+#, python-format
+msgid "Ensure that there are no more than %s decimal places."
+msgstr ""
+
+#: django/forms/fields.py:266
+#, python-format
+msgid "Ensure that there are no more than %s digits before the decimal point."
+msgstr ""
+
+#: django/forms/fields.py:365 django/forms/fields.py:953
+msgid "Enter a valid date."
+msgstr ""
+
+#: django/forms/fields.py:388 django/forms/fields.py:954
+msgid "Enter a valid time."
+msgstr ""
+
+#: django/forms/fields.py:409
+msgid "Enter a valid date/time."
+msgstr ""
+
+#: django/forms/fields.py:485
+msgid "No file was submitted. Check the encoding type on the form."
+msgstr ""
+
+#: django/forms/fields.py:486
+msgid "No file was submitted."
+msgstr ""
+
+#: django/forms/fields.py:487
+msgid "The submitted file is empty."
+msgstr ""
+
+#: django/forms/fields.py:488
+#, python-format
+msgid ""
+"Ensure this filename has at most %(max)d characters (it has %(length)d)."
+msgstr ""
+
+#: django/forms/fields.py:489
+msgid "Please either submit a file or check the clear checkbox, not both."
+msgstr ""
+
+#: django/forms/fields.py:544
+msgid ""
+"Upload a valid image. The file you uploaded was either not an image or a "
+"corrupted image."
+msgstr ""
+
+#: django/forms/fields.py:679 django/forms/fields.py:759
+#, python-format
+msgid "Select a valid choice. %(value)s is not one of the available choices."
+msgstr ""
+
+#: django/forms/fields.py:760 django/forms/fields.py:848
+#: django/forms/models.py:999
+msgid "Enter a list of values."
+msgstr ""
+
+#: django/forms/formsets.py:320 django/forms/formsets.py:322
+msgid "Order"
+msgstr ""
+
+#: django/forms/models.py:571
+#, python-format
+msgid "Please correct the duplicate data for %(field)s."
+msgstr ""
+
+#: django/forms/models.py:575
+#, python-format
+msgid "Please correct the duplicate data for %(field)s, which must be unique."
+msgstr ""
+
+#: django/forms/models.py:581
+#, python-format
+msgid ""
+"Please correct the duplicate data for %(field_name)s which must be unique "
+"for the %(lookup)s in %(date_field)s."
+msgstr ""
+
+#: django/forms/models.py:589
+msgid "Please correct the duplicate values below."
+msgstr ""
+
+#: django/forms/models.py:849
+msgid "The inline foreign key did not match the parent instance primary key."
+msgstr ""
+
+#: django/forms/models.py:910
+msgid "Select a valid choice. That choice is not one of the available choices."
+msgstr ""
+
+#: django/forms/models.py:1000
+#, python-format
+msgid "Select a valid choice. %s is not one of the available choices."
+msgstr ""
+
+#: django/forms/models.py:1002
+#, python-format
+msgid "\"%s\" is not a valid value for a primary key."
+msgstr ""
+
+#: django/forms/util.py:70
+#, python-format
+msgid ""
+"%(datetime)s couldn't be interpreted in time zone %(current_timezone)s; it "
+"may be ambiguous or it may not exist."
+msgstr ""
+
+#: django/forms/widgets.py:325
+msgid "Currently"
+msgstr ""
+
+#: django/forms/widgets.py:327
+msgid "Clear"
+msgstr ""
+
+#: django/template/defaultfilters.py:797
+msgid "yes,no,maybe"
+msgstr ""
+
+#: django/template/defaultfilters.py:825 django/template/defaultfilters.py:830
+#, python-format
+msgid "%(size)d byte"
+msgid_plural "%(size)d bytes"
+msgstr[0] ""
+msgstr[1] ""
+
+#: django/template/defaultfilters.py:832
+#, python-format
+msgid "%s KB"
+msgstr ""
+
+#: django/template/defaultfilters.py:834
+#, python-format
+msgid "%s MB"
+msgstr ""
+
+#: django/template/defaultfilters.py:836
+#, python-format
+msgid "%s GB"
+msgstr ""
+
+#: django/template/defaultfilters.py:838
+#, python-format
+msgid "%s TB"
+msgstr ""
+
+#: django/template/defaultfilters.py:839
+#, python-format
+msgid "%s PB"
+msgstr ""
+
+#: django/utils/dateformat.py:45
+msgid "p.m."
+msgstr ""
+
+#: django/utils/dateformat.py:46
+msgid "a.m."
+msgstr ""
+
+#: django/utils/dateformat.py:51
+msgid "PM"
+msgstr ""
+
+#: django/utils/dateformat.py:52
+msgid "AM"
+msgstr ""
+
+#: django/utils/dateformat.py:101
+msgid "midnight"
+msgstr ""
+
+#: django/utils/dateformat.py:103
+msgid "noon"
+msgstr ""
+
+#: django/utils/dates.py:6
+msgid "Monday"
+msgstr ""
+
+#: django/utils/dates.py:6
+msgid "Tuesday"
+msgstr ""
+
+#: django/utils/dates.py:6
+msgid "Wednesday"
+msgstr ""
+
+#: django/utils/dates.py:6
+msgid "Thursday"
+msgstr ""
+
+#: django/utils/dates.py:6
+msgid "Friday"
+msgstr ""
+
+#: django/utils/dates.py:7
+msgid "Saturday"
+msgstr ""
+
+#: django/utils/dates.py:7
+msgid "Sunday"
+msgstr ""
+
+#: django/utils/dates.py:10
+msgid "Mon"
+msgstr ""
+
+#: django/utils/dates.py:10
+msgid "Tue"
+msgstr ""
+
+#: django/utils/dates.py:10
+msgid "Wed"
+msgstr ""
+
+#: django/utils/dates.py:10
+msgid "Thu"
+msgstr ""
+
+#: django/utils/dates.py:10
+msgid "Fri"
+msgstr ""
+
+#: django/utils/dates.py:11
+#, fuzzy
+msgid "Sat"
+msgstr "Poner"
+
+#: django/utils/dates.py:11
+msgid "Sun"
+msgstr ""
+
+#: django/utils/dates.py:18
+msgid "January"
+msgstr ""
+
+#: django/utils/dates.py:18
+msgid "February"
+msgstr ""
+
+#: django/utils/dates.py:18
+msgid "March"
+msgstr ""
+
+#: django/utils/dates.py:18
+msgid "April"
+msgstr ""
+
+#: django/utils/dates.py:18
+msgid "May"
+msgstr ""
+
+#: django/utils/dates.py:18
+msgid "June"
+msgstr ""
+
+#: django/utils/dates.py:19
+msgid "July"
+msgstr ""
+
+#: django/utils/dates.py:19
+msgid "August"
+msgstr ""
+
+#: django/utils/dates.py:19
+msgid "September"
+msgstr ""
+
+#: django/utils/dates.py:19
+msgid "October"
+msgstr ""
+
+#: django/utils/dates.py:19
+#, fuzzy
+msgid "November"
+msgstr "Número teléfono"
+
+#: django/utils/dates.py:20
+msgid "December"
+msgstr ""
+
+#: django/utils/dates.py:23
+msgid "jan"
+msgstr ""
+
+#: django/utils/dates.py:23
+msgid "feb"
+msgstr ""
+
+#: django/utils/dates.py:23
+msgid "mar"
+msgstr ""
+
+#: django/utils/dates.py:23
+msgid "apr"
+msgstr ""
+
+#: django/utils/dates.py:23
+#, fuzzy
+msgid "may"
+msgstr "Alemán"
+
+#: django/utils/dates.py:23
+msgid "jun"
+msgstr ""
+
+#: django/utils/dates.py:24
+msgid "jul"
+msgstr ""
+
+#: django/utils/dates.py:24
+msgid "aug"
+msgstr ""
+
+#: django/utils/dates.py:24
+msgid "sep"
+msgstr ""
+
+#: django/utils/dates.py:24
+msgid "oct"
+msgstr ""
+
+#: django/utils/dates.py:24
+msgid "nov"
+msgstr ""
+
+#: django/utils/dates.py:24
+msgid "dec"
+msgstr ""
+
+#: django/utils/dates.py:31
+msgctxt "abbrev. month"
+msgid "Jan."
+msgstr ""
+
+#: django/utils/dates.py:32
+msgctxt "abbrev. month"
+msgid "Feb."
+msgstr ""
+
+#: django/utils/dates.py:33
+msgctxt "abbrev. month"
+msgid "March"
+msgstr ""
+
+#: django/utils/dates.py:34
+msgctxt "abbrev. month"
+msgid "April"
+msgstr ""
+
+#: django/utils/dates.py:35
+msgctxt "abbrev. month"
+msgid "May"
+msgstr ""
+
+#: django/utils/dates.py:36
+msgctxt "abbrev. month"
+msgid "June"
+msgstr ""
+
+#: django/utils/dates.py:37
+msgctxt "abbrev. month"
+msgid "July"
+msgstr ""
+
+#: django/utils/dates.py:38
+msgctxt "abbrev. month"
+msgid "Aug."
+msgstr ""
+
+#: django/utils/dates.py:39
+msgctxt "abbrev. month"
+msgid "Sept."
+msgstr ""
+
+#: django/utils/dates.py:40
+msgctxt "abbrev. month"
+msgid "Oct."
+msgstr ""
+
+#: django/utils/dates.py:41
+msgctxt "abbrev. month"
+msgid "Nov."
+msgstr ""
+
+#: django/utils/dates.py:42
+msgctxt "abbrev. month"
+msgid "Dec."
+msgstr ""
+
+#: django/utils/dates.py:45
+msgctxt "alt. month"
+msgid "January"
+msgstr ""
+
+#: django/utils/dates.py:46
+msgctxt "alt. month"
+msgid "February"
+msgstr ""
+
+#: django/utils/dates.py:47
+msgctxt "alt. month"
+msgid "March"
+msgstr ""
+
+#: django/utils/dates.py:48
+msgctxt "alt. month"
+msgid "April"
+msgstr ""
+
+#: django/utils/dates.py:49
+msgctxt "alt. month"
+msgid "May"
+msgstr ""
+
+#: django/utils/dates.py:50
+msgctxt "alt. month"
+msgid "June"
+msgstr ""
+
+#: django/utils/dates.py:51
+msgctxt "alt. month"
+msgid "July"
+msgstr ""
+
+#: django/utils/dates.py:52
+msgctxt "alt. month"
+msgid "August"
+msgstr ""
+
+#: django/utils/dates.py:53
+msgctxt "alt. month"
+msgid "September"
+msgstr ""
+
+#: django/utils/dates.py:54
+msgctxt "alt. month"
+msgid "October"
+msgstr ""
+
+#: django/utils/dates.py:55
+#, fuzzy
+msgctxt "alt. month"
+msgid "November"
+msgstr "Número teléfono"
+
+#: django/utils/dates.py:56
+msgctxt "alt. month"
+msgid "December"
+msgstr ""
+
+#: django/utils/text.py:65
+#, python-format
+msgctxt "String to return when truncating text"
+msgid "%(truncated_text)s..."
+msgstr ""
+
+#: django/utils/text.py:234
+#, fuzzy
+msgid "or"
+msgstr "Puerto"
+
+#. Translators: This string is used as a separator between list elements
+#: django/utils/text.py:251
+msgid ", "
+msgstr ""
+
+#: django/utils/timesince.py:20
+msgid "year"
+msgid_plural "years"
+msgstr[0] ""
+msgstr[1] ""
+
+#: django/utils/timesince.py:21
+msgid "month"
+msgid_plural "months"
+msgstr[0] ""
+msgstr[1] ""
+
+#: django/utils/timesince.py:22
+msgid "week"
+msgid_plural "weeks"
+msgstr[0] ""
+msgstr[1] ""
+
+#: django/utils/timesince.py:23
+msgid "day"
+msgid_plural "days"
+msgstr[0] ""
+msgstr[1] ""
+
+#: django/utils/timesince.py:24
+msgid "hour"
+msgid_plural "hours"
+msgstr[0] ""
+msgstr[1] ""
+
+#: django/utils/timesince.py:25
+msgid "minute"
+msgid_plural "minutes"
+msgstr[0] ""
+msgstr[1] ""
+
+#: django/utils/timesince.py:41
+msgid "minutes"
+msgstr ""
+
+#: django/utils/timesince.py:46
+#, python-format
+msgid "%(number)d %(type)s"
+msgstr ""
+
+#: django/utils/timesince.py:52
+#, python-format
+msgid ", %(number)d %(type)s"
+msgstr ""
+
+#: django/views/static.py:52
+msgid "Directory indexes are not allowed here."
+msgstr ""
+
+#: django/views/static.py:54
+#, python-format
+msgid "\"%(path)s\" does not exist"
+msgstr ""
+
+#: django/views/static.py:95
+#, python-format
+msgid "Index of %(directory)s"
+msgstr ""
+
+#: django/views/generic/create_update.py:121
+#, python-format
+msgid "The %(verbose_name)s was created successfully."
+msgstr ""
+
+#: django/views/generic/create_update.py:164
+#, python-format
+msgid "The %(verbose_name)s was updated successfully."
+msgstr ""
+
+#: django/views/generic/create_update.py:207
+#, python-format
+msgid "The %(verbose_name)s was deleted."
+msgstr ""
+
+#: django/views/generic/dates.py:33
+msgid "No year specified"
+msgstr ""
+
+#: django/views/generic/dates.py:58
+msgid "No month specified"
+msgstr ""
+
+#: django/views/generic/dates.py:99
+msgid "No day specified"
+msgstr ""
+
+#: django/views/generic/dates.py:138
+msgid "No week specified"
+msgstr ""
+
+#: django/views/generic/dates.py:198 django/views/generic/dates.py:215
+#, python-format
+msgid "No %(verbose_name_plural)s available"
+msgstr ""
+
+#: django/views/generic/dates.py:467
+#, python-format
+msgid ""
+"Future %(verbose_name_plural)s not available because %(class_name)s."
+"allow_future is False."
+msgstr ""
+
+#: django/views/generic/dates.py:501
+#, python-format
+msgid "Invalid date string '%(datestr)s' given format '%(format)s'"
+msgstr ""
+
+#: django/views/generic/detail.py:51
+#, python-format
+msgid "No %(verbose_name)s found matching the query"
+msgstr ""
+
+#: django/views/generic/list.py:45
+msgid "Page is not 'last', nor can it be converted to an int."
+msgstr ""
+
+#: django/views/generic/list.py:50
+#, python-format
+msgid "Invalid page (%(page_number)s)"
+msgstr ""
+
+#: django/views/generic/list.py:117
+#, python-format
+msgid "Empty list and '%(class_name)s.allow_empty' is False."
+msgstr ""
 
 #~ msgid "sslcerts.tar.gz file:"
 #~ msgstr "Archivo sslcerts.tar.gz:"
