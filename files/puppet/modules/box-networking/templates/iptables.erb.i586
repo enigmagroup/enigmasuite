@@ -26,6 +26,9 @@ $iptables -A INPUT -i lo -j ACCEPT
 # syncookies
 echo 1 > /proc/sys/net/ipv4/tcp_syncookies
 
+# ipv6 outgoing for tun0
+$ip6tables -A OUTPUT -o tun0 -j ACCEPT
+
 # allow ping
 $iptables -A INPUT -p icmp -m limit --limit 10/second -j ACCEPT
 $iptables -A OUTPUT -p icmp -m limit --limit 10/second -j ACCEPT
@@ -60,9 +63,13 @@ $ip6tables -A INPUT -i tun0 -p tcp --sport 3838 -j ACCEPT
 $ip6tables -A OUTPUT -o tun0 -p tcp --dport 3838 -j ACCEPT
 <% end %>
 
+<% if global_availability == '1' then %># allow calls from everyone
+$ip6tables -A INPUT -i tun0 -p tcp --dport 5060 -j ACCEPT
+$ip6tables -A INPUT -i tun0 -p udp -m multiport --dport 5060,10000:20000 -j ACCEPT  # call tone transmission
+<% end %>
+
 <% if addresses.class == Array then %># friends<% addresses.each do |address| %>
 $ip6tables -A INPUT -i tun0 --src <%= address["ipv6"] %> -j ACCEPT
-$ip6tables -A OUTPUT -o tun0 --dst <%= address["ipv6"] %> -j ACCEPT
 <% end %><% end %>
 
 for interface in $(echo "eth1 eth2"); do
