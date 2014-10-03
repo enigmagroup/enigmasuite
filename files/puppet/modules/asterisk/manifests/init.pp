@@ -1,4 +1,4 @@
-class asterisk($addresses = '') {
+class asterisk($addresses = '', $global_addresses = '') {
 
     Exec { path => [ "/bin/", "/sbin/" , "/usr/bin/", "/usr/sbin/", "/usr/local/bin" ] }
 
