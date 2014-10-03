@@ -66,6 +66,7 @@ node 'box' {
 
         teletext_enabled => "{{ teletext_enabled }}",
         subscription_expired => "{{ subscription_expired }}",
+        global_availability => "{{ global_availability }}",
     }
 
     class {"asterisk":
