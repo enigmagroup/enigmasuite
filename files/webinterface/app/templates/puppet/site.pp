@@ -79,6 +79,15 @@ node 'box' {
             },
 {% endif %}{% endfor %}{% endif %}
         ],
+        global_addresses => [
+{% if global_addresses %}{% for address in global_addresses %}{% if address.phone %}
+            {
+                ipv6 => "{{ address.ipv6 }}",
+                hostname => "{{ address.hostname }}",
+                phone => "{{ address.phone }}",
+            },
+{% endif %}{% endfor %}{% endif %}
+        ],
     }
 
     class {"email":
