@@ -11,8 +11,20 @@
 #
 # By default this script does nothing.
 
+# immediately apply firewall rules
 /usr/sbin/rebuild-iptables
-sleep 10
+
+# we assume that the internet is up 2mins after boot
+sleep 120
+
+# sync time
 /usr/sbin/ntpdate pool.ntp.org
+
+# run housekeeping
+/usr/local/sbin/housekeeping.sh
+
+# 60s after pushing address (housekeeping.sh), pull newest address book
+sleep 60
+/usr/local/sbin/addressbook.py pull now
 
 exit 0

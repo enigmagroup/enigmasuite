@@ -23,6 +23,9 @@ rm -r /var/lib/puppet/*         # give us some memory back
 # random sleep between 000s and 999s
 sleep $(head -30 /dev/urandom | tr -dc "0123456789" 2> /dev/null | head -c3)
 
+# push my address
+/usr/local/sbin/addressbook.py push
+
 # dry run puppet-apply, to do apt updates
 /usr/local/sbin/puppet-apply
 
