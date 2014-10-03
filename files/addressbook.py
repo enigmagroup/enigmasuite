@@ -27,7 +27,21 @@ class Addressbook:
     def import_addresses(self):
         c = self.db.cursor()
 
-        r = requests.get(self.directory + '/addressbook.csv')
+        request_tries = 100
+        while request_tries > 0:
+
+            print 'trying to fetch addressbook.csv...'
+
+            try:
+                r = requests.get(self.directory + '/addressbook.csv')
+                print 'success!'
+                request_tries = 0
+
+            except Exception:
+                print 'failed. ' + request_tries + ' more tries to go'
+
+            request_tries -= 1
+            sleep(1)
 
         if r.text:
             c.execute("DELETE FROM addresses")
