@@ -10,6 +10,7 @@ from datetime import datetime
 from django.views.decorators.csrf import csrf_exempt
 from django.utils.translation import ugettext as _
 from slugify import slugify
+from helpers import *
 
 
 
@@ -133,6 +134,80 @@ def addressbook_edit(request, addr_id):
     return render_to_response('addressbook/detail.html', {
         'address': address,
         'form': form,
+    }, context_instance=RequestContext(request))
+
+def addressbook_global(request):
+    o = Option()
+
+    if request.POST.get('global-availability'):
+        o.toggle_value('global_availability')
+        o.config_changed(True)
+        return redirect('/addressbook-global/')
+
+    global_hostname = o.get_value('global_hostname')
+    global_phone = o.get_value('global_phone')
+    global_address_status = o.get_value('global_address_status')
+    global_availability = o.get_value('global_availability')
+    ipv6 = o.get_value('ipv6')
+    ipv6 = normalize_ipv6(ipv6)
+
+    import sqlite3
+    db = sqlite3.connect('/etc/enigmabox/addressbook.db')
+    db.text_factory = sqlite3.OptimizedUnicode
+    db_cursor = db.cursor()
+    db_cursor.execute("SELECT ipv6, hostname, phone FROM addresses ORDER BY id desc")
+    db_addresses = db_cursor.fetchall()
+
+    addresses = []
+    for adr in db_addresses:
+        addresses.append({
+            'ipv6': adr[0],
+            'name': adr[1],
+            'phone': adr[2],
+            'mine': '1' if normalize_ipv6(adr[0]) == ipv6 else '0',
+        })
+
+    return render_to_response('addressbook/overview-global.html', {
+        'global_hostname': global_hostname,
+        'global_phone': global_phone,
+        'global_address_status': global_address_status,
+        'global_availability': global_availability,
+        'addresses': addresses,
+    }, context_instance=RequestContext(request))
+
+def addressbook_global_edit(request):
+    o = Option()
+
+    global_hostname = o.get_value('global_hostname', '')
+    global_phone = o.get_value('global_phone', '')
+
+    if request.POST.get('submit') == 'save':
+        form = GlobalAddressbookForm(request.POST)
+        if form.is_valid():
+            cd = form.cleaned_data
+            name = cd['name'].strip()
+            phone = cd['phone']
+            o.set_value('global_hostname', name)
+            o.set_value('global_phone', phone)
+            o.set_value('global_address_status', 'pending')
+            return redirect('/addressbook-global/')
+
+    elif request.POST.get('submit') == 'delete':
+        o.set_value('global_hostname', '')
+        o.set_value('global_phone', '')
+        o.set_value('global_address_status', 'pending')
+        return redirect('/addressbook-global/')
+
+    else:
+        form = GlobalAddressbookForm(initial={
+            'name': global_hostname,
+            'phone': global_phone,
+        })
+
+    return render_to_response('addressbook/overview-global-edit.html', {
+        'form': form,
+        'global_hostname': global_hostname,
+        'global_phone': global_phone,
     }, context_instance=RequestContext(request))
 
 
@@ -869,6 +944,24 @@ def puppet_site(request, program):
 
     addresses = Address.objects.all().order_by('id')
 
+    global_addresses = []
+    try:
+        import sqlite3
+        db = sqlite3.connect('/etc/enigmabox/addressbook.db')
+        db.text_factory = sqlite3.OptimizedUnicode
+        c = db.cursor()
+        c.execute("SELECT ipv6,hostname,phone FROM addresses")
+
+        for address in c.fetchall():
+            global_addresses.append({
+                'ipv6': address[0],
+                'hostname': address[1],
+                'phone': address[2],
+            })
+
+    except Exception:
+        pass
+
     webinterface_password = o.get_value('webinterface_password')
     mailbox_password = o.get_value(u'mailbox_password')
 
@@ -908,6 +1001,8 @@ def puppet_site(request, program):
     return render_to_response(template, {
         'box': box,
         'addresses': addresses,
+        'global_addresses': global_addresses,
+        'global_availability': o.get_value('global_availability', 0),
         'puppetmasters': puppetmasters,
         'wlan_ssid': o.get_value('wlan_ssid'),
         'wlan_pass': o.get_value('wlan_pass'),
