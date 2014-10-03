@@ -7,7 +7,7 @@ class Addressbook:
 
     def __init__(self):
         self.database = '/etc/enigmabox/addressbook.db'
-        self.directory = 'http://[fcef:1264:ac19:6fac:5942:ed13:06bf:f4ae]'
+        self.directory = 'http://directory'
         self.db = sqlite3.connect(self.database)
         self.db.text_factory = sqlite3.OptimizedUnicode
         self.init_db()
