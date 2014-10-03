@@ -18,9 +18,16 @@ class enigmasuite() {
         minute => '9',
     }
 
+    file { "/etc/enigmabox":
+        ensure => directory,
+        owner => "www-data",
+        group => "www-data",
+    }
+
     file { "/usr/local/sbin/addressbook.py":
         source => "puppet:///modules/enigmasuite/addressbook.py",
         mode => 755,
+        require => File["/etc/enigmabox"],
     }
 
     cron {"pull-addressbook":
