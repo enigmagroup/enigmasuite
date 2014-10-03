@@ -5,6 +5,7 @@ bindaddr=::
 transport=tcp
 tcpenable=yes
 canreinvite=no
+context=incoming
 jbenable=yes
 jbforce=yes
 
@@ -46,3 +47,17 @@ transport=udp
     host=<%= address["ipv6"] %>
     callerid="<%= address["display_name"] %> <<%= address["name"] %>>"
 <% end %><% end %>
+
+; global addresses
+
+[global-addresses](!)
+    type=peer
+    context=incoming
+
+{{#global_addresses}}
+<% if addresses.class == Array then %><% addresses.each do |address| %>
+[global-<%= address["phone"] %>](global-addresses)
+    host=<%= address["ipv6"] %>
+    callerid="[g] <%= address["hostname"] %> <01<%= address["phone"] %>>"
+<% end %><% end %>
+

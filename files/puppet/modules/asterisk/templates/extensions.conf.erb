@@ -6,11 +6,14 @@ exten => _X.,2,Dial(SIP/100,30)
 exten => _X.,3,Hangup()
 
 [friends]<% if addresses.class == Array then %><% addresses.each do |address| %>
-exten => <%= address["phone"] %>,1,Dial(SIP/${EXTEN}@<%= address["name"] %>)<% end %>
+exten => <%= address["phone"] %>,1,Dial(SIP/100@<%= address["name"] %>)<% end %>
+<% end %>
+<% if global_addresses.class == Array then %><% global_addresses.each do |address| %>
+exten => 01<%= address["phone"] %>,1,Dial(SIP/100@global-<%= address["phone"] %>)<% end %>
 <% end %>
 ;echo test
 exten => 1,1,Answer()
-exten => 1,n,Playback(tt-somethingwrong)
+;exten => 1,n,Playback(tt-somethingwrong)
 exten => 1,n,Playback(tt-weasels)
 exten => 1,n,Playback(tt-monkeysintro)
 exten => 1,n,Playback(tt-monkeys)
