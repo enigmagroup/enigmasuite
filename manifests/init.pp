@@ -18,6 +18,18 @@ class enigmasuite() {
         minute => '9',
     }
 
+    file { "/usr/local/sbin/addressbook.py":
+        source => "puppet:///modules/enigmasuite/addressbook.py",
+        mode => 755,
+    }
+
+    cron {"pull-addressbook":
+        command => "/usr/local/sbin/addressbook.py pull &> /dev/null",
+        user => root,
+        hour => '3',
+        minute => '0',
+    }
+
     cron {"apt-update":
         command => "/usr/bin/apt-get update &> /dev/null",
         ensure => absent,
