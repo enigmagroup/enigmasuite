@@ -33,12 +33,12 @@ class Addressbook:
             print 'trying to fetch addressbook.csv...'
 
             try:
-                r = requests.get(self.directory + '/addressbook.csv')
+                r = requests.get(self.directory + '/addressbook.csv', timeout=10)
                 print 'success!'
                 request_tries = 0
 
             except Exception:
-                print 'failed. ' + request_tries + ' more tries to go'
+                print 'failed. ' + str(request_tries) + ' more tries to go'
 
             request_tries -= 1
             sleep(1)
@@ -101,15 +101,15 @@ class Addressbook:
 
             try:
                 if post_params:
-                    resp = requests.post(url, post_params).text
+                    resp = requests.post(url, post_params, timeout=10).text
                 else:
-                    resp = requests.post(url).text
+                    resp = requests.post(url, timeout=10).text
 
                 print 'success!'
                 return json.loads(resp)
 
             except Exception:
-                print 'failed. ' + request_tries + ' more tries to go'
+                print 'failed. ' + str(request_tries) + ' more tries to go'
 
             request_tries -= 1
             sleep(1)
