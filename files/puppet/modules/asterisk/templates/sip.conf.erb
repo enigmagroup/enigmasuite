@@ -54,7 +54,7 @@ transport=udp
     type=peer
     context=incoming
 
-<% if addresses.class == Array then %><% addresses.each do |address| %>
+<% if global_addresses.class == Array then %><% global_addresses.each do |address| %>
 [global-<%= address["phone"] %>](global-addresses)
     host=<%= address["ipv6"] %>
     callerid="[g] <%= address["hostname"] %> <01<%= address["phone"] %>>"
