@@ -91,7 +91,8 @@ def addressbook(request):
     else:
         form = AddressbookForm()
 
-    addresses = Address.objects.all().order_by('id')
+    order = request.GET.get('order', 'id')
+    addresses = Address.objects.all().order_by(order)
     sip_peers = Popen(["sudo", "asterisk", "-rx", "sip show peers"], stdout=PIPE).communicate()[0]
 
     return render_to_response('addressbook/overview.html', {
