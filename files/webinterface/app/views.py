@@ -933,8 +933,9 @@ def puppet_site(request, program):
         if expiration_notice_confirmed:
             display_expiration_notice = '0'
 
-        if now > dt:
-            display_expiration_notice = '1'
+        # well, umm, leave it hidden, in case the box didn't get the update
+        #if now > dt:
+        #    display_expiration_notice = '1'
 
     except Exception:
         # no additional server data found, moving on...
