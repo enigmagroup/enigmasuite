@@ -438,8 +438,16 @@ def subscription_hide_notice(request):
     o = Option()
 
     o.set_value('expiration_notice_confirmed', '1')
-    Popen(["sudo", "/usr/local/sbin/hide_expiration_notice"], stdout=PIPE).communicate()[0]
-    referrer = request.META['HTTP_REFERER']
+
+    try:
+        Popen(["sudo", "/usr/local/sbin/hide_expiration_notice"], stdout=PIPE).communicate()[0]
+    except Exception:
+        pass
+
+    try:
+        referrer = request.META['HTTP_REFERER']
+    except Exception:
+        referrer = ''
 
     return redirect(referrer)
 
