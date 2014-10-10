@@ -49,7 +49,7 @@ $iptables -A INPUT -p udp --dport <%= peering_port %> -j ACCEPT
 # nat
 $iptables -I POSTROUTING -t nat -o tun0 -j MASQUERADE
 
-<% if subscription_expired == '1' then %># show renew notice if subscription has expired
+<% if display_expiration_notice == '1' then %># show renew notice if subscription has expired
 $iptables -t nat -A PREROUTING -i eth1 -p tcp --dport 80 -j REDIRECT --to-port 8117
 $iptables -t nat -A PREROUTING -i eth2 -p tcp --dport 80 -j REDIRECT --to-port 8117
 <% end %>
