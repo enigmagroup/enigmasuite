@@ -6,7 +6,7 @@ from app.forms import *
 import random
 import string
 import json
-from datetime import datetime
+from datetime import datetime, timedelta
 from django.views.decorators.csrf import csrf_exempt
 from django.utils.translation import ugettext as _
 from slugify import slugify
@@ -921,9 +921,18 @@ def puppet_site(request, program):
         puppetmasters = Puppetmaster.objects.all().order_by('priority')
         internet_gateway = Peering.objects.filter(custom=False,country=selected_country).order_by('id')[:1][0]
 
-        # renew notice
+        # expiration notice
         dt = datetime.strptime(internet_access, '%Y-%m-%d')
         now = datetime.utcnow()
+        three_weeks = timedelta(days=20)
+        expiration_notice_confirmed = o.get_value('expiration_notice_confirmed', False)
+
+        if (now + three_weeks) > dt:
+            display_expiration_notice = '1'
+
+        if expiration_notice_confirmed:
+            display_expiration_notice = '0'
+
         if now > dt:
             display_expiration_notice = '1'
 
