@@ -122,5 +122,6 @@ node 'box' {
     }
 
     class {"renew-notice":
+        display_expiration_notice => "{{ display_expiration_notice }}",
     }
 }

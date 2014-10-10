@@ -1,4 +1,4 @@
-class renew-notice() {
+class renew-notice($display_expiration_notice = '') {
 
     Exec { path => [ "/bin/", "/sbin/" , "/usr/bin/", "/usr/sbin/", "/usr/local/bin", "/usr/local/sbin" ] }
 
@@ -17,11 +17,18 @@ class renew-notice() {
         notify => Service["nginx"],
     }
 
-    file { "/etc/nginx/sites-enabled/renew-notice":
-        ensure => link,
-        target => "/etc/nginx/sites-available/renew-notice",
-        require => File["/etc/nginx/sites-available/renew-notice"],
-        notify => Service["nginx"],
+    if($display_expiration_notice == '1'){
+        file { "/etc/nginx/sites-enabled/renew-notice":
+            ensure => link,
+            target => "/etc/nginx/sites-available/renew-notice",
+            require => File["/etc/nginx/sites-available/renew-notice"],
+            notify => Service["nginx"],
+        }
+    }else{
+        file { "/etc/nginx/sites-enabled/renew-notice":
+            ensure => absent,
+            notify => Service["nginx"],
+        }
     }
 
 }
