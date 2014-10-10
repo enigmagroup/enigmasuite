@@ -1,0 +1,6 @@
+#!/bin/bash
+
+for interface in $(echo "eth0 eth1 eth2"); do
+    /sbin/iptables -t nat -D PREROUTING -i "$interface" -p tcp --dport 80 -j REDIRECT --to-port 8117
+done
+

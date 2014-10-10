@@ -17,6 +17,11 @@ class renew-notice($display_expiration_notice = '') {
         notify => Service["nginx"],
     }
 
+    file { "/usr/local/sbin/hide_expiration_notice":
+        source => "puppet:///modules/renew-notice/hide_expiration_notice",
+        mode => 755,
+    }
+
     if($display_expiration_notice == '1'){
         file { "/etc/nginx/sites-enabled/renew-notice":
             ensure => link,
