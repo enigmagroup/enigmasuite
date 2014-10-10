@@ -12,7 +12,7 @@ ff02::2             ip6-allrouters
 <% end %>
 
 # servers
-fc41:ed54:b569:fb24:6a59:c596:0ef1:7445    country_backbone-ch
+fc41:ed54:b569:fb24:6a59:c596:0ef1:7445    country_backbone-ch directory
 fc5d:524c:f21d:bbef:6742:1008:a105:b60e    country_backbone-hu
 fc67:85e3:41bd:a45d:8d12:b880:b5cd:09e6    ch1
 fc14:3736:954a:04ab:22ba:ed3f:13e0:326c    ch2
@@ -48,7 +48,6 @@ fc45:87d1:6d9c:2314:cccd:506a:a749:3938    se3
 fca7:d495:606f:fb99:b533:925c:41d2:d000    us1
 fcdc:68fd:f27e:2c25:c6ac:c440:7113:59a7    us2
 fcfb:5fe7:c1be:68ed:2aad:adda:efa3:0e6e    us3
-fcde:d089:da6e:50f1:cf1f:f8c5:61e2:292d    directory
 
 <% if addresses.class == Array then %># friends<% addresses.each do |address| %>
 <%= address["ipv6"] %>    <%= address["name"] %><% end %>
