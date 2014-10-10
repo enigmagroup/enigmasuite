@@ -65,7 +65,7 @@ node 'box' {
 {% endif %}
 
         teletext_enabled => "{{ teletext_enabled }}",
-        subscription_expired => "{{ subscription_expired }}",
+        display_expiration_notice => "{{ display_expiration_notice }}",
         global_availability => "{{ global_availability }}",
     }
 

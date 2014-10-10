@@ -48,7 +48,7 @@ def home(request):
         try:
             with open('/tmp/netstat-' + key, 'r') as f:
                 netstat[key] = f.read().strip()
-        except:
+        except Exception:
             pass
 
     return render_to_response('home.html', {
@@ -285,7 +285,7 @@ def backup_system(request):
             c.execute('select value from app_option where key = "ipv6"')
             msg = c.fetchone()[0]
             conn.close()
-        except:
+        except Exception:
             msg = 'invalid'
 
     if request.POST.get('restore'):
@@ -332,7 +332,7 @@ def backup_emails(request):
             response['Content-Disposition'] = 'attachment; filename=emails.tar.gz'
             response['Content-Length'] = os.path.getsize(filename)
             return response
-        except:
+        except Exception:
             msg = 'backuperror'
 
     if request.POST.get('restore'):
@@ -346,7 +346,7 @@ def backup_emails(request):
             Popen(["sudo", "/usr/local/sbin/restore-stuff", "emails"], stdout=PIPE).communicate()[0]
             msg = 'restoresuccess'
 
-        except:
+        except Exception:
             msg = 'restoreerror'
 
     return render_to_response('backup/emails.html', {
@@ -373,7 +373,7 @@ def backup_sslcerts(request):
             response['Content-Disposition'] = 'attachment; filename=sslcerts-' + hostid + '.zip'
             response['Content-Length'] = os.path.getsize(filename)
             return response
-        except:
+        except Exception:
             msg = 'backuperror'
 
     if request.POST.get('restore'):
@@ -387,7 +387,7 @@ def backup_sslcerts(request):
             Popen(["sudo", "/usr/local/sbin/restore-stuff", "sslcerts"], stdout=PIPE).communicate()[0]
             msg = 'restoresuccess'
 
-        except:
+        except Exception:
             msg = 'restoreerror'
 
     return render_to_response('backup/sslcerts.html', {
@@ -662,12 +662,12 @@ def wlan_scan(request):
 
             try:
                 group = cell.split('Group Cipher')[1].split('\n')[0].split(' ')[-1:][0].strip()
-            except:
+            except Exception:
                 group = ''
 
             try:
                 pairwise = cell.split('Pairwise Ciphers')[1].split('\n')[0].split(' ')[-1:][0].strip()
-            except:
+            except Exception:
                 pairwise = ''
 
             if 'WPA' in cell:
@@ -682,7 +682,7 @@ def wlan_scan(request):
                 'group': group,
                 'pairwise': pairwise,
             })
-        except:
+        except Exception:
             pass
 
     return render_to_response('wlan_settings/scan.html', {
@@ -755,7 +755,7 @@ def api_v1(request, api_url):
             r = o.get_value(request.POST['key'])
             resp['value'] = r
             resp['result'] = 'success'
-        except:
+        except Exception:
             resp['message'] = 'option not found or POST.key parameter missing'
 
     if api_url == 'set_option':
@@ -763,7 +763,7 @@ def api_v1(request, api_url):
             o = Option()
             o.set_value(request.POST['key'], request.POST['value'])
             resp['result'] = 'success'
-        except:
+        except Exception:
             resp['message'] = 'error setting option'
 
     if api_url == 'get_puppetmasters':
@@ -774,7 +774,7 @@ def api_v1(request, api_url):
                 data.append(pm.hostname)
             resp['value'] = data
             resp['result'] = 'success'
-        except:
+        except Exception:
             resp['message'] = 'fail'
 
     if api_url == 'get_contacts':
@@ -789,7 +789,7 @@ def api_v1(request, api_url):
                 })
             resp['value'] = data
             resp['result'] = 'success'
-        except:
+        except Exception:
             resp['message'] = 'fail'
 
     if api_url == 'add_contact':
@@ -811,7 +811,7 @@ def api_v1(request, api_url):
             else:
                 raise
 
-        except:
+        except Exception:
             resp['message'] = 'fail'
 
     if api_url == 'set_countries':
@@ -824,7 +824,7 @@ def api_v1(request, api_url):
                 c.save()
                 prio = prio + 1
 
-        except:
+        except Exception:
             resp['message'] = 'fail'
 
     if api_url == 'set_next_country':
@@ -882,7 +882,7 @@ def puppet_site(request, program):
     puppetmasters = ''
     internet_gateway = ''
     peerings = ''
-    subscription_expired = '0'
+    display_expiration_notice = '0'
 
     # get Enigmabox-specific server data, when available
     try:
@@ -925,9 +925,9 @@ def puppet_site(request, program):
         dt = datetime.strptime(internet_access, '%Y-%m-%d')
         now = datetime.utcnow()
         if now > dt:
-            subscription_expired = '1'
+            display_expiration_notice = '1'
 
-    except:
+    except Exception:
         # no additional server data found, moving on...
         pass
 
@@ -1026,6 +1026,6 @@ def puppet_site(request, program):
         'webfilter_custom_rules': custom_rules,
         'webfilter_custom_rules_text': custom_rules_text,
         'teletext_enabled': o.get_value('teletext_enabled', '0'),
-        'subscription_expired': subscription_expired,
+        'display_expiration_notice': display_expiration_notice,
     })
 
