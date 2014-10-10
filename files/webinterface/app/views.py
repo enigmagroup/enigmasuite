@@ -433,6 +433,16 @@ def subscription(request):
         'amount': amount,
     }, context_instance=RequestContext(request))
 
+def subscription_hide_notice(request):
+
+    o = Option()
+
+    o.set_value('expiration_notice_confirmed', '1')
+    Popen(["sudo", "/usr/local/sbin/hide_expiration_notice"], stdout=PIPE).communicate()[0]
+    referrer = request.META['HTTP_REFERER'])
+
+    return redirect(referrer)
+
 
 
 # Peerings

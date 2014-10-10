@@ -30,6 +30,7 @@ urlpatterns = patterns('app.views',
     url(r'^backup/$', 'backup'),
 
     # subscription
+    url(r'^subscription/hide_notice/$', 'subscription_hide_notice'),
     url(r'^subscription/$', 'subscription'),
 
     # peerings
