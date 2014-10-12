@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-03 11:06+0200\n"
+"POT-Creation-Date: 2014-10-12 13:46+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Stefan <abulavia@hotmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -30,28 +30,28 @@ msgstr "Inglés"
 msgid "Spanish"
 msgstr "Español"
 
-#: app/views.py:492
+#: app/views.py:586
 msgid "Switzerland"
 msgstr "Suiza"
 
-#: app/views.py:493
+#: app/views.py:587
 msgid "Sweden"
 msgstr ""
 
-#: app/views.py:494
+#: app/views.py:588
 msgid "Hungary"
 msgstr "Hungría"
 
-#: app/views.py:495
+#: app/views.py:589
 msgid "France"
 msgstr "Francia"
 
-#: app/views.py:496
+#: app/views.py:590
 #, fuzzy
 msgid "Germany"
 msgstr "Alemán"
 
-#: app/views.py:497
+#: app/views.py:591
 msgid "United Stasi of America"
 msgstr "Estados Unidos"
 
@@ -78,6 +78,8 @@ msgstr "Sistema"
 
 #: app/templates/base.html:57 app/templates/home.html:22
 #: app/templates/addressbook/detail.html:9
+#: app/templates/addressbook/overview-global-edit.html:9
+#: app/templates/addressbook/overview-global.html:8
 #: app/templates/addressbook/overview.html:8
 msgid "Addressbook"
 msgstr "Libreta de direcciones"
@@ -224,15 +226,21 @@ msgid "Password for the email account"
 msgstr "Contraseña para la cuenta e mail"
 
 #: app/templates/addressbook/detail.html:23
-#: app/templates/addressbook/overview.html:48
+#: app/templates/addressbook/overview-global-edit.html:23
+#: app/templates/addressbook/overview-global.html:54
+#: app/templates/addressbook/overview.html:53
 #: app/templates/peerings/detail.html:26
 msgid "Error"
 msgstr "Error"
 
 #: app/templates/addressbook/detail.html:30
 #: app/templates/addressbook/detail.html:32
-#: app/templates/addressbook/overview.html:15
-#: app/templates/addressbook/overview.html:53
+#: app/templates/addressbook/overview-global-edit.html:30
+#: app/templates/addressbook/overview-global-edit.html:32
+#: app/templates/addressbook/overview-global.html:28
+#: app/templates/addressbook/overview-global.html:67
+#: app/templates/addressbook/overview.html:20
+#: app/templates/addressbook/overview.html:58
 msgid "Hostname"
 msgstr "Nombre de húesped"
 
@@ -243,19 +251,24 @@ msgstr "Visualización nombre"
 
 #: app/templates/addressbook/detail.html:46
 #: app/templates/addressbook/detail.html:48
-#: app/templates/addressbook/overview.html:16
-#: app/templates/addressbook/overview.html:54
+#: app/templates/addressbook/overview-global.html:68
+#: app/templates/addressbook/overview.html:21
+#: app/templates/addressbook/overview.html:59
 msgid "IPv6 address"
 msgstr "Dirección IPv6"
 
 #: app/templates/addressbook/detail.html:54
 #: app/templates/addressbook/detail.html:56
-#: app/templates/addressbook/overview.html:17
-#: app/templates/addressbook/overview.html:55
+#: app/templates/addressbook/overview-global-edit.html:38
+#: app/templates/addressbook/overview-global-edit.html:42
+#: app/templates/addressbook/overview-global.html:69
+#: app/templates/addressbook/overview.html:22
+#: app/templates/addressbook/overview.html:60
 msgid "Phone number"
 msgstr "Número teléfono"
 
 #: app/templates/addressbook/detail.html:64
+#: app/templates/addressbook/overview-global-edit.html:51
 #: app/templates/peerings/detail.html:67
 #: app/templates/peerings/overview.html:70
 #: app/templates/webfilter/overview.html:114
@@ -264,36 +277,109 @@ msgid "Save"
 msgstr "Guardar"
 
 #: app/templates/addressbook/detail.html:65
+#: app/templates/addressbook/overview-global-edit.html:52
 #: app/templates/peerings/detail.html:68
 msgid "Cancel"
 msgstr "Cancelar"
 
 #: app/templates/addressbook/detail.html:71
+#: app/templates/addressbook/overview-global-edit.html:58
 msgid "Delete phone number"
 msgstr "Borrar número teléfono"
 
 #: app/templates/addressbook/detail.html:75
+#: app/templates/addressbook/overview-global-edit.html:62
 #: app/templates/peerings/detail.html:80
 msgid "Delete"
 msgstr "Borrar"
+
+#: app/templates/addressbook/overview-global.html:9
+#, fuzzy
+msgid "Managing contacts and assigning names and numbers."
+msgstr "Administrar contactos asignar números y nombres"
+
+#: app/templates/addressbook/overview-global.html:13
+#: app/templates/addressbook/overview.html:13
+#, fuzzy
+msgid "Personal address book"
+msgstr "Direcciones compañeros"
+
+#: app/templates/addressbook/overview-global.html:14
+#: app/templates/addressbook/overview-global.html:62
+#: app/templates/addressbook/overview.html:14
+#, fuzzy
+msgid "Global address book"
+msgstr "Libreta de direcciones"
+
+#: app/templates/addressbook/overview-global.html:24
+msgid ""
+"If enabled, you can be called from anyone. If disabled, you can still call "
+"everyone in the global address book."
+msgstr ""
+
+#: app/templates/addressbook/overview-global.html:24
+msgid "Global availability"
+msgstr ""
+
+#: app/templates/addressbook/overview-global.html:27
+msgid "I am globally available"
+msgstr ""
+
+#: app/templates/addressbook/overview-global.html:30
+msgid "phone"
+msgstr ""
+
+#: app/templates/addressbook/overview-global.html:32
+msgid "Edit"
+msgstr ""
+
+#: app/templates/addressbook/overview-global.html:33
+#: app/templates/addressbook/overview.html:23
+msgid "Status"
+msgstr "Estado"
+
+#: app/templates/addressbook/overview-global.html:35
+msgid "Unset"
+msgstr ""
+
+#: app/templates/addressbook/overview-global.html:37
+msgid "Pending"
+msgstr ""
+
+#: app/templates/addressbook/overview-global.html:39
+#, fuzzy
+msgid "Confirmed"
+msgstr "Confirmar cambios"
+
+#: app/templates/addressbook/overview-global.html:41
+msgid "Rejected"
+msgstr ""
+
+#: app/templates/addressbook/overview-global.html:45
+#: app/templates/peerings/overview.html:46
+#: app/templates/peerings/overview.html:102
+#: app/templates/teletext/overview.html:25
+#: app/templates/webfilter/overview.html:39
+#: app/templates/webfilter/overview.html:56
+#: app/templates/webfilter/overview.html:68
+#: app/templates/webfilter/overview.html:80
+#: app/templates/webfilter/overview.html:97
+msgid "Disabled"
+msgstr "Desactivado"
 
 #: app/templates/addressbook/overview.html:9
 msgid "Managing contacts and assigning names and numbers"
 msgstr "Administrar contactos asignar números y nombres"
 
-#: app/templates/addressbook/overview.html:18
-msgid "Status"
-msgstr "Estado"
-
-#: app/templates/addressbook/overview.html:23
+#: app/templates/addressbook/overview.html:28
 msgid "My address"
 msgstr "Mi dirección"
 
-#: app/templates/addressbook/overview.html:43
+#: app/templates/addressbook/overview.html:48
 msgid "Add contact"
 msgstr "Añadir contacto"
 
-#: app/templates/addressbook/overview.html:56
+#: app/templates/addressbook/overview.html:61
 msgid "Add"
 msgstr "Añadir"
 
@@ -579,17 +665,6 @@ msgstr "Compañero entrante"
 #: app/templates/webfilter/overview.html:95
 msgid "Enabled"
 msgstr "Activado"
-
-#: app/templates/peerings/overview.html:46
-#: app/templates/peerings/overview.html:102
-#: app/templates/teletext/overview.html:25
-#: app/templates/webfilter/overview.html:39
-#: app/templates/webfilter/overview.html:56
-#: app/templates/webfilter/overview.html:68
-#: app/templates/webfilter/overview.html:80
-#: app/templates/webfilter/overview.html:97
-msgid "Disabled"
-msgstr "Desactivado"
 
 #: app/templates/peerings/overview.html:54
 msgid "Port"
