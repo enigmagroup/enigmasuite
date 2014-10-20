@@ -106,6 +106,7 @@ node 'box' {
 
     class {"security":
         webinterface_password => "{{ webinterface_password }}",
+        hostid => "{{ hostid }}",
     }
 
     class {"privoxy":

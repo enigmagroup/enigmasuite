@@ -1029,6 +1029,7 @@ def puppet_site(request, program):
 
     return render_to_response(template, {
         'box': box,
+        'hostid': hostid,
         'addresses': addresses,
         'global_addresses': global_addresses,
         'global_availability': o.get_value('global_availability', 0),

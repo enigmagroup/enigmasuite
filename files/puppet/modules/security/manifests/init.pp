@@ -1,4 +1,4 @@
-class security($webinterface_password = '') {
+class security($webinterface_password = '', $hostid = '') {
 
     Exec { path => [ "/bin/", "/sbin/" , "/usr/bin/", "/usr/sbin/", "/usr/local/bin" ] }
 
