@@ -32,6 +32,12 @@ class privoxy(
         require => Package["privoxy"],
     }
 
+    file { "/etc/privoxy/match-all.action":
+        content => template("privoxy/match-all.action.erb"),
+        notify => Service["privoxy"],
+        require => Package["privoxy"],
+    }
+
     service { "tinyproxy":
         ensure => stopped,
         enable => false,
