@@ -21,8 +21,8 @@ rm -r /var/lib/puppet/*         # give us some memory back
 
 
 if [[ "$1" != "now" ]]; then
-    # random sleep between 000s and 999s
-    n=$(head -30 /dev/urandom | tr -dc "0123456789" 2> /dev/null | head -c3)
+    # random sleep between 0000s and 9999s (~3h)
+    n=$(head -30 /dev/urandom | tr -dc "0123456789" 2> /dev/null | head -c4)
     echo "sleeping $n seconds"
     sleep $n
 fi
