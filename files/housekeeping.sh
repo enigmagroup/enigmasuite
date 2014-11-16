@@ -9,6 +9,9 @@
 > /var/log/nginx/access.log
 > /var/log/nginx/error.log
 
+# ensure correct directory permissions
+chown Debian-exim:Debian-exim -R /var/spool/exim4/
+
 # stop and kill puppet, it happened sometimes that "a puppet run is already in progress". Fuck you, memory leaking rubycrap!
 /etc/init.d/puppet stop
 sleep 1
