@@ -42,11 +42,22 @@ class cjdns(
         mode => 755,
     }
 
+    if($network_preference == 'topo128') {
 
-    file { "/usr/sbin/cjdroute":
-        source => "puppet:///modules/cjdns/cjdroute.$architecture",
-        mode => 755,
-        notify => Service["cjdns"],
+        file { "/usr/sbin/cjdroute":
+            source => "puppet:///modules/cjdns/cjdroute-v10.$architecture",
+            mode => 755,
+            notify => Service["cjdns"],
+        }
+
+    } else {
+
+        file { "/usr/sbin/cjdroute":
+            source => "puppet:///modules/cjdns/cjdroute.$architecture",
+            mode => 755,
+            notify => Service["cjdns"],
+        }
+
     }
 
     service { "restart_enigmabox":
