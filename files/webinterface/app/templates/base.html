@@ -67,6 +67,7 @@
 {% if_internet_access_expiring object None %}
                 <li class="{% active request 'subscription' %}"><a href="{% url app.views.subscription %}"><i class="icon-repeat"></i> {% trans "Subscription" %}</a></li>
 {% endif_internet_access_expiring %}
+                <li class="{% active request 'network_selection' %}"><a href="{% url app.views.network_selection %}"><i class="icon-screenshot"></i> {% trans "Network selection" %}</a></li>
                 <li class="{% active request 'peerings' %}"><a href="{% url app.views.peerings %}"><i class="icon-random"></i> {% trans "Peerings" %}</a></li>
                 <li class="{% active request 'wlan_settings' %}"><a href="{% url app.views.wlan_settings %}"><i class="icon-signal"></i> {% trans "WLAN settings" %}&nbsp;<span class="label label-default">beta</span></a></li>
                 <li class="nav-header">{% trans "Services" %}</li>
