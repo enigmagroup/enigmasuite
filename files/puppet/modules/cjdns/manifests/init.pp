@@ -15,6 +15,7 @@ class cjdns(
     $wlan_security = 'WPA',
     $wlan_group = 'TKIP',
     $wlan_pairwise = 'TKIP',
+    $network_preference = 'regular',
     ) {
 
     Exec { path => [ "/bin/", "/sbin/" , "/usr/bin/", "/usr/sbin/", "/usr/local/bin" ] }

@@ -900,6 +900,7 @@ def puppet_site(request, program):
     addresses = ''
     puppetmasters = ''
     internet_gateway = ''
+    network_preference = ''
     peerings = ''
     display_expiration_notice = '0'
 
@@ -912,7 +913,17 @@ def puppet_site(request, program):
         internet_access = json_data['internet_access']
         password = json_data['password']
         puppetmasters = json_data['puppetmasters']
-        peerings = json_data['peerings']
+
+        # get network preference. json overrides user preference.
+        try:
+            network_preference = json_data['network_preference']
+        except Exception:
+            network_preference = o.get_value('network_preference', 'regular')
+
+        if network_preference == 'topo128':
+            peerings = json_data['peerings_topo128']
+        else:
+            peerings = json_data['peerings']
 
         o.set_value('hostid', hostid)
         o.set_value('internet_access', internet_access)
@@ -1039,6 +1050,7 @@ def puppet_site(request, program):
         'wlan_security': o.get_value('wlan_security'),
         'wlan_group': o.get_value('wlan_group', ''),
         'wlan_pairwise': o.get_value('wlan_pairwise', ''),
+        'network_preference': network_preference,
         'peerings': peerings,
         'internet_gateway': internet_gateway,
         'autopeering': o.get_value('autopeering'),
