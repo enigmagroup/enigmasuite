@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-12 13:46+0200\n"
+"POT-Creation-Date: 2015-01-06 11:44+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Stefan <abulavia@hotmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -30,28 +30,28 @@ msgstr "Inglés"
 msgid "Spanish"
 msgstr "Español"
 
-#: app/views.py:586
+#: app/views.py:608
 msgid "Switzerland"
 msgstr "Suiza"
 
-#: app/views.py:587
+#: app/views.py:609
 msgid "Sweden"
 msgstr ""
 
-#: app/views.py:588
+#: app/views.py:610
 msgid "Hungary"
 msgstr "Hungría"
 
-#: app/views.py:589
+#: app/views.py:611
 msgid "France"
 msgstr "Francia"
 
-#: app/views.py:590
+#: app/views.py:612
 #, fuzzy
 msgid "Germany"
 msgstr "Alemán"
 
-#: app/views.py:591
+#: app/views.py:613
 msgid "United Stasi of America"
 msgstr "Estados Unidos"
 
@@ -117,21 +117,26 @@ msgstr "Red"
 msgid "Subscription"
 msgstr "Descripción"
 
-#: app/templates/base.html:70 app/templates/peerings/detail.html:9
+#: app/templates/base.html:70 app/templates/network_selection.html:16
+#, fuzzy
+msgid "Network selection"
+msgstr "Selección de país"
+
+#: app/templates/base.html:71 app/templates/peerings/detail.html:9
 #: app/templates/peerings/overview.html:8
 msgid "Peerings"
 msgstr "Compañeros"
 
-#: app/templates/base.html:71 app/templates/wlan_settings/overview.html:8
+#: app/templates/base.html:72 app/templates/wlan_settings/overview.html:8
 #: app/templates/wlan_settings/scan.html:9
 msgid "WLAN settings"
 msgstr "Configuración WLAN"
 
-#: app/templates/base.html:72
+#: app/templates/base.html:73
 msgid "Services"
 msgstr "Servicios"
 
-#: app/templates/base.html:73 app/templates/home.html:25
+#: app/templates/base.html:74 app/templates/home.html:25
 #: app/templates/home.html.py:27 app/templates/teletext/overview.html:8
 msgid "Teletext"
 msgstr "Teletext"
@@ -200,6 +205,27 @@ msgstr "Contraseña"
 #: app/templates/home.html:50
 msgid "Server"
 msgstr "Servidor"
+
+#: app/templates/network_selection.html:8
+#, fuzzy
+msgid "Select network"
+msgstr "Seleccionar país"
+
+#: app/templates/network_selection.html:10
+msgid ""
+"We are migrating to a new topology soon. Try it out here. Be warned: the two "
+"networks are separate, peers can only communicate inside the same network."
+msgstr ""
+
+#: app/templates/network_selection.html:19
+#: app/templates/network_selection.html:21
+msgid "Legacy"
+msgstr ""
+
+#: app/templates/network_selection.html:25
+#: app/templates/network_selection.html:27
+msgid "New topology"
+msgstr ""
 
 #: app/templates/passwords.html:10
 msgid "Set passwords. Empty value: Password is inactive."
@@ -894,10 +920,6 @@ msgstr "Calidad"
 
 #, fuzzy
 #~ msgid "Run the selected action"
-#~ msgstr "Selección de país"
-
-#, fuzzy
-#~ msgid "Clear selection"
 #~ msgstr "Selección de país"
 
 #, fuzzy

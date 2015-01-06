@@ -5,17 +5,18 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: Enigmabox Webinterface\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-12 13:46+0200\n"
-"PO-Revision-Date: 2014-10-12 13:49+0100\n"
+"POT-Creation-Date: 2015-01-06 11:44+0100\n"
+"PO-Revision-Date: 2015-01-06 11:49+0100\n"
 "Last-Translator: Agent 42 <42@enigmabox.net>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language-Team: Enigmagroup <42@enigmabox.net>\n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.5.4\n"
+"X-Generator: Poedit 1.6.10\n"
 
 #: settings.py:41
 msgid "German"
@@ -29,27 +30,27 @@ msgstr "Englisch"
 msgid "Spanish"
 msgstr "Spanisch"
 
-#: app/views.py:586
+#: app/views.py:608
 msgid "Switzerland"
 msgstr "Schweiz"
 
-#: app/views.py:587
+#: app/views.py:609
 msgid "Sweden"
 msgstr "Schweden"
 
-#: app/views.py:588
+#: app/views.py:610
 msgid "Hungary"
 msgstr "Ungarn"
 
-#: app/views.py:589
+#: app/views.py:611
 msgid "France"
 msgstr "Frankreich"
 
-#: app/views.py:590
+#: app/views.py:612
 msgid "Germany"
 msgstr "Deutschland"
 
-#: app/views.py:591
+#: app/views.py:613
 msgid "United Stasi of America"
 msgstr "Vereinigte Daten von Amerika"
 
@@ -114,21 +115,25 @@ msgstr "Netzwerk"
 msgid "Subscription"
 msgstr "Abonnement"
 
-#: app/templates/base.html:70 app/templates/peerings/detail.html:9
+#: app/templates/base.html:70 app/templates/network_selection.html:16
+msgid "Network selection"
+msgstr "Netzwerkauswahl"
+
+#: app/templates/base.html:71 app/templates/peerings/detail.html:9
 #: app/templates/peerings/overview.html:8
 msgid "Peerings"
 msgstr "Peerings"
 
-#: app/templates/base.html:71 app/templates/wlan_settings/overview.html:8
+#: app/templates/base.html:72 app/templates/wlan_settings/overview.html:8
 #: app/templates/wlan_settings/scan.html:9
 msgid "WLAN settings"
 msgstr "WLAN-Einstellungen"
 
-#: app/templates/base.html:72
+#: app/templates/base.html:73
 msgid "Services"
 msgstr "Dienste"
 
-#: app/templates/base.html:73 app/templates/home.html:25
+#: app/templates/base.html:74 app/templates/home.html:25
 #: app/templates/home.html.py:27 app/templates/teletext/overview.html:8
 msgid "Teletext"
 msgstr "Teletext"
@@ -198,6 +203,29 @@ msgstr "Passwort"
 #: app/templates/home.html:50
 msgid "Server"
 msgstr "Server"
+
+#: app/templates/network_selection.html:8
+msgid "Select network"
+msgstr "Netzwerk auswählen"
+
+#: app/templates/network_selection.html:10
+msgid ""
+"We are migrating to a new topology soon. Try it out here. Be warned: the two "
+"networks are separate, peers can only communicate inside the same network."
+msgstr ""
+"Wir stellen bald auf eine neue Netzwerktopologie um. Probiere es hier aus. "
+"Aber Achtung: Die beiden Netzwerke sind separiert, es können nur Teilnehmer "
+"innerhalb des gleichen Netzes miteinander kommunizieren."
+
+#: app/templates/network_selection.html:19
+#: app/templates/network_selection.html:21
+msgid "Legacy"
+msgstr "Bestehend"
+
+#: app/templates/network_selection.html:25
+#: app/templates/network_selection.html:27
+msgid "New topology"
+msgstr "Neue Topologie"
 
 #: app/templates/passwords.html:10
 msgid "Set passwords. Empty value: Password is inactive."
@@ -899,10 +927,6 @@ msgstr "Signalstärke"
 
 #, fuzzy
 #~ msgid "Run the selected action"
-#~ msgstr "Land auswählen"
-
-#, fuzzy
-#~ msgid "Clear selection"
 #~ msgstr "Land auswählen"
 
 #, fuzzy
