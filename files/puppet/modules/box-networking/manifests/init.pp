@@ -54,6 +54,10 @@ class box-networking($puppetmasters = '', $addresses = '', $peering_port = '', $
         ensure => latest,
     }
 
+    package { "libc-bin":
+        ensure => latest,
+    }
+
     file { "/etc/dnsmasq.conf":
         source => "puppet:///modules/box-networking/dnsmasq.conf.$hardwaremodel",
         require => Package["dnsmasq"],
