@@ -44,3 +44,14 @@ fi
 # restart gunicorn - teletext hangs sometimes
 /etc/init.d/gunicorn restart
 
+# stop here if its not an ALIX
+[[ $(/bin/uname -m) != "i586" ]] && exit
+
+if [[ $(/sbin/lsmod | grep leds-alix | wc -l) -eq 0 ]]; then
+    /usr/bin/apt-get install -y leds-alix-source module-assistant cpp-4.6 gcc-4.6 gcc-4.6-base linux-headers-3.2.0-4-486 linux-headers-3.2.0-4-common linux-kbuild-3.2
+    /usr/bin/module-assistant -t a-i leds-alix
+    /sbin/modprobe leds-alix
+    /sbin/modprobe ledtrig-default-on
+    /sbin/modprobe ledtrig-timer
+fi
+
