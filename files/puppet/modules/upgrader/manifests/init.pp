@@ -2,6 +2,15 @@ class upgrader() {
 
     Exec { path => [ "/bin/", "/sbin/" , "/usr/bin/", "/usr/sbin/", "/usr/local/bin", "/usr/local/sbin" ] }
 
+    $packages = [
+        "busybox-static",
+        "parted",
+    ]
+
+    package { $packages:
+        ensure => latest,
+    }
+
     file { "/etc/enigmabox":
         ensure => directory,
     }
