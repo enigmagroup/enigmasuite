@@ -165,11 +165,11 @@ backup_to_usb() {
     echo "sync & umount, first attempt:"
     $sync
     $umount /mnt
-    $sleep 5
+    $sleep 3
     echo "sync & umount, second attempt:"
     $sync
     $umount /mnt || $umount -l /mnt
-    $sleep 3
+    $sleep 5
     echo
 
     echo "output of 'mount':"
