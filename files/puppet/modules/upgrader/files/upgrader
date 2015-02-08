@@ -128,21 +128,46 @@ format_usb() {
 }
 
 backup_to_usb() {
+    echo "mount usb stick"
     $mount /dev/sdb1 /mnt
+    echo
+
+    echo "rsync -Pah --delete /box /mnt/"
     $rsync -Pah --delete /box /mnt/
+    echo
+
+    echo "backup ssl certs"
     mkdir /mnt/box/ssl
     backup-stuff sslcerts
     $cp /tmp/sslcerts-* /mnt/box/ssl
     cd /mnt/box/ssl
     unzip sslcerts-*
     rm sslcerts-*
+    echo
+
+    echo "backup addressbook.db"
     mkdir -p /mnt/etc/enigmabox
     $rsync -Pah /etc/enigmabox/addressbook.db /mnt/etc/enigmabox/addressbook.db
+    echo
+
+    echo "backup teletext avatars"
     $rsync -Pah /var/local/enigmasuite/teletext-avatars /mnt/
+    echo
+
+    echo "sync & umount, first attempt:"
     $sync
+    $umount /mnt
     $sleep 5
+    echo "sync & umount, second attempt:"
     $sync
-    $umount /mnt || $umount /mnt || $umount -l /mnt
+    $umount /mnt || $umount -l /mnt
+    $sleep 3
+    echo
+
+    echo "output of 'mount':"
+    $mount
+    echo
+    echo "if you see no /dev/sdb1 or /mnt there, everything is fine."
 }
 
 download_image() {
