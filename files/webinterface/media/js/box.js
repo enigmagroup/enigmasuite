@@ -98,6 +98,16 @@
     $backup_output = $('.backup-output');
     if ($backup_output.length){
         $backup_output.height(parseInt($(window).height(), 10) - 500);
+
+        prev_data = '';
+        setInterval(function(){
+            $backup_output.load('/backup_output/', function(data){
+                if(data != prev_data){
+                    $backup_output.animate({ scrollTop: $('.backup-output')[0].scrollHeight}, 1000);
+                    prev_data = data;
+                }
+            });
+        }, 1500);
     }
 
     $btn_blink = $('.btn-blink');

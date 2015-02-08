@@ -1,0 +1,188 @@
+
+PATH=/tmp:/mnt/tmp:$PATH
+
+newroot=/tmp/root
+oldroot=/mnt
+
+mkdir="busybox mkdir"
+pivot_root="busybox pivot_root"
+mount="busybox mount"
+umount="busybox umount"
+cp="busybox cp"
+wget="busybox wget"
+zcat="busybox zcat"
+dd="busybox dd"
+reboot="busybox reboot"
+sync="busybox sync"
+sleep="busybox sleep"
+parted="/sbin/parted --script"
+rsync="/usr/bin/rsync"
+
+
+
+led() {
+    lednr=$1
+    what=$2
+
+    if [[ "$what" == "on" ]]; then
+        echo none > /sys/class/leds/alix\:$lednr/trigger
+        echo 1 > /sys/class/leds/alix\:$lednr/brightness
+    fi
+
+    if [[ "$what" == "off" ]]; then
+        echo none > /sys/class/leds/alix\:$lednr/trigger
+        echo 0 > /sys/class/leds/alix\:$lednr/brightness
+    fi
+
+    [[ "$what" == "blink" ]] && echo timer > /sys/class/leds/alix\:$lednr/trigger
+}
+
+kill_remaining() { # [ <signal> ]
+	local sig="${1:-TERM}"
+	echo -n "Sending $sig to remaining processes ... "
+
+	local my_pid=$$
+	local my_ppid=$(cut -d' ' -f4  /proc/$my_pid/stat)
+	local my_ppisupgraded=
+	grep -q upgraded /proc/$my_ppid/cmdline >/dev/null && {
+		local my_ppisupgraded=1
+	}
+
+	local stat
+	for stat in /proc/[0-9]*/stat; do
+		[ -f "$stat" ] || continue
+
+		local pid name state ppid rest
+		read pid name state ppid rest < $stat
+		name="${name#(}"; name="${name%)}"
+
+		local cmdline
+		read cmdline < /proc/$pid/cmdline
+
+		# Skip kernel threads
+		[ -n "$cmdline" ] || continue
+
+		if [ $$ -eq 1 ] || [ $my_ppid -eq 1 ] && [ -n "$my_ppisupgraded" ]; then
+			# Running as init process, kill everything except me
+			if [ $pid -ne $$ ] && [ $pid -ne $my_ppid ]; then
+				echo -n "$name "
+				kill -$sig $pid 2>/dev/null
+			fi
+		else
+			case "$name" in
+				# Skip essential services
+				#*procd*|*ash*|*init*|*watchdog*|*ssh*|*dropbear*|*telnet*|*login*|*hostapd*|*wpa_supplicant*|*nas*) : ;;
+				#*init*|*watchdog*|*ssh*|*bash*) : ;;
+				*init*|*watchdog*) : ;;
+
+				# Killable process
+				*)
+					if [ $pid -ne $$ ] && [ $ppid -ne $$ ]; then
+						echo -n "$name "
+						kill -$sig $pid 2>/dev/null
+					fi
+				;;
+			esac
+		fi
+	done
+	echo ""
+}
+
+prepare_ramfs() {
+    $mkdir $newroot
+    $mount -o bind $newroot $newroot
+
+    $mkdir -p $newroot$oldroot $newroot/proc $newroot/sys $newroot/dev $newroot/tmp
+    $mount -o noatime,move /proc $newroot/proc
+
+    $pivot_root $newroot $newroot$oldroot || $reboot -f
+
+    $mount -o noatime,move $oldroot/sys /sys
+    $mount -o noatime,move $oldroot/dev /dev
+    $mount -o noatime,move $oldroot/tmp /tmp
+}
+
+umount_oldroot() {
+    $mount -o remount,ro $oldroot || $reboot -f
+    $umount -l $oldroot
+}
+
+flash_image() {
+    $sync
+    $zcat /tmp/firmware-4G.img.gz | $dd of=/dev/sda bs=4M conv=fsync
+    $sleep 1
+}
+
+check_usb() {
+    [[ $($parted /dev/sdb p | grep Disk | wc -l) -gt 0 ]] && echo yes
+}
+
+format_usb() {
+    [[ $(check_usb) == "yes" ]] || exit 1
+    $parted /dev/sdb rm 1
+    $parted /dev/sdb rm 1
+    $parted /dev/sdb rm 1
+    $parted /dev/sdb rm 1
+    $parted /dev/sdb mkpart primary ext2 0% 100%
+    /sbin/mkfs.ext4 /dev/sdb1
+}
+
+backup_to_usb() {
+    $mount /dev/sdb1 /mnt
+    $rsync -Pah --delete /box /mnt/
+    mkdir /mnt/box/ssl
+    backup-stuff sslcerts
+    $cp /tmp/sslcerts-* /mnt/box/ssl
+    cd /mnt/box/ssl
+    unzip sslcerts-*
+    rm sslcerts-*
+    mkdir -p /mnt/etc/enigmabox
+    $rsync -Pah /etc/enigmabox/addressbook.db /mnt/etc/enigmabox/addressbook.db
+    $rsync -Pah /var/local/enigmasuite/teletext-avatars /mnt/
+    $sync
+    $sleep 5
+    $sync
+    $umount /mnt || $umount /mnt || $umount -l /mnt
+}
+
+download_image() {
+    [[ $(uname -m) == "i586" ]] && arch=x86
+    [[ $(uname -m) == "i686" ]] && arch=x86_64
+
+    cd /tmp
+    $wget http://91.219.238.219/$arch/firmware-4G.img.gz 2> /dev/null
+    $wget http://91.219.238.219/$arch/firmware-4G.img.gz.sig 2> /dev/null
+
+    if [[ $(openssl dgst -sha512 -verify /etc/enigmabox/rsa-pubkey.pem -signature /tmp/firmware-4G.img.gz.sig /tmp/firmware-4G.img.gz) == "Verified OK" ]]; then
+        echo yes
+    fi
+}
+
+run() {
+    led 1 blink
+    kill_remaining TERM
+    $sleep 3
+    kill_remaining KILL
+    $sleep 10
+
+    led 1 on
+    led 2 blink
+    prepare_ramfs
+    umount_oldroot
+    flash_image
+
+    $reboot -f
+}
+
+[[ "$1" == "check_usb" ]] && check_usb
+[[ "$1" == "format_usb" ]] && format_usb
+[[ "$1" == "backup_to_usb" ]] && backup_to_usb
+[[ "$1" == "download_image" ]] && download_image
+[[ "$1" == "run" ]] && run
+
+if [[ "$1" == "run_upgrade" ]]; then
+    cp /bin/busybox /tmp
+    cp /bin/eboxupgrade /tmp
+    /tmp/busybox sh /tmp/eboxupgrade run &
+fi
+

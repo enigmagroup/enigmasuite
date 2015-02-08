@@ -216,7 +216,6 @@ def addressbook_global_edit(request):
 # Passwords
 
 def passwords(request):
-
     o = Option()
 
     if request.POST.get('set_webinterface_password'):
@@ -237,9 +236,6 @@ def passwords(request):
 # Upgrade
 
 def upgrade(request):
-    import os.path
-
-    o = Option()
     step = 'overview'
     show_output = False
 
@@ -276,12 +272,20 @@ def upgrade(request):
         'show_output': show_output,
     }, context_instance=RequestContext(request))
 
+def backup_output(request):
+    with open('/tmp/backup_output', 'r') as f:
+        output = f.read()
+    from ansi2html import Ansi2HTMLConverter
+    from django.http import HttpResponse
+    conv = Ansi2HTMLConverter()
+    html = conv.convert(output, full=False)
+    return HttpResponse(html)
+
 
 
 # Backup & restore
 
 def backup(request):
-
     o = Option()
 
     if request.POST.get('set_webinterface_password'):
@@ -298,7 +302,6 @@ def backup(request):
     }, context_instance=RequestContext(request))
 
 def backup_system(request):
-
     o = Option()
     temp_db = '/tmp/settings.sqlite'
     final_db = '/box/settings.sqlite'
@@ -359,7 +362,6 @@ def backup_system(request):
     }, context_instance=RequestContext(request))
 
 def backup_emails(request):
-
     o = Option()
     filename = '/tmp/emails.tar.gz'
     msg = False
@@ -399,7 +401,6 @@ def backup_emails(request):
     }, context_instance=RequestContext(request))
 
 def backup_sslcerts(request):
-
     o = Option()
     hostid = o.get_value('hostid')
     filename = '/tmp/sslcerts-' + hostid + '.zip'
@@ -445,7 +446,6 @@ def backup_sslcerts(request):
 # Subscription
 
 def subscription(request):
-
     o = Option()
 
     currency = request.POST.get('currency', 'CHF')
@@ -479,7 +479,6 @@ def subscription(request):
     }, context_instance=RequestContext(request))
 
 def subscription_hide_notice(request):
-
     o = Option()
 
     o.set_value('expiration_notice_confirmed', '1')
@@ -501,7 +500,6 @@ def subscription_hide_notice(request):
 # Peerings
 
 def peerings(request):
-
     o = Option()
 
     if request.POST.get('allow_peering'):
@@ -590,7 +588,6 @@ def peerings_edit(request, peering_id=None):
 # Network selection
 
 def network_selection(request):
-
     o = Option()
 
     if request.POST.get('set_network_preference_regular'):
@@ -612,7 +609,6 @@ def network_selection(request):
 # Country selection
 
 def countryselect(request):
-
     o = Option()
 
     country = request.POST.get('country', False)
@@ -678,7 +674,6 @@ def countryselect(request):
 # Web filter
 
 def webfilter(request):
-
     o = Option()
 
     if request.POST:
@@ -708,7 +703,6 @@ def webfilter(request):
 # WLAN settings
 
 def wlan_settings(request):
-
     o = Option()
 
     if request.POST:
@@ -724,7 +718,6 @@ def wlan_settings(request):
     }, context_instance=RequestContext(request))
 
 def wlan_scan(request):
-
     o = Option()
 
     if request.POST:
@@ -779,7 +772,6 @@ def wlan_scan(request):
 # Teletext
 
 def teletext(request):
-
     o = Option()
 
     if request.POST:
@@ -795,7 +787,6 @@ def teletext(request):
 # Changes
 
 def apply_changes(request):
-
     output_window = False
     loader_hint = ''
 
@@ -950,7 +941,6 @@ def api_v1(request, api_url):
 # Sites
 
 def puppet_site(request, program):
-
     if program == 'puppet':
         template = 'puppet/site.pp'
     else:
