@@ -15,6 +15,12 @@
         <legend>{% trans "Step 5: Remove USB stick" %}</legend>
         <p>{% trans "Now remove the USB stick." %}</p>
         <p>&nbsp;</p>
+{% if errormsg %}
+        <div class="alert alert-error">
+            <h4>{% trans "Error" %}</h4>
+            {% trans "Please remove the USB stick!" %}
+        </div>
+{% endif %}
         <button id="ensure_usb_unplugged" name="ensure_usb_unplugged" value="1" class="btn btn-primary">{% trans "I have removed the USB stick" %}</button>
     </fieldset>
 </form>

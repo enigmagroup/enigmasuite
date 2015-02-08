@@ -238,13 +238,22 @@ def passwords(request):
 def upgrade(request):
     step = 'overview'
     show_output = False
+    errormsg = ''
 
     if request.POST.get('start') == '1':
         step = 'check_usb'
 
     if request.POST.get('check_usb') == '1':
-        Popen(["sudo /bin/busybox sh /usr/sbin/upgrader check_usb"], shell=True, stdout=PIPE, close_fds=True).communicate()[0]
-        step = 'format_usb'
+        result = Popen(["sudo /bin/busybox sh /usr/sbin/upgrader check_usb"], shell=True, stdout=PIPE, close_fds=True).communicate()[0]
+        result = result.strip()
+        if result == 'yes':
+            step = 'format_usb'
+        elif result == 'sizefail':
+            step = 'check_usb'
+            errormsg = 'sizefail'
+        elif result == 'nodrive':
+            step = 'check_usb'
+            errormsg = 'nodrive'
 
     if request.POST.get('format_usb') == '1':
         Popen(["sudo /bin/busybox sh /usr/sbin/upgrader format_usb"], shell=True, stdout=PIPE, close_fds=True).communicate()[0]
@@ -259,18 +268,29 @@ def upgrade(request):
         step = 'download_image'
 
     if request.POST.get('download_image') == '1':
-        Popen(["sudo /bin/busybox sh /usr/sbin/upgrader download_image"], shell=True, stdout=PIPE, close_fds=True).communicate()[0]
-        step = 'ensure_usb_unplugged'
+        result = Popen(["sudo /bin/busybox sh /usr/sbin/upgrader download_image"], shell=True, stdout=PIPE, close_fds=True).communicate()[0]
+        result = result.strip()
+        if result == 'yes':
+            step = 'ensure_usb_unplugged'
+        else:
+            step = 'download_image'
+            errormsg = 'imagefail'
 
     if request.POST.get('ensure_usb_unplugged') == '1':
-        Popen(["sudo /bin/busybox sh /usr/sbin/upgrader check_usb"], shell=True, stdout=PIPE, close_fds=True).communicate()[0]
-        step = 'start_upgrade'
+        result = Popen(["sudo /bin/busybox sh /usr/sbin/upgrader check_usb"], shell=True, stdout=PIPE, close_fds=True).communicate()[0]
+        result = result.strip()
+        if result == 'nodrive':
+            step = 'start_upgrade'
+        else:
+            step = 'ensure_usb_unplugged'
+            errormsg = 'usbfail'
 
     if request.POST.get('start_upgrade') == '1':
         pass
 
     return render_to_response('upgrade/' + step + '.html', {
         'show_output': show_output,
+        'errormsg': errormsg,
     }, context_instance=RequestContext(request))
 
 def backup_output(request):
