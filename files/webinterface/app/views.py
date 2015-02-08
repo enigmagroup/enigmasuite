@@ -251,7 +251,7 @@ def upgrade(request):
         step = 'backup_to_usb'
 
     if request.POST.get('backup_to_usb') == '1':
-        Popen(["sudo /bin/busybox sh /usr/sbin/upgrader backup_to_usb &> /tmp/backup_output"], shell=True, stdout=PIPE, close_fds=True)
+        Popen(["sudo /bin/busybox sh /usr/sbin/upgrader backup_to_usb 2>&1 > /tmp/backup_output"], shell=True, stdout=PIPE, close_fds=True)
         show_output = True
         step = 'backup_to_usb'
 
