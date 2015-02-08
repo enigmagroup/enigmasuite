@@ -19,4 +19,9 @@ class upgrader() {
         source => "puppet:///modules/upgrader/rsa-pubkey.pem",
     }
 
+    file { "/usr/sbin/upgrader":
+        source => "puppet:///modules/upgrader/upgrader",
+        mode => 755,
+    }
+
 }
