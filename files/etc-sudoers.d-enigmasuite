@@ -1,5 +1,6 @@
 Defaults    !authenticate
 www-data    ALL = /usr/local/sbin/puppet-apply
+www-data    ALL = /usr/sbin/upgrader *
 www-data    ALL = /usr/sbin/asterisk -rx sip show peers
 www-data    ALL = /usr/sbin/usermod -p *
 www-data    ALL = /usr/local/sbin/backup-stuff
