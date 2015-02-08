@@ -146,7 +146,7 @@
 
         clearInterval(blinkerval);
 
-        var remaining_seconds = 60 * 15;
+        var remaining_seconds = 60 * 10;
         var total_remaining = remaining_seconds;
         var w = 0;
         setInterval(function() {
@@ -158,7 +158,7 @@
 
         setTimeout(function() {
             window.location.href = '/';
-        }, 1000 * remaining_seconds); //15min for 4GB
+        }, 1000 * remaining_seconds); //10min for 4GB (bs=4M ftw^^)
 
         return false;
     });
