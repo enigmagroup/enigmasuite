@@ -95,4 +95,16 @@
         }
     });
 
+    $btn_blink = $('.btn-blink');
+    if ($btn_blink.length){
+
+        setInterval(function() {
+            $btn_blink.addClass('btn-danger');
+            setTimeout(function() {
+                $btn_blink.removeClass('btn-danger');
+            }, 600);
+        }, 1200);
+
+    }
+
 })();

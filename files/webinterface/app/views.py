@@ -234,6 +234,47 @@ def passwords(request):
 
 
 
+# Upgrade
+
+def upgrade(request):
+    import os.path
+
+    o = Option()
+    step = 'overview'
+
+    if request.POST.get('start') == '1':
+        step = 'check_usb'
+
+    if request.POST.get('check_usb') == '1':
+        step = 'format_usb'
+
+    if request.POST.get('format_usb') == '1':
+        step = 'backup_to_usb'
+
+    if request.POST.get('backup_to_usb') == '1':
+        step = 'download_image'
+
+    if request.POST.get('download_image') == '1':
+        step = 'ensure_usb_unplugged'
+
+    if request.POST.get('ensure_usb_unplugged') == '1':
+        step = 'start_upgrade'
+
+    if request.POST.get('start_upgrade') == '1':
+        pass
+
+    if request.POST.get('write') == '1':
+        writing = True
+        Popen(["/usr/sbin/upgrader", "write"], stdout=PIPE, close_fds=True)
+
+    if os.path.isfile("/tmp/fw_sig_ok"):
+        verify_ok = True
+
+    return render_to_response('upgrade/' + step + '.html', {
+    }, context_instance=RequestContext(request))
+
+
+
 # Backup & restore
 
 def backup(request):

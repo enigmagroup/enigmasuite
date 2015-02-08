@@ -23,6 +23,9 @@ urlpatterns = patterns('app.views',
     # passwords
     url(r'^passwords/$', 'passwords'),
 
+    # upgrade
+    url(r'^upgrade/$', 'upgrade'),
+
     # backup & restore
     url(r'^backup/system/$', 'backup_system'),
     url(r'^backup/emails/$', 'backup_emails'),
