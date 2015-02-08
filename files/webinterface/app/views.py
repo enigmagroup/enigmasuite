@@ -286,7 +286,8 @@ def upgrade(request):
             errormsg = 'usbfail'
 
     if request.POST.get('start_upgrade') == '1':
-        Popen(["sudo /bin/busybox sh /usr/sbin/upgrader run_upgrade"], shell=True, stdout=PIPE, close_fds=True)
+        import os
+        os.system("sudo /bin/busybox sh /usr/sbin/upgrader run_upgrade &")
 
     return render_to_response('upgrade/' + step + '.html', {
         'show_output': show_output,
