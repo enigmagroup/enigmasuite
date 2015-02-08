@@ -146,8 +146,8 @@ backup_to_usb() {
     $mount /dev/sdb1 /mnt
     echo
 
-    echo "rsync -Pah --delete /box /mnt/"
-    $rsync -Pah --delete /box /mnt/
+    echo "rsync -Pah --delete /box/ /mnt/box/"
+    $rsync -Pah --delete /box/ /mnt/box/
     echo
 
     echo "backup ssl certs"
@@ -165,7 +165,7 @@ backup_to_usb() {
     echo
 
     echo "backup teletext avatars"
-    $rsync -Pah /var/local/enigmasuite/teletext-avatars /mnt/
+    $rsync -Pah /var/local/enigmasuite/teletext-avatars/ /mnt/teletext-avatars/
     echo
 
     echo "sync & umount, first attempt:"
@@ -179,6 +179,7 @@ backup_to_usb() {
     echo
 
     echo "output of 'mount':"
+    echo
     $mount
     echo
     echo "if you see no /dev/sdb1 or /mnt there, everything is fine."
