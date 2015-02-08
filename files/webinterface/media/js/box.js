@@ -136,7 +136,7 @@
         var csrfmiddlewaretoken = $('input[name=csrfmiddlewaretoken]').val();
         $.post('/upgrade/', {
             'csrfmiddlewaretoken': csrfmiddlewaretoken,
-            'write': '1'
+            'start_upgrade': '1'
         });
 
         $('#fw-countdown').modal({

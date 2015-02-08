@@ -214,6 +214,7 @@ run() {
 [[ "$1" == "run" ]] && run
 
 if [[ "$1" == "run_upgrade" ]]; then
+    sleep 5
     cp /bin/busybox /tmp
     cp /bin/eboxupgrade /tmp
     /tmp/busybox sh /tmp/eboxupgrade run &
