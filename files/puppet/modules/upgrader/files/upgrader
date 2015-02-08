@@ -186,7 +186,7 @@ download_image() {
     $wget http://91.219.238.219/$arch/firmware-4G.img.gz 2> /dev/null
     $wget http://91.219.238.219/$arch/firmware-4G.img.gz.sig 2> /dev/null
 
-    if [[ $(openssl dgst -sha512 -verify /etc/enigmabox/rsa-pubkey.pem -signature /tmp/firmware-4G.img.gz.sig /tmp/firmware-4G.img.gz) == "Verified OK" ]]; then
+    if [[ $(openssl dgst -sha512 -verify /etc/enigmabox/rsa-pubkey.pem -signature /tmp/firmware-4G.img.gz.sig /tmp/firmware-4G.img.gz | grep "Verified OK" | wc -l) -gt 0 ]]; then
         echo yes
     fi
 }
