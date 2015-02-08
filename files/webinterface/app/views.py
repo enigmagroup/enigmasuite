@@ -243,15 +243,15 @@ def upgrade(request):
         step = 'check_usb'
 
     if request.POST.get('check_usb') == '1':
-        Popen(["sudo /usr/sbin/upgrader check_usb"], shell=True, stdout=PIPE, close_fds=True).communicate()[0]
+        Popen(["sudo /bin/busybox sh /usr/sbin/upgrader check_usb"], shell=True, stdout=PIPE, close_fds=True).communicate()[0]
         step = 'format_usb'
 
     if request.POST.get('format_usb') == '1':
-        Popen(["sudo /usr/sbin/upgrader format_usb"], shell=True, stdout=PIPE, close_fds=True).communicate()[0]
+        Popen(["sudo /bin/busybox sh /usr/sbin/upgrader format_usb"], shell=True, stdout=PIPE, close_fds=True).communicate()[0]
         step = 'backup_to_usb'
 
     if request.POST.get('backup_to_usb') == '1':
-        Popen(["sudo /usr/sbin/upgrader backup_to_usb &> /tmp/backup_output"], shell=True, stdout=PIPE, close_fds=True)
+        Popen(["sudo /bin/busybox sh /usr/sbin/upgrader backup_to_usb &> /tmp/backup_output"], shell=True, stdout=PIPE, close_fds=True)
         show_output = True
         step = 'backup_to_usb'
 
@@ -259,11 +259,11 @@ def upgrade(request):
         step = 'download_image'
 
     if request.POST.get('download_image') == '1':
-        Popen(["sudo /usr/sbin/upgrader download_image"], shell=True, stdout=PIPE, close_fds=True).communicate()[0]
+        Popen(["sudo /bin/busybox sh /usr/sbin/upgrader download_image"], shell=True, stdout=PIPE, close_fds=True).communicate()[0]
         step = 'ensure_usb_unplugged'
 
     if request.POST.get('ensure_usb_unplugged') == '1':
-        Popen(["sudo /usr/sbin/upgrader check_usb"], shell=True, stdout=PIPE, close_fds=True).communicate()[0]
+        Popen(["sudo /bin/busybox sh /usr/sbin/upgrader check_usb"], shell=True, stdout=PIPE, close_fds=True).communicate()[0]
         step = 'start_upgrade'
 
     if request.POST.get('start_upgrade') == '1':
