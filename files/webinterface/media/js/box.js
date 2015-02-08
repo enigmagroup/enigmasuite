@@ -95,6 +95,11 @@
         }
     });
 
+    $backup_output = $('.backup-output');
+    if ($backup_output.length){
+        $backup_output.height(parseInt($(window).height(), 10) - 500);
+    }
+
     $btn_blink = $('.btn-blink');
     if ($btn_blink.length){
 

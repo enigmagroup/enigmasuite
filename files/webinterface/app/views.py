@@ -241,6 +241,7 @@ def upgrade(request):
 
     o = Option()
     step = 'overview'
+    show_output = False
 
     if request.POST.get('start') == '1':
         step = 'check_usb'
@@ -252,6 +253,10 @@ def upgrade(request):
         step = 'backup_to_usb'
 
     if request.POST.get('backup_to_usb') == '1':
+        show_output = True
+        step = 'backup_to_usb'
+
+    if request.POST.get('proceed_to_step_4') == '1':
         step = 'download_image'
 
     if request.POST.get('download_image') == '1':
@@ -267,10 +272,8 @@ def upgrade(request):
         writing = True
         Popen(["/usr/sbin/upgrader", "write"], stdout=PIPE, close_fds=True)
 
-    if os.path.isfile("/tmp/fw_sig_ok"):
-        verify_ok = True
-
     return render_to_response('upgrade/' + step + '.html', {
+        'show_output': show_output,
     }, context_instance=RequestContext(request))
 
 
