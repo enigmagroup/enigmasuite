@@ -20,6 +20,12 @@ rsync="/usr/bin/rsync"
 
 
 
+/sbin/modprobe leds-alix
+/sbin/modprobe ledtrig-default-on
+/sbin/modprobe ledtrig-timer
+
+
+
 led() {
     lednr=$1
     what=$2
