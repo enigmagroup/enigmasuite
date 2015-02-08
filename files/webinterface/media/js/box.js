@@ -113,7 +113,7 @@
     $btn_blink = $('.btn-blink');
     if ($btn_blink.length){
 
-        setInterval(function() {
+        var blinkerval = setInterval(function() {
             $btn_blink.addClass('btn-danger');
             setTimeout(function() {
                 $btn_blink.removeClass('btn-danger');
@@ -143,6 +143,8 @@
             'backdrop': 'static',
             'keyboard': false,
         });
+
+        clearInterval(blinkerval);
 
         var remaining_seconds = 60 * 15;
         var total_remaining = remaining_seconds;
