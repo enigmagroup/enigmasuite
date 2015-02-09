@@ -146,7 +146,7 @@
 
         clearInterval(blinkerval);
 
-        var remaining_seconds = 60 * 10;
+        var remaining_seconds = 666;
         var total_remaining = remaining_seconds;
         var w = 0;
         setInterval(function() {
