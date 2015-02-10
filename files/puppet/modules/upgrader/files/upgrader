@@ -27,6 +27,7 @@ rsync="/usr/bin/rsync"
 
 
 find_usb() {
+    [[ $(find /dev/sd[b-z] 2> /dev/null ]] || exit
     find /dev/sd[b-z] | xargs fdisk -l 2> /dev/null | grep 'Disk /dev' | cut -d' ' -f2 | cut -d: -f1
 }
 
@@ -148,6 +149,7 @@ format_usb() {
 }
 
 backup_to_usb() {
+    [[ $(check_usb) == "yes" ]] || exit 1
     usbdrive=$(find_usb)
     echo "mount usb stick"
     $mount "$usbdrive"1 /mnt
