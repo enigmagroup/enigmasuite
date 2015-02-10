@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Enigmabox Webinterface\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-06 11:44+0100\n"
-"PO-Revision-Date: 2015-01-06 11:49+0100\n"
+"POT-Creation-Date: 2015-02-10 23:15+0100\n"
+"PO-Revision-Date: 2015-02-10 23:35+0100\n"
 "Last-Translator: Agent 42 <42@enigmabox.net>\n"
 "Language-Team: Enigmagroup <42@enigmabox.net>\n"
 "Language: de\n"
@@ -30,27 +30,27 @@ msgstr "Englisch"
 msgid "Spanish"
 msgstr "Spanisch"
 
-#: app/views.py:608
+#: app/views.py:670
 msgid "Switzerland"
 msgstr "Schweiz"
 
-#: app/views.py:609
+#: app/views.py:671
 msgid "Sweden"
 msgstr "Schweden"
 
-#: app/views.py:610
+#: app/views.py:672
 msgid "Hungary"
 msgstr "Ungarn"
 
-#: app/views.py:611
+#: app/views.py:673
 msgid "France"
 msgstr "Frankreich"
 
-#: app/views.py:612
+#: app/views.py:674
 msgid "Germany"
 msgstr "Deutschland"
 
-#: app/views.py:613
+#: app/views.py:675
 msgid "United Stasi of America"
 msgstr "Vereinigte Daten von Amerika"
 
@@ -62,7 +62,7 @@ msgstr "Bist du sicher?"
 msgid "Show"
 msgstr "Zeigen"
 
-#: app/templates/base.html:31 app/templates/base.html.py:61
+#: app/templates/base.html:31 app/templates/base.html.py:62
 #: app/templates/changes/apply.html:8
 msgid "Apply changes"
 msgstr "Änderungen anwenden"
@@ -94,46 +94,56 @@ msgstr "Passwörter"
 msgid "Backup &amp; restore"
 msgstr "Sichern &amp; Wiederherstellen"
 
-#: app/templates/base.html:63 app/templates/home.html:41
+#: app/templates/base.html:60 app/templates/upgrade/backup_to_usb.html:8
+#: app/templates/upgrade/check_usb.html:8
+#: app/templates/upgrade/download_image.html:8
+#: app/templates/upgrade/ensure_usb_unplugged.html:8
+#: app/templates/upgrade/format_usb.html:8
+#: app/templates/upgrade/overview.html:8
+#: app/templates/upgrade/start_upgrade.html:8
+msgid "Firmware upgrade"
+msgstr "Firmwareaktualisierung"
+
+#: app/templates/base.html:64 app/templates/home.html:41
 msgid "Internet"
 msgstr "Internet"
 
-#: app/templates/base.html:64
+#: app/templates/base.html:65
 msgid "Country selection"
 msgstr "Land auswählen"
 
-#: app/templates/base.html:65 app/templates/webfilter/overview.html:8
+#: app/templates/base.html:66 app/templates/webfilter/overview.html:8
 msgid "Ad blocking"
 msgstr "Werbeblocker"
 
-#: app/templates/base.html:66
+#: app/templates/base.html:67
 msgid "Network"
 msgstr "Netzwerk"
 
-#: app/templates/base.html:68 app/templates/subscription/overview.html:8
+#: app/templates/base.html:69 app/templates/subscription/overview.html:8
 #: app/templates/subscription/overview.html:40
 msgid "Subscription"
 msgstr "Abonnement"
 
-#: app/templates/base.html:70 app/templates/network_selection.html:16
+#: app/templates/base.html:71 app/templates/network_selection.html:16
 msgid "Network selection"
 msgstr "Netzwerkauswahl"
 
-#: app/templates/base.html:71 app/templates/peerings/detail.html:9
+#: app/templates/base.html:72 app/templates/peerings/detail.html:9
 #: app/templates/peerings/overview.html:8
 msgid "Peerings"
 msgstr "Peerings"
 
-#: app/templates/base.html:72 app/templates/wlan_settings/overview.html:8
+#: app/templates/base.html:73 app/templates/wlan_settings/overview.html:8
 #: app/templates/wlan_settings/scan.html:9
 msgid "WLAN settings"
 msgstr "WLAN-Einstellungen"
 
-#: app/templates/base.html:73
+#: app/templates/base.html:74
 msgid "Services"
 msgstr "Dienste"
 
-#: app/templates/base.html:74 app/templates/home.html:25
+#: app/templates/base.html:75 app/templates/home.html:25
 #: app/templates/home.html.py:27 app/templates/teletext/overview.html:8
 msgid "Teletext"
 msgstr "Teletext"
@@ -256,6 +266,9 @@ msgstr "Passwort für das Mailkonto"
 #: app/templates/addressbook/overview-global.html:54
 #: app/templates/addressbook/overview.html:53
 #: app/templates/peerings/detail.html:26
+#: app/templates/upgrade/check_usb.html:20
+#: app/templates/upgrade/download_image.html:20
+#: app/templates/upgrade/ensure_usb_unplugged.html:20
 msgid "Error"
 msgstr "Fehler"
 
@@ -779,6 +792,144 @@ msgstr ""
 #: app/templates/teletext/overview.html:20
 msgid "Enable Teletext"
 msgstr "Teletext aktivieren"
+
+#: app/templates/upgrade/backup_to_usb.html:15
+msgid "Step 3: Backup to USB stick"
+msgstr "Schritt 3: Datensicherung auf den USB-Stick"
+
+#: app/templates/upgrade/backup_to_usb.html:16
+msgid ""
+"Ok, now we back up all your user data and system settings to the USB stick."
+msgstr ""
+"Ok, jetzt sichern wir alle deine Daten und Systemeinstellungen auf den USB-"
+"Stick."
+
+#: app/templates/upgrade/backup_to_usb.html:20
+#: app/templates/upgrade/backup_to_usb.html:22
+msgid "Start backup"
+msgstr "Backup starten"
+
+#: app/templates/upgrade/backup_to_usb.html:28
+msgid "Looking good?"
+msgstr "Sieht's gut aus?"
+
+#: app/templates/upgrade/backup_to_usb.html:29
+msgid "Proceed to step 4"
+msgstr "Weiter zu Schritt 4"
+
+#: app/templates/upgrade/check_usb.html:15
+msgid "Step 1: Prepare USB stick"
+msgstr "Schritt 1: USB-Stick vorbereiten"
+
+#: app/templates/upgrade/check_usb.html:16
+msgid "Insert an USB stick, large enough to back up you data."
+msgstr ""
+"Bitte einen USB-Stick einstecken, der gross genug ist, um deine Daten zu "
+"sichern. Gesichert werden die Systemeinstellungen, das Adressbuch, E-Mails, "
+"Teletext - einfach alles."
+
+#: app/templates/upgrade/check_usb.html:22
+msgid "This USB stick is too small!"
+msgstr "Dieser USB-Stick ist zu klein!"
+
+#: app/templates/upgrade/check_usb.html:25
+msgid "No USB stick detected."
+msgstr "Keinen USB-Stick gefunden."
+
+#: app/templates/upgrade/check_usb.html:29
+msgid "Check USB stick"
+msgstr "USB-Stick überprüfen"
+
+#: app/templates/upgrade/download_image.html:15
+msgid "Step 4: Download firmware image"
+msgstr "Schritt 4: Neues Firmware-Image herunterladen"
+
+#: app/templates/upgrade/download_image.html:16
+msgid "Download and verify the new firmware image."
+msgstr ""
+"Herunterladen des neuen Firmware-Images inklusiver kryptographischer Prüfung."
+
+#: app/templates/upgrade/download_image.html:21
+msgid "Download failed or corrupt image."
+msgstr "Herunterladen fehlgeschlagen oder fehlerhaftes Image"
+
+#: app/templates/upgrade/download_image.html:24
+msgid "Download image"
+msgstr "Image herunterladen"
+
+#: app/templates/upgrade/ensure_usb_unplugged.html:15
+msgid "Step 5: Remove USB stick"
+msgstr "Schritt 5: USB-Stick entfernen"
+
+#: app/templates/upgrade/ensure_usb_unplugged.html:16
+msgid "Now remove the USB stick."
+msgstr "Bitte den USB-Stick jetzt entfernen."
+
+#: app/templates/upgrade/ensure_usb_unplugged.html:21
+msgid "Please remove the USB stick!"
+msgstr "Bitte den USB-Stick entfernen!"
+
+#: app/templates/upgrade/ensure_usb_unplugged.html:24
+msgid "I have removed the USB stick"
+msgstr "Ich habe den USB-Stick entfernt"
+
+#: app/templates/upgrade/format_usb.html:15
+msgid "Step 2: Format USB stick"
+msgstr "Schritt 2: USB-Stick formatieren"
+
+#: app/templates/upgrade/format_usb.html:16
+msgid "Your USB stick seems ok."
+msgstr "Der USB-Stick scheint ok zu sein."
+
+#: app/templates/upgrade/format_usb.html:17
+msgid "We will format your USB stick now."
+msgstr "Wir werden jetzt den USB-Stick formatieren."
+
+#: app/templates/upgrade/format_usb.html:19
+msgid "Format USB stick"
+msgstr "USB-Stick formatieren"
+
+#: app/templates/upgrade/overview.html:10
+msgid "The system you are using is no longer maintained."
+msgstr ""
+"Die Systemsoftware, die momentan installiert ist, wird nicht mehr "
+"weiterentwickelt."
+
+#: app/templates/upgrade/overview.html:11
+msgid "Upgrade to OpenWRT here."
+msgstr "Aktualisiere hier auf OpenWRT."
+
+#: app/templates/upgrade/overview.html:18
+msgid "Start upgrade wizard"
+msgstr "Aktualisierungsassistenten starten"
+
+#: app/templates/upgrade/start_upgrade.html:15
+msgid "Step 6: Start upgrade"
+msgstr "Schritt 6: Aktualisierung starten"
+
+#: app/templates/upgrade/start_upgrade.html:16
+msgid ""
+"The upgrade will last 10mins. The webinterface will be unreachable during "
+"this process."
+msgstr ""
+"Der Prozess dauert etwa 10 Minuten. Das Webinterface wird während dieser "
+"Zeit nicht verfügbar sein."
+
+#: app/templates/upgrade/start_upgrade.html:18
+msgid "Start upgrade"
+msgstr "Aktualisierung starten"
+
+#: app/templates/upgrade/start_upgrade.html:25
+msgid "Firmware upgrade in progress"
+msgstr "Firmwareaktualisierung läuft"
+
+#: app/templates/upgrade/start_upgrade.html:28
+msgid "Do NOT power off your Enigmabox!"
+msgstr "Schalte die Enigmabox NICHT aus!"
+
+#: app/templates/upgrade/start_upgrade.html:30
+msgid "seconds remaining"
+msgstr "Sekunden verbleibend"
 
 #: app/templates/webfilter/overview.html:9
 msgid "Filter out ads and trackers, block whole domains."
