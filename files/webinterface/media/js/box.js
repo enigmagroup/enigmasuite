@@ -14,6 +14,13 @@
         return false;
     });
 
+    $disable_after_click = $('.disable_after_click').on('click', function() {
+        var self = this;
+        setTimeout(function() {
+            $(self).attr('disabled', 'disabled');
+        }, 10);
+    });
+
     $puppet_output = $('.puppet-output');
 
     if ($puppet_output.length){

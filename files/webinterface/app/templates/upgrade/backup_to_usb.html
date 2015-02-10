@@ -19,7 +19,7 @@
 {% if show_output %}
         <button id="backup_to_usb" name="backup_to_usb" value="1" class="btn btn-default">{% trans "Start backup" %}</button>
 {% else %}
-        <button id="backup_to_usb" name="backup_to_usb" value="1" class="btn btn-primary">{% trans "Start backup" %}</button>
+        <button id="backup_to_usb" name="backup_to_usb" value="1" class="btn btn-primary disable_after_click">{% trans "Start backup" %}</button>
 {% endif %}
 
 {% if show_output %}
