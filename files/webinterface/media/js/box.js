@@ -21,6 +21,15 @@
         }, 10);
     });
 
+    $('#download_image').on('click', function() {
+        $('#fw-download-progress').show();
+        var w = 0;
+        setInterval(function() {
+            w += 1;
+            $('#fw-download-bar').css('width', w + '%');
+        }, 400);
+    });
+
     $puppet_output = $('.puppet-output');
 
     if ($puppet_output.length){
