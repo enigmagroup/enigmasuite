@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Enigmabox Webinterface\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-02-10 23:15+0100\n"
-"PO-Revision-Date: 2015-02-10 23:35+0100\n"
+"PO-Revision-Date: 2015-02-11 16:44+0100\n"
 "Last-Translator: Agent 42 <42@enigmabox.net>\n"
 "Language-Team: Enigmagroup <42@enigmabox.net>\n"
 "Language: de\n"
@@ -847,7 +847,7 @@ msgstr "Schritt 4: Neues Firmware-Image herunterladen"
 #: app/templates/upgrade/download_image.html:16
 msgid "Download and verify the new firmware image."
 msgstr ""
-"Herunterladen des neuen Firmware-Images inklusiver kryptographischer Prüfung."
+"Herunterladen des neuen Firmware-Images, inklusive kryptographischer Prüfung."
 
 #: app/templates/upgrade/download_image.html:21
 msgid "Download failed or corrupt image."
