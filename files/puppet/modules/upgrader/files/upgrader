@@ -27,8 +27,8 @@ rsync="/usr/bin/rsync"
 
 
 find_usb() {
-    [[ $(find /dev/sd[b-z] 2> /dev/null | wc -l) -gt 0 ]] || exit
-    find /dev/sd[b-z] | xargs fdisk -l 2> /dev/null | grep 'Disk /dev' | cut -d' ' -f2 | cut -d: -f1
+    [[ $(find /dev/sd[b-z] 2> /dev/null | tail -n 1 | wc -l) -gt 0 ]] || exit
+    find /dev/sd[b-z] | tail -n 1 | xargs fdisk -l 2> /dev/null | grep 'Disk /dev' | cut -d' ' -f2 | cut -d: -f1
 }
 
 led() {
