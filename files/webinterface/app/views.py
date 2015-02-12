@@ -480,9 +480,9 @@ def subscription(request):
         'lt': 1000,
     }
     amount_table['EUR'] = {
-        '1': 100,
-        '5': 400,
-        'lt': 800,
+        '1': 120,
+        '5': 500,
+        'lt': 1000,
     }
     amount_table['USD'] = {
         '1': 130,
