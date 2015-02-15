@@ -198,6 +198,8 @@ download_image() {
     [[ $(uname -m) == "i586" ]] && arch=x86
     [[ $(uname -m) == "i686" ]] && arch=x86_64
 
+    rm /tmp/firmware-4G.img.gz* 2> /dev/null
+
     cd /tmp
     $wget http://91.219.238.219/$arch/firmware-4G.img.gz 2> /dev/null
     $wget http://91.219.238.219/$arch/firmware-4G.img.gz.sig 2> /dev/null
