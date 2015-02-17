@@ -6,7 +6,7 @@
     <title>Enigmabox Administration</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="/media/css/bootstrap.min.css" rel="stylesheet" media="screen">
-    <link href="/media/css/box.css?13" rel="stylesheet" media="screen">
+    <link href="/media/css/box.css?22" rel="stylesheet" media="screen">
     <link href="/media/css/ansi2html.css" rel="stylesheet" media="screen">
     <style>
       body {
@@ -57,7 +57,7 @@
                 <li class="{% active request 'addressbook' %}"><a href="{% url app.views.addressbook %}"><i class="icon-user"></i> {% trans "Addressbook" %}</a></li>
                 <li class="{% active request 'passwords' %}"><a href="{% url app.views.passwords %}"><i class="icon-lock"></i> {% trans "Passwords" %}</a></li>
                 <li class="{% active request 'backup' %}"><a href="{% url app.views.backup %}"><i class="icon-share"></i> {% trans "Backup &amp; restore" %}</a></li>
-<!--                <li class="{% active request 'upgrade' %}"><a href="{% url app.views.upgrade %}"><i class="icon-download-alt"></i> {% trans "Firmware upgrade" %}</a></li>-->
+                <li class="{% active request 'upgrade' %}"><a href="{% url app.views.upgrade %}"><i class="icon-download-alt"></i> {% trans "Firmware upgrade" %}</a></li>
 {% if_config_changed object None %}
                 <li class="{% active request 'apply_changes' %}"><a href="{% url app.views.apply_changes %}"><i class="icon-circle-arrow-right"></i> {% trans "Apply changes" %}</a></li>
 {% endif_config_changed %}
@@ -88,6 +88,6 @@
     <script src="/media/js/jquery-2.0.2.min.js"></script>
     <script src="/media/js/jquery-ui-1.10.4.min.js"></script>
     <script src="/media/js/bootstrap.min.js"></script>
-    <script src="/media/js/box.js?13"></script>
+    <script src="/media/js/box.js?22"></script>
   </body>
 </html>
