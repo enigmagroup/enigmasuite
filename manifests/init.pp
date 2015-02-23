@@ -109,6 +109,14 @@ class enigmasuite() {
         ensure => installed,
     }
 
+    package { "parted":
+        ensure => installed,
+    }
+
+    package { "busybox-static":
+        ensure => installed,
+    }
+
     package { "python-django":
         ensure => installed,
     }
