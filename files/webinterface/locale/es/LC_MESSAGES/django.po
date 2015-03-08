@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-10 23:15+0100\n"
+"POT-Creation-Date: 2015-03-08 21:56+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Stefan <abulavia@hotmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -821,7 +821,8 @@ msgid "Step 1: Prepare USB stick"
 msgstr ""
 
 #: app/templates/upgrade/check_usb.html:16
-msgid "Insert an USB stick, large enough to back up you data."
+msgid ""
+"Insert an USB stick into the Enigmabox, large enough to back up you data."
 msgstr ""
 
 #: app/templates/upgrade/check_usb.html:22

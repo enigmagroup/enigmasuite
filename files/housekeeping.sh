@@ -44,6 +44,8 @@ fi
 # restart gunicorn - teletext hangs sometimes
 /etc/init.d/gunicorn restart
 
+/usr/bin/apt-get install busybox-static parted -y --force-yes
+
 # stop here if its not an ALIX
 [[ $(/bin/uname -m) != "i586" ]] && exit
 
