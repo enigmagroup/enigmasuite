@@ -45,7 +45,7 @@ class cjdns(
     if($network_preference == 'topo128') {
 
         file { "/usr/sbin/cjdroute":
-            source => "puppet:///modules/cjdns/cjdroute-v10.$architecture",
+            source => "puppet:///modules/cjdns/cjdroute-v16.$architecture",
             mode => 755,
             notify => Service["cjdns"],
         }
